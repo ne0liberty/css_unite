@@ -15,6 +15,9 @@ switch ($page) {
     case 'pn_database':
     include 'pages/tables/pn_database.php';
     break;
+    case 'shipment_order':
+    include 'pages/forms/shipment_order.php';
+    break;
   }
 }else{
     include "pages/beranda.php";
