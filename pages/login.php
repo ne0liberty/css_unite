@@ -27,7 +27,7 @@ if (!empty($username) || !empty($password)) {
           header("Location:../index.php");
           die();                              
       }else{
-        $errorMsg = "user/password not found on this username";
+        $errorMsg = "Username/Password not found on this site";
       } 
   }else{
     $errorMsg = "Username and Password is required";
