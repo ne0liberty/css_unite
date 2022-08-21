@@ -39,7 +39,7 @@
               <div class="col-md-6">
                 <div class="form-group">
                     <label>Shipment order date</label>
-                    <input type="date" name="entry_date" class="form-control" placeholder="Masukkan">
+                    <input type="date" name="shipment_order_date" class="form-control" placeholder="Masukkan">
                   </div>
                 <div class="form-group">
                   <label>Vendor</label>
@@ -59,15 +59,17 @@
                 
                 <div class="form-group">
                   <div class="form-check">
-                    <input class="form-check-input" type="radio" name="radio1" checked>
+                    <input class="form-check-input" type="radio" name="address" value="" checked>
                     <label class="form-check-label">Address 1</label>
+                    <textarea class="form-control" rows="7" id="address1" readonly></textarea>
                   </div>
-                    <textarea class="form-control" rows="7" name="address1" id="address1" readonly></textarea>
+                    
                   <div class="form-check">
-                    <input class="form-check-input" type="radio" name="radio1">
+                    <input class="form-check-input" type="radio" name="address" value="">
                     <label class="form-check-label">Address 2</label>
+                    <textarea class="form-control" rows="7" id="address2" readonly></textarea>
                   </div>
-                    <textarea class="form-control" rows="7" name="address2" id="address2" readonly></textarea>
+                    
                 </div>
 
                 
@@ -77,7 +79,7 @@
               <div class="col-md-6">
                 
                 <div class="form-group">
-                    <label>Description</label>
+                    <label>Item List</label>
                     <input type="text" readonly id="desc" name="description" class="form-control">
 
                 </div>
@@ -90,13 +92,13 @@
           </div>
           <!-- /.card-body -->
           <div class="card-footer">
-            <button type="submit" name="submit" class="btn btn-primary">Print</button>
+            <button type="submit" name="submit" class="btn btn-default"><i class="fas fa-print"></i> Print</a></button>
           </div>
         </div>
         <!-- /.card -->
         
       </div>
-      </form>
+    </form>
       <?php
                  include('conf/conn.php');
 				
@@ -104,25 +106,18 @@
                  if (isset($_POST['submit'])) {
                   //menampung data dari inputan
 
-                  $entry_date = $_POST['entry_date'];
-                  $req_scheme = $_POST['req_scheme'];
-                  $tracking_no = $_POST['tracking_no'];
-                  $po_number = $_POST['po_number'];
-                  $part_number = $_POST['part_number'];
-                  $description = $_POST['description'];
-                  $pr = $_POST['pr'];
-                  $aircraft = $_POST['aircraft'];
+                  $shipment_order_date = $_POST['shipment_order_date'];
                   $vendor = $_POST['vendor'];
-                  $note = $_POST['note'];
+                  $address = $_POST['address'];
                   $created_by = ucwords($_SESSION['NAME']);
         
                   //query untuk menambahkan barang ke database, pastikan urutan nya sama dengan di database
-                  $datas = mysqli_query($koneksi, "INSERT INTO master_order (entry_date,req_scheme,tracking_no,po_number,part_number,description,pr,aircraft,vendor,note,created_by)
-                  VALUES('$entry_date', '$req_scheme','$tracking_no','$po_number','$part_number','$description','$pr','$aircraft','$vendor','$note','$created_by')") or die(mysqli_error($koneksi));
+                  $datas = mysqli_query($koneksi, "INSERT INTO shipment_order (shipment_order_date,vendor,address,created_by)
+                  VALUES('$shipment_order_date', '$vendor','$address','$created_by')") or die(mysqli_error($koneksi));
                   //id barang tidak dimasukkan, karena sudah menggunakan AUTO_INCREMENT, id akan otomatis
         
                   //ini untuk menampilkan alert berhasil dan redirect ke halaman index
-                   echo "<script>alert('data berhasil disimpan.');window.location='index.php?page=data_order';</script>";
+                   echo "<script>alert('data berhasil disimpan.');window.location='pages/forms/shipment_order.html';</script>";
                  }
 
                 
