@@ -43,7 +43,7 @@
                   </div>
                 <div class="form-group">
                   <label>Vendor</label>
-                    <select class="form-control select2bs4" name="vendor" style="width: 100%;">
+                    <select class="form-control select2bs4" id='vendor' name="vendor" onchange="isi_otomatis()" style="width: 100%;">
                       <option value="">- Select Vendor -</option>
                       <?php 
                             include('conf/conn.php');
@@ -56,6 +56,22 @@
                       ?>
                   </select>
                 </div>
+                
+                <div class="form-group">
+                  <div class="form-check">
+                    <input class="form-check-input" type="radio" name="radio1" checked>
+                    <label class="form-check-label">Address 1</label>
+                  </div>
+                    <textarea class="form-control" rows="7" name="address1" id="address1" readonly></textarea>
+                  <div class="form-check">
+                    <input class="form-check-input" type="radio" name="radio1">
+                    <label class="form-check-label">Address 2</label>
+                  </div>
+                    <textarea class="form-control" rows="7" name="address2" id="address2" readonly></textarea>
+                </div>
+
+                
+                
               </div>
               <!-- /.col -->
               <div class="col-md-6">
@@ -121,15 +137,16 @@
       
       <script type="text/javascript">
             function isi_otomatis(){
-                var part_number = $("#part_number").val();
+                var vendor = $("#vendor").val();
                 $.ajax({
-                    url: 'conf/ajax.php',
-                    data:"part_number="+part_number ,
+                    url: 'conf/ajax-vendor.php',
+                    data:"vendor="+vendor ,
                     cache: false,
                 }).success(function (data) {
                     var json = data,
                     obj = JSON.parse(json);
-                    $('#desc').val(obj.desc);
+                    $('#address1').val(obj.address1);
+                    $('#address2').val(obj.address2);
                 });
                 
             }
