@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Aug 07, 2022 at 06:09 PM
+-- Generation Time: Aug 22, 2022 at 02:42 AM
 -- Server version: 10.4.24-MariaDB
 -- PHP Version: 8.1.6
 
@@ -20,6 +20,29 @@ SET time_zone = "+00:00";
 --
 -- Database: `css_order`
 --
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `admins`
+--
+
+CREATE TABLE `admins` (
+  `id` int(11) NOT NULL,
+  `name` varchar(100) NOT NULL,
+  `username` varchar(100) NOT NULL,
+  `password` varchar(100) NOT NULL,
+  `role` varchar(100) NOT NULL,
+  `created` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp()
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `admins`
+--
+
+INSERT INTO `admins` (`id`, `name`, `username`, `password`, `role`, `created`) VALUES
+(1, 'Gustaf Kusuma Pradana', 'gustaf_123', '20081991', 'admin', '2022-08-16 15:39:01'),
+(2, 'Arif Setiawan', 'joni_css', 'joni', 'admin', '2022-08-16 16:03:12');
 
 -- --------------------------------------------------------
 
@@ -55,21 +78,23 @@ CREATE TABLE `master_order` (
   `awb_out` varchar(15) DEFAULT NULL,
   `awb_out_date` date DEFAULT NULL,
   `core_cond` varchar(13) DEFAULT NULL,
-  `serv_status` varchar(20) NOT NULL DEFAULT 'Waiting AWB'
+  `serv_status` varchar(20) NOT NULL DEFAULT 'Waiting AWB',
+  `created_by` varchar(50) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Dumping data for table `master_order`
 --
 
-INSERT INTO `master_order` (`id_order`, `entry_date`, `req_scheme`, `tracking_no`, `po_number`, `part_number`, `description`, `pr`, `aircraft`, `note`, `vendor`, `repair_tat`, `po_date`, `awb_in`, `awb_date`, `eta`, `gr_date`, `serial_number`, `serv_batch`, `date_store`, `pn_out`, `sn_out`, `core_batch`, `shipment_order_date`, `awb_out`, `awb_out_date`, `core_cond`, `serv_status`) VALUES
-(1, '2022-05-02', 'Exchange', '-', '340011288', '350E053021818', 'FLIGHT WARNING COMPUTER', '500041249', 'PK-GLX', 'UMR 804370175 \r\nokeee', '0UBE7 UNICAL AVIATION,INC.', '20', '2022-05-02', '7573763492', '2022-05-12', '2022-05-23', '2022-05-30', '0E0021748', '0002535344', '2022-05-30', '350E053021818', '0E0019002', '0002508915', '2022-05-31', '2713965752', '2022-06-09', 'Unserviceable', 'CLOSED'),
-(2, '2022-05-17', 'Repair', '430027064', '430027064', 'RCF6708', 'REGULATOR TRANSMITTER-PRESSURE', '500039676', 'PK-GHQ', '', 'QC054 SAFRAN AEROSYSTEM SERVICE ASIA PTE', '15', '2022-05-17', '7295093875', '2022-07-06', '2022-07-08', '2022-07-08', '15865', '0002534276', '2022-07-09', 'RCF6708 ', '15865', '0002459219', '2022-05-18', '6046573923', '2022-05-20', 'UNSERVICEABLE', 'CLOSED'),
-(20, '2022-07-29', 'Repair', '', '430027369', 'LA2T0G21006CA10', 'ATSU-AIR TRAFFIC SERVICES UNIT', '500041858', 'PK-GLR', 'alhamdulillah', 'SCD13 GUANGZHOU HANGXIN AVIONICS CO LTD', '', NULL, '', NULL, NULL, NULL, '', '', '0000-00-00', 'LA2T0G21006CA10', '2T0007512', '00000DFAFA', '2022-07-20', '6103585213', '2022-07-21', 'Repair', 'Waiting AWB'),
-(24, '2022-07-01', 'Exchange', '-', '430027250', '0851HL', 'PROBE-PITOT', '500041409', 'PK-GLP', 'REPAIR DER PITOT PROBE', 'GI383 CSI AEROSPACE, INC', '30', '2022-07-29', 'newwdhl', '2022-08-03', '2022-08-04', '2022-08-05', 'SN2', '0000245636', '0000-00-00', 'LA2T0G21006CA10', '2T0007512', '00000DFAFA', '2022-08-25', '6103585213', '2022-08-09', 'Exchange', 'Waiting Inspect'),
-(29, '2022-08-06', 'Exchange', '-', '3400xxxxx', '1111A0000-01', 'VALVE-SOLENOID', '-', 'PK-GLP', '', '0UBE7 UNICAL AVIATION,INC.', '', '0000-00-00', '', '0000-00-00', '0000-00-00', '0000-00-00', '', '', '0000-00-00', '', '', '', '0000-00-00', '', '0000-00-00', 'Unserviceable', 'Waiting AWB'),
-(31, '2022-05-02', 'Exchange', '-', '340011367', '350E053021818', 'FLIGHT WARNING COMPUTER', '500041249', 'PK-GLL', 'UMR 804370175', 'GI759 AERO TRADE LLC DBA SETNA IO', '', '2022-06-08', '7711853785', '2022-06-20', '2022-06-24', '0000-00-00', '', '', '0000-00-00', '', '', '', '0000-00-00', '', '0000-00-00', 'Exchange', 'SHIPPED'),
-(33, '2022-01-20', 'Exchange', '-', '340010995', '4315542', 'LIGHT-LANDING', '-', '-', 'Replenish Access Spare', 'KB335 A.J. WALTER AVIATION', '30', '2022-01-21', '3856700853', '2022-06-09', '2022-06-14', '2022-07-01', '103000', '0002531197', '2022-07-02', '', '', '', '0000-00-00', '', '0000-00-00', 'Exchange', 'CLOSED');
+INSERT INTO `master_order` (`id_order`, `entry_date`, `req_scheme`, `tracking_no`, `po_number`, `part_number`, `description`, `pr`, `aircraft`, `note`, `vendor`, `repair_tat`, `po_date`, `awb_in`, `awb_date`, `eta`, `gr_date`, `serial_number`, `serv_batch`, `date_store`, `pn_out`, `sn_out`, `core_batch`, `shipment_order_date`, `awb_out`, `awb_out_date`, `core_cond`, `serv_status`, `created_by`) VALUES
+(1, '2022-05-02', 'Exchange', '-', '340011288', '350E053021818', 'FLIGHT WARNING COMPUTER', '500041249', 'PK-GLX', 'UMR 804370175 \r\nokeee', '0UBE7 UNICAL AVIATION,INC.', '30', '2022-05-02', '7573763492', '2022-05-12', '2022-05-23', '2022-05-30', '0E0021748', '0002535344', '2022-05-30', '350E053021818', '0E0019002', '0002508915', '2022-05-31', '2713965752', '2022-06-09', 'Unserviceable', 'CLOSED', 'Gustaf Kusuma Pradana'),
+(2, '2022-05-17', 'Repair', '430027064', '430027064', 'RCF6708', 'REGULATOR TRANSMITTER-PRESSURE', '500039676', 'PK-GHQ', '', 'QC054 SAFRAN AEROSYSTEM SERVICE ASIA PTE', '15', '2022-05-17', '7295093875', '2022-07-06', '2022-07-08', '2022-07-08', '15865', '0002534276', '2022-07-09', 'RCF6708 ', '15865', '0002459219', '2022-05-18', '6046573923', '2022-05-20', 'UNSERVICEABLE', 'CLOSED', 'Gustaf Kusuma Pradana'),
+(20, '2022-07-29', 'Repair', '', '430027369', 'LA2T0G21006CA10', 'ATSU-AIR TRAFFIC SERVICES UNIT', '500041858', 'PK-GLR', 'yesss', 'SCD13 GUANGZHOU HANGXIN AVIONICS CO LTD', '', '0000-00-00', '', '0000-00-00', '0000-00-00', '0000-00-00', '', '', '0000-00-00', 'LA2T0G21006CA10', '2T0007512', '00000DFAFA', '2022-07-20', '6103585213', '2022-07-21', 'Repair', 'Waiting AWB', 'Arif Setiawan'),
+(24, '2022-07-01', 'Exchange', '-', '430027250', '0851HL', 'PROBE-PITOT', '500041409', 'PK-GLP', 'REPAIR DER PITOT PROBE', 'GI383 CSI AEROSPACE, INC', '30', '2022-07-29', 'newwdhl', '2022-08-03', '2022-08-04', '2022-08-05', 'SN2', '0000245636', '2022-08-12', 'LA2T0G21006CA10', '2T0007512', '00000DFAFA', '2022-08-25', '6103585213', '2022-08-09', 'Exchange', 'CLOSED', 'Gustaf Kusuma Pradana'),
+(31, '2022-05-02', 'Exchange', '-', '340011367', '350E053021818', 'FLIGHT WARNING COMPUTER', '500041249', 'PK-GLL', 'UMR 804370175', 'GI759 AERO TRADE LLC DBA SETNA IO', '', '2022-06-08', '7711853785', '2022-06-20', '2022-06-24', '0000-00-00', '', '', '0000-00-00', '', '', '', '0000-00-00', '', '0000-00-00', 'Exchange', 'SHIPPED', 'Arif Setiawan'),
+(33, '2022-01-20', 'Exchange', '-', '340010995', '4315542', 'LIGHT-LANDING', '-', '-', 'Replenish Access Spare', 'KB335 A.J. WALTER AVIATION', '30', '2022-01-21', '3856700853', '2022-06-09', '2022-06-14', '2022-07-01', '103000', '0002531197', '2022-07-02', '', '', '', '0000-00-00', '', '0000-00-00', 'Exchange', 'CLOSED', 'Gustaf Kusuma Pradana'),
+(34, '2022-08-24', 'Exchange', '-', '43002769', '066-01127-1402', 'TRANSPONDER-ATC', '-', 'PK-GLT', 'asasdas', '0YX11 GLOBAL AIRTECH', NULL, NULL, '', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'Waiting AWB', 'Arif Setiawan'),
+(37, '2022-08-16', 'Repair', '-', '43002769', '066-50012-1212', 'RECEIVER-VOR,MKR', '-', 'PK-GLX', 'asdas', '0YX11 GLOBAL AIRTECH', NULL, NULL, '', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'Waiting AWB', 'Arif Setiawan');
 
 -- --------------------------------------------------------
 
@@ -585,6 +610,28 @@ INSERT INTO `pn_database` (`part_number`, `desc`, `ata`, `pn_newprice`) VALUES
 -- --------------------------------------------------------
 
 --
+-- Table structure for table `shipment_order`
+--
+
+CREATE TABLE `shipment_order` (
+  `shipment_order_date` date DEFAULT NULL,
+  `vendor` varchar(50) DEFAULT NULL,
+  `address` text DEFAULT NULL,
+  `created_by` varchar(50) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `shipment_order`
+--
+
+INSERT INTO `shipment_order` (`shipment_order_date`, `vendor`, `address`, `created_by`) VALUES
+('2022-08-25', 'GI383 CSI AEROSPACE, INC', 'on', 'Gustaf Kusuma Pradana'),
+('2022-08-25', 'GI383 CSI AEROSPACE, INC', '', 'Gustaf Kusuma Pradana'),
+('2022-08-25', 'GI383 CSI AEROSPACE, INC', 'address1', 'Gustaf Kusuma Pradana');
+
+-- --------------------------------------------------------
+
+--
 -- Table structure for table `vendor_database`
 --
 
@@ -645,6 +692,12 @@ INSERT INTO `vendor_database` (`vendor`, `address1`, `address2`) VALUES
 --
 
 --
+-- Indexes for table `admins`
+--
+ALTER TABLE `admins`
+  ADD PRIMARY KEY (`id`);
+
+--
 -- Indexes for table `master_order`
 --
 ALTER TABLE `master_order`
@@ -672,10 +725,16 @@ ALTER TABLE `vendor_database`
 --
 
 --
+-- AUTO_INCREMENT for table `admins`
+--
+ALTER TABLE `admins`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+
+--
 -- AUTO_INCREMENT for table `master_order`
 --
 ALTER TABLE `master_order`
-  MODIFY `id_order` int(100) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=34;
+  MODIFY `id_order` int(100) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=49;
 
 --
 -- Constraints for dumped tables
