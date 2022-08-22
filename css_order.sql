@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Aug 22, 2022 at 02:42 AM
+-- Generation Time: Aug 22, 2022 at 07:56 PM
 -- Server version: 10.4.24-MariaDB
 -- PHP Version: 8.1.6
 
@@ -614,7 +614,8 @@ INSERT INTO `pn_database` (`part_number`, `desc`, `ata`, `pn_newprice`) VALUES
 --
 
 CREATE TABLE `shipment_order` (
-  `shipment_order_date` date DEFAULT NULL,
+  `id_shipment_order` int(11) NOT NULL,
+  `shipment_order_date` date NOT NULL,
   `vendor` varchar(50) DEFAULT NULL,
   `address` text DEFAULT NULL,
   `created_by` varchar(50) DEFAULT NULL
@@ -624,10 +625,10 @@ CREATE TABLE `shipment_order` (
 -- Dumping data for table `shipment_order`
 --
 
-INSERT INTO `shipment_order` (`shipment_order_date`, `vendor`, `address`, `created_by`) VALUES
-('2022-08-25', 'GI383 CSI AEROSPACE, INC', 'on', 'Gustaf Kusuma Pradana'),
-('2022-08-25', 'GI383 CSI AEROSPACE, INC', '', 'Gustaf Kusuma Pradana'),
-('2022-08-25', 'GI383 CSI AEROSPACE, INC', 'address1', 'Gustaf Kusuma Pradana');
+INSERT INTO `shipment_order` (`id_shipment_order`, `shipment_order_date`, `vendor`, `address`, `created_by`) VALUES
+(17, '2022-08-23', 'F1787 SOCIETE AIR FRANCE', 'SOCIETE AIR FRANCE (AIR FRANCE INDUSTRIES)\r\nC/O SCHENKER SINGAPORE PTE LTD\r\nNo.51 ALPS AVENUE, #05-06\r\nSINGAPORE 498783\r\n\r\nAttn : Mohammad Shahrul, \r\nTel: +65 6246 0771', 'Gustaf Kusuma Pradana'),
+(18, '2022-08-23', 'F1787 SOCIETE AIR FRANCE', 'AIR FRANCE INDUSTRIES,\r\nUnserviceable Materials – RD32 Arrêt 37U , \r\n100 Avenue Didier Daurat, \r\n94290 Villeneuve Le Roi, France\r\n\r\nAttn :  Michel Furic | mail.afi.repairs@airfrance.fr', 'Gustaf Kusuma Pradana'),
+(20, '2022-08-23', 'F1787 SOCIETE AIR FRANCE', 'SOCIETE AIR FRANCE (AIR FRANCE INDUSTRIES)\r\nC/O SCHENKER SINGAPORE PTE LTD\r\nNo.51 ALPS AVENUE, #05-06\r\nSINGAPORE 498783\r\n\r\nAttn : Mohammad Shahrul, \r\nTel: +65 6246 0771', 'Gustaf Kusuma Pradana');
 
 -- --------------------------------------------------------
 
@@ -715,6 +716,12 @@ ALTER TABLE `pn_database`
   ADD PRIMARY KEY (`part_number`);
 
 --
+-- Indexes for table `shipment_order`
+--
+ALTER TABLE `shipment_order`
+  ADD PRIMARY KEY (`id_shipment_order`);
+
+--
 -- Indexes for table `vendor_database`
 --
 ALTER TABLE `vendor_database`
@@ -735,6 +742,12 @@ ALTER TABLE `admins`
 --
 ALTER TABLE `master_order`
   MODIFY `id_order` int(100) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=49;
+
+--
+-- AUTO_INCREMENT for table `shipment_order`
+--
+ALTER TABLE `shipment_order`
+  MODIFY `id_shipment_order` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=21;
 
 --
 -- Constraints for dumped tables
