@@ -266,12 +266,7 @@ if (!isset($_SESSION['ID'])) {
                   <p>Create Order</p>
                 </a>
               </li>
-              <li class="nav-item">
-                <a href="#" class="nav-link">
-                  <i class="far fa-circle nav-icon"></i>
-                  <p>Details Order</p>
-                </a>
-              </li>
+              
               <li class="nav-item">
                 <a href="index.php?page=shipment_order" class="nav-link">
                   <i class="far fa-circle nav-icon"></i>
