@@ -59,17 +59,28 @@
                 
                 <div class="form-group">
                   <div class="form-check">
-                    <input class="form-check-input" type="radio" name="address" value="" checked>
+                    <input class="form-check-input" type="radio" id="address" value="" checked>
                     <label class="form-check-label">Address 1</label>
-                    <textarea class="form-control" rows="7" id="address1" readonly></textarea>
+                    <textarea class="form-control" rows="7" id="address1" name="address1" readonly></textarea>
                   </div>
                     
                   <div class="form-check">
-                    <input class="form-check-input" type="radio" name="address" value="">
+                    <input class="form-check-input" type="radio" value="">
                     <label class="form-check-label">Address 2</label>
-                    <textarea class="form-control" rows="7" id="address2" readonly></textarea>
+                    <textarea class="form-control" rows="7" id="address2" name="address2" readonly></textarea>
                   </div>
                     
+                  <script>  
+function addValueToRadioBtn() {
+    if (document.getElementById("amntother").checked == true){
+        document.getElementById("amntother").value = document.getElementById("otherAmount").value;
+    }
+    //added an alert box just to test that the value has been updated
+    alert(document.getElementById("amntother").value);
+} 
+
+</script>
+
                 </div>
 
                 
@@ -108,7 +119,7 @@
 
                   $shipment_order_date = $_POST['shipment_order_date'];
                   $vendor = $_POST['vendor'];
-                  $address = $_POST['address'];
+                  $address = $_POST['address']?$_POST['address1']:$_POST['address2'];
                   $created_by = ucwords($_SESSION['NAME']);
         
                   //query untuk menambahkan barang ke database, pastikan urutan nya sama dengan di database
