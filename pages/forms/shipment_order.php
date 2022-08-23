@@ -126,8 +126,13 @@
                   $last_id = mysqli_insert_id($koneksi);
 
                   //ini untuk menampilkan alert berhasil dan redirect ke halaman index
-                   echo "<script>alert('data berhasil disimpan.');window.location='pages/forms/shipment_order_page.php?id=';</script>";
+                  // echo "<script>alert('data berhasil disimpan.');window.location='pages/forms/shipment_order_page.php?id=';</script>";
                  
+                  echo ("<script LANGUAGE='JavaScript'>
+                          window.alert('Succesfully Saved');
+                          window.location.href='pages/forms/shipment_order_page.php?id=<?php $last_id;?>';
+                          </script>");
+
                   }
 
                 
