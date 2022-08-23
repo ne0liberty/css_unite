@@ -123,10 +123,10 @@
                   VALUES('$shipment_order_date', '$vendor','$address','$created_by')") or die(mysqli_error($koneksi));
                   //id barang tidak dimasukkan, karena sudah menggunakan AUTO_INCREMENT, id akan otomatis
                   $datas2 = mysqli_query($koneksi, "SELECT * FROM shipment_order");
-                  $item = mysqli_fetch_assoc($datas2);
+                  $last_id = mysqli_insert_id($koneksi);
 
                   //ini untuk menampilkan alert berhasil dan redirect ke halaman index
-                   echo "<script>alert('data berhasil disimpan.');window.location='pages/forms/shipment_order_page.php;';</script>";
+                   echo "<script>alert('data berhasil disimpan.');window.location='pages/forms/shipment_order_page.php?id=';</script>";
                  
                   }
 
