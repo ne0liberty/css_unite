@@ -118,24 +118,21 @@
                   $address = $_POST['address']?$_POST['address']:$_POST['address_2'];
                   $created_by = ucwords($_SESSION['NAME']);
         
-                  //query untuk menambahkan barang ke database, pastikan urutan nya sama dengan di database
+                  
                   $datas = mysqli_query($koneksi, "INSERT INTO shipment_order (shipment_order_date,vendor,address,created_by)
                   VALUES('$shipment_order_date', '$vendor','$address','$created_by')") or die(mysqli_error($koneksi));
-                  //id barang tidak dimasukkan, karena sudah menggunakan AUTO_INCREMENT, id akan otomatis
-                  $datas2 = mysqli_query($koneksi, "SELECT * FROM shipment_order");
-                  $last_id = mysqli_insert_id($koneksi);
+                  
+                  $last_id=mysqli_insert_id($koneksi);
+                  
+                  //die(header('Location:pages/forms/shipment_order_page.php?id='.$last_id));
+                  //exit();
 
-                  //ini untuk menampilkan alert berhasil dan redirect ke halaman index
-                  // echo "<script>alert('data berhasil disimpan.');window.location='pages/forms/shipment_order_page.php?id=';</script>";
                  
-                  echo ("<script LANGUAGE='JavaScript'>
-                          window.alert('Succesfully Saved');
-                          window.location.href='pages/forms/shipment_order_page.php?id=<?php $last_id;?>';
-                          </script>");
+                  
 
                   }
-
-                
+                  
+                  
                 ?>
       
       <!-- Autofillss -->
