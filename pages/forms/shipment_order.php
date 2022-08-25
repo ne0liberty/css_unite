@@ -123,12 +123,13 @@
                   VALUES('$shipment_order_date', '$vendor','$address','$created_by')") or die(mysqli_error($koneksi));
                   
                   $last_id = mysqli_insert_id($koneksi);
+                  $var = 'pages/forms/shipment_order_page.php?id='($last_id);
           
                   
                   //die(header('Location:pages/forms/shipment_order_page.php?id='.$last_id));
                   //exit();
 
-                  echo '<script>window.location="pages/forms/shipment_order_page.php?id=<?php $last_id; ?>"</script>'; 
+                  echo '<script>window.location="pages/forms/shipment_order_page.php?id='.$last_id.';"</script>'; 
                   
                   
 
