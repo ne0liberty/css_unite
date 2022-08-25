@@ -122,15 +122,17 @@
                   $datas = mysqli_query($koneksi, "INSERT INTO shipment_order (shipment_order_date,vendor,address,created_by)
                   VALUES('$shipment_order_date', '$vendor','$address','$created_by')") or die(mysqli_error($koneksi));
                   
-                  $last_id=mysqli_insert_id($koneksi);
+                  $last_id = mysqli_insert_id($koneksi);
+          
                   
                   //die(header('Location:pages/forms/shipment_order_page.php?id='.$last_id));
                   //exit();
 
-                 
+                  echo '<script>window.location="pages/forms/shipment_order_page.php?id=<?php $last_id; ?>"</script>'; 
+                  
                   
 
-                  }
+                 }
                   
                   
                 ?>
