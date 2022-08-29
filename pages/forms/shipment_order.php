@@ -163,6 +163,9 @@
        $('.select2bs4').select2({
        theme: 'bootstrap4' 
        })
+       
+       document.getElementById('datePicker').value = new Date().toDateInputValue();
+
       </script>
   </section>
 
