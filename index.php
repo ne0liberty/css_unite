@@ -3,7 +3,9 @@ session_start();
 include "conf/conn.php";
 
 if (!isset($_SESSION['ID'])) {
+  ob_start(); 
   header("Location:pages/login.php");
+  ob_end_flush();
   exit();
 }
 

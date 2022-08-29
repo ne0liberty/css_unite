@@ -1,8 +1,7 @@
 <?php
  include('../../conf/conn.php'); 
- $id = $_GET['id_shipment_order'];
- $nama = ucwords($_SESSION['NAME']);
- $datas = mysqli_query($koneksi, "SELECT * FROM shipment_order WHERE created_by = '$nama'") or die(mysqli_error($koneksi));
+ $id = $_GET['id'];
+ $datas = mysqli_query($koneksi, "SELECT * FROM shipment_order WHERE id_shipment_order='$id'") or die(mysqli_error($koneksi));
  $item = mysqli_fetch_assoc($datas)
 
 ?>
@@ -71,7 +70,7 @@
         </tr>
         <tr>
             <td>Consignee Name and Address</td>
-            <td colspan="2" style="height:120px">----VENDOR ADDRESS----</td>
+            <td colspan="2" style="height:120px"><?php echo nl2br($item['address']); ?></td>
         </tr>
         <tr>
             <td rowspan="2">Mode of Shipment</td>
@@ -122,7 +121,7 @@
     <table width="100%" class="table2">
         <tr>
             <td width="250px" colspan="2" style="border:0px;height:40px"></td>
-            <td style="border:0px;">Jakarta, </td>
+            <td style="border:0px;">Jakarta,<?php echo $item['shipment_order_date']; ?> </td>
         </tr>
         <tr>
             <td style="border:0px;">Received  by</td>
@@ -137,7 +136,7 @@
         <tr>
             <td style="border:0px; height: 30px; vertical-align: top;">Receiver</td>
             <td style="border:0px;"></td>
-            <td style="border:0px; vertical-align: top;">Gustaf Kusuma Pradana</td>
+            <td style="border:0px; vertical-align: top;"><?php echo nl2br($item['created_by']); ?></td>
         </tr>
         <tr>
             <td colspan="3">FORM NO: GMF/P-001 R0</td>
