@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Aug 22, 2022 at 07:56 PM
+-- Generation Time: Aug 29, 2022 at 06:49 PM
 -- Server version: 10.4.24-MariaDB
 -- PHP Version: 8.1.6
 
@@ -88,13 +88,14 @@ CREATE TABLE `master_order` (
 
 INSERT INTO `master_order` (`id_order`, `entry_date`, `req_scheme`, `tracking_no`, `po_number`, `part_number`, `description`, `pr`, `aircraft`, `note`, `vendor`, `repair_tat`, `po_date`, `awb_in`, `awb_date`, `eta`, `gr_date`, `serial_number`, `serv_batch`, `date_store`, `pn_out`, `sn_out`, `core_batch`, `shipment_order_date`, `awb_out`, `awb_out_date`, `core_cond`, `serv_status`, `created_by`) VALUES
 (1, '2022-05-02', 'Exchange', '-', '340011288', '350E053021818', 'FLIGHT WARNING COMPUTER', '500041249', 'PK-GLX', 'UMR 804370175 \r\nokeee', '0UBE7 UNICAL AVIATION,INC.', '30', '2022-05-02', '7573763492', '2022-05-12', '2022-05-23', '2022-05-30', '0E0021748', '0002535344', '2022-05-30', '350E053021818', '0E0019002', '0002508915', '2022-05-31', '2713965752', '2022-06-09', 'Unserviceable', 'CLOSED', 'Gustaf Kusuma Pradana'),
-(2, '2022-05-17', 'Repair', '430027064', '430027064', 'RCF6708', 'REGULATOR TRANSMITTER-PRESSURE', '500039676', 'PK-GHQ', '', 'QC054 SAFRAN AEROSYSTEM SERVICE ASIA PTE', '15', '2022-05-17', '7295093875', '2022-07-06', '2022-07-08', '2022-07-08', '15865', '0002534276', '2022-07-09', 'RCF6708 ', '15865', '0002459219', '2022-05-18', '6046573923', '2022-05-20', 'UNSERVICEABLE', 'CLOSED', 'Gustaf Kusuma Pradana'),
-(20, '2022-07-29', 'Repair', '', '430027369', 'LA2T0G21006CA10', 'ATSU-AIR TRAFFIC SERVICES UNIT', '500041858', 'PK-GLR', 'yesss', 'SCD13 GUANGZHOU HANGXIN AVIONICS CO LTD', '', '0000-00-00', '', '0000-00-00', '0000-00-00', '0000-00-00', '', '', '0000-00-00', 'LA2T0G21006CA10', '2T0007512', '00000DFAFA', '2022-07-20', '6103585213', '2022-07-21', 'Repair', 'Waiting AWB', 'Arif Setiawan'),
-(24, '2022-07-01', 'Exchange', '-', '430027250', '0851HL', 'PROBE-PITOT', '500041409', 'PK-GLP', 'REPAIR DER PITOT PROBE', 'GI383 CSI AEROSPACE, INC', '30', '2022-07-29', 'newwdhl', '2022-08-03', '2022-08-04', '2022-08-05', 'SN2', '0000245636', '2022-08-12', 'LA2T0G21006CA10', '2T0007512', '00000DFAFA', '2022-08-25', '6103585213', '2022-08-09', 'Exchange', 'CLOSED', 'Gustaf Kusuma Pradana'),
+(2, '2022-05-17', 'Repair', '430027064', '430027064', 'RCF6708', 'REGULATOR TRANSMITTER-PRESSURE', '500039676', 'PK-GHQ', '', 'QC054 SAFRAN AEROSYSTEM SERVICE ASIA PTE', '15', '2022-05-17', '7295093875', '2022-07-06', '2022-07-08', '2022-07-08', '15865', '0002534276', '2022-07-09', 'RCF6708 ', '15865', '0002459219', '2022-05-18', '6046573923', '2022-05-20', 'Unserviceable', 'CLOSED', 'Gustaf Kusuma Pradana'),
+(20, '2022-07-29', 'Repair', '', '430027369', 'LA2T0G21006CA10', 'ATSU-AIR TRAFFIC SERVICES UNIT', '500041858', 'PK-GLR', 'yesss', 'SCD13 GUANGZHOU HANGXIN AVIONICS CO LTD', '', '0000-00-00', '', '0000-00-00', '0000-00-00', '0000-00-00', '', '', '0000-00-00', 'LA2T0G21006CA10', '2T0007512', '00000DFAFA', '2022-07-20', '6103585213', '2022-07-21', 'Unserviceable', 'Waiting AWB', 'Arif Setiawan'),
+(24, '2022-07-01', 'Exchange', '-', '430027250', '0851HL', 'PROBE-PITOT', '500041409', 'PK-GLP', 'REPAIR DER PITOT PROBE', 'GI383 CSI AEROSPACE, INC', '30', '2022-07-29', 'newwdhl', '2022-08-03', '2022-08-04', '2022-08-05', 'SN2', '0000245636', '2022-08-12', 'LA2T0G21006CA10', '2T0007512', '00000DFAFA', '2022-08-25', '6103585213', '2022-08-09', 'Unserviceable', 'CLOSED', 'Gustaf Kusuma Pradana'),
 (31, '2022-05-02', 'Exchange', '-', '340011367', '350E053021818', 'FLIGHT WARNING COMPUTER', '500041249', 'PK-GLL', 'UMR 804370175', 'GI759 AERO TRADE LLC DBA SETNA IO', '', '2022-06-08', '7711853785', '2022-06-20', '2022-06-24', '0000-00-00', '', '', '0000-00-00', '', '', '', '0000-00-00', '', '0000-00-00', 'Exchange', 'SHIPPED', 'Arif Setiawan'),
-(33, '2022-01-20', 'Exchange', '-', '340010995', '4315542', 'LIGHT-LANDING', '-', '-', 'Replenish Access Spare', 'KB335 A.J. WALTER AVIATION', '30', '2022-01-21', '3856700853', '2022-06-09', '2022-06-14', '2022-07-01', '103000', '0002531197', '2022-07-02', '', '', '', '0000-00-00', '', '0000-00-00', 'Exchange', 'CLOSED', 'Gustaf Kusuma Pradana'),
+(33, '2022-01-20', 'Exchange', '-', '340010995', '4315542', 'LIGHT-LANDING', '-', '-', 'Replenish Access Spare', 'KB335 A.J. WALTER AVIATION', '30', '2022-01-21', '3856700853', '2022-06-09', '2022-06-14', '2022-07-01', '103000', '0002531197', '2022-07-02', '', '', '', '0000-00-00', '', '0000-00-00', 'Unserviceable', 'CLOSED', 'Gustaf Kusuma Pradana'),
 (34, '2022-08-24', 'Exchange', '-', '43002769', '066-01127-1402', 'TRANSPONDER-ATC', '-', 'PK-GLT', 'asasdas', '0YX11 GLOBAL AIRTECH', NULL, NULL, '', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'Waiting AWB', 'Arif Setiawan'),
-(37, '2022-08-16', 'Repair', '-', '43002769', '066-50012-1212', 'RECEIVER-VOR,MKR', '-', 'PK-GLX', 'asdas', '0YX11 GLOBAL AIRTECH', NULL, NULL, '', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'Waiting AWB', 'Arif Setiawan');
+(37, '2022-08-16', 'Repair', '-', '43002769', '066-50012-1212', 'RECEIVER-VOR,MKR', '-', 'PK-GLX', 'asdas', '0YX11 GLOBAL AIRTECH', '', '0000-00-00', '', '0000-00-00', '0000-00-00', '0000-00-00', '', '', '0000-00-00', 'LA2T0G21006CA10', '356362', '00000DFAFA', '2022-08-29', '', '0000-00-00', 'Unserviceable', 'Waiting AWB', 'Arif Setiawan'),
+(49, '2022-08-24', 'Repair', 'TRX15000', '89689', '066-50007-0222', 'TRANSCEIVER-RADIO ALTIMETER', '-', 'PK-', '', '0UBE7 UNICAL AVIATION,INC.', NULL, NULL, '', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'Waiting AWB', 'Gustaf Kusuma Pradana');
 
 -- --------------------------------------------------------
 
@@ -626,9 +627,23 @@ CREATE TABLE `shipment_order` (
 --
 
 INSERT INTO `shipment_order` (`id_shipment_order`, `shipment_order_date`, `vendor`, `address`, `created_by`) VALUES
-(17, '2022-08-23', 'F1787 SOCIETE AIR FRANCE', 'SOCIETE AIR FRANCE (AIR FRANCE INDUSTRIES)\r\nC/O SCHENKER SINGAPORE PTE LTD\r\nNo.51 ALPS AVENUE, #05-06\r\nSINGAPORE 498783\r\n\r\nAttn : Mohammad Shahrul, \r\nTel: +65 6246 0771', 'Gustaf Kusuma Pradana'),
-(18, '2022-08-23', 'F1787 SOCIETE AIR FRANCE', 'AIR FRANCE INDUSTRIES,\r\nUnserviceable Materials – RD32 Arrêt 37U , \r\n100 Avenue Didier Daurat, \r\n94290 Villeneuve Le Roi, France\r\n\r\nAttn :  Michel Furic | mail.afi.repairs@airfrance.fr', 'Gustaf Kusuma Pradana'),
-(20, '2022-08-23', 'F1787 SOCIETE AIR FRANCE', 'SOCIETE AIR FRANCE (AIR FRANCE INDUSTRIES)\r\nC/O SCHENKER SINGAPORE PTE LTD\r\nNo.51 ALPS AVENUE, #05-06\r\nSINGAPORE 498783\r\n\r\nAttn : Mohammad Shahrul, \r\nTel: +65 6246 0771', 'Gustaf Kusuma Pradana');
+(66, '2022-08-25', 'GI383 CSI AEROSPACE, INC', 'CSI AEROSPACE, INC\r\n\r\n2020 W Detroit St, Broken Arrow,\r\nOK 74012\r\nUSA\r\n\r\nAttn : Justin Ferrell - Senior Director\r\nPhone : +1 918 994 4251\r\njferrell@csiaerospace.com\r\nwww.heico.com/csi', 'Gustaf Kusuma Pradana'),
+(67, '2022-08-25', 'GI383 CSI AEROSPACE, INC', 'CSI AEROSPACE, INC\r\n\r\n2020 W Detroit St, Broken Arrow,\r\nOK 74012\r\nUSA\r\n\r\nAttn : Justin Ferrell - Senior Director\r\nPhone : +1 918 994 4251\r\njferrell@csiaerospace.com\r\nwww.heico.com/csi', 'Gustaf Kusuma Pradana'),
+(68, '2022-08-25', 'GI383 CSI AEROSPACE, INC', 'CSI AEROSPACE, INC\r\n\r\n2020 W Detroit St, Broken Arrow,\r\nOK 74012\r\nUSA\r\n\r\nAttn : Justin Ferrell - Senior Director\r\nPhone : +1 918 994 4251\r\njferrell@csiaerospace.com\r\nwww.heico.com/csi', 'Gustaf Kusuma Pradana'),
+(69, '2022-08-25', 'GI383 CSI AEROSPACE, INC', 'CSI AEROSPACE, INC\r\n\r\n2020 W Detroit St, Broken Arrow,\r\nOK 74012\r\nUSA\r\n\r\nAttn : Justin Ferrell - Senior Director\r\nPhone : +1 918 994 4251\r\njferrell@csiaerospace.com\r\nwww.heico.com/csi', 'Gustaf Kusuma Pradana'),
+(70, '2022-08-25', 'GI383 CSI AEROSPACE, INC', 'CSI AEROSPACE, INC\r\n\r\n2020 W Detroit St, Broken Arrow,\r\nOK 74012\r\nUSA\r\n\r\nAttn : Justin Ferrell - Senior Director\r\nPhone : +1 918 994 4251\r\njferrell@csiaerospace.com\r\nwww.heico.com/csi', 'Gustaf Kusuma Pradana'),
+(71, '2022-08-25', 'GI383 CSI AEROSPACE, INC', 'CSI AEROSPACE, INC\r\n\r\n2020 W Detroit St, Broken Arrow,\r\nOK 74012\r\nUSA\r\n\r\nAttn : Justin Ferrell - Senior Director\r\nPhone : +1 918 994 4251\r\njferrell@csiaerospace.com\r\nwww.heico.com/csi', 'Gustaf Kusuma Pradana'),
+(72, '2022-08-29', '0YX11 GLOBAL AIRTECH', 'GLOBAL AIRTECH\r\n10975 NW 29th Street\r\nDoral, FL 33172\r\nUSA\r\nContact: LINGLING\r\nPHONE: 818-933-6100X6950', 'Arif Setiawan'),
+(73, '2022-08-25', 'GI383 CSI AEROSPACE, INC', 'CSI AEROSPACE, INC\r\n\r\n2020 W Detroit St, Broken Arrow,\r\nOK 74012\r\nUSA\r\n\r\nAttn : Justin Ferrell - Senior Director\r\nPhone : +1 918 994 4251\r\njferrell@csiaerospace.com\r\nwww.heico.com/csi', 'Gustaf Kusuma Pradana'),
+(74, '2022-08-25', 'GI383 CSI AEROSPACE, INC', '', 'Gustaf Kusuma Pradana'),
+(75, '2022-08-25', 'GI383 CSI AEROSPACE, INC', '', 'Gustaf Kusuma Pradana'),
+(76, '2022-08-25', 'GI383 CSI AEROSPACE, INC', 'CSI AEROSPACE, INC\r\n\r\n2020 W Detroit St, Broken Arrow,\r\nOK 74012\r\nUSA\r\n\r\nAttn : Justin Ferrell - Senior Director\r\nPhone : +1 918 994 4251\r\njferrell@csiaerospace.com\r\nwww.heico.com/csi', 'Gustaf Kusuma Pradana'),
+(77, '2022-08-25', 'GI383 CSI AEROSPACE, INC', 'CSI AEROSPACE, INC\r\n\r\n2020 W Detroit St, Broken Arrow,\r\nOK 74012\r\nUSA\r\n\r\nAttn : Justin Ferrell - Senior Director\r\nPhone : +1 918 994 4251\r\njferrell@csiaerospace.com\r\nwww.heico.com/csi', 'Gustaf Kusuma Pradana'),
+(78, '2022-08-25', 'GI383 CSI AEROSPACE, INC', 'CSI AEROSPACE, INC\r\n\r\n2020 W Detroit St, Broken Arrow,\r\nOK 74012\r\nUSA\r\n\r\nAttn : Justin Ferrell - Senior Director\r\nPhone : +1 918 994 4251\r\njferrell@csiaerospace.com\r\nwww.heico.com/csi', 'Gustaf Kusuma Pradana'),
+(79, '2022-08-25', 'GI383 CSI AEROSPACE, INC', 'CSI AEROSPACE, INC\r\n\r\n2020 W Detroit St, Broken Arrow,\r\nOK 74012\r\nUSA\r\n\r\nAttn : Justin Ferrell - Senior Director\r\nPhone : +1 918 994 4251\r\njferrell@csiaerospace.com\r\nwww.heico.com/csi', 'Gustaf Kusuma Pradana'),
+(80, '2022-05-18', 'QC054 SAFRAN AEROSYSTEM SERVICE ASIA PTE', 'Safran Aerosystem Services Asia\r\n\r\n36 Loyang Drive\r\nSingapore 508949\r\n\r\nAttn : Karen TAI - Customer Service Representative \r\nD +65 65792268 \r\nT+65 65792230 \r\nF +65 65792231\r\nEmail: karen.tai@safrangroup.com', 'Gustaf Kusuma Pradana'),
+(81, '2022-07-20', 'SCD13 GUANGZHOU HANGXIN AVIONICS CO LTD', 'Guangzhou Hangxin Avionics Co., LTD.\r\nNo.1, Guangbao Road, Science City, Luogang\r\nDistrict,Guangzhou 510663, China\r\nAttn: Repair Services\r\nEmail: Logistics@hangxin.com,\r\nRepairs@hangxin.com\r\nTel:+86 20 66350731, Fax:+86 20 8557073', 'Arif Setiawan'),
+(82, '2022-07-20', 'SCD13 GUANGZHOU HANGXIN AVIONICS CO LTD', 'Guangzhou Hangxin Avionics Co., LTD.\r\nNo.1, Guangbao Road, Science City, Luogang\r\nDistrict,Guangzhou 510663, China\r\nAttn: Repair Services\r\nEmail: Logistics@hangxin.com,\r\nRepairs@hangxin.com\r\nTel:+86 20 66350731, Fax:+86 20 8557073', 'Arif Setiawan');
 
 -- --------------------------------------------------------
 
@@ -741,13 +756,13 @@ ALTER TABLE `admins`
 -- AUTO_INCREMENT for table `master_order`
 --
 ALTER TABLE `master_order`
-  MODIFY `id_order` int(100) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=49;
+  MODIFY `id_order` int(100) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=50;
 
 --
 -- AUTO_INCREMENT for table `shipment_order`
 --
 ALTER TABLE `shipment_order`
-  MODIFY `id_shipment_order` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=21;
+  MODIFY `id_shipment_order` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=83;
 
 --
 -- Constraints for dumped tables
