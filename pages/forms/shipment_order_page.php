@@ -156,16 +156,28 @@
                 <th>PO Number</th>
                 <th>Cond</th>
             </tr>
+            <?php
+
+            $vendorlist = $item['vendor'];
+            $createdby = $item['created_by'];
+            $shipmentdate = $item['shipment_order_date'];
+
+            $datas2 = mysqli_query($koneksi, "SELECT * FROM master_order WHERE vendor='$vendorlist' AND created_by='$createdby' AND shipment_order_date='$shipmentdate' ") or die(mysqli_error($koneksi));
+                    //script untuk menampilkan data barang
+
+            $no = 1;//untuk pengurutan nomor
+            while($row = mysqli_fetch_assoc($datas2)) {
+            ?>
             <tr>
-                <th></th>
-                <th></th>
-                <th></th>
-                <th></th>
-                <th></th>
-                <th></th>
-                
+                <td><?= $no; ?></td>
+                <td><?= $row['description']; ?></td>
+                <td><?= $row['pn_out']; ?></td>
+                <td><?= $row['sn_out']; ?></td>
+                <td><?= $row['tracking_no']; ?></td>
+                <td><?= $row['po_number']; ?></td>
+                <td><?= $row['core_cond']; ?></td>
             </tr>
-            
+            <?php $no++; } ?>
         </table>
     </section>
     </body>
