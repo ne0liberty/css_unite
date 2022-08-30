@@ -18,6 +18,9 @@ switch ($page) {
     case 'shipment_order':
     include 'pages/forms/shipment_order.php';
     break;
+    case 'shipment_order_single':
+      include 'pages/forms/shipment_order_single.php';
+      break;
   }
 }else{
     include "pages/beranda.php";
