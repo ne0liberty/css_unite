@@ -250,8 +250,7 @@
           <!-- /.card-body -->
           <div class="card-footer">
             <button type="submit" name="submit" class="btn btn-primary">Update</button>
-            <button type="submit" name="submit-shipmentorder" class="btn btn-primary">Print Shipment Order methode2</button>
-            <a href="index.php?page=shipment_order_single" class="btn btn-primary" role="button">Print Shipment Order</a>
+            <button type="submit" name="submit-shipmentorder" class="btn btn-primary">Print Shipment Order</button>
           </div>
         </div>
         <!-- /.card -->

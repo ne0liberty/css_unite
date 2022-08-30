@@ -62,20 +62,21 @@
                   //menampilkan barang berdasarkan id
                   $datavendor = mysqli_query($koneksi, "SELECT * FROM vendor_database WHERE vendor='$vendorname'");
                   $row_vendor = mysqli_fetch_assoc($datavendor);
+
                 
                 ?>
 
                 <div class="form-group">
                   <div class="form-check">
-                    <input class="form-check-input" type="radio" name="address" value="<?php echo $row_vendor['$address1']; ?>" checked>
+                    <input class="form-check-input" type="radio" name="address" value="<?php echo $row_vendor['address1']; ?>" checked>
                     <label class="form-check-label">Address 1</label>
-                    <textarea class="form-control" rows="7" name="address" id="address1" value="<?php echo $row_vendor['$address1']; ?>" readonly></textarea>
+                    <textarea class="form-control" rows="7" name="address" id="address1" value="" readonly><?php echo $row_vendor['address1']; ?></textarea>
                   </div>
                     
                   <div class="form-check">
-                    <input class="form-check-input" type="radio" name="address" value="<?php echo $row_vendor['$address2']; ?>">
+                    <input class="form-check-input" type="radio" name="address" value="<?php echo $row_vendor['address2']; ?>">
                     <label class="form-check-label">Address 2</label>
-                    <textarea class="form-control" rows="7" name="address_2" id="address2" value="<?php echo $row_vendor['$address2']; ?>" readonly></textarea>
+                    <textarea class="form-control" rows="7" name="address_2" id="address2" value="" readonly><?php echo $row_vendor['address2']; ?></textarea>
                   </div>
                     
                 </div>

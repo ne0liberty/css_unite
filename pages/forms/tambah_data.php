@@ -142,8 +142,8 @@
                   $created_by = ucwords($_SESSION['NAME']);
         
                   //query untuk menambahkan barang ke database, pastikan urutan nya sama dengan di database
-                  $datas = mysqli_query($koneksi, "INSERT INTO master_order (entry_date,req_scheme,tracking_no,po_number,part_number,description,pr,aircraft,vendor,note,created_by)
-                  VALUES('$entry_date', '$req_scheme','$tracking_no','$po_number','$part_number','$description','$pr','$aircraft','$vendor','$note','$created_by')") or die(mysqli_error($koneksi));
+                  $datas = mysqli_query($koneksi, "INSERT INTO master_order (entry_date,req_scheme,tracking_no,po_number,part_number,description,pr,aircraft,vendor,note,pn_out,created_by)
+                  VALUES('$entry_date', '$req_scheme','$tracking_no','$po_number','$part_number','$description','$pr','$aircraft','$vendor','$note','$part_number','$created_by')") or die(mysqli_error($koneksi));
                   //id barang tidak dimasukkan, karena sudah menggunakan AUTO_INCREMENT, id akan otomatis
         
                   //ini untuk menampilkan alert berhasil dan redirect ke halaman index
