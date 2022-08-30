@@ -48,35 +48,19 @@
                 <div class="form-group">
                     <label>Shipment order date</label>
                     <input type="date" name="shipment_order_date" readonly class="form-control" placeholder="Masukkan" value="<?php echo $row_view['shipment_order_date']; ?>">
-                  </div>
-                <div class="form-group">
-                  <label>Vendor</label>
-                    <select class="form-control select2bs4" id='vendor' readonly name="vendor" onchange="isi_otomatis()" style="width: 100%;">
-                      <option value="<?php echo $row_view['vendor']; ?>"><?php echo $row_view['vendor']; ?></option>
-                      <?php 
-                          
-                            $datas3 = mysqli_query($koneksi, "SELECT * FROM vendor_database") or die (mysqli_error($koneksi));
-                            while($data_vendor = mysqli_fetch_array($datas3))  {
-                              
-                              echo "<option>$data_vendor[vendor]</option>";
-                          }
-                      ?>
-                  </select>
                 </div>
 
-                <script>
-                function getElements()
-                {
-                document.getElementById("address1").value = document.getElementById("address").value;
-                }
-                
-                </script>
+                <div class="form-group">
+                    <label>Vendor</label>
+                    <input type="text" readonly id="desc" name="vendor" value="<?php echo $row_view['vendor']; ?>" class="form-control">
+
+                </div>
                 
                 <?php
-
                   $vendorname = $row_view['vendor'];
+
                   //menampilkan barang berdasarkan id
-                  $datavendor = mysqli_query($koneksi, "SELECT * FROM vendor_database where vendor='$vendorname'");
+                  $datavendor = mysqli_query($koneksi, "SELECT * FROM vendor_database WHERE vendor='$vendorname'");
                   $row_vendor = mysqli_fetch_assoc($datavendor);
                 
                 ?>
@@ -89,7 +73,7 @@
                   </div>
                     
                   <div class="form-check">
-                    <input class="form-check-input" type="radio" name="address" value="<?php echo $row_vendor['$address2']; ?>" onclick="getElements()">
+                    <input class="form-check-input" type="radio" name="address" value="<?php echo $row_vendor['$address2']; ?>">
                     <label class="form-check-label">Address 2</label>
                     <textarea class="form-control" rows="7" name="address_2" id="address2" value="<?php echo $row_vendor['$address2']; ?>" readonly></textarea>
                   </div>
@@ -157,20 +141,7 @@
       
       
       <script type="text/javascript">
-            function isi_otomatis(){
-                var vendor = $("#vendor").val();
-                $.ajax({
-                    url: 'conf/ajax-vendor.php',
-                    data:"vendor="+vendor ,
-                    cache: false,
-                }).success(function (data) {
-                    var json = data,
-                    obj = JSON.parse(json);
-                    $('#address1').val(obj.address1);
-                    $('#address2').val(obj.address2);
-                });
-                
-            }
+            
         
        //Initialize Select2 Elements
        $('.select2').select2()
