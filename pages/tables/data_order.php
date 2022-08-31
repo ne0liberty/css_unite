@@ -92,8 +92,10 @@
                             <td><?= $row['serial_number']; ?></td>
                             <td><?= $row['sn_out']; ?></td>
                             <td>
-                                    <a href="index.php?page=view_order&id=<?= $row['id_order']; ?>" class="btn btn-sm btn-warning">Details</a>
-                                    <a href="pages/tables/hapus.php?id=<?= $row['id_order']; ?>" class="btn btn-sm btn-danger" onclick="return confirm('anda yakin ingin hapus?');">Hapus</a>
+                                  <div class="btn-group btn-group-sm">
+                                    <a href="index.php?page=view_order&id=<?= $row['id_order']; ?>" class="btn btn-info"><i class="fas fa-eye"></i></a>
+                                    <a href="pages/tables/hapus.php?id=<?= $row['id_order']; ?>" class="btn btn-danger" onclick="return confirm('anda yakin ingin hapus?');"><i class="fas fa-trash"></i></a>
+                                 </div>
                             </td>
 					              </tr>
 

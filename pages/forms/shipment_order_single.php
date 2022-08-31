@@ -80,13 +80,78 @@
                   </div>
                     
                 </div>
-                    
+                <ul class="list-group list-group-unbordered mb-3">
+                  <li class="list-group-item">
+                    <div class="form-group">
+                      <label>Shipment Consignee</label>
+                      <div class="form-check">
+                        <input class="form-check-input" type="radio" name="ShipmentConsignee" value="" checked>
+                        <label class="form-check-label">Normal</label>
+                      </div>
+                      <div class="form-check">
+                        <input class="form-check-input" type="radio" name="ShipmentConsignee" value="">
+                        <label class="form-check-label">AOG</label>
+                      </div>
+                    </div>
+                  </li>
+                  <li class="list-group-item">
+                    <div class="form-group">
+                      <label>Goods Category</label>
+                      <div class="form-check">
+                        <input class="form-check-input" type="radio" name="Goods-Category" value="" checked>
+                        <label class="form-check-label">Dangerous Goods (DG)</label>
+                      </div>
+                      <div class="form-check">
+                        <input class="form-check-input" type="radio" name="Goods-Category" value="">
+                        <label class="form-check-label">General Cargo (Genco)</label>
+                      </div>
+                    </div>
+                  </li>
+                  <li class="list-group-item">
+                    <div class="form-group">
+                      <label>Mode of Shipment</label>
+                      <div class="form-check">
+                        <input class="form-check-input" type="radio" name="Mode-of-Shipment" value="" checked>
+                        <label class="form-check-label">Air Freight</label>
+                      </div>
+                      <div class="form-check">
+                        <input class="form-check-input" type="radio" name="Mode-of-Shipment" value="">
+                        <label class="form-check-label">Sea Freight</label>
+                      </div>
+                      <div class="form-check">
+                        <input class="form-check-input" type="radio" name="Mode-of-Shipment" value="">
+                        <label class="form-check-label">Land Freight</label>
+                      </div>
+                    </div>
+                  </li>
+                  <li class="list-group-item">
+                    <div class="form-group">
+                      <label>Customer assign GMF Logistic Services to ship good(s)</label>
+                      <div class="form-check">
+                        <input class="form-check-input" type="radio" name="Services" value="" checked>
+                        <label class="form-check-label">DAP</label>
+                      </div>
+                      <div class="form-check">
+                        <input class="form-check-input" type="radio" name="Services" value="">
+                        <label class="form-check-label">DDP</label>
+                      </div>
+                      <div class="form-check">
+                        <input class="form-check-input" type="radio" name="Services" value="">
+                        <label class="form-check-label">DAT</label>
+                      </div>
+                      <div class="form-check">
+                        <input class="form-check-input" type="radio" name="Services" value="">
+                        <label class="form-check-label">CPT</label>
+                      </div>
+                    </div>
+                  </li>
+                </ul>
                 
               </div>
               <!-- /.col -->
               <div class="col-md-6">
                <label>Item List</label>
-                <table id="example3" class="table table-bordered table-striped">
+                <table id="example3" class="table table-bordered">
                   <thead>
                   <tr>
                     <th>No.</th>
