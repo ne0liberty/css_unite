@@ -85,12 +85,29 @@
               </div>
               <!-- /.col -->
               <div class="col-md-6">
-                
-                <div class="form-group">
-                    <label>Item List</label>
-                    <input type="text" readonly id="desc" name="description" class="form-control">
-
-                </div>
+               <label>Item List</label>
+                <table id="example3" class="table table-bordered table-striped">
+                  <thead>
+                  <tr>
+                    <th>No.</th>
+                    <th>Description</th>
+                    <th>Part Number</th> 
+                    <th>Serial Number</th>
+                    <th>Tracking No</th>
+                    <th>PO Number</th>
+                    <th>Condition</th>
+                  </tr>
+                  </thead>
+                  <tr>
+                    <td>1</td>
+                    <td><?php echo $row_view['description']; ?></td>
+                    <td><?php echo $row_view['pn_out']; ?></td>
+                    <td><?php echo $row_view['sn_out']; ?></td>
+                    <td><?php echo $row_view['tracking_no']; ?></td>
+                    <td><?php echo $row_view['po_number']; ?></td>
+                    <td><?php echo $row_view['core_cond']; ?></td>  
+					        </tr>                  
+                </table>
                 
               </div>
               <!-- /.col -->

@@ -250,7 +250,7 @@
           <!-- /.card-body -->
           <div class="card-footer">
             <button type="submit" name="submit" class="btn btn-primary">Update</button>
-            <button type="submit" name="submit-shipmentorder" class="btn btn-primary">Print Shipment Order</button>
+            <button type="submit" name="submit-shipmentorder" class="btn btn-default">Shipment Order</button>
           </div>
         </div>
         <!-- /.card -->

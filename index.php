@@ -455,11 +455,11 @@ if (!isset($_SESSION['ID'])) {
     });
 
     $('#example3').DataTable({
-      "paging": true,
-      "lengthChange": true,
+      "paging": false,
+      "lengthChange": false,
       "searching": false,
-      "ordering": true,
-      "info": true,
+      "ordering": false,
+      "info": false,
       "autoWidth": false,
       "responsive": true,
 
