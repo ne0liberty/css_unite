@@ -11,8 +11,10 @@
           </div>
           <div class="col-sm-6">
             <ol class="breadcrumb float-sm-right">
-              <li class="breadcrumb-item"><a href="index.php">Home</a></li>
-              <li class="breadcrumb-item">Order</li>
+            <ol class="breadcrumb float-sm-right">
+              <li class="breadcrumb-item"><a href="Index.php">Home</a></li>
+              <li class="breadcrumb-item"><a href="index.php?page=data_order">All Order</a></li>
+              <li class="breadcrumb-item"><a href="javascript:history.back()">View Order</a></li>
               <li class="breadcrumb-item active">Create Shipment Order</li>
             </ol>
           </div>

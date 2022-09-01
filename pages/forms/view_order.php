@@ -10,8 +10,9 @@
           </div>
           <div class="col-sm-6">
             <ol class="breadcrumb float-sm-right">
-              <li class="breadcrumb-item"><a href="#">Home</a></li>
-              <li class="breadcrumb-item active">Order Form</li>
+              <li class="breadcrumb-item"><a href="Index.php">Home</a></li>
+              <li class="breadcrumb-item"><a href="index.php?page=data_order">All Order</a></li>
+              <li class="breadcrumb-item active">View Order</li>
             </ol>
           </div>
         </div>
