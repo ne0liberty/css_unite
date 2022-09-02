@@ -34,6 +34,38 @@
     
     .sheet.padding-5mm { padding: 5mm }
 
+    .checkCircle {
+    border-radius: 50%;
+    width: 15px;
+    height: 15px;
+    padding: 1px;
+    display: inline-block;
+
+    background: #fff;
+    border: 2px solid #000;
+    color: #000;
+    text-align: center;
+
+    font-size: 12px;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    }
+
+    .uncheckCircle {
+    border-radius: 50%;
+    width: 15px;
+    height: 15px;
+    padding: 1px;
+    display: inline-block;
+
+    background: #fff;
+    border: 2px solid #fff;
+    color: #000;
+    text-align: center;
+
+    font-size: 12px;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    }
+
 </style>
 </head>
 <body class="A4">
@@ -56,17 +88,49 @@
         </tr>
         <tr>
             <td rowspan="2">Shipment Consignee</td>
-            <td colspan="2">a. Normal</td>
+            <td colspan="2"><a class="<?php $option = $item['shipmnt_csg']; 
+            switch ($option) {
+                case "a";
+                echo "checkCircle";
+                break;
+                default:
+                echo "uncheckCircle";
+            }
+            ?>">a</a>Normal</td>
         </tr>
         <tr>
-            <td colspan="2">b. AOG</td>
+            <td colspan="2"><a class="<?php $option = $item['shipmnt_csg']; 
+            switch ($option) {
+                case "b";
+                echo "checkCircle";
+                break;
+                default:
+                echo "uncheckCircle";
+            }
+            ?>">b</a>AOG</td>
         </tr>
         <tr>
             <td rowspan="2">Goods Category</td>
-            <td colspan="2">a. Dangerous Goods (DG)</td>
+            <td colspan="2"><a class="<?php $option = $item['goods_cat']; 
+            switch ($option) {
+                case "a";
+                echo "checkCircle";
+                break;
+                default:
+                echo "uncheckCircle";
+            }
+            ?>">a</a>Dangerous Goods (DG)</td>
         </tr>
         <tr>
-            <td colspan="2">b.General Cargo (Genco)</td>
+            <td colspan="2"><a class="<?php $option = $item['goods_cat']; 
+            switch ($option) {
+                case "b";
+                echo "checkCircle";
+                break;
+                default:
+                echo "uncheckCircle";
+            }
+            ?>">b</a>General Cargo (Genco)</td>
         </tr>
         <tr>
             <td>Consignee Name and Address</td>
@@ -74,11 +138,35 @@
         </tr>
         <tr>
             <td rowspan="2">Mode of Shipment</td>
-            <td>a. Air Freight</td>
-            <td rowspan="2" style="vertical-align:top">c. Land Freight</td>
+            <td><a class="<?php $option = $item['shipment_mode']; 
+            switch ($option) {
+                case "a";
+                echo "checkCircle";
+                break;
+                default:
+                echo "uncheckCircle";
+            }
+            ?>">a</a>Air Freight</td>
+            <td rowspan="2" style="vertical-align:top"><a class="<?php $option = $item['shipment_mode']; 
+            switch ($option) {
+                case "c";
+                echo "checkCircle";
+                break;
+                default:
+                echo "uncheckCircle";
+            }
+            ?>">c</a>Land Freight</td>
         </tr>
         <tr>
-            <td>b. Sea Freight</td>
+            <td><a class="<?php $option = $item['shipment_mode']; 
+            switch ($option) {
+                case "b";
+                echo "checkCircle";
+                break;
+                default:
+                echo "uncheckCircle";
+            }
+            ?>">b</a>Sea Freight</td>
         </tr>
         <tr>
             <td rowspan="2">Customer assign GMF Logistic Services to ship good(s)</td>
