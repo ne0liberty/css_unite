@@ -170,12 +170,44 @@
         </tr>
         <tr>
             <td rowspan="2">Customer assign GMF Logistic Services to ship good(s)</td>
-            <td>a. DAP</td>
-            <td>c. DAT</td>
+            <td><a class="<?php $option = $item['log_service']; 
+            switch ($option) {
+                case "a";
+                echo "checkCircle";
+                break;
+                default:
+                echo "uncheckCircle";
+            }
+            ?>">a</a>DAP</td>
+            <td><a class="<?php $option = $item['log_service']; 
+            switch ($option) {
+                case "c";
+                echo "checkCircle";
+                break;
+                default:
+                echo "uncheckCircle";
+            }
+            ?>">c</a>DAT</td>
         </tr>
         <tr>
-            <td>b. DDP</td>
-            <td>d. CPT</td>
+            <td><a class="<?php $option = $item['log_service']; 
+            switch ($option) {
+                case "b";
+                echo "checkCircle";
+                break;
+                default:
+                echo "uncheckCircle";
+            }
+            ?>">b</a>DDP</td>
+            <td><a class="<?php $option = $item['log_service']; 
+            switch ($option) {
+                case "d";
+                echo "checkCircle";
+                break;
+                default:
+                echo "uncheckCircle";
+            }
+            ?>">d</a>CPT</td>
         </tr>
         <tr>
             <td>Pick Up Address</td>
