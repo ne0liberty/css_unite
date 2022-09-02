@@ -87,11 +87,11 @@
                     <div class="form-group">
                       <label>Shipment Consignee</label>
                       <div class="form-check">
-                        <input class="form-check-input" type="radio" name="ShipmentConsignee" value="" checked>
+                        <input class="form-check-input" type="radio" name="shipmnt_csg" value="a" checked>
                         <label class="form-check-label">Normal</label>
                       </div>
                       <div class="form-check">
-                        <input class="form-check-input" type="radio" name="ShipmentConsignee" value="">
+                        <input class="form-check-input" type="radio" name="shipmnt_csg" value="b">
                         <label class="form-check-label">AOG</label>
                       </div>
                     </div>
@@ -100,11 +100,11 @@
                     <div class="form-group">
                       <label>Goods Category</label>
                       <div class="form-check">
-                        <input class="form-check-input" type="radio" name="Goods-Category" value="" checked>
+                        <input class="form-check-input" type="radio" name="goods_cat" value="a" checked>
                         <label class="form-check-label">Dangerous Goods (DG)</label>
                       </div>
                       <div class="form-check">
-                        <input class="form-check-input" type="radio" name="Goods-Category" value="">
+                        <input class="form-check-input" type="radio" name="goods_cat" value="b">
                         <label class="form-check-label">General Cargo (Genco)</label>
                       </div>
                     </div>
@@ -113,15 +113,15 @@
                     <div class="form-group">
                       <label>Mode of Shipment</label>
                       <div class="form-check">
-                        <input class="form-check-input" type="radio" name="Mode-of-Shipment" value="" checked>
+                        <input class="form-check-input" type="radio" name="shipment_mode" value="a" checked>
                         <label class="form-check-label">Air Freight</label>
                       </div>
                       <div class="form-check">
-                        <input class="form-check-input" type="radio" name="Mode-of-Shipment" value="">
+                        <input class="form-check-input" type="radio" name="shipment_mode" value="b">
                         <label class="form-check-label">Sea Freight</label>
                       </div>
                       <div class="form-check">
-                        <input class="form-check-input" type="radio" name="Mode-of-Shipment" value="">
+                        <input class="form-check-input" type="radio" name="shipment_mode" value="c">
                         <label class="form-check-label">Land Freight</label>
                       </div>
                     </div>
@@ -130,19 +130,19 @@
                     <div class="form-group">
                       <label>Customer assign GMF Logistic Services to ship good(s)</label>
                       <div class="form-check">
-                        <input class="form-check-input" type="radio" name="Services" value="" checked>
+                        <input class="form-check-input" type="radio" name="log_service" value="a" checked>
                         <label class="form-check-label">DAP</label>
                       </div>
                       <div class="form-check">
-                        <input class="form-check-input" type="radio" name="Services" value="">
+                        <input class="form-check-input" type="radio" name="log_service" value="b">
                         <label class="form-check-label">DDP</label>
                       </div>
                       <div class="form-check">
-                        <input class="form-check-input" type="radio" name="Services" value="">
+                        <input class="form-check-input" type="radio" name="log_service" value="c">
                         <label class="form-check-label">DAT</label>
                       </div>
                       <div class="form-check">
-                        <input class="form-check-input" type="radio" name="Services" value="">
+                        <input class="form-check-input" type="radio" name="log_service" value="d">
                         <label class="form-check-label">CPT</label>
                       </div>
                     </div>
@@ -202,10 +202,14 @@
                   $vendor = $_POST['vendor'];
                   $address = $_POST['address']?$_POST['address']:$_POST['address_2'];
                   $created_by = ucwords($_SESSION['NAME']);
+                  $shipmnt_csg = $_POST['shipmnt_csg'];
+                  $goods_cat = $_POST['goods_cat'];
+                  $shipment_mode = $_POST['shipment_mode'];
+                  $log_service = $_POST['log_service'];
         
                   
-                  $datas = mysqli_query($koneksi, "INSERT INTO shipment_order (shipment_order_date,vendor,address,created_by)
-                  VALUES('$shipment_order_date', '$vendor','$address','$created_by')") or die(mysqli_error($koneksi));
+                  $datas = mysqli_query($koneksi, "INSERT INTO shipment_order (shipment_order_date,vendor,address,created_by,shipmnt_csg,goods_cat,shipment_mode,log_service)
+                  VALUES('$shipment_order_date', '$vendor','$address','$created_by','$shipmnt_csg','$goods_cat','$shipment_mode','$log_service')") or die(mysqli_error($koneksi));
                   
                   $last_id = mysqli_insert_id($koneksi);
                   //$var = 'pages/forms/shipment_order_page.php?id='($last_id);
