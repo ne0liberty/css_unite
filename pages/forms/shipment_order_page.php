@@ -224,7 +224,7 @@
         <tr>
             <td>Aircraft Registration / Airlines</td>
             <td>REMOVE FROM</td>
-            <td>??</td>
+            <td><?php echo $item['tail_no']; ?></td>
         </tr>
         <tr>
             <td>Special Request</td>
@@ -232,7 +232,7 @@
         </tr>
         <tr>
             <td>Payment Responsibility</td>
-            <td colspan="2">????</td>
+            <td colspan="2"><?php echo $item['paymnt_respn']; ?></td>
         </tr>
         <tr>
             <td colspan="3" style="text-align:center">Customer agree with shipment all arranged by GMF Logistic Services</td>

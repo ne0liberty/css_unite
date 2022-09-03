@@ -55,7 +55,6 @@
                 <div class="form-group">
                     <label>Vendor</label>
                     <input type="text" readonly id="desc" name="vendor" value="<?php echo $row_view['vendor']; ?>" class="form-control">
-
                 </div>
                 
                 <?php
@@ -112,42 +111,62 @@
                   <li class="list-group-item">
                     <div class="form-group">
                       <label>Mode of Shipment</label>
-                      <div class="form-check">
-                        <input class="form-check-input" type="radio" name="shipment_mode" value="a" checked>
-                        <label class="form-check-label">Air Freight</label>
-                      </div>
-                      <div class="form-check">
-                        <input class="form-check-input" type="radio" name="shipment_mode" value="b">
-                        <label class="form-check-label">Sea Freight</label>
-                      </div>
-                      <div class="form-check">
-                        <input class="form-check-input" type="radio" name="shipment_mode" value="c">
-                        <label class="form-check-label">Land Freight</label>
+                      <div class="row">
+                        <div class="col-sm-6">
+                          <div class="form-check">
+                            <input class="form-check-input" type="radio" name="shipment_mode" value="a" checked>
+                            <label class="form-check-label">Air Freight</label>
+                          </div>
+                          <div class="form-check">
+                            <input class="form-check-input" type="radio" name="shipment_mode" value="b">
+                            <label class="form-check-label">Sea Freight</label>
+                          </div>
+                        </div>
+                        <div class="col-sm-6">
+                          <div class="form-check">
+                            <input class="form-check-input" type="radio" name="shipment_mode" value="c">
+                            <label class="form-check-label">Land Freight</label>
+                          </div>
+                        </div>
                       </div>
                     </div>
                   </li>
                   <li class="list-group-item">
                     <div class="form-group">
                       <label>Customer assign GMF Logistic Services to ship good(s)</label>
-                      <div class="form-check">
-                        <input class="form-check-input" type="radio" name="log_service" value="a" checked>
-                        <label class="form-check-label">DAP</label>
-                      </div>
-                      <div class="form-check">
-                        <input class="form-check-input" type="radio" name="log_service" value="b">
-                        <label class="form-check-label">DDP</label>
-                      </div>
-                      <div class="form-check">
-                        <input class="form-check-input" type="radio" name="log_service" value="c">
-                        <label class="form-check-label">DAT</label>
-                      </div>
-                      <div class="form-check">
-                        <input class="form-check-input" type="radio" name="log_service" value="d">
-                        <label class="form-check-label">CPT</label>
+                      <div class="row">
+                        <div class="col-sm-6">
+                          <div class="form-check">
+                            <input class="form-check-input" type="radio" name="log_service" value="a" checked>
+                            <label class="form-check-label">DAP</label>
+                          </div>
+                          <div class="form-check">
+                            <input class="form-check-input" type="radio" name="log_service" value="b">
+                            <label class="form-check-label">DDP</label>
+                          </div>
+                        </div>
+                        <div class="col-sm-6">
+                          <div class="form-check">
+                            <input class="form-check-input" type="radio" name="log_service" value="c">
+                            <label class="form-check-label">DAT</label>
+                          </div>
+                          <div class="form-check">
+                            <input class="form-check-input" type="radio" name="log_service" value="d">
+                            <label class="form-check-label">CPT</label>
+                          </div>
+                        </div> 
                       </div>
                     </div>
                   </li>
                 </ul>
+                <div class="form-group">
+                    <label>Remove From (Tail No)</label>
+                    <input type="text" id="tail_no" name="tail_no" value="PK-" class="form-control">
+                </div>
+                <div class="form-group">
+                    <label>Payment Responsibility</label>
+                    <input type="text" id="paymnt_respn" name="paymnt_respn" value="PT GMF Aeroasia" class="form-control">
+                </div>
                 
               </div>
               <!-- /.col -->
@@ -194,7 +213,7 @@
       <?php
                  include('conf/conn.php');
 				
-                //melakukan pengecekan jika button submit diklik maka akan menjalankan perintah simpan dibawah ini
+                 //melakukan pengecekan jika button submit diklik maka akan menjalankan perintah simpan dibawah ini
                  if (isset($_POST['submit'])) {
                   //menampung data dari inputan
 
@@ -206,13 +225,15 @@
                   $goods_cat = $_POST['goods_cat'];
                   $shipment_mode = $_POST['shipment_mode'];
                   $log_service = $_POST['log_service'];
+                  $tail_no = $_POST['tail_no'];
+                  $paymnt_respn = $_POST['paymnt_respn'];
         
                   
-                  $datas = mysqli_query($koneksi, "INSERT INTO shipment_order (shipment_order_date,vendor,address,created_by,shipmnt_csg,goods_cat,shipment_mode,log_service)
-                  VALUES('$shipment_order_date', '$vendor','$address','$created_by','$shipmnt_csg','$goods_cat','$shipment_mode','$log_service')") or die(mysqli_error($koneksi));
+                  $datas = mysqli_query($koneksi, "INSERT INTO shipment_order (shipment_order_date,vendor,address,created_by,shipmnt_csg,goods_cat,shipment_mode,log_service,tail_no,paymnt_respn)
+                  VALUES('$shipment_order_date', '$vendor','$address','$created_by','$shipmnt_csg','$goods_cat','$shipment_mode','$log_service','$tail_no','$paymnt_respn')") or die(mysqli_error($koneksi));
                   
                   $last_id = mysqli_insert_id($koneksi);
-                  //$var = 'pages/forms/shipment_order_page.php?id='($last_id);
+                  
           
 
                   //echo "<script>window.location.href = 'pages/forms/shipment_order_page.php?id=".$last_id."';</script>";
