@@ -97,11 +97,11 @@
                     <div class="form-group">
                       <label>Goods Category</label>
                       <div class="form-check">
-                        <input class="form-check-input" type="radio" name="goods_cat" value="a" checked>
+                        <input class="form-check-input" type="radio" name="goods_cat" value="a">
                         <label class="form-check-label">Dangerous Goods (DG)</label>
                       </div>
                       <div class="form-check">
-                        <input class="form-check-input" type="radio" name="goods_cat" value="b">
+                        <input class="form-check-input" type="radio" name="goods_cat" value="b" checked>
                         <label class="form-check-label">General Cargo (Genco)</label>
                       </div>
                     </div>
