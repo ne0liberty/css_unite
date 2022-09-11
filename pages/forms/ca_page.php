@@ -22,7 +22,7 @@
         border: 1px solid black;
         border-collapse: collapse;
         font-size: 12px;
-        height: 23px;
+        height: 25px;
         font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
         }
 
@@ -37,7 +37,7 @@
         border: 1px dashed black;
         border-collapse: collapse;
         font-size: 12px;
-        height: 23px;
+        height: 25px;
         font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
         }
     
@@ -90,11 +90,11 @@
     <img class="logo_gmf" src="../../dist/img/gmfaeroasia.PNG"></img>
     <table class="table1" width="100%">
         <tr>
-            <td class="table1" rowspan="2" colspan="7" style="text-align: center;"><b>QUOTATION SHEET</b></td>
-            <td colspan="3">R.O NO</td>
-            <td>:</td>
-            <td class="table1" >404050500</td>
-            <td class="table1" >404050500</td>
+            <td class="table1" rowspan="2" colspan="7" style="text-align: center; "><b>QUOTATION SHEET</b></td>
+            <td colspan="3" style="width:100px ;">R.O NO</td>
+            <td style="width:5px ;">:</td>
+            <td class="table1" style="width:100px ; text-align:left;"><b>404050500</b></td>
+            <td class="table1" style="width:100px ; text-align:left;"><b>404050500</b></td>
         </tr>
         <tr class="table1" >
             <td colspan="3">DATE</td>
@@ -103,9 +103,9 @@
         </tr>
         <tr class="table_dashed">
             <td style="width: 15px;"></td>
-            <td style="width: 120px;">VENDOR / REP. STATION</td>
+            <td style="width: 150px;">VENDOR / REP. STATION</td>
             <td style="width: 15px;">:</td>
-            <td colspan="4" style="width: 100px;">F1787      SOCIETE AIR FRANCE</td>
+            <td colspan="4">F1787      SOCIETE AIR FRANCE</td>
             <td colspan="6"></td>
         </tr>
         <tr class="table_dashed">
@@ -138,8 +138,15 @@
         </tr>
         <tr class="table_dashed">
             <td></td>
-            <td>DATE RECEIVED</td>
+            <td>REF. FAX / TELEX NO</td>
             <td>:</td>
+            <td colspan="7"></td>
+            <td colspan="3"></td>
+        </tr>
+        <tr class="table_dashed">
+            <td></td>
+            <td></td>
+            <td></td>
             <td colspan="7"></td>
             <td colspan="3"></td>
         </tr>
@@ -153,33 +160,122 @@
             <td>7 SEP 2022</td>
         </tr>
         <tr class="table1">
-            <td colspan="12" style="text-align:center;"><b>EVALUATION REPAIR COST</b></td>
+            <td colspan="13" style="text-align:center;"><b>EVALUATION REPAIR COST</b></td>
+        </tr>
+        <tr class="table_dashed">
+            <td></td>
+            <td>THE NEW PRICE</td>
+            <td>:</td>
+            <td style="width:30px ; text-align:right;">USD</td>
+            <td style="text-align:right; width:100px;">89000</td>
+            <td style="width:50px ;"></td>
+            <td colspan="6"></td>
+        </tr>
+        <tr class="table_dashed">
+            <td></td>
+            <td>REPAIR COST</td>
+            <td>:</td>
+            <td style="width:25px ; text-align:right;">USD</td>
+            <td style="text-align:right; width:100px;">3700</td>
+            <td style="width:50px ;"></td>
+            <td colspan="6"></td>
+        </tr>
+        <tr class="table_dashed">
+            <td></td>
+            <td>OTHER COST</td>
+            <td>:</td>
+            <td style="width:25px ; text-align:right;">USD</td>
+            <td style="text-align:right; width:100px;"></td>
+            <td style="width:50px ;"></td>
+            <td colspan="6"></td>
+        </tr>
+        <tr class="table_dashed">
+            <td></td>
+            <td>TOTAL</td>
+            <td>:</td>
+            <td style="width:25px ; text-align:right;">USD</td>
+            <td style="text-align:right; width:100px;"><b>3700</b></td>
+            <td style="width:50px ;"></td>
+            <td></td>
+            <td>PERCENTAGE:</td>
+            <td></td>
+            <td><b> 100%</b></td>
+        </tr>
+        <tr class="table_dashed">
+            <td></td>
+            <td>NOTE</td>
+            <td>:</td>
+            <td style="width:25px ; text-align:right;">USD</td>
+            <td style="text-align:right; width:100px;"></td>
+            <td style="width:50px ;"></td>
+            <td colspan="6"></td>
+        </tr>
+        <tr class="table_dashed">
+            <td></td>
+            <td></td>
+            <td></td>
+            <td style="width:25px ; text-align:right;"></td>
+            <td style="text-align:right; width:100px;"></td>
+            <td style="width:50px ;"></td>
+            <td colspan="6"></td>
+        </tr>
+        <tr class="table1">
+            <td colspan="13" style="text-align:center;">THIS PRICE HAS BEEN EVALUATED TO CONTINUING PROCESS</td>
+        </tr>
+        <tr>
+            <td class="table1" colspan="4" style="text-align: center;"><b>EVALUATED BY PURCHASER</b></td>
+            <td class="table1" colspan="5" style="text-align: center;"><b>CHECKED BY MANAGER</b></td>
+            <td class="table1" colspan="4" style="text-align: center;"><b>APPROVED GENERAL MANAGER</b></td>
+        </tr>
+        <tr>
+            <td class="table1" colspan="4" style="text-align: center; height:80px;"></td>
+            <td class="table1" colspan="5" style="text-align: center; height:80px;"></td>
+            <td class="table1" colspan="4" style="text-align: center; height:80px;"></td>
+        </tr>
+        <tr>
+            <td colspan="4" style="text-align: left; border-right: 1px solid black; padding-left: 15px;">NAMA & SIGN  : GUSTAF KUSUMA PRADANA</td>
+            <td colspan="5" style="text-align: left; padding-left: 15px;">NAMA & SIGN  : WASIS HADI KAMAL</td>
+            <td colspan="4" style="text-align: left; padding-left: 15px; border-left: 1px solid black;">NAMA & SIGN  : ANNISA PUSPITASARI</td>
+        </tr>
+        <tr>
+            <td colspan="4" style="text-align: left; padding-left: 15px; border-right: 1px solid black;">DATE</td>
+            <td colspan="5" style="text-align: left; padding-left: 15px;">DATE</td>
+            <td colspan="4" style="text-align: left; padding-left: 15px;border-left: 1px solid black;">DATE</td>
+        </tr>
+        <tr>
+            <td colspan="5" class="table1" style="text-align: center;"><b>APPROVE BY VP COMPONENT SERVICES</b></td>
+            <td colspan="8" class="table1" style="text-align: center;"><b>APPROVED BY DIRECTOR</b></td>
+        </tr>
+        <tr>
+            <td colspan="5" style="text-align: center; border-right: 1px solid black; height:80px;"></td>
+            <td colspan="8" style="text-align: center;"></td>
+        </tr>
+        <tr>
+            <td colspan="5" style="text-align: left; border-right: 1px solid black; padding-left: 15px;">NAME & SIGN : </td>
+            <td colspan="8" style="text-align: left; border-right: 1px solid black; padding-left: 15px;">NAME & SIGN : </td>
+        </tr>
+        <tr>
+            <td colspan="5" style="text-align: left; border-right: 1px solid black; padding-left: 15px;">DATE : </td>
+            <td colspan="8" style="text-align: left; padding-left: 15px;">DATE : </td>
+        </tr>
+        <tr style="height:25px; border-top:1px solid black;">
+            <td></td>
+            <td colspan="8">REPLY TO VENDOR / REP. STATION BY EMAIL FAX/TLX. NO. : …………………………</td>
+            <td>DATE:</td>
+        </tr>
+        <tr style="height:25px;">
+            <td style="height: 70px;"></td>
+            <td colspan="8"></td>
+            <td></td>
+        </tr>
+        <tr style="height:25px;">
+            <td></td>
+            <td colspan="8">UP DATE  SAP ( ME23N ):YES/NO  DATE :</td>
+            <td>SIGN:</td>
         </tr>
     </table>
-    <table width="100%" class="table2">
-        <tr>
-            <td width="250px" colspan="2" style="border:0px;height:40px"></td>
-            <td style="border:0px;">Jakarta,> </td>
-        </tr>
-        <tr>
-            <td style="border:0px;">Received  by</td>
-            <td style="border:0px;"></td>
-            <td style="border:0px;">Approved by Customer</td>
-        </tr>
-        <tr>
-            <td style="height:80px; border: 0px;">---TTD---</td>
-            <td style="border:0px;"></td>
-            <td style="border:0px;">---TTD---</td>
-        </tr>
-        <tr>
-            <td style="border:0px; height: 30px; vertical-align: top;">Receiver</td>
-            <td style="border:0px;"></td>
-            <td style="border:0px; vertical-align: top;">Gustaf Kusuma Pradana</td>
-        </tr>
-        <tr>
-            <td colspan="3">FORM NO: GMF/P-001 R0</td>
-        </tr>
-    </table>
+    <a style="font-size: 12px;">Form GMF/Q-299 R1</a>
+    
 </section>
 </body>
 </html>
