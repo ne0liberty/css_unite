@@ -203,7 +203,7 @@
           </div>
           <!-- /.card-body -->
           <div class="card-footer">
-            <button type="submit" name="submit" class="btn btn-default" href=""><i class="fas fa-print"></i> Print</a></button>
+            <button type="submit" name="submit" class="btn btn-secondary" href=""><i class="fas fa-print"></i> Print</a></button>
           </div>
         </div>
         <!-- /.card -->
