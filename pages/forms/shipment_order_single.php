@@ -237,7 +237,7 @@
           
 
                   //echo "<script>window.location.href = 'pages/forms/shipment_order_page.php?id=".$last_id."';</script>";
-                  echo "<script>window.open('pages/forms/shipment_order_page.php?id=".$last_id."', '_blank');</script>";
+                  echo "<script>window.open('pages/forms/shipment_order_sheet.php?id=".$last_id."', '_blank');</script>";
                  }
                   
                   
