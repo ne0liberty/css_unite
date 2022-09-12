@@ -123,7 +123,7 @@
                           <div class="input-group-prepend">
                             <span class="input-group-text">$</span>
                           </div>
-                          <input type="text" class="form-control">
+                          <input type="text" class="form-control" name="repair_cost">
                           
                         </div>
                       </div>
@@ -133,7 +133,7 @@
                           <div class="input-group-prepend">
                             <span class="input-group-text">$</span>
                           </div>
-                          <input type="text" class="form-control">
+                          <input type="text" class="form-control" name="other_cost">
                           
                         </div>
                       </div>
@@ -143,7 +143,7 @@
                           <div class="input-group-prepend">
                             <span class="input-group-text">$</span>
                           </div>
-                          <input type="text" readonly class="form-control">
+                          <input type="text" readonly class="form-control" name="sum" onkeyup="calcSum()">
                           
                         </div>
                       </div>
@@ -176,8 +176,17 @@
                   echo "<script>window.open('pages/forms/ca_sheet.php?id=".$id."', '_blank');</script>";
                  }       
       ?>
-
+  <script>
+      function calcSum() {
+          let num1 = document.getElementsByName("repair_cost")[0].value;
+          let num2 = document.getElementsByName("other_cost")[0].value;
+          let sum = Number(num1) + Number(num2);
+          document.getElementsByName("Sum")[0].value = sum;
+      }
+  </script>
   </section>
+
+  
 
 </div>
   <!-- /.content-wrapper -->
