@@ -39,7 +39,7 @@
               <div class="col-md-6">
                 <div class="form-group">
                     <label>Shipment order date</label>
-                    <input type="date" name="shipment_order_date" class="form-control" placeholder="Masukkan">
+                    <input type="date" name="shipment_order_date" class="form-control" placeholder="Masukkan" value="<?php echo date('Y-m-d'); ?>">
                   </div>
                 <div class="form-group">
                   <label>Vendor</label>

@@ -152,7 +152,7 @@
                   </div>
                 </div>
                 <div class="card-footer">
-                          <button type="submit" name="" class="btn btn-secondary"><i class="fas fa-print"></i> Print CA Sheet</button>
+                          <button type="submit" name="submit" class="btn btn-secondary"><i class="fas fa-print"></i> Print CA Sheet</button>
                 </div>
         </div>
       </div>       
@@ -172,10 +172,8 @@
                   // $update1 = mysqli_query($koneksi, "UPDATE master_order SET note='$note', repair_tat='$repair_tat', po_date='$po_date', awb_in='$awb_in', awb_date='$awb_date', eta='$eta', gr_date='$gr_date', serial_number='$serial_number', serv_batch='$serv_batch', date_store='$date_store', pn_out='$pn_out', sn_out='$sn_out', core_batch='$core_batch', shipment_order_date='$shipment_order_date', awb_out='$awb_out', awb_out_date='$awb_out_date', core_cond='$core_cond' WHERE id_order='$id'");                 
                   // $update2 = mysqli_query($koneksi, "UPDATE master_order SET serv_status=IF(awb_in='','Waiting AWB',IF(gr_date='','SHIPPED',IF(date_store='','Waiting Inspect','CLOSED')));");
 
-                  $ca_id = $row_view['id'];
-
                   //ini untuk menampilkan alert berhasil dan redirect ke halaman index
-                  echo "<script>window.open('pages/forms/ca_sheet.php?id=".$ca_id."', '_blank');</script>";
+                  echo "<script>window.open('pages/forms/ca_sheet.php?id=".$id."', '_blank');</script>";
                  }       
       ?>
 
