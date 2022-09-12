@@ -105,7 +105,7 @@
                     <div class="col-md-6">
                       <div class="form-group">
                           <label>Proforma Invoice / Invoice</label>
-                          <input type="text" name="ref_pi" class="form-control" placeholder="Enter" value="">
+                          <input type="text" name="invoice" class="form-control" placeholder="Enter" value="">
                       </div> 
                       <div class="form-group">
                         <label>New Price</label>
@@ -113,7 +113,7 @@
                           <div class="input-group-prepend">
                             <span class="input-group-text">$</span>
                           </div>
-                          <input type="text" class="form-control" value="<?php echo $row_view_pn['pn_newprice']; ?>" readonly>
+                          <input type="text" name="" class="form-control" value="<?php echo $row_view_pn['pn_newprice']; ?>" readonly>
                           
                         </div>
                       </div>
@@ -143,7 +143,7 @@
                           <div class="input-group-prepend">
                             <span class="input-group-text">$</span>
                           </div>
-                          <input type="text" readonly class="form-control" name="sum" >
+                          <input type="text" name="total_cost" readonly class="form-control">
                           
                         </div>
                       </div>
@@ -164,12 +164,14 @@
                  if (isset($_POST['submit'])) {
                   //menampung data dari inputan
 
-                  // $note = $_POST['note'];
-            
-                  
+                  $ca_date = $_POST['ca_date'];
+                  $invoice = $_POST['invoice'];
+                  $repair_cost = $_POST['repair_cost'];
+                  $other_cost = $_POST['other_cost'];
+                  $total_cost = $_POST['total_cost'];
         
                   // update data ke database
-                  // $update1 = mysqli_query($koneksi, "UPDATE master_order SET note='$note', repair_tat='$repair_tat', po_date='$po_date', awb_in='$awb_in', awb_date='$awb_date', eta='$eta', gr_date='$gr_date', serial_number='$serial_number', serv_batch='$serv_batch', date_store='$date_store', pn_out='$pn_out', sn_out='$sn_out', core_batch='$core_batch', shipment_order_date='$shipment_order_date', awb_out='$awb_out', awb_out_date='$awb_out_date', core_cond='$core_cond' WHERE id_order='$id'");                 
+                  $update1 = mysqli_query($koneksi, "UPDATE master_order SET ca_date='$ca_date', invoice='$invoice', repair_cost='$repair_cost', other_cost='$other_cost', total_cost='$total_cost' WHERE id_order='$id'");                 
                   // $update2 = mysqli_query($koneksi, "UPDATE master_order SET serv_status=IF(awb_in='','Waiting AWB',IF(gr_date='','SHIPPED',IF(date_store='','Waiting Inspect','CLOSED')));");
 
                   //ini untuk menampilkan alert berhasil dan redirect ke halaman index
@@ -181,7 +183,7 @@
           let num1 = document.getElementsByName("repair_cost")[0].value;
           let num2 = document.getElementsByName("other_cost")[0].value;
           let sum = Number(num1) + Number(num2);
-          document.getElementsByName("sum")[0].value = sum;
+          document.getElementsByName("total_cost")[0].value = sum;
       }
   </script>
   </section>

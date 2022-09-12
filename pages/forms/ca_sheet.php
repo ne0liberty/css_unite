@@ -1,8 +1,8 @@
 <?php
- // include('../../conf/conn.php'); 
- // $id = $_GET['id'];
- // $datas = mysqli_query($koneksi, "SELECT * FROM master_order WHERE id_order='$id'") or die(mysqli_error($koneksi));
- // $item = mysqli_fetch_assoc($datas)
+  include('../../conf/conn.php'); 
+  $id = $_GET['id'];
+  $datas = mysqli_query($koneksi, "SELECT * FROM master_order WHERE id_order='$id'") or die(mysqli_error($koneksi));
+  $row_view = mysqli_fetch_assoc($datas)
 
 ?>
 
@@ -93,54 +93,54 @@
             <td class="table1" rowspan="2" colspan="7" style="text-align: center; "><b>QUOTATION SHEET</b></td>
             <td colspan="3" style="width:100px ;">R.O NO</td>
             <td style="width:5px ;">:</td>
-            <td class="table1" style="width:100px ; text-align:left;"><b>404050500</b></td>
-            <td class="table1" style="width:100px ; text-align:left;"><b>404050500</b></td>
+            <td class="table1" style="width:100px ; text-align:left;"><b><?php echo $row_view['po_number']; ?></b></td>
+            <td class="table1" style="width:100px ; text-align:left;"><b><?php echo $row_view['tracking_no']; ?></b></td>
         </tr>
         <tr class="table1" >
             <td colspan="3">DATE</td>
             <td>:</td>
-            <td colspan="2">7 Sep 2022</td>
+            <td colspan="2"><?php echo $row_view['entry_date']; ?></td>
         </tr>
         <tr class="table_dashed">
             <td style="width: 15px;"></td>
             <td style="width: 150px;">VENDOR / REP. STATION</td>
             <td style="width: 15px;">:</td>
-            <td colspan="4">F1787      SOCIETE AIR FRANCE</td>
-            <td colspan="6"></td>
+            <td colspan="5"><?php echo $row_view['vendor']; ?></td>
+            <td colspan="5"></td>
         </tr>
         <tr class="table_dashed">
             <td></td>
             <td>DESCRIPTION</td>
             <td>:</td>
-            <td colspan="7">EMERGENCY POWER ASSIST SYSTEM (EPAS) BATTERY PACK</td>
+            <td colspan="7"><?php echo $row_view['description']; ?></td>
             <td colspan="3"></td>
         </tr>
         <tr class="table_dashed">
             <td></td>
             <td>PART NUMBER</td>
             <td>:</td>
-            <td colspan="7"></td>
+            <td colspan="7"><?php echo $row_view['pn_out']; ?></td>
             <td colspan="3"></td>
         </tr>
         <tr class="table_dashed">
             <td></td>
             <td>SERIAL NUMBER</td>
             <td>:</td>
-            <td colspan="7"></td>
+            <td colspan="7"><?php echo $row_view['sn_out']; ?></td>
             <td colspan="3"></td>
         </tr>
         <tr class="table_dashed">
             <td></td>
             <td>DATE RECEIVED</td>
             <td>:</td>
-            <td colspan="7"></td>
+            <td colspan="7"><?php echo $row_view['awb_out_date']; ?></td>
             <td colspan="3"></td>
         </tr>
         <tr class="table_dashed">
             <td></td>
             <td>REF. FAX / TELEX NO</td>
             <td>:</td>
-            <td colspan="7"></td>
+            <td colspan="7"><?php echo $row_view['invoice']; ?></td>
             <td colspan="3"></td>
         </tr>
         <tr class="table_dashed">
@@ -154,20 +154,30 @@
             <td></td>
             <td>PREPARED BY</td>
             <td>:</td>
-            <td colspan="4">GUSTAF KUSUMA PRADANA</td>
+            <td colspan="4"><?php echo $row_view['created_by']; ?></td>
             <td colspan="4"></td>
             <td>DATE :</td>
-            <td>7 SEP 2022</td>
+            <td><?php echo $row_view['ca_date']; ?></td>
         </tr>
         <tr class="table1">
             <td colspan="13" style="text-align:center;"><b>EVALUATION REPAIR COST</b></td>
         </tr>
+
+        <?php 
+        
+        $pn_out_database = $row_view['pn_out'];
+
+        $datas2 = mysqli_query($koneksi, "SELECT * FROM pn_database WHERE part_number='$pn_out_database'") or die(mysqli_error($koneksi));
+        $row_view2 = mysqli_fetch_assoc($datas2)
+
+        ?>
+
         <tr class="table_dashed">
             <td></td>
             <td>THE NEW PRICE</td>
             <td>:</td>
             <td style="width:30px ; text-align:right;">USD</td>
-            <td style="text-align:right; width:100px;">89000</td>
+            <td style="text-align:right; width:100px;"><?php echo $row_view2['pn_newprice']; ?></td>
             <td style="width:50px ;"></td>
             <td colspan="6"></td>
         </tr>
@@ -176,7 +186,7 @@
             <td>REPAIR COST</td>
             <td>:</td>
             <td style="width:25px ; text-align:right;">USD</td>
-            <td style="text-align:right; width:100px;">3700</td>
+            <td style="text-align:right; width:100px;"><?php echo $row_view['repair_cost']; ?></td>
             <td style="width:50px ;"></td>
             <td colspan="6"></td>
         </tr>
@@ -185,7 +195,7 @@
             <td>OTHER COST</td>
             <td>:</td>
             <td style="width:25px ; text-align:right;">USD</td>
-            <td style="text-align:right; width:100px;"></td>
+            <td style="text-align:right; width:100px;"><?php echo $row_view['other_cost']; ?></td>
             <td style="width:50px ;"></td>
             <td colspan="6"></td>
         </tr>
@@ -194,18 +204,27 @@
             <td>TOTAL</td>
             <td>:</td>
             <td style="width:25px ; text-align:right;">USD</td>
-            <td style="text-align:right; width:100px;"><b>3700</b></td>
+            <td style="text-align:right; width:100px;"><b><?php echo $row_view['total_cost']; ?></b></td>
             <td style="width:50px ;"></td>
             <td></td>
             <td>PERCENTAGE:</td>
             <td></td>
-            <td><b> 100%</b></td>
+            <td colspan="4"><b>
+
+            <?php  
+            $percentage = $row_view['total_cost'];
+            $totalWidth = $row_view2['pn_newprice']; 
+
+            $new_width = ($percentage / $totalWidth) * 100; 
+            
+            echo number_format((float)$new_width, 2, '.', ''); ?> %
+            </b></td>
         </tr>
         <tr class="table_dashed">
             <td></td>
             <td>NOTE</td>
             <td>:</td>
-            <td style="width:25px ; text-align:right;">USD</td>
+            <td style="width:25px ; text-align:right;"></td>
             <td style="text-align:right; width:100px;"></td>
             <td style="width:50px ;"></td>
             <td colspan="6"></td>
@@ -233,12 +252,12 @@
             <td class="table1" colspan="4" style="text-align: center; height:80px;"></td>
         </tr>
         <tr>
-            <td colspan="4" style="text-align: left; border-right: 1px solid black; padding-left: 15px;">NAMA & SIGN  : GUSTAF KUSUMA PRADANA</td>
+            <td colspan="4" style="text-align: left; border-right: 1px solid black; padding-left: 15px;">NAMA & SIGN  : <?php echo $row_view['created_by']; ?></td>
             <td colspan="5" style="text-align: left; padding-left: 15px;">NAMA & SIGN  : WASIS HADI KAMAL</td>
             <td colspan="4" style="text-align: left; padding-left: 15px; border-left: 1px solid black;">NAMA & SIGN  : ANNISA PUSPITASARI</td>
         </tr>
         <tr>
-            <td colspan="4" style="text-align: left; padding-left: 15px; border-right: 1px solid black;">DATE</td>
+            <td colspan="4" style="text-align: left; padding-left: 15px; border-right: 1px solid black;">DATE : <?php echo date('Y-m-d'); ?></td>
             <td colspan="5" style="text-align: left; padding-left: 15px;">DATE</td>
             <td colspan="4" style="text-align: left; padding-left: 15px;border-left: 1px solid black;">DATE</td>
         </tr>
