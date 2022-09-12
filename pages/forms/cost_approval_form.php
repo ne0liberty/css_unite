@@ -123,7 +123,7 @@
                           <div class="input-group-prepend">
                             <span class="input-group-text">$</span>
                           </div>
-                          <input type="text" class="form-control" name="repair_cost">
+                          <input type="text" class="form-control" name="repair_cost" onkeyup="calcSum()">
                           
                         </div>
                       </div>
@@ -133,7 +133,7 @@
                           <div class="input-group-prepend">
                             <span class="input-group-text">$</span>
                           </div>
-                          <input type="text" class="form-control" name="other_cost">
+                          <input type="text" class="form-control" name="other_cost" onkeyup="calcSum()">
                           
                         </div>
                       </div>
@@ -143,7 +143,7 @@
                           <div class="input-group-prepend">
                             <span class="input-group-text">$</span>
                           </div>
-                          <input type="text" readonly class="form-control" name="sum" onkeyup="calcSum()">
+                          <input type="text" readonly class="form-control" name="sum" >
                           
                         </div>
                       </div>
@@ -181,7 +181,7 @@
           let num1 = document.getElementsByName("repair_cost")[0].value;
           let num2 = document.getElementsByName("other_cost")[0].value;
           let sum = Number(num1) + Number(num2);
-          document.getElementsByName("Sum")[0].value = sum;
+          document.getElementsByName("sum")[0].value = sum;
       }
   </script>
   </section>
