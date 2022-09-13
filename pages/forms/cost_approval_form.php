@@ -99,6 +99,8 @@
                     $data3 = mysqli_query($koneksi, "select * from pn_database where part_number='$part_number'");
                     $row_view_pn = mysqli_fetch_assoc($data3);
 
+                    $pn_newprice = isset($row_view_pn['pn_newprice']) ? $row_view_pn['pn_newprice'] : '';
+
                     ?>
 
                     <!-- right column -->
@@ -113,7 +115,7 @@
                           <div class="input-group-prepend">
                             <span class="input-group-text">$</span>
                           </div>
-                          <input type="text" name="" class="form-control" value="<?php echo $row_view_pn['pn_newprice']; ?>" readonly>
+                          <input type="text" name="" class="form-control" value="<?php echo $pn_newprice; ?>" readonly>
                           
                         </div>
                       </div>
