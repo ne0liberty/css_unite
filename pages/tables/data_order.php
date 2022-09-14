@@ -92,6 +92,7 @@
                             <td><?= $row['serial_number']; ?></td>
                             <td><?= $row['sn_out']; ?></td>
                             <td>
+
                                   <div class="btn-group btn-group-sm">
                                     <a href="index.php?page=view_order&id=<?= $row['id_order']; ?>" class="btn btn-warning"><i class="fas fa-eye"></i></a>
                                     <a href="index.php?page=cost_approval&id=<?= $row['id_order']; ?>" class="btn btn-warning"><i class="fas fa-dollar-sign"></i></a>
