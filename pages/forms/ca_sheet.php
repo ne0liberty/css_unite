@@ -264,8 +264,9 @@
             <td colspan="5" style="text-align: left; padding-left: 15px;">NAMA & SIGN  : WASIS HADI KAMAL</td>
             <td colspan="4" style="text-align: left; padding-left: 15px; border-left: 1px solid black;">NAMA & SIGN  : ANNISA PUSPITASARI</td>
         </tr>
+        
         <tr>
-            <td colspan="4" style="text-align: left; padding-left: 15px; border-right: 1px solid black;">DATE : <?php echo date('Y-m-d'); ?></td>
+            <td colspan="4" style="text-align: left; padding-left: 15px; border-right: 1px solid black;">DATE : <?php echo date('d-M-Y'); ?></td>
             <td colspan="5" style="text-align: left; padding-left: 15px;">DATE</td>
             <td colspan="4" style="text-align: left; padding-left: 15px;border-left: 1px solid black;">DATE</td>
         </tr>
