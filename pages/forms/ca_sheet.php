@@ -133,11 +133,15 @@
             <td colspan="7"><?php echo $row_view['sn_out']; ?></td>
             <td colspan="3"></td>
         </tr>
+        <?php  
+         $original_awb_out_date = $row_view['awb_out_date'];
+         $new_awb_out_date = date("d-M-Y", strtotime($original_awb_out_date));
+        ?>
         <tr class="table_dashed">
             <td></td>
             <td>DATE RECEIVED</td>
             <td>:</td>
-            <td colspan="7"><?php echo $row_view['awb_out_date']; ?></td>
+            <td colspan="7"><?php echo $new_awb_out_date; ?></td>
             <td colspan="3"></td>
         </tr>
         <tr class="table_dashed">
