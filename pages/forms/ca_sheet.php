@@ -96,10 +96,14 @@
             <td class="table1" style="width:100px ; text-align:left;"><b><?php echo $row_view['po_number']; ?></b></td>
             <td class="table1" style="width:100px ; text-align:left;"><b><?php echo $row_view['tracking_no']; ?></b></td>
         </tr>
+        <?php  
+         $original_entry_date = $row_view['entry_date'];
+         $new_entry_date = date("d-M-Y", strtotime($original_entry_date));
+        ?>
         <tr class="table1" >
             <td colspan="3">DATE</td>
             <td>:</td>
-            <td colspan="2"><?php echo $row_view['entry_date']; ?></td>
+            <td colspan="2"><?php echo $new_entry_date; ?></td>
         </tr>
         <tr class="table_dashed">
             <td style="width: 15px;"></td>
@@ -150,14 +154,18 @@
             <td colspan="7"></td>
             <td colspan="3"></td>
         </tr>
+        <?php  
+         $original_ca_date = $row_view['ca_date'];
+         $new_ca_date = date("d-M-Y", strtotime($original_ca_date));
+        ?>
         <tr class="table1">
             <td></td>
             <td>PREPARED BY</td>
             <td>:</td>
             <td colspan="4"><?php echo $row_view['created_by']; ?></td>
             <td colspan="4"></td>
-            <td>DATE :</td>
-            <td><?php echo $row_view['ca_date']; ?></td>
+            <td colspan="2">DATE :  <?php echo $new_ca_date; ?></td>
+            
         </tr>
         <tr class="table1">
             <td colspan="13" style="text-align:center;"><b>EVALUATION REPAIR COST</b></td>
@@ -179,7 +187,7 @@
             <td style="width:30px ; text-align:right;">USD</td>
             <td style="text-align:right; width:100px;"><?php echo $row_view2['pn_newprice']; ?></td>
             <td style="width:50px ;"></td>
-            <td colspan="6"></td>
+            <td colspan="7"></td>
         </tr>
         <tr class="table_dashed">
             <td></td>
@@ -188,7 +196,7 @@
             <td style="width:25px ; text-align:right;">USD</td>
             <td style="text-align:right; width:100px;"><?php echo $row_view['repair_cost']; ?></td>
             <td style="width:50px ;"></td>
-            <td colspan="6"></td>
+            <td colspan="7"></td>
         </tr>
         <tr class="table_dashed">
             <td></td>
@@ -197,7 +205,7 @@
             <td style="width:25px ; text-align:right;">USD</td>
             <td style="text-align:right; width:100px;"><?php echo $row_view['other_cost']; ?></td>
             <td style="width:50px ;"></td>
-            <td colspan="6"></td>
+            <td colspan="7"></td>
         </tr>
         <tr class="table_dashed">
             <td></td>
@@ -227,7 +235,7 @@
             <td style="width:25px ; text-align:right;"></td>
             <td style="text-align:right; width:100px;"></td>
             <td style="width:50px ;"></td>
-            <td colspan="6"></td>
+            <td colspan="7"></td>
         </tr>
         <tr class="table_dashed">
             <td></td>
@@ -236,7 +244,7 @@
             <td style="width:25px ; text-align:right;"></td>
             <td style="text-align:right; width:100px;"></td>
             <td style="width:50px ;"></td>
-            <td colspan="6"></td>
+            <td colspan="7"></td>
         </tr>
         <tr class="table1">
             <td colspan="13" style="text-align:center;">THIS PRICE HAS BEEN EVALUATED TO CONTINUING PROCESS</td>
@@ -280,17 +288,17 @@
         <tr style="height:25px; border-top:1px solid black;">
             <td></td>
             <td colspan="8">REPLY TO VENDOR / REP. STATION BY EMAIL FAX/TLX. NO. : …………………………</td>
-            <td>DATE:</td>
+            <td colspan="4">DATE:</td>
         </tr>
         <tr style="height:25px;">
             <td style="height: 70px;"></td>
             <td colspan="8"></td>
-            <td></td>
+            <td colspan="4"></td>
         </tr>
         <tr style="height:25px;">
             <td></td>
             <td colspan="8">UP DATE  SAP ( ME23N ):YES/NO  DATE :</td>
-            <td>SIGN:</td>
+            <td colspan="4">SIGN:</td>
         </tr>
     </table>
     <a style="font-size: 12px;">Form GMF/Q-299 R1</a>
