@@ -107,7 +107,7 @@
                     <div class="col-md-6">
                       <div class="form-group">
                           <label>Proforma Invoice / Invoice</label>
-                          <input type="text" name="invoice" class="form-control" placeholder="Enter" value="">
+                          <input type="text" name="invoice" class="form-control" placeholder="Enter" value="<?php echo $row_view['invoice']; ?>">
                       </div> 
                       <div class="form-group">
                         <label>New Price</label>
@@ -125,7 +125,7 @@
                           <div class="input-group-prepend">
                             <span class="input-group-text">$</span>
                           </div>
-                          <input type="text" class="form-control" name="repair_cost" onkeyup="calcSum()">
+                          <input type="text" class="form-control" name="repair_cost" onkeyup="calcSum()" value="<?php echo $row_view['repair_cost']; ?>">
                           
                         </div>
                       </div>
@@ -135,7 +135,7 @@
                           <div class="input-group-prepend">
                             <span class="input-group-text">$</span>
                           </div>
-                          <input type="text" class="form-control" name="other_cost" onkeyup="calcSum()">
+                          <input type="text" class="form-control" name="other_cost" onkeyup="calcSum()" value="<?php echo $row_view['other_cost']; ?>">
                           
                         </div>
                       </div>
@@ -145,7 +145,7 @@
                           <div class="input-group-prepend">
                             <span class="input-group-text">$</span>
                           </div>
-                          <input type="text" name="total_cost" readonly class="form-control">
+                          <input type="text" name="total_cost" readonly class="form-control" value="<?php echo $row_view['total_cost']; ?>">
                           
                         </div>
                       </div>
