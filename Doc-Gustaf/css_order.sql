@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Sep 12, 2022 at 05:43 PM
+-- Generation Time: Sep 25, 2022 at 06:17 PM
 -- Server version: 10.4.24-MariaDB
 -- PHP Version: 8.1.6
 
@@ -84,23 +84,28 @@ CREATE TABLE `master_order` (
   `invoice` varchar(20) DEFAULT NULL,
   `repair_cost` decimal(10,2) NOT NULL DEFAULT 0.00,
   `other_cost` decimal(10,2) NOT NULL DEFAULT 0.00,
-  `total_cost` decimal(10,2) NOT NULL DEFAULT 0.00
+  `total_cost` decimal(10,2) NOT NULL DEFAULT 0.00,
+  `ca_app_date` date DEFAULT NULL,
+  `tat_po` varchar(4) DEFAULT '0',
+  `sla_vendor` varchar(7) DEFAULT NULL,
+  `tat_gr` varchar(10) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Dumping data for table `master_order`
 --
 
-INSERT INTO `master_order` (`id_order`, `entry_date`, `req_scheme`, `tracking_no`, `po_number`, `part_number`, `description`, `pr`, `aircraft`, `note`, `vendor`, `repair_tat`, `po_date`, `awb_in`, `awb_date`, `eta`, `gr_date`, `serial_number`, `serv_batch`, `date_store`, `pn_out`, `sn_out`, `core_batch`, `shipment_order_date`, `awb_out`, `awb_out_date`, `core_cond`, `serv_status`, `created_by`, `ca_date`, `invoice`, `repair_cost`, `other_cost`, `total_cost`) VALUES
-(1, '2022-05-02', 'Exchange', '-', '340011288', '350E053021818', 'FLIGHT WARNING COMPUTER', '500041249', 'PK-GLX', 'UMR 804370175 \r\nokeee', '0UBE7 UNICAL AVIATION,INC.', '', '0000-00-00', '', '0000-00-00', '0000-00-00', '0000-00-00', '', '', '0000-00-00', '', '', '', '0000-00-00', '', '0000-00-00', '', 'Waiting AWB', 'Gustaf Kusuma Pradana', NULL, NULL, '0.00', '0.00', '0.00'),
-(2, '2022-05-17', 'Repair', '430027064', '430027064', 'RCF6708', 'REGULATOR TRANSMITTER-PRESSURE', '500039676', 'PK-GHQ', '', 'QC054 SAFRAN AEROSYSTEM SERVICE ASIA PTE', '', '2022-05-17', '7295093875', '2022-07-06', '2022-07-08', '2022-07-08', '15865', '0002534276', '2022-07-09', 'RCF6708 ', '15865', '0002459219', '2022-05-18', '6046573923', '2022-05-20', 'Unserviceable', 'CLOSED', 'Gustaf Kusuma Pradana', '2022-09-12', 'new2', '100.00', '200.00', '300.00'),
-(20, '2022-07-29', 'Repair', '', '430027369', 'LA2T0G21006CA10', 'ATSU-AIR TRAFFIC SERVICES UNIT', '500041858', 'PK-GLR', 'yesss', 'SCD13 GUANGZHOU HANGXIN AVIONICS CO LTD', '', '0000-00-00', '', '0000-00-00', '0000-00-00', '0000-00-00', '', '', '0000-00-00', 'LA2T0G21006CA10', '2T0007512', '00000DFAFA', '2022-07-20', '6103585213', '2022-07-21', 'Unserviceable', 'Waiting AWB', 'Arif Setiawan', NULL, NULL, '0.00', '0.00', '0.00'),
-(24, '2022-07-01', 'Exchange', '-', '430027250', '0851HL', 'PROBE-PITOT', '500041409', 'PK-GLP', 'REPAIR DER PITOT PROBE', 'GI383 CSI AEROSPACE, INC', '30', '2022-07-29', 'newwdhl', '2022-08-03', '2022-08-04', '2022-08-05', 'SN2', '0000245636', '2022-08-12', '0851HL', '2T0007512', '00000DFAFA', '2022-08-25', '6103585213', '2022-08-09', 'Unserviceable', 'CLOSED', 'Gustaf Kusuma Pradana', NULL, NULL, '0.00', '0.00', '0.00'),
-(31, '2022-05-02', 'Exchange', '-', '340011367', '350E053021818', 'FLIGHT WARNING COMPUTER', '500041249', 'PK-GLL', 'UMR 804370175', 'GI759 AERO TRADE LLC DBA SETNA IO', '', '2022-06-08', '7711853785', '2022-06-20', '2022-06-24', '0000-00-00', '', '', '0000-00-00', '', '', '', '0000-00-00', '', '0000-00-00', 'Exchange', 'SHIPPED', 'Arif Setiawan', NULL, NULL, '0.00', '0.00', '0.00'),
-(33, '2022-01-20', 'Exchange', '-', '340010995', '4315542', 'LIGHT-LANDING', '-', '-', 'Replenish Access Spare', 'KB335 A.J. WALTER AVIATION', '30', '2022-01-21', '3856700853', '2022-06-09', '2022-06-14', '2022-07-01', '103000', '0002531197', '2022-07-02', '4315542', '356362', '00000DFAFA', '2022-08-25', '', '0000-00-00', 'Unserviceable', 'CLOSED', 'Gustaf Kusuma Pradana', NULL, NULL, '0.00', '0.00', '0.00'),
-(34, '2022-08-24', 'Exchange', '-', '43002769', '066-01127-1402', 'TRANSPONDER-ATC', '-', 'PK-GLT', 'asasdas', '0YX11 GLOBAL AIRTECH', NULL, NULL, '', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'Waiting AWB', 'Arif Setiawan', NULL, NULL, '0.00', '0.00', '0.00'),
-(37, '2022-08-16', 'Repair', '-', '43002769', '066-50012-1212', 'RECEIVER-VOR,MKR', '-', 'PK-GLX', 'asdas', '0YX11 GLOBAL AIRTECH', '', '0000-00-00', '', '0000-00-00', '0000-00-00', '0000-00-00', '', '', '0000-00-00', 'LA2T0G21006CA10', '356362', '00000DFAFA', '2022-08-29', '', '0000-00-00', 'Unserviceable', 'Waiting AWB', 'Arif Setiawan', NULL, NULL, '0.00', '0.00', '0.00'),
-(49, '2022-08-24', 'Repair', 'TRX15000', '89689', '066-50007-0222', 'TRANSCEIVER-RADIO ALTIMETER', '-', 'PK-', '', '0UBE7 UNICAL AVIATION,INC.', '20', '2022-08-24', 'adasdasdsadasds', '2022-09-03', '2022-09-05', '0000-00-00', '', '', '0000-00-00', '066-50007-0222', '2T0007512', '0000abc', '2022-09-03', '', '0000-00-00', 'Unserviceable', 'SHIPPED', 'Gustaf Kusuma Pradana', NULL, NULL, '0.00', '0.00', '0.00');
+INSERT INTO `master_order` (`id_order`, `entry_date`, `req_scheme`, `tracking_no`, `po_number`, `part_number`, `description`, `pr`, `aircraft`, `note`, `vendor`, `repair_tat`, `po_date`, `awb_in`, `awb_date`, `eta`, `gr_date`, `serial_number`, `serv_batch`, `date_store`, `pn_out`, `sn_out`, `core_batch`, `shipment_order_date`, `awb_out`, `awb_out_date`, `core_cond`, `serv_status`, `created_by`, `ca_date`, `invoice`, `repair_cost`, `other_cost`, `total_cost`, `ca_app_date`, `tat_po`, `sla_vendor`, `tat_gr`) VALUES
+(1, '2022-05-02', 'Exchange', '-', '340011288', '350E053021818', 'FLIGHT WARNING COMPUTER', '500041249', 'PK-GLX', 'UMR 804370175 \r\nokeee', '0UBE7 UNICAL AVIATION,INC.', '', '0000-00-00', '', '0000-00-00', '0000-00-00', '0000-00-00', '', '', '0000-00-00', '', '', '', '0000-00-00', '', '0000-00-00', '', 'Waiting AWB', 'Gustaf Kusuma Pradana', NULL, NULL, '0.00', '0.00', '0.00', NULL, '423', 'ONTIME', NULL),
+(2, '2022-05-17', 'Repair', '430027064', '430027064', 'RCF6708', 'REGULATOR TRANSMITTER-PRESSURE', '500039676', 'PK-GHQ', '', 'QC054 SAFRAN AEROSYSTEM SERVICE ASIA PTE', '', '2022-05-17', '7295093875', '2022-07-06', '2022-07-08', '2022-07-08', '15865', '0002534276', '2022-07-09', 'RCF6708 ', '15865', '0002459219', '2022-05-18', '6046573923', '2022-05-20', 'Unserviceable', 'CLOSED', 'Gustaf Kusuma Pradana', '2022-09-17', '', '0.00', '0.00', '0.00', NULL, '408', 'ONTIME', NULL),
+(20, '2022-07-29', 'Repair', '', '430027369', 'LA2T0G21006CA10', 'ATSU-AIR TRAFFIC SERVICES UNIT', '500041858', 'PK-GLR', 'yesss', 'SCD13 GUANGZHOU HANGXIN AVIONICS CO LTD', '', '0000-00-00', '', '0000-00-00', '0000-00-00', '0000-00-00', '', '', '0000-00-00', 'LA2T0G21006CA10', '2T0007512', '00000DFAFA', '2022-07-20', '6103585213', '2022-07-21', 'Unserviceable', 'Waiting AWB', 'Arif Setiawan', NULL, NULL, '0.00', '0.00', '0.00', NULL, '196', 'ONTIME', NULL),
+(24, '2022-07-01', 'Exchange', '-', '430027250', '0851HL', 'PROBE-PITOT', '500041409', 'PK-GLP', 'REPAIR DER PITOT PROBE', 'GI383 CSI AEROSPACE, INC', '2', '2022-07-29', 'newwdhl', '2022-08-03', '2022-08-04', '2022-08-05', 'SN2', '0000245636', '2022-08-12', '0851HL', '2T0007512', '00000DFAFA', '2022-08-25', '6103585213', '2022-08-09', 'Unserviceable', 'CLOSED', 'Gustaf Kusuma Pradana', '2022-09-15', 'new2', '500.00', '700.00', '1200.00', '2022-09-23', '224', 'ONTIME', NULL),
+(31, '2022-05-02', 'Exchange', '-', '340011367', '350E053021818', 'FLIGHT WARNING COMPUTER', '500041249', 'PK-GLL', 'UMR 804370175', 'GI759 AERO TRADE LLC DBA SETNA IO', '', '2022-06-08', '7711853785', '2022-06-20', '2022-06-24', '0000-00-00', '', '', '0000-00-00', '', '', '', '0000-00-00', '', '0000-00-00', 'Exchange', 'SHIPPED', 'Arif Setiawan', NULL, NULL, '0.00', '0.00', '0.00', NULL, '423', 'ONTIME', NULL),
+(33, '2022-01-20', 'Exchange', '-', '340010995', '4315542', 'LIGHT-LANDING', '-', '-', 'Replenish Access Spare', 'KB335 A.J. WALTER AVIATION', '30', '2022-01-21', '3856700853', '2022-06-09', '2022-06-14', '2022-07-01', '103000', '0002531197', '2022-07-02', '4315542', '356362', '00000DFAFA', '2022-08-25', '', '0000-00-00', 'Unserviceable', 'CLOSED', 'Gustaf Kusuma Pradana', NULL, NULL, '0.00', '0.00', '0.00', NULL, '805', 'ONTIME', NULL),
+(34, '2022-08-24', 'Exchange', '-', '43002769', '066-01127-1402', 'TRANSPONDER-ATC', '-', 'PK-GLT', 'asasdas', '0YX11 GLOBAL AIRTECH', NULL, NULL, '', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'Waiting AWB', 'Arif Setiawan', NULL, NULL, '0.00', '0.00', '0.00', NULL, '101', 'ONTIME', NULL),
+(37, '2022-08-16', 'Repair', '-', '43002769', '066-50012-1212', 'RECEIVER-VOR,MKR', '-', 'PK-GLX', 'asdas', '0YX11 GLOBAL AIRTECH', '', '0000-00-00', '', '0000-00-00', '0000-00-00', '0000-00-00', '', '', '0000-00-00', 'LA2T0G21006CA10', '356362', '00000DFAFA', '2022-08-29', '', '0000-00-00', 'Unserviceable', 'Waiting AWB', 'Arif Setiawan', NULL, NULL, '0.00', '0.00', '0.00', NULL, '109', 'ONTIME', NULL),
+(49, '2022-08-24', 'Repair', 'TRX15000', '89689', '066-50007-0222', 'TRANSCEIVER-RADIO ALTIMETER', '-', 'PK-', '', '0UBE7 UNICAL AVIATION,INC.', '20', '2022-08-24', 'adasdasdsadasds', '2022-09-03', '2022-09-05', '0000-00-00', '', '', '0000-00-00', '066-50007-0222', '2T0007512', '0000abc', '2022-09-03', '', '0000-00-00', 'Unserviceable', 'SHIPPED', 'Gustaf Kusuma Pradana', NULL, NULL, '0.00', '0.00', '0.00', NULL, '101', 'ONTIME', NULL),
+(51, '2022-09-19', 'Exchange', '-', '43002769', '066-50007-0222', 'TRANSCEIVER-RADIO ALTIMETER', '-', 'PK-GLR', '', '0UBE7 UNICAL AVIATION,INC.', NULL, NULL, '', NULL, NULL, NULL, NULL, NULL, NULL, '066-50007-0222', NULL, NULL, NULL, NULL, NULL, NULL, 'Waiting AWB', 'Gustaf Kusuma Pradana', NULL, NULL, '0.00', '0.00', '0.00', NULL, '6', 'ONTIME', NULL);
 
 -- --------------------------------------------------------
 
@@ -754,7 +759,7 @@ ALTER TABLE `admins`
 -- AUTO_INCREMENT for table `master_order`
 --
 ALTER TABLE `master_order`
-  MODIFY `id_order` int(100) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=50;
+  MODIFY `id_order` int(100) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=52;
 
 --
 -- AUTO_INCREMENT for table `shipment_order`
