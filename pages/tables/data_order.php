@@ -84,7 +84,7 @@
                             </td> 
                             <td><?= $row['entry_date']; ?></td>
                             <td><?= $row['req_scheme']; ?></td>
-                            <td><?= $row['po_number']; ?></td>
+                            <td><a href="index.php?page=view_order&id=<?= $row['id_order']; ?>"><?= $row['po_number']; ?></a></td>
                             <td><?= $row['part_number']; ?></td>
                             <td><?= $row['description']; ?></td>
                             <td><?= $row['aircraft']; ?></td>
