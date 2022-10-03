@@ -288,54 +288,51 @@
                   value="<?php echo $ca_date2; ?>">
                 </div>
                 <div class="form-group">
-                          <label>Proforma Invoice / Invoice</label>
-                          <input type="text" name="invoice" class="form-control" placeholder="Enter" value="<?php echo $row_view['invoice']; ?>">
-                      </div> 
-                      <div class="form-group">
-                        <label>New Price</label>
-                        <div class="input-group">
-                          <div class="input-group-prepend">
-                            <span class="input-group-text">$</span>
-                          </div>
-                          <input type="text" name="" class="form-control" value="<?php echo $pn_newprice; ?>" readonly>
+                  <label>Proforma Invoice / Invoice</label>
+                  <input type="text" name="invoice" class="form-control" placeholder="Enter" value="<?php echo $row_view['invoice']; ?>">
+                </div> 
+                  <div class="form-group">
+                    <label>New Price</label>
+                  <div class="input-group">
+                  <div class="input-group-prepend">
+                    <span class="input-group-text">$</span>
+                    </div>
+                   <input type="text" name="" class="form-control" value="<?php echo $pn_newprice; ?>" readonly>
                           
-                        </div>
-                      </div>
-                      <div class="form-group">
-                        <label>Repair Cost</label>
-                        <div class="input-group">
-                          <div class="input-group-prepend">
-                            <span class="input-group-text">$</span>
-                          </div>
-                          <input type="text" class="form-control" name="repair_cost" onkeyup="calcSum()" value="<?php echo $row_view['repair_cost']; ?>">
-                          
-                        </div>
-                      </div>
-                      <div class="form-group">
-                        <label>Other Cost</label>
-                        <div class="input-group">
-                          <div class="input-group-prepend">
-                            <span class="input-group-text">$</span>
-                          </div>
-                          <input type="text" class="form-control" name="other_cost" onkeyup="calcSum()" value="<?php echo $row_view['other_cost']; ?>">
-                          
-                        </div>
-                      </div>
-                      <div class="form-group">
-                        <label>Total</label>
-                        <div class="input-group">
-                          <div class="input-group-prepend">
-                            <span class="input-group-text">$</span>
-                          </div>
-                          <input type="text" name="total_cost" readonly class="form-control" value="<?php echo $row_view['total_cost']; ?>">
-                          
-                        </div>
-                      </div>
+                  </div>
+                </div>     
               </div>
               <!-- /.col -->
-              <div class="col-md-6">
-                
-              </div>             
+                <div class="col-md-6">
+                    <div class="form-group">
+                      <label>Repair Cost</label>
+                      <div class="input-group">
+                          <div class="input-group-prepend">
+                            <span class="input-group-text">$</span>
+                          </div>
+                        <input type="text" class="form-control" name="repair_cost" onkeyup="calcSum()" value="<?php echo $row_view['repair_cost']; ?>">
+                      </div>
+                    </div>
+                    <div class="form-group">
+                      <label>Other Cost</label>
+                      <div class="input-group">
+                        <div class="input-group-prepend">
+                            <span class="input-group-text">$</span>
+                        </div>
+                        <input type="text" class="form-control" name="other_cost" onkeyup="calcSum()" value="<?php echo $row_view['other_cost']; ?>">    
+                      </div>
+                    </div>
+                    <div class="form-group">
+                      <label>Total</label>
+                      <div class="input-group">
+                        <div class="input-group-prepend">
+                          <span class="input-group-text">$</span>
+                        </div>
+                        <input type="text" name="total_cost" readonly class="form-control" value="<?php echo $row_view['total_cost']; ?>">
+                            
+                      </div>
+                    </div>
+                </div>             
               <!-- /.col -->  
             </div>
             <!-- /.row -->
