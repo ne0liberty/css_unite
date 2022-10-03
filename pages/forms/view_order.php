@@ -256,8 +256,100 @@
         </div>
         <!-- /.card -->
 
+        <?php
+           $part_number = $row_view['pn_out'];
+
+           $data3 = mysqli_query($koneksi, "select * from pn_database where part_number='$part_number'");
+           $row_view_pn = mysqli_fetch_assoc($data3);
+
+           $pn_newprice = isset($row_view_pn['pn_newprice']) ? $row_view_pn['pn_newprice'] : '';
+           $ca_date2 = isset($row_view['ca_date']) ? $row_view['ca_date'] : date('Y-m-d');
+        ?>
+
+
+
+        <!-- Cost -->
+         <div class="card card-default collapsed-card">
+          <div class="card-header">
+            <h3 class="card-title">Cost <strong><?php echo $row_view['po_number']; ?></strong></h3>
+            <div class="card-tools">
+              <button type="button" class="btn btn-tool" data-card-widget="collapse">
+                <i class="fas fa-plus"></i>
+              </button>
+            </div>
+          </div>
+          <!-- /.card-header -->
+          <div class="card-body">
+            <div class="row">
+              <div class="col-md-6">
+                <div class="form-group">
+                  <label>CA date</label>
+                  <input type="date" name="ca_date" class="form-control" placeholder="Masukkan" 
+                  value="<?php echo $ca_date2; ?>">
+                </div>
+                <div class="form-group">
+                          <label>Proforma Invoice / Invoice</label>
+                          <input type="text" name="invoice" class="form-control" placeholder="Enter" value="<?php echo $row_view['invoice']; ?>">
+                      </div> 
+                      <div class="form-group">
+                        <label>New Price</label>
+                        <div class="input-group">
+                          <div class="input-group-prepend">
+                            <span class="input-group-text">$</span>
+                          </div>
+                          <input type="text" name="" class="form-control" value="<?php echo $pn_newprice; ?>" readonly>
+                          
+                        </div>
+                      </div>
+                      <div class="form-group">
+                        <label>Repair Cost</label>
+                        <div class="input-group">
+                          <div class="input-group-prepend">
+                            <span class="input-group-text">$</span>
+                          </div>
+                          <input type="text" class="form-control" name="repair_cost" onkeyup="calcSum()" value="<?php echo $row_view['repair_cost']; ?>">
+                          
+                        </div>
+                      </div>
+                      <div class="form-group">
+                        <label>Other Cost</label>
+                        <div class="input-group">
+                          <div class="input-group-prepend">
+                            <span class="input-group-text">$</span>
+                          </div>
+                          <input type="text" class="form-control" name="other_cost" onkeyup="calcSum()" value="<?php echo $row_view['other_cost']; ?>">
+                          
+                        </div>
+                      </div>
+                      <div class="form-group">
+                        <label>Total</label>
+                        <div class="input-group">
+                          <div class="input-group-prepend">
+                            <span class="input-group-text">$</span>
+                          </div>
+                          <input type="text" name="total_cost" readonly class="form-control" value="<?php echo $row_view['total_cost']; ?>">
+                          
+                        </div>
+                      </div>
+              </div>
+              <!-- /.col -->
+              <div class="col-md-6">
+                
+              </div>             
+              <!-- /.col -->  
+            </div>
+            <!-- /.row -->
+          </div>
+          <!-- /.card-body -->
+          <div class="card-footer">
+            <button type="submit" name="submit_cost" class="btn btn-secondary"><i class="fas fa-print"></i> Print CA Sheet</button>
+          </div>
+        </div>
+        <!-- /.card -->
+
       </div>
     </form>
+    
     <?php
         include('conf/conn.php');
 				
@@ -293,9 +385,8 @@
                   //ini untuk menampilkan alert berhasil dan redirect ke halaman index
                   echo "<script>alert('data berhasil disimpan.');window.location='index.php?page=data_order';</script>";
                  }       
-      ?>
-
-<?php
+    ?>
+    <?php
         include('conf/conn.php');
 				
                 //melakukan pengecekan jika button submit diklik maka akan menjalankan perintah simpan dibawah ini
@@ -331,9 +422,36 @@
                   echo "<script>alert('data berhasil disimpan.');window.location='index.php?page=shipment_order_single&id=".$id."';</script>";
                  }       
       ?>
+      <?php
+        include('conf/conn.php');
+				
+                //melakukan pengecekan jika button submit diklik maka akan menjalankan perintah simpan dibawah ini
+                 if (isset($_POST['submit_cost'])) {
+                  //menampung data dari inputan
 
+                  $ca_date = $_POST['ca_date'];
+                  $invoice = $_POST['invoice'];
+                  $repair_cost = $_POST['repair_cost'];
+                  $other_cost = $_POST['other_cost'];
+                  $total_cost = $_POST['total_cost'];
+        
+                  // update data ke database
+                  $update1 = mysqli_query($koneksi, "UPDATE master_order SET ca_date='$ca_date', invoice='$invoice', repair_cost='$repair_cost', other_cost='$other_cost', total_cost='$total_cost' WHERE id_order='$id'");                 
+                  // $update2 = mysqli_query($koneksi, "UPDATE master_order SET serv_status=IF(awb_in='','Waiting AWB',IF(gr_date='','SHIPPED',IF(date_store='','Waiting Inspect','CLOSED')));");
+
+                  //ini untuk menampilkan alert berhasil dan redirect ke halaman index
+                  echo "<script>window.open('pages/forms/ca_sheet.php?id=".$id."', '_blank');</script>";
+                 }       
+      ?>
   </section>
-
+  <script>
+      function calcSum() {
+          let num1 = document.getElementsByName("repair_cost")[0].value;
+          let num2 = document.getElementsByName("other_cost")[0].value;
+          let sum = Number(num1) + Number(num2);
+          document.getElementsByName("total_cost")[0].value = sum;
+      }
+  </script>
 </div>
   <!-- /.content-wrapper -->
   
