@@ -218,11 +218,15 @@ if (!isset($_SESSION['ID'])) {
       <div class="user-panel mt-3 pb-3 mb-3 d-flex">
         <div class="image">
           <img src="dist/img/user2-160x160.jpg" class="img-circle elevation-2" alt="User Image">
+          
         </div>
         <div class="info">
           <a href="#" class="d-block"><?php echo ucwords($_SESSION['NAME']); ?></a>
         </div>
       </div>
+
+      <!-- Sidebar user panel (custom) -->
+      
 
       <!-- SidebarSearch Form -->
       <div class="form-inline">
@@ -241,7 +245,6 @@ if (!isset($_SESSION['ID'])) {
         <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
           <!-- Add icons to the links using the .nav-icon class
                with font-awesome or any other icon font library -->
-
           <li class="nav-item">
             <a href="./index.php" class="nav-link">
               <i class="nav-icon fas fa-tachometer-alt"></i>
@@ -252,7 +255,6 @@ if (!isset($_SESSION['ID'])) {
           </li>
 
           <li class="nav-header">MENU</li>
-
           <li class="nav-item">
             <a href="#" class="nav-link">
               <i class="nav-icon fas fa-edit"></i>
@@ -268,23 +270,16 @@ if (!isset($_SESSION['ID'])) {
                   <p>Create Order</p>
                 </a>
               </li>
-              
               <li class="nav-item">
                 <a href="index.php?page=shipment_order" class="nav-link">
                   <i class="far fa-circle nav-icon"></i>
-                  <p>Shipment Order</p>
+                  <p>Shipment Order Multi PO</p>
                 </a>
               </li>
               <li class="nav-item">
-                <a href="#" class="nav-link">
+                <a href="index.php?page=data_order" class="nav-link">
                   <i class="far fa-circle nav-icon"></i>
-                  <p>Repair Cost</p>
-                </a>
-              </li>
-              <li class="nav-item">
-                <a href="#" class="nav-link">
-                  <i class="far fa-circle nav-icon"></i>
-                  <p>Customer Approval</p>
+                  <p>All Order</p>
                 </a>
               </li>
             </ul>
@@ -299,12 +294,6 @@ if (!isset($_SESSION['ID'])) {
               </p>
             </a>
             <ul class="nav nav-treeview">
-              <li class="nav-item">
-                <a href="index.php?page=data_order" class="nav-link">
-                  <i class="far fa-circle nav-icon"></i>
-                  <p>View All Order</p>
-                </a>
-              </li>
               <li class="nav-item">
                 <a href="index.php?page=pn_database" class="nav-link">
                   <i class="far fa-circle nav-icon"></i>

@@ -142,12 +142,8 @@
             <div class="row">
               <div class="col-md-6">
                 <div class="form-group">
-                    <label>TAT (Days)</label>
+                    <label>Repair/Core TAT (Days)</label>
                     <input type="text" name="repair_tat" class="form-control" placeholder="Masukkan" value="<?php echo $row_view['repair_tat']; ?>">
-                  </div>
-                  <div class="form-group">
-                    <label>PO date</label>
-                    <input type="date" name="po_date" class="form-control" placeholder="Masukkan" value="<?php echo $row_view['po_date']; ?>">
                 </div>
                 <div class="form-group">
                   <label>AWB Incoming</label>
@@ -160,6 +156,10 @@
                 <div class="form-group">
                     <label>ETA</label>
                     <input type="date" name="eta" class="form-control" placeholder="Masukkan" value="<?php echo $row_view['eta']; ?>">
+                </div>
+                <div class="form-group">
+                    <label>Inbound</label>
+                    <input type="text" name="inbound" class="form-control" placeholder="Masukkan" value="<?php echo $row_view['inbound']; ?>">
                 </div>
               </div>
               <!-- /.col -->
@@ -357,7 +357,7 @@
                   $note = $_POST['note'];
             
                   $repair_tat = $_POST['repair_tat'];
-                  $po_date = $_POST['po_date'];
+                  $inbound = $_POST['inbound'];
                   $awb_in = $_POST['awb_in'];
                   $awb_date = $_POST['awb_date'];
                   $eta = $_POST['eta'];
@@ -375,7 +375,7 @@
                   $core_cond = $_POST['core_cond'];
         
                   // update data ke database
-                  $update1 = mysqli_query($koneksi, "UPDATE master_order SET note='$note', repair_tat='$repair_tat', po_date='$po_date', awb_in='$awb_in', awb_date='$awb_date', eta='$eta', gr_date='$gr_date', serial_number='$serial_number', serv_batch='$serv_batch', date_store='$date_store', pn_out='$pn_out', sn_out='$sn_out', core_batch='$core_batch', shipment_order_date='$shipment_order_date', awb_out='$awb_out', awb_out_date='$awb_out_date', core_cond='$core_cond' WHERE id_order='$id'");                 
+                  $update1 = mysqli_query($koneksi, "UPDATE master_order SET note='$note', repair_tat='$repair_tat', inbound='$inbound', awb_in='$awb_in', awb_date='$awb_date', eta='$eta', gr_date='$gr_date', serial_number='$serial_number', serv_batch='$serv_batch', date_store='$date_store', pn_out='$pn_out', sn_out='$sn_out', core_batch='$core_batch', shipment_order_date='$shipment_order_date', awb_out='$awb_out', awb_out_date='$awb_out_date', core_cond='$core_cond' WHERE id_order='$id'");                 
                   $update2 = mysqli_query($koneksi, "UPDATE master_order SET serv_status=IF(awb_in='','Waiting AWB',IF(gr_date='','SHIPPED',IF(date_store='','Waiting Inspect','CLOSED')));");
 
 
