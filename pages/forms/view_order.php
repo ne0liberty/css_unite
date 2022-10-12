@@ -188,7 +188,7 @@
           </div>
           <!-- /.card-body -->
           <div class="card-footer">
-            <button type="submit" name="submit-incoming" class="btn btn-primary">Update</button>
+            <button type="submit" name="submit" class="btn btn-primary">Update</button>
           </div>
         </div>
         <!-- /.card -->
@@ -250,7 +250,7 @@
           </div>
           <!-- /.card-body -->
           <div class="card-footer">
-            <button type="submit" name="submit-outgoing" class="btn btn-primary">Update</button>
+            <button type="submit" name="submit" class="btn btn-primary">Update</button>
             <button type="submit" name="submit_shipmentorder" class="btn btn-default">Shipment Order</button>
           </div>
         </div>
