@@ -33,7 +33,7 @@
     <form action="" method="post" role="form">
       <div class="container-fluid">
         <!-- View Order -->
-        <div class="card card-primary">
+        <div class="card card-info">
           <div class="card-header">
             <h3 class="card-title">View Order <strong><?php echo $row_view['po_number']; ?></strong></h3>
             <div class="card-tools">
@@ -128,7 +128,7 @@
         <!-- /.card -->
         
         <!-- Serv Part -->
-        <div class="card card-default collapsed-card">
+        <div class="card card-secondary collapsed-card">
           <div class="card-header">
             <h3 class="card-title">Incoming <strong><?php echo $row_view['po_number']; ?></strong></h3>
             <div class="card-tools">
@@ -194,7 +194,7 @@
         <!-- /.card -->
         
         <!-- Outgoing Part -->
-        <div class="card card-default collapsed-card">
+        <div class="card card-secondary collapsed-card">
           <div class="card-header">
             <h3 class="card-title">Outgoing <strong><?php echo $row_view['po_number']; ?></strong></h3>
             <div class="card-tools">
@@ -269,7 +269,7 @@
 
 
         <!-- Cost -->
-         <div class="card card-default collapsed-card">
+         <div class="card card-secondary collapsed-card">
           <div class="card-header">
             <h3 class="card-title">Cost <strong><?php echo $row_view['po_number']; ?></strong></h3>
             <div class="card-tools">
