@@ -1,9 +1,4 @@
+-- Active: 1665550077115@@127.0.0.1@3306@css_order
 UPDATE master_order
-SET serv_status 
-CASE 
-    WHEN awb_in = '' THEN 'Waiting AWB' 
-    WHEN gr_date = '' THEN 'SHIPPED'
-    WHEN date_store = '' THEN 'Waiting Inspect'
-    ELSE 'CLOSED'
-
-END;
+SET tat_po = IF(serv_status<>'',CURDATE()-entry_date,date_store-entry_date),
+sla_vendor = IF(ca_date='','ONTIME',IF(ca_app_date<>'0',IF(CURDATE()-ca_app_date<=repair_tat ,'ONTIME','OVERDUE'),'ONTIME'));
