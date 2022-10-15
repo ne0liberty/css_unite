@@ -67,13 +67,16 @@
                               <a class=
                               "<?php $bgcolor = $row['serv_status'];
                               switch ($bgcolor) {
-                                case "Waiting AWB":
+                                case "NEED AWB IN":
                                   echo "badge badge-secondary";
+                                  break;
+                                case "NEED AWB OUT":
+                                  echo "badge badge-warning";
                                   break;
                                 case "SHIPPED":
                                   echo "badge badge-primary";
                                   break;
-                                case "Waiting Inspect":
+                                case "NEED INSPECT":
                                   echo "badge badge-warning";
                                   break;
                                 case "CLOSED":
