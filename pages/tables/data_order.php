@@ -70,6 +70,9 @@
                                 case "NEED AWB IN":
                                   echo "badge badge-secondary";
                                   break;
+                                case "NEED CORE":
+                                  echo "badge badge-danger";
+                                  break;
                                 case "NEED AWB OUT":
                                   echo "badge badge-warning";
                                   break;
