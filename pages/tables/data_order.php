@@ -33,7 +33,7 @@
                   <thead>
                   <tr>
                     <th>No.</th>
-                    <th>Serv Status</th>
+                    <th>Status</th>
                     <th>Entry Date</th>
                     <th>Scheme</th>
                     <th>PO Number</th>
