@@ -145,6 +145,7 @@
                   $datas = mysqli_query($koneksi, "INSERT INTO master_order (entry_date,req_scheme,tracking_no,po_number,part_number,description,pr,aircraft,vendor,note,pn_out,created_by)
                   VALUES('$entry_date', '$req_scheme','$tracking_no','$po_number','$part_number','$description','$pr','$aircraft','$vendor','$note','$part_number','$created_by')") or die(mysqli_error($koneksi));
                   //id barang tidak dimasukkan, karena sudah menggunakan AUTO_INCREMENT, id akan otomatis
+                  //$datas_status = mysqli_query($koneksi,"UPDATE master_order SET serv_status = IF(req_scheme='Exchange','NEED AWB IN','NEED AWB OUT');");
         
                   //ini untuk menampilkan alert berhasil dan redirect ke halaman index
                    echo "<script>alert('data berhasil disimpan.');window.location='index.php?page=data_order';</script>";

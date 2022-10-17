@@ -1,3 +1,4 @@
+-- Active: 1661187206419@@127.0.0.1@3306@css_order
 UPDATE master_order SET serv_status=
 IF(req_scheme='exchange',
 IF(awb_in='','NEED AWB IN',
