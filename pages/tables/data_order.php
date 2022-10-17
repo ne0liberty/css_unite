@@ -68,20 +68,32 @@
                               "<?php $bgcolor = $row['serv_status'];
                               switch ($bgcolor) {
                                 case "NEED AWB IN":
-                                  echo "badge badge-secondary";
+                                  echo "badge badge-primary";
+                                  break;
+                                case "SERV SHIPPED":
+                                  echo "badge badge-warning";
+                                  break;
+                                case "NEED INSPECT":
+                                  echo "badge badge-info";
                                   break;
                                 case "NEED CORE":
                                   echo "badge badge-danger";
                                   break;
+                                case "NEED SO":
+                                  echo "badge badge-danger";
+                                  break;
                                 case "NEED AWB OUT":
+                                  echo "badge badge-info";
+                                  break;
+                                case "NEED REPAIR QUOTE":
+                                  echo "badge badge-dark";
+                                  break;
+                                case "NEED REPAIR APPROVAL":
                                   echo "badge badge-warning";
                                   break;
-                                case "SHIPPED":
-                                  echo "badge badge-primary";
-                                  break;
-                                case "NEED INSPECT":
-                                  echo "badge badge-warning";
-                                  break;
+                                case "NEED PAYMENT":
+                                  echo "badge badge-secondary";
+                                   break;
                                 case "CLOSED":
                                   echo "badge badge-success";
                                   break;
