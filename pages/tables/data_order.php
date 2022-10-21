@@ -86,7 +86,7 @@
                                   echo "badge badge-info";
                                   break;
                                 case "NEED REPAIR QUOTE":
-                                  echo "badge badge-dark";
+                                  echo "badge badge-secondary";
                                   break;
                                 case "NEED REPAIR APPROVAL":
                                   echo "badge badge-warning";
@@ -98,7 +98,7 @@
                                   echo "badge badge-success";
                                   break;
                                 case "CANCEL":
-                                  echo "badge badge-success";
+                                  echo "badge badge-dark";
                                   break;
                               }   
                               ?>"><?= $row['serv_status']; ?></a>
