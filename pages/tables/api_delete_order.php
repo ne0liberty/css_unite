@@ -6,5 +6,5 @@
 			$datas = mysqli_query($koneksi, "delete from master_order where id_order='$id'") or die(mysqli_error($koneksi));
 
 			//alert dan redirect ke index.php
-			echo "<script>alert('data berhasil dihapus.');window.location='../../index.php?page=data_order';</script>";
+			echo "<script>alert('Delete Success.');window.location='../../index.php?page=data_order';</script>";
 	?>

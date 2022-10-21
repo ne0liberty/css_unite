@@ -97,6 +97,9 @@
                                 case "CLOSED":
                                   echo "badge badge-success";
                                   break;
+                                case "CANCEL":
+                                  echo "badge badge-success";
+                                  break;
                               }   
                               ?>"><?= $row['serv_status']; ?></a>
                             </td> 
@@ -111,8 +114,8 @@
                             <td><?= $row['sn_out']; ?></td>
                             <td>
                                   <div class="btn-group btn-group-sm">
-                                    <a href="" class="btn btn-warning">cancel</a>
-                                    <a href="pages/tables/hapus.php?id=<?= $row['id_order']; ?>" class="btn btn-danger" onclick="return confirm('anda yakin ingin hapus?');"><i class="fas fa-trash"></i></a>
+                                    <a href="pages/tables/api_cancel_order.php?id=<?= $row['id_order']; ?>" class="btn btn-warning" onclick="return confirm('be sure for cancel?');">cancel</a>
+                                    <a href="pages/tables/api_delete_order.php?id=<?= $row['id_order']; ?>" class="btn btn-danger" onclick="return confirm('be sure for deleting?');"><i class="fas fa-trash"></i></a>
                                  </div>
                             </td>
 					              </tr>
