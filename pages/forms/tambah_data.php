@@ -144,8 +144,29 @@
                   //query untuk menambahkan barang ke database, pastikan urutan nya sama dengan di database
                   $datas = mysqli_query($koneksi, "INSERT INTO master_order (entry_date,req_scheme,tracking_no,po_number,part_number,description,pr,aircraft,vendor,note,pn_out,created_by)
                   VALUES('$entry_date', '$req_scheme','$tracking_no','$po_number','$part_number','$description','$pr','$aircraft','$vendor','$note','$part_number','$created_by')") or die(mysqli_error($koneksi));
-                  //id barang tidak dimasukkan, karena sudah menggunakan AUTO_INCREMENT, id akan otomatis
-                  //$datas_status = mysqli_query($koneksi,"UPDATE master_order SET serv_status = IF(req_scheme='Exchange','NEED AWB IN','NEED AWB OUT');");
+                  $updt_stat = mysqli_query($koneksi, "UPDATE master_order SET serv_status=
+                             IF(req_scheme='exchange',
+                             IF(awb_in='','NEED AWB IN',
+                             IF(gr_date='','SERV SHIPPED',
+                             IF(date_store='','NEED INSPECT',
+                             IF(sn_out='','NEED CORE',
+                             IF(shipment_order_date='','NEED SO',
+                             IF(awb_out='','NEED AWB OUT',
+                             IF(invoice='','NEED REPAIR QUOTE',
+                             IF(ca_app_date='','NEED REPAIR APPROVAL',
+                             IF(payment_ref='','NEED PAYMENT',
+                             'CLOSED'))))))))),
+                             IF(sn_out='','NEED CORE',
+                             IF(shipment_order_date='','NEED SO',
+                             IF(awb_out='','NEED AWB OUT',
+                             IF(invoice='','NEED REPAIR QUOTE',
+                             IF(ca_app_date='','NEED REPAIR APPROVAL',
+                             IF(payment_ref='','NEED PAYMENT',
+                             IF(awb_in='','NEED AWB IN',
+                             IF(gr_date='','SERV SHIPPED',
+                             IF(date_store='','NEED INSPECT',
+                             'CLOSED')))))))))
+                             );");   
         
                   //ini untuk menampilkan alert berhasil dan redirect ke halaman index
                    echo "<script>alert('data berhasil disimpan.');window.location='index.php?page=data_order';</script>";
