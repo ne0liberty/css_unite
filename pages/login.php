@@ -24,6 +24,7 @@ if (!empty($username) || !empty($password)) {
           $_SESSION['ID'] = $row['id'];
           $_SESSION['ROLE'] = $row['role'];
           $_SESSION['NAME'] = $row['name'];
+          $_SESSION['IMG'] = $row['img'];
           header("Location:../index.php");
           die();                              
       }else{
