@@ -24,6 +24,9 @@ switch ($page) {
   case 'cost_approval':
     include 'pages/forms/cost_approval_form.php';
     break;  
+  case 'search_result':
+    include 'pages/search_result.php';
+    break;  
   }
 }else{
     include "pages/beranda.php";
