@@ -25,7 +25,7 @@ if (!empty($username) || !empty($password)) {
           $_SESSION['ROLE'] = $row['role'];
           $_SESSION['NAME'] = $row['name'];
           $_SESSION['IMG'] = $row['img'];
-          header("Location:../index.php?page=data_order");
+          header("Location:../index.php?page=dashboard");
           die();                              
       }else{
         $errorMsg = "Username/Password not found on this site";
