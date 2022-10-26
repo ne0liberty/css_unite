@@ -27,8 +27,11 @@ switch ($page) {
   case 'search_result':
     include 'pages/search_result.php';
     break;  
+  case 'dashboard':
+    include 'pages/beranda.php';
+    break;  
   }
 }else{
-    include "pages/beranda.php";
+    
   }
 ?> 

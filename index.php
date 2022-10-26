@@ -91,7 +91,7 @@ if (!isset($_SESSION['ID'])) {
         <div class="navbar-search-block">
           <form class="form-inline">
             <div class="input-group input-group-sm">
-              <input class="form-control form-control-navbar" type="search" placeholder="Search" aria-label="Search">
+              <input class="form-control form-control-navbar" type="search" placeholder="Search" aria-label="Search" name="search" value="<?php if(isset($_GET['search'])){echo $_GET['search']; } ?>">
               <div class="input-group-append">
                 <button class="btn btn-navbar" type="submit">
                   <i class="fas fa-search"></i>
@@ -245,7 +245,7 @@ if (!isset($_SESSION['ID'])) {
           <!-- Add icons to the links using the .nav-icon class
                with font-awesome or any other icon font library -->
           <li class="nav-item">
-            <a href="./index.php" class="nav-link">
+            <a href="./index.php?page=dashboard" class="nav-link">
               <i class="nav-icon fas fa-tachometer-alt"></i>
               <p>
                 Dashboard
@@ -337,7 +337,84 @@ if (!isset($_SESSION['ID'])) {
 
  
   <!-- Content -->
-    <?php include "conf/page.php"; ?>
+  <div class="content-wrapper">
+  <?php include "conf/page.php"; ?>
+  <?php
+
+    if(isset($_GET['search']))
+        {
+            $filtervalues = $_GET['search'];
+            $query = "SELECT * FROM master_order WHERE CONCAT(po_number,part_number,description,awb_in,inbound,awb_out) LIKE '%$filtervalues%' ";
+            $query_run = mysqli_query($koneksi, $query);
+
+            if(mysqli_num_rows($query_run) > 0)
+            {
+                foreach($query_run as $items)
+                {
+                    ?>
+                   
+                    <section class="content">
+                        <div class="container-fluid">
+                            <div class="row mt-3">
+                                <div class="col-md-10 offset-md-1">
+                                    <div class="list-group">
+                                        <div class="list-group-item">
+                                            <div class="row">
+                                                <div class="col px-4">
+                                                    <div>
+                                                        <div class="float-right"><?= $items['entry_date']; ?></div>
+                                                        <h3><a href="index.php?page=view_order&id=<?= $items['id_order']; ?>"><?= $items['po_number']; ?></a></h3>
+                                                        <p class="mb-0">PN      : <?= $items['part_number']; ?></p>
+                                                        <p class="mb-0">Desc    : <?= $items['description']; ?></p>
+                                                        <p class="mb-0">AWB In  : <?= $items['awb_in']; ?></p>
+                                                        <p class="mb-0">Inbound : <?= $items['inbound']; ?></p>
+                                                        <p class="mb-0">AWB Out : <?= $items['awb_out']; ?></p>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </section>
+                    
+                    <?php
+                }
+            }
+            else
+            {
+                ?>
+                  
+                    <section class="content">
+                            <div class="container-fluid">
+                                <div class="row mt-3">
+                                    <div class="col-md-10 offset-md-1">
+                                        <div class="list-group">
+                                            <div class="list-group-item">
+                                                <div class="row">
+                                                    <div class="col px-4">
+                                                        <div>
+                                                            <div class="float-right"></div>
+                                                            <h3>No record</h3>
+                                                            <p class="mb-0"></p>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </section>
+                    
+                <?php
+            }
+        }
+    ?>
+  </div>
   <!-- /Content -->
   
   <footer class="main-footer">

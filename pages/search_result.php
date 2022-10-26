@@ -29,7 +29,7 @@
     </section>
     <?php
     
-    $testcon = mysqli_connect("localhost","root","","search_test");
+    
 
     if(isset($_GET['search']))
         {
@@ -51,7 +51,7 @@
                                             <div class="row">
                                                 <div class="col px-4">
                                                     <div>
-                                                        <div class="float-right"><?= $items['id_order']; ?></div>
+                                                        <div class="float-right"><?= $items['entry_date']; ?></div>
                                                         <h3><a href="index.php?page=view_order&id=<?= $items['id_order']; ?>"><?= $items['po_number']; ?></a></h3>
                                                         <p class="mb-0">PN      : <?= $items['part_number']; ?></p>
                                                         <p class="mb-0">Desc    : <?= $items['description']; ?></p>
