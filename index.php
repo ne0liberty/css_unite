@@ -262,7 +262,8 @@ if (!isset($_SESSION['ID'])) {
     if(isset($_GET['search']))
         {
             $filtervalues = $_GET['search'];
-            $query = "SELECT * FROM master_order WHERE CONCAT(tracking_no,po_number,part_number,description,vendor,pr,aircraft,awb_in,inbound,serial_number,serv_batch,pn_out,sn_out,core_batch,awb_out,invoice,payment_ref) LIKE '%$filtervalues%' ";
+            $user = ucwords($_SESSION['NAME']);
+            $query = "SELECT * FROM master_order WHERE created_by='$user' AND CONCAT(tracking_no,po_number,part_number,description,vendor,pr,aircraft,awb_in,inbound,serial_number,serv_batch,pn_out,sn_out,core_batch,awb_out,invoice,payment_ref) LIKE '%$filtervalues%' ";
             $query_run = mysqli_query($koneksi, $query);
 
             if(mysqli_num_rows($query_run) > 0)
