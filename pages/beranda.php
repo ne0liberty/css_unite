@@ -15,7 +15,7 @@
           </div>
         </div>
       </div><!-- /.container-fluid -->
-    </section>
+</section>
 
 
 </section>

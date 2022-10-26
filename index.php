@@ -339,12 +339,12 @@ if (!isset($_SESSION['ID'])) {
   <!-- Content -->
   <div class="content-wrapper">
   <?php include "conf/page.php"; ?>
+  
   <?php
-
     if(isset($_GET['search']))
         {
             $filtervalues = $_GET['search'];
-            $query = "SELECT * FROM master_order WHERE CONCAT(po_number,part_number,description,awb_in,inbound,awb_out) LIKE '%$filtervalues%' ";
+            $query = "SELECT * FROM master_order WHERE CONCAT(tracking_no,po_number,part_number,description,vendor,pr,aircraft,awb_in,inbound,serial_number,serv_batch,pn_out,sn_out,core_batch,awb_out,invoice,payment_ref) LIKE '%$filtervalues%' ";
             $query_run = mysqli_query($koneksi, $query);
 
             if(mysqli_num_rows($query_run) > 0)
@@ -366,6 +366,7 @@ if (!isset($_SESSION['ID'])) {
                                                         <h3><a href="index.php?page=view_order&id=<?= $items['id_order']; ?>"><?= $items['po_number']; ?></a></h3>
                                                         <p class="mb-0">PN      : <?= $items['part_number']; ?></p>
                                                         <p class="mb-0">Desc    : <?= $items['description']; ?></p>
+                                                        <p class="mb-0">Vendor  : <?= $items['vendor']; ?></p>
                                                         <p class="mb-0">AWB In  : <?= $items['awb_in']; ?></p>
                                                         <p class="mb-0">Inbound : <?= $items['inbound']; ?></p>
                                                         <p class="mb-0">AWB Out : <?= $items['awb_out']; ?></p>
