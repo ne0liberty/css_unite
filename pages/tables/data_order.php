@@ -114,8 +114,8 @@
                             <td><?= $row['sn_out']; ?></td>
                             <td>
                                   <div class="btn-group btn-group-sm">
-                                    <a href="pages/tables/api_cancel_order.php?id=<?= $row['id_order']; ?>" class="btn btn-warning" onclick="return confirm('be sure for cancel?');">cancel</a>
-                                    <a href="pages/tables/api_delete_order.php?id=<?= $row['id_order']; ?>" class="btn btn-danger" onclick="return confirm('be sure for deleting?');"><i class="fas fa-trash"></i></a>
+                                    <a href="conf/api_cancel_order.php?id=<?= $row['id_order']; ?>" class="btn btn-warning" onclick="return confirm('be sure for cancel?');">cancel</a>
+                                    <a href="conf/api_delete_order.php?id=<?= $row['id_order']; ?>" class="btn btn-danger" onclick="return confirm('be sure for deleting?');"><i class="fas fa-trash"></i></a>
                                  </div>
                             </td>
 					              </tr>
