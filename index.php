@@ -285,14 +285,22 @@ if (!isset($_SESSION['ID'])) {
                                                         <p class="mb-0">PN      : <?= $items['part_number']; ?></p>
                                                         <p class="mb-0">Desc    : <?= $items['description']; ?></p>
                                                         <p class="mb-0">Vendor  : <?= $items['vendor']; ?></p>
+                                                        <p class="mb-0">PR      : <?= $items['pr']; ?></p>
+                                                        <p class="mb-0">Aircraft: <?= $items['aircraft']; ?></p>
                                                         <p class="mb-0">AWB In  : <?= $items['awb_in']; ?></p>
                                                         <p class="mb-0">Inbound : <?= $items['inbound']; ?></p>
-                                                        <p class="mb-0">AWB Out : <?= $items['awb_out']; ?></p>
+                                                        <p class="mb-0">SN in   : <?= $items['serial_number']; ?></p>
+                                                        <p class="mb-0">Batch   : <?= $items['serv_batch']; ?></p>
+
+                                                        <p class="mb-0">PN Out : <?= $items['pn_out']; ?></p>
+                                                        <p class="mb-0">SN Out   : <?= $items['sn_out']; ?></p>
+                                                        <p class="mb-0">Core Batch   : <?= $items['core_batch']; ?></p>
+                                                        <p class="mb-0">Batch   : <?= $items['awb_out']; ?></p>
+                                                        
                                                     </div>
                                                 </div>
                                             </div>
                                         </div>
-                                        
                                     </div>
                                 </div>
                             </div>
