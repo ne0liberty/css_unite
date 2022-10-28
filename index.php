@@ -263,7 +263,7 @@ if (!isset($_SESSION['ID'])) {
         {
             $filtervalues = $_GET['search'];
             $user = ucwords($_SESSION['NAME']);
-            $query = "SELECT * FROM master_order WHERE created_by='$user' AND CONCAT(tracking_no,po_number,part_number,description,vendor,pr,aircraft,awb_in,inbound,serial_number,serv_batch,pn_out,sn_out,core_batch,awb_out,invoice,payment_ref) LIKE '%$filtervalues%' ";
+            $query = "SELECT * FROM master_order WHERE CONCAT(tracking_no,po_number,part_number,description,vendor,pr,aircraft,awb_in,inbound,serial_number,serv_batch,pn_out,sn_out,core_batch,awb_out,invoice,payment_ref) LIKE '%$filtervalues%' ";
             $query_run = mysqli_query($koneksi, $query);
 
             if(mysqli_num_rows($query_run) > 0)
@@ -283,21 +283,84 @@ if (!isset($_SESSION['ID'])) {
                                                     <div>
                                                         <div class="float-right"><?= $items['entry_date']; ?></div>
                                                         <h3><a href="index.php?page=view_order&id=<?= $items['id_order']; ?>"><?= $items['po_number']; ?></a></h3>
-                                                        <p class="mb-0">PN      : <?= $items['part_number']; ?></p>
-                                                        <p class="mb-0">Desc    : <?= $items['description']; ?></p>
-                                                        <p class="mb-0">Vendor  : <?= $items['vendor']; ?></p>
-                                                        <p class="mb-0">PR      : <?= $items['pr']; ?></p>
-                                                        <p class="mb-0">Aircraft: <?= $items['aircraft']; ?></p>
-                                                        <p class="mb-0">AWB In  : <?= $items['awb_in']; ?></p>
-                                                        <p class="mb-0">Inbound : <?= $items['inbound']; ?></p>
-                                                        <p class="mb-0">SN in   : <?= $items['serial_number']; ?></p>
-                                                        <p class="mb-0">Batch   : <?= $items['serv_batch']; ?></p>
-
-                                                        <p class="mb-0">PN Out : <?= $items['pn_out']; ?></p>
-                                                        <p class="mb-0">SN Out   : <?= $items['sn_out']; ?></p>
-                                                        <p class="mb-0">Core Batch   : <?= $items['core_batch']; ?></p>
-                                                        <p class="mb-0">Batch   : <?= $items['awb_out']; ?></p>
-                                                        
+                                                        <p class="mb-0"><?php if ($items['part_number'] == $filtervalues) {
+                                                          echo "PN : ". $items['part_number'];
+                                                        }
+                                                        else {
+                                                        }
+                                                        ?></p>
+                                                        <p class="mb-0"><?php if ($items['description'] == $filtervalues) {
+                                                          echo "Desc : ". $items['description'];
+                                                        }
+                                                        else {
+                                                        }
+                                                        ?></p>
+                                                        <p class="mb-0"><?php if ($items['vendor'] == $filtervalues) {
+                                                          echo "Vendor : ". $items['vendor'];
+                                                        }
+                                                        else {
+                                                        }
+                                                        ?></p>
+                                                        <p class="mb-0"><?php if ($items['pr'] == $filtervalues) {
+                                                          echo "PR : ". $items['pr'];
+                                                        }
+                                                        else {
+                                                        }
+                                                        ?></p>
+                                                        <p class="mb-0"><?php if ($items['aircraft'] == $filtervalues) {
+                                                          echo "Aircraft : ". $items['aircraft'];
+                                                        }
+                                                        else {
+                                                        }
+                                                        ?></p>
+                                                        <p class="mb-0"><?php if ($items['awb_in'] == $filtervalues) {
+                                                          echo "AWB In : ". $items['awb_in'];
+                                                        }
+                                                        else {
+                                                        }
+                                                        ?></p>
+                                                        <p class="mb-0"><?php if ($items['inbound'] == $filtervalues) {
+                                                          echo "Inbound : ". $items['inbound'];
+                                                        }
+                                                        else {
+                                                        }
+                                                        ?></p>
+                                                        <p class="mb-0"><?php if ($items['serial_number'] == $filtervalues) {
+                                                          echo "SN in : ". $items['serial_number'];
+                                                        }
+                                                        else {
+                                                        }
+                                                        ?></p>
+                                                        <p class="mb-0"><?php if ($items['serv_batch'] == $filtervalues) {
+                                                          echo "Batch Serv : ". $items['serv_batch'];
+                                                        }
+                                                        else {
+                                                        }
+                                                        ?></p>
+                                                        <p class="mb-0"><?php if ($items['pn_out'] == $filtervalues) {
+                                                          echo "PN Out : ". $items['pn_out'];
+                                                        }
+                                                        else {
+                                                        }
+                                                        ?></p>
+                                                        <p class="mb-0"><?php if ($items['sn_out'] == $filtervalues) {
+                                                          echo "SN Out : ". $items['sn_out'];
+                                                        }
+                                                        else {
+                                                        }
+                                                        ?></p>
+                                                        <p class="mb-0"><?php if ($items['core_batch'] == $filtervalues) {
+                                                          echo "Core Batch : ". $items['core_batch'];
+                                                        }
+                                                        else {
+                                                        }
+                                                        ?></p>
+                                                        <p class="mb-0"><?php if ($items['awb_out'] == $filtervalues) {
+                                                          echo "AWB Out : ". $items['awb_out'];
+                                                        }
+                                                        else {
+                                                        }
+                                                        ?></p>     
                                                     </div>
                                                 </div>
                                             </div>
