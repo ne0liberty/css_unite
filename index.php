@@ -74,10 +74,10 @@ if (!isset($_SESSION['ID'])) {
         <a class="nav-link" data-widget="pushmenu" href="#" role="button"><i class="fas fa-bars"></i></a>
       </li>
       <li class="nav-item d-none d-sm-inline-block">
-        <a href="index.php" class="nav-link">Home</a>
+        <a href="index.php?page=dashboard" class="nav-link">Home</a>
       </li>
       <li class="nav-item d-none d-sm-inline-block">
-        <a href="#" class="nav-link">Contact</a>
+        <a href="index.php?page=dashboard" class="nav-link">Contact</a>
       </li>
     </ul>
 
@@ -257,7 +257,6 @@ if (!isset($_SESSION['ID'])) {
   <!-- Content -->
   <div class="content-wrapper">
   <?php include "conf/page.php"; ?>
-  
   <?php
     if(isset($_GET['search']))
         {
@@ -388,7 +387,7 @@ if (!isset($_SESSION['ID'])) {
                                                     <div class="col px-4">
                                                         <div>
                                                             <div class="float-right"></div>
-                                                            <h3>No record</h3>
+                                                            <h3>Not Found</h3>
                                                             <p class="mb-0"></p>
                                                         </div>
                                                     </div>
