@@ -289,13 +289,13 @@ if (!isset($_SESSION['ID'])) {
                                                         else {
                                                         }
                                                         ?></p>
-                                                        <p class="mb-0"><?php if ($items['description'] == $filtervalues) {
+                                                        <p class="mb-0"><?php if (strpos($items['description'],$filtervalues)!==false) {
                                                           echo "Desc : ". $items['description'];
                                                         }
                                                         else {
                                                         }
                                                         ?></p>
-                                                        <p class="mb-0"><?php if ($items['vendor'] == $filtervalues) {
+                                                        <p class="mb-0"><?php if (strpos($items['vendor'],$filtervalues)!==false) {
                                                           echo "Vendor : ". $items['vendor'];
                                                         }
                                                         else {
