@@ -1,6 +1,7 @@
 <?php
 session_start();
 include "conf/conn.php";
+include "conf/api_updt_sla.php";
 
 if (!isset($_SESSION['ID'])) {
   ob_start(); 
