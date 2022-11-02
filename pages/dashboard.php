@@ -28,13 +28,13 @@
             <!-- small box -->
             <?php
               $user = ucwords($_SESSION['NAME']);
-              $result_count = mysqli_query($koneksi, "SELECT COUNT(*) FROM master_order WHERE created_by ='$user'");
-              $count =mysqli_fetch_array($result_count);
+              $count_all_order = mysqli_query($koneksi, "SELECT COUNT(*) FROM master_order WHERE created_by ='$user';");
+              $result_all_order = mysqli_fetch_array($count_all_order);
 
             ?>
             <div class="small-box bg-info">
               <div class="inner">
-                <h3><?php echo $count[0]; ?></h3>
+                <h3><?php echo $result_all_order[0]; ?></h3>
 
                 <p>All Orders</p>
               </div>
@@ -47,16 +47,21 @@
           <!-- ./col -->
           <div class="col-lg-3 col-6">
             <!-- small box -->
+            <?php
+              $count_open_order = mysqli_query($koneksi, "SELECT COUNT(*) FROM master_order WHERE created_by ='$user' AND serv_status<>'CLOSED';");
+              $result_open_order = mysqli_fetch_array($count_open_order);
+
+            ?>
             <div class="small-box bg-success">
               <div class="inner">
-                <h3>53<sup style="font-size: 20px">%</sup></h3>
+                <h3><?php echo $result_open_order[0]; ?><sup style="font-size: 20px"></sup></h3>
 
-                <p>Bounce Rate</p>
+                <p>Open Order</p>
               </div>
               <div class="icon">
                 <i class="ion ion-stats-bars"></i>
               </div>
-              <a href="#" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a>
+              <a href="#" class="small-box-footer">See Open Order <i class="fas fa-arrow-circle-right"></i></a>
             </div>
           </div>
           <!-- ./col -->
@@ -134,8 +139,8 @@
           <!-- /.Left col -->
           <!-- right col (We are only adding the ID to make the widgets sortable)-->
           <section class="col-lg-5 connectedSortable">
-<!-- TO DO List -->
-<div class="card">
+          <!-- TO DO List -->
+          <div class="card">
               <div class="card-header">
                 <h3 class="card-title">
                   <i class="ion ion-clipboard mr-1"></i>
