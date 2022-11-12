@@ -489,6 +489,9 @@ if (!isset($_SESSION['ID'])) {
 <!-- SweetAlert2 -->
 <script src="plugins/sweetalert2/sweetalert2.min.js"></script>
 
+<!-- ChartJS -->
+<script src="plugins/chart.js/Chart.min.js"></script>
+
 
 <!-- Page specific script -->
 
@@ -648,6 +651,59 @@ if (!isset($_SESSION['ID'])) {
 
 
 </script>
+
+<script>
+		var ctx = document.getElementById('myChart').getContext('2d');
+		var myChart = new Chart(ctx, {
+			type: 'bar',
+			data: {
+				labels: ["Waiting AWB Export", "Waiting Quote", "Waiting Payment", "Under Repair"],
+				datasets: [{
+					label: '',
+					data: [
+					<?php 
+					$awb_export = mysqli_query($koneksi,"SELECT * FROM master_order WHERE created_by ='$user' AND req_scheme='Repair' AND serv_status='NEED AWB OUT';");
+					echo mysqli_num_rows($awb_export);
+					?>, 
+					<?php 
+					$waiting_quote = mysqli_query($koneksi,"SELECT * FROM master_order WHERE created_by ='$user 'AND req_scheme='Repair' AND serv_status='NEED REPAIR QUOTE';");
+					echo mysqli_num_rows($waiting_quote);
+					?>, 
+					<?php 
+					$waiting_payment = mysqli_query($koneksi,"SELECT * FROM master_order WHERE created_by ='$user 'AND req_scheme='Repair' AND serv_status='NEED PAYMENT';");
+					echo mysqli_num_rows($waiting_payment);
+					?>, 
+					<?php 
+					$under_repair = mysqli_query($koneksi,"SELECT * FROM master_order WHERE created_by ='$user 'AND req_scheme='Repair' AND serv_status='NEED AWB IN';");
+					echo mysqli_num_rows($under_repair);
+					?>
+					],
+					backgroundColor: [
+					'rgba(255, 99, 132, 0.2)',
+					'rgba(54, 162, 235, 0.2)',
+					'rgba(255, 206, 86, 0.2)',
+					'rgba(75, 192, 192, 0.2)'
+					],
+					borderColor: [
+					'rgba(255,99,132,1)',
+					'rgba(54, 162, 235, 1)',
+					'rgba(255, 206, 86, 1)',
+					'rgba(75, 192, 192, 1)'
+					],
+					borderWidth: 1
+				}]
+			},
+			options: {
+				scales: {
+					yAxes: [{
+						ticks: {
+							beginAtZero:true
+						}
+					}]
+				}
+			}
+		});
+	</script>
 
 </body>
 
