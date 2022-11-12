@@ -657,7 +657,7 @@ if (!isset($_SESSION['ID'])) {
 		var myChart = new Chart(ctx, {
 			type: 'bar',
 			data: {
-				labels: ["Waiting AWB Export", "Waiting Quote", "Waiting Payment", "Under Repair", "Waiting GR"],
+				labels: ["Need AWB Export", "Need Quote", "Need Payment", "Under Repair", "Need GR"],
 				datasets: [{
 					label: '',
 					data: [
@@ -693,6 +693,88 @@ if (!isset($_SESSION['ID'])) {
 					'rgba(54, 162, 235, 1)',
 					'rgba(255, 206, 86, 1)',
 					'rgba(75, 192, 192, 1)'
+					],
+					borderWidth: 1
+				}]
+			},
+			options: {
+				scales: {
+					yAxes: [{
+            gridLines: {
+                display:true
+            },
+						ticks: {
+							beginAtZero:true,
+              steps: 0,
+              stepSize: 1,
+						}
+					}],
+          xAxes: [{
+            barPercentage: 0.4,
+            gridLines: {
+                display:false
+            }
+          }]
+				}
+			}
+		});
+	</script>
+
+<script>
+		var ctx = document.getElementById('myChart-exchange').getContext('2d');
+		var myChart = new Chart(ctx, {
+			type: 'bar',
+			data: {
+				labels: ["Need AWB In", "Serv Shipped", "NEED INSPECT", "NEED CORE", "NEED AWB OUT", "NEED REPAIR APPROVAL", "NEED PAYMENT"],
+				datasets: [{
+					label: '',
+					data: [
+					<?php 
+					$need_awb_in = mysqli_query($koneksi,"SELECT * FROM master_order WHERE created_by ='$user' AND req_scheme='Exchange' AND serv_status='NEED AWB IN';");
+					echo mysqli_num_rows($need_awb_in);
+					?>, 
+					<?php 
+					$serv_shipped = mysqli_query($koneksi,"SELECT * FROM master_order WHERE created_by ='$user 'AND req_scheme='Exchange' AND serv_status='SERV SHIPPED';");
+					echo mysqli_num_rows($serv_shipped);
+					?>, 
+					<?php 
+					$need_inspect = mysqli_query($koneksi,"SELECT * FROM master_order WHERE created_by ='$user 'AND req_scheme='Exchange' AND serv_status='NEED INSPECT';");
+					echo mysqli_num_rows($need_inspect);
+					?>, 
+					<?php 
+					$need_core = mysqli_query($koneksi,"SELECT * FROM master_order WHERE created_by ='$user 'AND req_scheme='Exchange' AND serv_status='NEED CORE';");
+					echo mysqli_num_rows($need_core);
+					?>, 
+					<?php 
+					$need_awb_out = mysqli_query($koneksi,"SELECT * FROM master_order WHERE created_by ='$user 'AND req_scheme='Exchange' AND serv_status='NEED AWB OUT';");
+					echo mysqli_num_rows($need_awb_out);
+					?>, 
+					<?php 
+					$need_repr_apprval = mysqli_query($koneksi,"SELECT * FROM master_order WHERE created_by ='$user 'AND req_scheme='Exchange' AND serv_status='NEED REPAIR APPROVAL';");
+					echo mysqli_num_rows($need_repr_apprval);
+					?>, 
+					<?php 
+					$need_payment = mysqli_query($koneksi,"SELECT * FROM master_order WHERE created_by ='$user 'AND req_scheme='Exchange' AND serv_status='NEED PAYMENT';");
+					echo mysqli_num_rows($need_payment);
+					?>
+					],
+					backgroundColor: [
+					'rgba(255, 99, 132, 0.2)',
+					'rgba(54, 162, 235, 0.2)',
+					'rgba(255, 206, 86, 0.2)',
+					'rgba(75, 192, 192, 0.2)',
+					'rgba(54, 162, 235, 0.2)',
+          'rgba(153, 102, 255, 0.2)',
+          'rgba(201, 203, 207, 0.2)'
+					],
+					borderColor: [
+					'rgba(255,99,132,1)',
+					'rgba(54, 162, 235, 1)',
+					'rgba(255, 206, 86, 1)',
+					'rgba(75, 192, 192, 1)',
+          'rgb(54, 162, 235)',
+          'rgb(153, 102, 255)',
+          'rgb(201, 203, 207)'
 					],
 					borderWidth: 1
 				}]
