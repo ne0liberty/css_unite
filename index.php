@@ -657,7 +657,7 @@ if (!isset($_SESSION['ID'])) {
 		var myChart = new Chart(ctx, {
 			type: 'bar',
 			data: {
-				labels: ["Waiting AWB Export", "Waiting Quote", "Waiting Payment", "Under Repair"],
+				labels: ["Waiting AWB Export", "Waiting Quote", "Waiting Payment", "Under Repair", "Waiting GR"],
 				datasets: [{
 					label: '',
 					data: [
@@ -676,6 +676,10 @@ if (!isset($_SESSION['ID'])) {
 					<?php 
 					$under_repair = mysqli_query($koneksi,"SELECT * FROM master_order WHERE created_by ='$user 'AND req_scheme='Repair' AND serv_status='NEED AWB IN';");
 					echo mysqli_num_rows($under_repair);
+					?>, 
+					<?php 
+					$waiting_gr = mysqli_query($koneksi,"SELECT * FROM master_order WHERE created_by ='$user 'AND req_scheme='Repair' AND serv_status='SERV SHIPPED';");
+					echo mysqli_num_rows($waiting_gr);
 					?>
 					],
 					backgroundColor: [
@@ -702,7 +706,10 @@ if (!isset($_SESSION['ID'])) {
               stepSize: 1,
               
 						}
-					}]
+					}],
+          xAxes: [{
+            barPercentage: 0.4
+        }]
 				}
 			}
 		});
