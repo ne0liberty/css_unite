@@ -697,7 +697,10 @@ if (!isset($_SESSION['ID'])) {
 				scales: {
 					yAxes: [{
 						ticks: {
-							beginAtZero:true
+							beginAtZero:true,
+              steps: 0,
+              stepSize: 1,
+              
 						}
 					}]
 				}
