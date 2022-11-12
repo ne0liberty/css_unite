@@ -134,13 +134,12 @@
                   <!-- Morris chart - Sales -->
                       <canvas id="myChart" height="150" style="height: 200px;"></canvas>
                    </div>
-                </div>
-              </div><!-- /.card-body -->
-            </div>
-            <!-- /.card -->
-
+               </div>
+            </div><!-- /.card-body -->
             
+            <!-- /.card -->
           </section>
+          
           <!-- /.Left col -->
           <!-- right col (We are only adding the ID to make the widgets sortable)-->
           <section class="col-lg-5 connectedSortable">

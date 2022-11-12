@@ -289,13 +289,13 @@ if (!isset($_SESSION['ID'])) {
                                                         else {
                                                         }
                                                         ?></p>
-                                                        <p class="mb-0"><?php if (strpos($items['description'],$filtervalues)!==false) {
+                                                        <p class="mb-0"><?php if (strpos($items['description'],$filtervalues)!==true) {
                                                           echo "Desc : ". $items['description'];
                                                         }
                                                         else {
                                                         }
                                                         ?></p>
-                                                        <p class="mb-0"><?php if (strpos($items['vendor'],$filtervalues)!==false) {
+                                                        <p class="mb-0"><?php if (strpos($items['vendor'],$filtervalues)!==true) {
                                                           echo "Vendor : ". $items['vendor'];
                                                         }
                                                         else {
@@ -700,16 +700,21 @@ if (!isset($_SESSION['ID'])) {
 			options: {
 				scales: {
 					yAxes: [{
+            gridLines: {
+                display:true
+            },
 						ticks: {
 							beginAtZero:true,
               steps: 0,
               stepSize: 1,
-              
 						}
 					}],
           xAxes: [{
-            barPercentage: 0.4
-        }]
+            barPercentage: 0.4,
+            gridLines: {
+                display:false
+            }
+          }]
 				}
 			}
 		});
