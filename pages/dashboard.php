@@ -59,7 +59,7 @@
                 <p>Open Order</p>
               </div>
               <div class="icon">
-                <i class="ion ion-stats-bars"></i>
+                <i class="fas fa-shopping-cart"></i>
               </div>
               <a href="#" class="small-box-footer">See Open Order <i class="fas fa-arrow-circle-right"></i></a>
             </div>
@@ -67,31 +67,41 @@
           <!-- ./col -->
           <div class="col-lg-3 col-6">
             <!-- small box -->
+            <?php
+              $count_exchange_order = mysqli_query($koneksi, "SELECT COUNT(*) FROM master_order WHERE created_by ='$user' AND req_scheme='Exchange';");
+              $result_exchange_order = mysqli_fetch_array($count_exchange_order);
+
+            ?>
             <div class="small-box bg-warning">
               <div class="inner">
-                <h3>44</h3>
+                <h3><?php echo $result_exchange_order[0]; ?><sup style="font-size: 20px"></sup></h3>
 
-                <p>User Registrations</p>
+                <p>Exchange Order</p>
               </div>
               <div class="icon">
-                <i class="ion ion-person-add"></i>
+                <i class="ion ion-pie-graph"></i>
               </div>
-              <a href="#" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a>
+              <a href="#" class="small-box-footer">See Exchange Order <i class="fas fa-arrow-circle-right"></i></a>
             </div>
           </div>
           <!-- ./col -->
           <div class="col-lg-3 col-6">
             <!-- small box -->
+            <?php
+              $count_repair_order = mysqli_query($koneksi, "SELECT COUNT(*) FROM master_order WHERE created_by ='$user' AND req_scheme='Repair';");
+              $result_repair_order = mysqli_fetch_array($count_repair_order);
+
+            ?>
             <div class="small-box bg-danger">
               <div class="inner">
-                <h3>65</h3>
+                <h3><?php echo $result_repair_order[0]; ?><sup style="font-size: 20px"></sup></h3>
 
-                <p>Unique Visitors</p>
+                <p>Repair Order</p>
               </div>
               <div class="icon">
                 <i class="ion ion-pie-graph"></i>
               </div>
-              <a href="#" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a>
+              <a href="#" class="small-box-footer">See Repair Order <i class="fas fa-arrow-circle-right"></i></a>
             </div>
           </div>
           <!-- ./col -->
