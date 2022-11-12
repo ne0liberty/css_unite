@@ -725,7 +725,7 @@ if (!isset($_SESSION['ID'])) {
 		var myChart = new Chart(ctx, {
 			type: 'bar',
 			data: {
-				labels: ["Need AWB In", "Serv Shipped", "NEED INSPECT", "NEED CORE", "NEED AWB OUT", "NEED REPAIR APPROVAL", "NEED PAYMENT"],
+				labels: ["Need AWB In", "Serv Shipped", "Need Inspect", "Need Core", "Need AWB Out", "Need Repair Approval", "Need Payment"],
 				datasets: [{
 					label: '',
 					data: [
