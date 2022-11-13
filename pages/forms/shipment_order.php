@@ -172,7 +172,28 @@
                 
                 <div class="form-group">
                     <label>Item List</label>
-                    <input type="text" readonly id="desc" name="description" class="form-control">
+                    <table id="example3" class="table table-bordered">
+                      <thead>
+                      <tr>
+                        <th>No.</th>
+                        <th>Description</th>
+                        <th>Part Number</th> 
+                        <th>Serial Number</th>
+                        <th>Tracking No</th>
+                        <th>PO Number</th>
+                        <th>Condition</th>
+                      </tr>
+                      </thead>
+                      <tr>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>  
+                      </tr>                  
+                    </table>
 
                 </div>
                 
