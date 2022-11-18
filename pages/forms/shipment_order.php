@@ -252,9 +252,9 @@
 
         const vendor_id = $("#vendor").val();
         const so_date = $("#so_date").val();
-        const dataObj = {};
+        //const dataObj = {};
 
-        dataObj[vendor_id]=so_date;
+        //dataObj[vendor_id]=so_date;
 
         $.ajax({    
             type: "post",
