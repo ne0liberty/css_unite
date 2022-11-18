@@ -39,11 +39,11 @@
               <div class="col-md-6">
                 <div class="form-group">
                     <label>Shipment order date</label>
-                    <input type="date" name="shipment_order_date" class="form-control" placeholder="Masukkan" value="<?php echo date('Y-m-d'); ?>">
+                    <input type="date" name="shipment_order_date" class="form-control" id="so_date" onchange="loadData()" placeholder="Masukkan" value="<?php echo date('Y-m-d'); ?>">
                   </div>
                 <div class="form-group">
                   <label>Vendor</label>
-                    <select class="form-control select2bs4" id='vendor' name="vendor" onchange="isi_otomatis()" style="width: 100%;">
+                    <select class="form-control select2bs4" id='vendor' name="vendor" onchange="isi_otomatis();loadData()" style="width: 100%;">
                       <option value="">- Select Vendor -</option>
                       <?php 
                             include('conf/conn.php');
@@ -169,31 +169,10 @@
               </div>
               <!-- /.col -->
               <div class="col-md-6">
-                
                 <div class="form-group">
                     <label>Item List</label>
-                    <table id="example3" class="table table-bordered">
-                      <thead>
-                      <tr>
-                        <th>No.</th>
-                        <th>Description</th>
-                        <th>Part Number</th> 
-                        <th>Serial Number</th>
-                        <th>Tracking No</th>
-                        <th>PO Number</th>
-                        <th>Condition</th>
-                      </tr>
-                      </thead>
-                      <tr>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>  
-                      </tr>                  
-                    </table>
+                    <div id="displayData">
+                    </div>
 
                 </div>
                 
@@ -246,6 +225,7 @@
       
       <!-- Autofillss -->
       <script src="plugins/jquery/jquery-1.12.4.min.js"></script>
+      <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
 
       <!-- Select2 -->
       <script src="plugins/select2/js/select2.full.min.js"></script>
@@ -267,7 +247,26 @@
                 
             }
 
+        //autoload table contenct
+        var loadData = function(){
 
+        const vendor_id = $("#vendor").val();
+        const so_date = $("#so_date").val();
+        const dataObj = {};
+
+        dataObj[vendor_id]=so_date;
+
+        $.ajax({    
+            type: "post",
+            url: "conf/display-script.php", 
+            data:{vendorId:vendor_id,soDate:so_date},      
+            dataType: "html",                  
+            success: function(data){   
+              
+                $("#displayData").html(data);
+            }
+        });
+        };
         
        //Initialize Select2 Elements
        $('.select2').select2()
