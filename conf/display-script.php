@@ -14,7 +14,7 @@ if(isset($_POST['vendorId'])){
 function fetchDataById($vendorId){
     
     global $conn;
-    $query ="SELECT * FROM master_order WHERE shipment_order_date='".$_POST["soDate"]."' AND vendor='$vendorId'; ";
+    $query ="SELECT * FROM master_order WHERE shipment_order_date='".$_POST["soDate"]."' AND created_by='".$_POST["userID"]."' AND vendor='$vendorId'; ";
     $result = $conn->query($query);
     if($result->num_rows> 0){
       $vendor_list= mysqli_fetch_all($result, MYSQLI_ASSOC);

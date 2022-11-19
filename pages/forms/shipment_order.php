@@ -1,4 +1,6 @@
-
+<?php
+$nama = ucwords($_SESSION['NAME']);
+?>
 
 <!-- Content Wrapper. Contains page content -->
 
@@ -252,6 +254,7 @@
 
         const vendor_id = $("#vendor").val();
         const so_date = $("#so_date").val();
+        const user_id = '<?php echo $nama;?>';
         //const dataObj = {};
 
         //dataObj[vendor_id]=so_date;
@@ -259,7 +262,7 @@
         $.ajax({    
             type: "post",
             url: "conf/display-script.php", 
-            data:{vendorId:vendor_id,soDate:so_date},      
+            data:{vendorId:vendor_id,soDate:so_date,userID:user_id},      
             dataType: "html",                  
             success: function(data){   
               
