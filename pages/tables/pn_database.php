@@ -63,7 +63,7 @@
                         <tr> 
                             <td><?= $no; ?></td>
                             <td><?= $row2['part_number']; ?></td>
-                            <td><?= $row2['desc']; ?></td>
+                            <td><?= $row2['description']; ?></td>
                             <td><?= $row2['ata']; ?></td>
                             <td><?= $row2['pn_newprice']; ?></td>
                             <td>
@@ -110,7 +110,7 @@
                 <div class="form-group row">
                     <label class="col-sm-2 col-form-label">Description</label>
                       <div class="col-sm-10">
-                        <input type="text" class="form-control" name="desc" placeholder="Enter">
+                        <input type="text" class="form-control" name="description" placeholder="Enter">
                       </div>
                 </div>
                 <div class="form-group row">
@@ -150,11 +150,11 @@
         if (isset($_POST['submit'])) {
          //menampung data dari inputan
          $part_number = $_POST['part_number'];
-         $desc = $_POST['desc'];
+         $desc = $_POST['description'];
          $ata = $_POST['ata'];
          $pn_newprice = $_POST['pn_newprice'];
   
-         $update = mysqli_query($koneksi, "INSERT INTO pn_database (part_number,desc,ata,pn_newprice) 
+         $update = mysqli_query($koneksi, "INSERT INTO pn_database (part_number,description,ata,pn_newprice) 
          VALUES ('$part_number','$desc','$ata','$pn_newprice')") or die(mysqli_error($koneksi));
          
          //ini untuk menampilkan alert berhasil dan redirect ke halaman index
