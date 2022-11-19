@@ -26,10 +26,16 @@
             <div class="card">
               <div class="card-header"> 
                 <h3 class="card-title">View Order</h3>
+                <div class="card-tools">
+                   <ul class="nav nav-pills ml-auto">
+                     <li class="nav-item">
+                       <a class="btn btn-sm btn-success" href="" data-toggle="tab">Add PN</a>
+                     </li>
+                   </ul>
+                 </div>
               </div>
               <!-- /.card-header -->
               <div class="card-body">
-              <a href="#" class="btn btn-sm btn-danger">Add PN</a>
                   <table id="example2" class="table table-bordered table-striped">
                   <thead>
                   <tr>
