@@ -68,7 +68,7 @@
                             <td><?= $row2['pn_newprice']; ?></td>
                             <td>
                               <div class="btn-group btn-group-sm">
-                                <a href="" class="btn btn-sm btn-warning"><i class="fas fa-edit"></i></a>    
+                                <a href="" class="btn btn-sm btn-warning edit" data-toggle="modal" data-target="#edit-pn" data-id="'.$row2['part_number'].'"><i class="fas fa-edit"></i></a>    
                                 <a href="pages/tables/hapus_pn_database.php?part_number=<?= $row2['part_number']; ?>" class="btn btn-sm btn-danger" onclick="return confirm('Are you sure to delete?');"><i class="fas fa-trash"></i></a>
                               </div>
                             </td>
@@ -160,6 +160,102 @@
          }
   
      ?>
+
+      <div class="modal fade" id="edit-pn">
+        <div class="modal-dialog modal-lg">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h4 class="modal-title">Edit Part Number</h4>
+              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+              </button>
+            </div>
+            <form action="" method="post" id="frm_update" role="form">
+            <div class="modal-body">
+                <input type="hidden" name="id" id="part_number">
+                <div class="form-group row">
+                    <label class="col-sm-2 col-form-label">Part Number</label>
+                      <div class="col-sm-10">
+                        <input type="text" class="form-control" name="part_number" id="part_number" placeholder="Enter">
+                      </div>
+                </div>
+                <div class="form-group row">
+                    <label class="col-sm-2 col-form-label">Description</label>
+                      <div class="col-sm-10">
+                        <input type="text" class="form-control" name="description" id="description" placeholder="Enter">
+                      </div>
+                </div>
+                <div class="form-group row">
+                    <label class="col-sm-2 col-form-label">ATA</label>
+                      <div class="col-sm-10">
+                        <input type="text" class="form-control" name="ata" id="ata" placeholder="Enter">
+                      </div>
+                </div>
+                <div class="form-group row">
+                    <label class="col-sm-2 col-form-label">New Price</label>
+                      <div class="col-sm-10">
+                        <div class="input-group">
+                          <div class="input-group-prepend">
+                              <span class="input-group-text">$</span>
+                          </div>
+                          <input type="text" class="form-control" name="pn_newprice" id="pn_newprice" value="0.00">
+                        </div>
+                      </div>
+                </div>
+            </div>
+            <div class="modal-footer justify-content-between">
+              <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+              <button type="submit" name="edit" class="btn btn-primary">Update changes</button>
+            </div>
+            </form>
+          </div>
+          <!-- /.modal-content -->
+        </div>
+        <!-- /.modal-dialog -->
+      </div>
+      <!-- /.modal -->
+
+      
+      <?php
+  			include('conf/conn.php');
+       //melakukan pengecekan jika button submit diklik maka akan menjalankan perintah simpan dibawah ini
+        if (isset($_POST['edit'])) {
+         //menampung data dari inputan
+         $part_number = $_POST['part_number'];
+         $desc = $_POST['description'];
+         $ata = $_POST['ata'];
+         $pn_newprice = $_POST['pn_newprice'];
+  
+         $update = mysqli_query($koneksi, "UPDATE pn_database SET part_number='$part_number',description='$desc',ata='$ata',pn_newprice='$pn_newprice' WHERE part_number='$part_number')") or die(mysqli_error($koneksi));
+         
+         //ini untuk menampilkan alert berhasil dan redirect ke halaman index
+         echo "<script>alert('Data has been saved.');window.location='index.php?page=pn_database';</script>";
+         }
+  
+     ?>
+
+      <script>
+      $(document).ready(function () {
+        //ajax edit data pn
+        $(".edit").off("click").on("click",function() {              
+           var id_data = $(this).attr("data-id");
+           $.ajax({                        
+                url : "conf/ajax-edit_pn_dtbase.php?id="+id_data,
+                type: "GET",
+                dataType: "JSON",
+                success: function(data)
+                {                                    
+                    $("#part_number").val(data.part_number);                     
+                    $("#description").val(data.description);                     
+                    $("#ata").val(data.ata);                     
+                    $("#pn_newprice").val(data.pn_newprice);                                         
+                    //$(".modal-update").modal('show');                             
+                }
+            });    
+        });
+      });
+      
+      </script>
       
     </section>
     <!-- /.content -->
