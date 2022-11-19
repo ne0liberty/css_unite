@@ -67,7 +67,10 @@
                             <td><?= $row2['ata']; ?></td>
                             <td><?= $row2['pn_newprice']; ?></td>
                             <td>
-                                    <a href="pages/tables/hapus_pn_database.php?part_number=<?= $row2['part_number']; ?>" class="btn btn-sm btn-danger" onclick="return confirm('anda yakin ingin hapus?');">Hapus</a>
+                              <div class="btn-group btn-group-sm">
+                                <a href="" class="btn btn-sm btn-warning" onclick="return confirm('Are you sure to delete?');"><i class="fas fa-edit"></i></a>    
+                                <a href="pages/tables/hapus_pn_database.php?part_number=<?= $row2['part_number']; ?>" class="btn btn-sm btn-danger" onclick="return confirm('Are you sure to delete?');"><i class="fas fa-trash"></i></a>
+                              </div>
                             </td>
 					              </tr>
 
