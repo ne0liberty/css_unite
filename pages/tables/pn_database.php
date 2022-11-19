@@ -98,26 +98,76 @@
                 <span aria-hidden="true">&times;</span>
               </button>
             </div>
+            <form action="" method="post" role="form">
             <div class="modal-body">
-              <p>One fine body&hellip;</p>
+              
+                <div class="form-group row">
+                    <label class="col-sm-2 col-form-label">Part Number</label>
+                      <div class="col-sm-10">
+                        <input type="text" class="form-control" name="part_number" placeholder="Enter">
+                      </div>
+                </div>
+                <div class="form-group row">
+                    <label class="col-sm-2 col-form-label">Description</label>
+                      <div class="col-sm-10">
+                        <input type="text" class="form-control" name="desc" placeholder="Enter">
+                      </div>
+                </div>
+                <div class="form-group row">
+                    <label class="col-sm-2 col-form-label">ATA</label>
+                      <div class="col-sm-10">
+                        <input type="text" class="form-control" name="ata" placeholder="Enter">
+                      </div>
+                </div>
+                <div class="form-group row">
+                    <label class="col-sm-2 col-form-label">New Price</label>
+                      <div class="col-sm-10">
+                        <div class="input-group">
+                          <div class="input-group-prepend">
+                              <span class="input-group-text">$</span>
+                          </div>
+                          <input type="text" class="form-control" name="pn_newprice" value="0.00">
+                        </div>
+                      </div>
+                </div>
+              
             </div>
             <div class="modal-footer justify-content-between">
               <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-              <button type="button" class="btn btn-primary">Save changes</button>
+              <button type="submit" name="submit" class="btn btn-primary">Save changes</button>
             </div>
+            </form>
           </div>
           <!-- /.modal-content -->
         </div>
         <!-- /.modal-dialog -->
       </div>
       <!-- /.modal -->
+
+      <?php
+  			include('conf/conn.php');
+       //melakukan pengecekan jika button submit diklik maka akan menjalankan perintah simpan dibawah ini
+        if (isset($_POST['submit'])) {
+         //menampung data dari inputan
+         $part_number = $_POST['part_number'];
+         $desc = $_POST['desc'];
+         $ata = $_POST['ata'];
+         $pn_newprice = $_POST['pn_newprice'];
+  
+         $update = mysqli_query($koneksi, "INSERT INTO pn_database (part_number,desc,ata,pn_newprice) 
+         VALUES ('$part_number','$desc','$ata','$pn_newprice')") or die(mysqli_error($koneksi));
+         
+         //ini untuk menampilkan alert berhasil dan redirect ke halaman index
+         echo "<script>alert('Data has been saved.');window.location='index.php?page=pn_database';</script>";
+         }
+  
+     ?>
       
     </section>
     <!-- /.content -->
  
   <!-- /.content-wrapper -->
 <!-- Page specific script -->
-
 
 
 
