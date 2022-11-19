@@ -1,3 +1,9 @@
+<!-- DataTables -->
+<link rel="stylesheet" href="plugins/datatables-bs4/css/dataTables.bootstrap4.min.css">
+<link rel="stylesheet" href="plugins/datatables-responsive/css/responsive.bootstrap4.min.css">
+<link rel="stylesheet" href="plugins/datatables-buttons/css/buttons.bootstrap4.min.css">
+<link rel="stylesheet" type="text/css" href="plugins/bootstrap/bootstrap.min.css">
+
 <?php
 $conn = mysqli_connect("localhost", "root", "", "css_order");
 
@@ -60,3 +66,18 @@ function displayData($fetchData){
   echo "</table>";
 }
 ?>
+
+<script>
+$(function () {
+  $('#example3').DataTable({
+      "paging": false,
+      "lengthChange": true,
+      "searching": false,
+      "ordering": false,
+      "info": false,
+      "autoWidth": true,
+      "responsive": true,
+
+    });
+  })
+</script>

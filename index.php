@@ -515,11 +515,11 @@ if (!isset($_SESSION['ID'])) {
 
     $('#example3').DataTable({
       "paging": false,
-      "lengthChange": false,
+      "lengthChange": true,
       "searching": false,
       "ordering": false,
       "info": false,
-      "autoWidth": false,
+      "autoWidth": true,
       "responsive": true,
 
     });
