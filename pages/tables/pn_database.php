@@ -29,7 +29,7 @@
                 <div class="card-tools">
                    <ul class="nav nav-pills ml-auto">
                      <li class="nav-item">
-                       <a class="btn btn-sm btn-success" href="" data-toggle="modal" data-target="#modal-lg">Add PN</a>
+                       <a class="btn btn-primary float-right" href="" data-toggle="modal" data-target="#submit-pn"><i class="fas fa-plus"></i> Add item</a>
                      </li>
                    </ul>
                  </div>
@@ -89,7 +89,7 @@
       </div>
       <!-- /.container-fluid -->
 
-      <div class="modal fade" id="modal-lg">
+      <div class="modal fade" id="submit-pn">
         <div class="modal-dialog modal-lg">
           <div class="modal-content">
             <div class="modal-header">
