@@ -100,7 +100,6 @@
             </div>
             <form action="" method="post" role="form">
             <div class="modal-body">
-              
                 <div class="form-group row">
                     <label class="col-sm-2 col-form-label">Part Number</label>
                       <div class="col-sm-10">
@@ -130,7 +129,6 @@
                         </div>
                       </div>
                 </div>
-              
             </div>
             <div class="modal-footer justify-content-between">
               <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
