@@ -92,7 +92,7 @@
                 </div>
                 <div class="form-group">
                     <label>Description</label>
-                    <input type="text" readonly id="description" name="description" class="form-control">
+                    <input type="text" readonly id="desc_id" name="description" class="form-control">
                 </div>
                 <div class="form-group">
                     <label>PR</label>
@@ -191,7 +191,7 @@
                 }).success(function (data) {
                     var json = data,
                     obj = JSON.parse(json);
-                    $('#description').val(obj.desc);
+                    $('#desc_id').val(obj.desc_id);
                 });
                 
             }
