@@ -68,7 +68,7 @@
                             <td><?= $row2['pn_newprice']; ?></td>
                             <td>
                               <div class="btn-group btn-group-sm">
-                                <a href="" class="btn btn-sm btn-warning edit" data-toggle="modal" data-target="#edit-pn" data-id="'.$row2['part_number'].'"><i class="fas fa-edit"></i></a>    
+                                <a href="#" class="btn btn-sm btn-warning" data-toggle="modal" data-target="#edit-pn<?= $row2['part_number'] ?>"><i class="fas fa-edit"></i></a>    
                                 <a href="pages/tables/hapus_pn_database.php?part_number=<?= $row2['part_number']; ?>" class="btn btn-sm btn-danger" onclick="return confirm('Are you sure to delete?');"><i class="fas fa-trash"></i></a>
                               </div>
                             </td>
@@ -161,7 +161,7 @@
   
      ?>
 
-      <div class="modal fade" id="edit-pn">
+      <div class="modal fade modal-update" id="edit-pn<?= $row2['part_number'] ?>" role="dialog">
         <div class="modal-dialog modal-lg">
           <div class="modal-content">
             <div class="modal-header">
@@ -170,25 +170,31 @@
                 <span aria-hidden="true">&times;</span>
               </button>
             </div>
-            <form action="" method="post" id="frm_update" role="form">
+            <form action="" method="post" role="form">
+            <?php
+            $id_user = $row2['part_number'];
+            $query = "SELECT * FROM pn_database WHERE part_number='$id_user'";
+            $result = mysqli_query($koneksi, $query);
+            while ($row = mysqli_fetch_assoc($result)) {
+            ?>
             <div class="modal-body">
-                <input type="hidden" name="id" id="part_number">
+                
                 <div class="form-group row">
                     <label class="col-sm-2 col-form-label">Part Number</label>
                       <div class="col-sm-10">
-                        <input type="text" class="form-control" name="part_number" id="part_number" placeholder="Enter">
+                        <input type="text" class="form-control" name="part_number" value="<?php echo $row['part_number']; ?>" placeholder="Enter">
                       </div>
                 </div>
                 <div class="form-group row">
                     <label class="col-sm-2 col-form-label">Description</label>
                       <div class="col-sm-10">
-                        <input type="text" class="form-control" name="description" id="description" placeholder="Enter">
+                        <input type="text" class="form-control" name="description" value="<?php echo $row['description']; ?>" placeholder="Enter">
                       </div>
                 </div>
                 <div class="form-group row">
                     <label class="col-sm-2 col-form-label">ATA</label>
                       <div class="col-sm-10">
-                        <input type="text" class="form-control" name="ata" id="ata" placeholder="Enter">
+                        <input type="text" class="form-control" name="ata" value="<?php echo $row['ata']; ?>" placeholder="Enter">
                       </div>
                 </div>
                 <div class="form-group row">
@@ -198,7 +204,7 @@
                           <div class="input-group-prepend">
                               <span class="input-group-text">$</span>
                           </div>
-                          <input type="text" class="form-control" name="pn_newprice" id="pn_newprice" value="0.00">
+                          <input type="text" class="form-control" name="pn_newprice" value="<?php echo $row['pn_newprice']; ?>" value="0.00">
                         </div>
                       </div>
                 </div>
@@ -208,6 +214,9 @@
               <button type="submit" name="edit" class="btn btn-primary">Update changes</button>
             </div>
             </form>
+          <?php
+          }
+          ?>
           </div>
           <!-- /.modal-content -->
         </div>
@@ -234,28 +243,7 @@
   
      ?>
 
-      <script>
-      $(document).ready(function () {
-        //ajax edit data pn
-        $(".edit").off("click").on("click",function() {              
-           var id_data = $(this).attr("data-id");
-           $.ajax({                        
-                url : "conf/ajax-edit_pn_dtbase.php?id="+id_data,
-                type: "GET",
-                dataType: "JSON",
-                success: function(data)
-                {                                    
-                    $("#part_number").val(data.part_number);                     
-                    $("#description").val(data.description);                     
-                    $("#ata").val(data.ata);                     
-                    $("#pn_newprice").val(data.pn_newprice);                                         
-                    //$(".modal-update").modal('show');                             
-                }
-            });    
-        });
-      });
-      
-      </script>
+    
       
     </section>
     <!-- /.content -->
