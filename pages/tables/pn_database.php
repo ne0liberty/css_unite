@@ -65,7 +65,7 @@
                             <td><?= $row2['part_number']; ?></td>
                             <td><?= $row2['description']; ?></td>
                             <td><?= $row2['ata']; ?></td>
-                            <td><?= $row2['pn_newprice']; ?></td>
+                            <td>$ <?= $row2['pn_newprice']; ?></td>
                             <td>
                               <div class="btn-group btn-group-sm">
                                 <a href="#" class="btn btn-sm btn-warning" data-toggle="modal" data-target="#edit-pn<?= $row2['part_number'] ?>"><i class="fas fa-edit"></i></a>    
