@@ -80,7 +80,7 @@
                                         <span aria-hidden="true">&times;</span>
                                       </button>
                                     </div>
-                                    <form action="" method="post" role="form">
+                                    <form action="conf/upd-pn-database.php?act=edit" method="post" role="form">
                                     <?php
                                     $id_user = $row2['part_number'];
                                     $query = "SELECT * FROM pn_database WHERE part_number='$id_user'";
@@ -121,7 +121,7 @@
                                     </div>
                                     <div class="modal-footer justify-content-between">
                                       <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-                                      <button type="submit" name="edit" class="btn btn-primary">Update changes</button>
+                                      <button type="submit" name="submit" class="btn btn-primary">Update changes</button>
                                     </div>
                                     </form>
                                   <?php
@@ -159,7 +159,7 @@
                 <span aria-hidden="true">&times;</span>
               </button>
             </div>
-            <form action="" method="post" role="form">
+            <form action="conf/upd-pn-database.php?act=add" method="post" role="form">
             <div class="modal-body">
                 <div class="form-group row">
                     <label class="col-sm-2 col-form-label">Part Number</label>
@@ -202,47 +202,7 @@
         <!-- /.modal-dialog -->
       </div>
       <!-- /.modal -->
-
-      <?php
-  			include('conf/conn.php');
-       //melakukan pengecekan jika button submit diklik maka akan menjalankan perintah simpan dibawah ini
-        if (isset($_POST['submit'])) {
-         //menampung data dari inputan
-         $part_number = $_POST['part_number'];
-         $desc = $_POST['description'];
-         $ata = $_POST['ata'];
-         $pn_newprice = $_POST['pn_newprice'];
-  
-         $update = mysqli_query($koneksi, "INSERT INTO pn_database (part_number,description,ata,pn_newprice) 
-         VALUES ('$part_number','$desc','$ata','$pn_newprice')") or die(mysqli_error($koneksi));
-         
-         //ini untuk menampilkan alert berhasil dan redirect ke halaman index
-         echo "<script>alert('Data has been saved.');window.location='index.php?page=pn_database';</script>";
-         }
-  
-     ?>
-
       
-      <!-- /.modal -->
-
-      
-      <?php
-  			include('conf/conn.php');
-       //melakukan pengecekan jika button submit diklik maka akan menjalankan perintah simpan dibawah ini
-        if (isset($_POST['edit'])) {
-         //menampung data dari inputan
-         $part_number = $_POST['part_number'];
-         $desc = $_POST['description'];
-         $ata = $_POST['ata'];
-         $pn_newprice = $_POST['pn_newprice'];
-  
-         $update = mysqli_query($koneksi, "UPDATE pn_database SET part_number='$part_number',description='$desc',ata='$ata',pn_newprice='$pn_newprice' WHERE part_number='$part_number')") or die(mysqli_error($koneksi));
-         
-         //ini untuk menampilkan alert berhasil dan redirect ke halaman index
-         echo "<script>alert('Data has been saved.');window.location='index.php?page=pn_database';</script>";
-         }
-  
-     ?>
 
     
       
