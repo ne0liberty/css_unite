@@ -180,15 +180,29 @@
                       </div>
                 </div>
                 <div class="form-group row">
-                    <label class="col-sm-2 col-form-label">New Price</label>
-                      <div class="col-sm-10">
-                        <div class="input-group">
-                          <div class="input-group-prepend">
-                              <span class="input-group-text">$</span>
-                          </div>
-                          <input type="text" class="form-control" name="pn_newprice" value="0.00">
+                  <label class="col-sm-2 col-form-label">New Price</label>
+                    <div class="col-sm-10">
+                      <div class="input-group">
+                        <div class="input-group-prepend">
+                            <span class="input-group-text">$</span>
+                        </div>
+                        <input type="text" class="form-control" name="pn_newprice" value="0.00">
+                      </div>
+                    </div>
+                </div>
+                <div class="form-group row">
+                    <label class="col-sm-2 col-form-label">File Input</label>
+                    <div class="col-sm-10">
+                      <div class="input-group">
+                        <div class="custom-file">
+                          <input type="file" class="custom-file-input" id="exampleInputFile">
+                          <label class="custom-file-label" for="exampleInputFile">Import Excel For Multiple PN</label>
+                        </div>
+                        <div class="input-group-append">
+                          <span class="input-group-text">Upload</span>
                         </div>
                       </div>
+                    </div>
                 </div>
             </div>
             <div class="modal-footer justify-content-between">
