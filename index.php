@@ -660,7 +660,7 @@ if (!isset($_SESSION['ID'])) {
 			data: {
 				labels: ["Need AWB Export", "Need Quote", "Need Payment", "Under Repair", "Need GR"],
 				datasets: [{
-					label: '',
+					label: 'Open Item',
 					data: [
 					<?php 
 					$awb_export = mysqli_query($koneksi,"SELECT * FROM master_order WHERE created_by ='$user' AND req_scheme='Repair' AND serv_status='NEED AWB OUT';");
@@ -728,7 +728,7 @@ if (!isset($_SESSION['ID'])) {
 			data: {
 				labels: ["Need AWB In", "Serv Shipped", "Need Inspect", "Need Core", "Need AWB Out", "Need Repair Approval", "Need Payment"],
 				datasets: [{
-					label: '',
+					label: 'Open Item',
 					data: [
 					<?php 
 					$need_awb_in = mysqli_query($koneksi,"SELECT * FROM master_order WHERE created_by ='$user' AND req_scheme='Exchange' AND serv_status='NEED AWB IN';");
