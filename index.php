@@ -219,7 +219,7 @@ if (!isset($_SESSION['ID'])) {
                 </a>
               </li>
               <li class="nav-item">
-                <a href="#" class="nav-link">
+                <a href="index.php?page=vendor_database" class="nav-link">
                   <i class="far fa-circle nav-icon"></i>
                   <p>Vendor Database</p>
                 </a>
