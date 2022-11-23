@@ -83,42 +83,78 @@ $nama = ucwords($_SESSION['NAME']);
         </div>
       </div>
     </form>
-      
-      <!-- Autofillss -->
-      <script src="plugins/jquery/jquery-1.12.4.min.js"></script>
-      <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
 
-      <!-- Select2 -->
-      <script src="plugins/select2/js/select2.full.min.js"></script>
+    <div class="modal fade" id="submit-vendor">
+        <div class="modal-dialog modal-lg">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h4 class="modal-title">Submit New Vendor</h4>
+              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+              </button>
+            </div>
+            <form action="conf/upd-vendor-database.php?act=add" method="post" role="form">
+            <div class="modal-body">
+                <div class="form-group">
+                    <label>Vendor Name</label>
+                    <input type="text" class="form-control" name="vendor" placeholder="Enter">
+                </div>
+                <div class="form-group">
+                    <label>Address 1</label>
+                    <textarea class="form-control" rows="7" id="" name="address1" placeholder="Enter"></textarea>
+                </div>
+                <div class="form-group">
+                    <label>Address 2</label>
+                    <textarea class="form-control" rows="7" id="" name="address2" placeholder="Enter"></textarea>
+                </div>
+            </div>
+            <div class="modal-footer justify-content-between">
+              <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+              <button type="submit" name="submit" class="btn btn-primary">Save changes</button>
+            </div>
+            </form>
+          </div>
+          <!-- /.modal-content -->
+        </div>
+        <!-- /.modal-dialog -->
+      </div>
+      <!-- /.modal -->
       
-      
-      <script type="text/javascript">
-            function isi_otomatis(){
-                var vendor = $("#vendor").val();
-                $.ajax({
-                    url: 'conf/ajax-vendor.php',
-                    data:"vendor="+vendor ,
-                    cache: false,
-                }).success(function (data) {
-                    var json = data,
-                    obj = JSON.parse(json);
-                    $('#address1').val(obj.address1);
-                    $('#address2').val(obj.address2);
-                });
-                
-            }
-
-       //Initialize Select2 Elements
-       $('.select2').select2()
-          
-        //Initialize Select2 Elements
-       $('.select2bs4').select2({
-       theme: 'bootstrap4' 
-       })
-       
-       document.getElementById('datePicker').value = new Date().toDateInputValue();
-
-      </script>
+    <!-- Autofillss -->
+    <script src="plugins/jquery/jquery-1.12.4.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+ 
+    <!-- Select2 -->
+    <script src="plugins/select2/js/select2.full.min.js"></script>
+    
+    
+    <script type="text/javascript">
+          function isi_otomatis(){
+              var vendor = $("#vendor").val();
+              $.ajax({
+                  url: 'conf/ajax-vendor.php',
+                  data:"vendor="+vendor ,
+                  cache: false,
+              }).success(function (data) {
+                  var json = data,
+                  obj = JSON.parse(json);
+                  $('#address1').val(obj.address1);
+                  $('#address2').val(obj.address2);
+              });
+              
+          }
+ 
+     //Initialize Select2 Elements
+     $('.select2').select2()
+        
+      //Initialize Select2 Elements
+     $('.select2bs4').select2({
+     theme: 'bootstrap4' 
+     })
+     
+     document.getElementById('datePicker').value = new Date().toDateInputValue();
+ 
+    </script>
   </section>
 
   
