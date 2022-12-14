@@ -1,4 +1,4 @@
-<?php 
+<?php
 // berfungsi mengaktifkan session
 session_start();
 //berfungsi menghapus semua session

@@ -3,14 +3,16 @@ session_start();
 include "conf/conn.php";
 include "conf/api_updt_sla.php";
 
-if (!isset($_SESSION['ID'])) {
-  ob_start(); 
-  header("Location:pages/login.php");
-  ob_end_flush();
-  exit();
-}
+
+ if (!isset($_SESSION['ID'])) {
+   ob_start();
+   header("Location:/pages/login.php");
+   ob_end_flush();
+   exit();
+ }
 
 ?>
+
 <!DOCTYPE html>
 <head>
 <html lang="en">
@@ -58,14 +60,15 @@ if (!isset($_SESSION['ID'])) {
   <link rel="stylesheet" href="plugins/dropzone/min/dropzone.min.css">
   <!-- SweetAlert2 -->
   <link rel="stylesheet" href="plugins/sweetalert2-theme-bootstrap-4/bootstrap-4.min.css">
-  
-  
+
+
 </head>
+
 <body class="hold-transition sidebar-mini layout-fixed">
 <div class="wrapper">
 
   <!-- Preloader -->
- 
+
 
   <!-- Navbar -->
   <nav class="main-header navbar navbar-expand navbar-white navbar-light">
@@ -106,9 +109,9 @@ if (!isset($_SESSION['ID'])) {
         </div>
       </li>
 
-      
+
       <!-- Notifications Dropdown Menu -->
-      
+
       <li class="nav-item">
         <a class="nav-link" data-widget="fullscreen" href="#" role="button">
           <i class="fas fa-expand-arrows-alt"></i>
@@ -259,7 +262,7 @@ if (!isset($_SESSION['ID'])) {
               </li>
             </ul>
           </li>
-          
+
           <li class="nav-item">
             <a href="#" class="nav-link">
               <i class="nav-icon fas fa-table"></i>
@@ -283,7 +286,7 @@ if (!isset($_SESSION['ID'])) {
               </li>
             </ul>
           </li>
-          
+
           <li class="nav-header">SETTING</li>
 
           <li class="nav-item">
@@ -302,7 +305,7 @@ if (!isset($_SESSION['ID'])) {
                 Logout
               </p>
             </a>
-          </li> 
+          </li>
 
         </ul>
       </nav>
@@ -311,7 +314,7 @@ if (!isset($_SESSION['ID'])) {
     <!-- /.sidebar -->
   </aside>
 
- 
+
   <!-- Content -->
   <div class="content-wrapper">
   <?php include "conf/page.php"; ?>
@@ -328,7 +331,7 @@ if (!isset($_SESSION['ID'])) {
                 foreach($query_run as $items)
                 {
                     ?>
-                   
+
                     <section class="content">
                         <div class="container-fluid">
                             <div class="row mt-3">
@@ -417,7 +420,7 @@ if (!isset($_SESSION['ID'])) {
                                                         }
                                                         else {
                                                         }
-                                                        ?></p>     
+                                                        ?></p>
                                                     </div>
                                                 </div>
                                             </div>
@@ -427,14 +430,14 @@ if (!isset($_SESSION['ID'])) {
                             </div>
                         </div>
                     </section>
-                    
+
                     <?php
                 }
             }
             else
             {
                 ?>
-                  
+
                     <section class="content">
                             <div class="container-fluid">
                                 <div class="row mt-3">
@@ -451,20 +454,20 @@ if (!isset($_SESSION['ID'])) {
                                                     </div>
                                                 </div>
                                             </div>
-                                            
+
                                         </div>
                                     </div>
                                 </div>
                             </div>
                         </section>
-                    
+
                 <?php
             }
         }
     ?>
   </div>
   <!-- /Content -->
-  
+
   <footer class="main-footer">
     <strong>Copyright 2022 <a href="https://adminlte.io">Ne0liberty</a>.</strong>
     All rights reserved.
@@ -516,7 +519,7 @@ if (!isset($_SESSION['ID'])) {
 
 
 <!-- AdminLTE dashboard demo (This is only for demo purposes) -->
-<script src="dist/js/pages/dashboard.js"></script>  
+<script src="dist/js/pages/dashboard.js"></script>
 
 <!-- Autofillss -->
 <script src="plugins/jquery/jquery-1.12.4.min.js"></script>
@@ -652,7 +655,7 @@ if (!isset($_SESSION['ID'])) {
   })
 
 
-  
+
   // DropzoneJS Demo Code Start
   Dropzone.autoDiscover = false
 
@@ -719,23 +722,23 @@ if (!isset($_SESSION['ID'])) {
 				datasets: [{
 					label: 'Open Item',
 					data: [
-					<?php 
+					<?php
 					$awb_export = mysqli_query($koneksi,"SELECT * FROM master_order WHERE created_by ='$user' AND req_scheme='Repair' AND serv_status='NEED AWB OUT';");
 					echo mysqli_num_rows($awb_export);
-					?>, 
-					<?php 
+					?>,
+					<?php
 					$waiting_quote = mysqli_query($koneksi,"SELECT * FROM master_order WHERE created_by ='$user 'AND req_scheme='Repair' AND serv_status='NEED REPAIR QUOTE';");
 					echo mysqli_num_rows($waiting_quote);
-					?>, 
-					<?php 
+					?>,
+					<?php
 					$waiting_payment = mysqli_query($koneksi,"SELECT * FROM master_order WHERE created_by ='$user 'AND req_scheme='Repair' AND serv_status='NEED PAYMENT';");
 					echo mysqli_num_rows($waiting_payment);
-					?>, 
-					<?php 
+					?>,
+					<?php
 					$under_repair = mysqli_query($koneksi,"SELECT * FROM master_order WHERE created_by ='$user 'AND req_scheme='Repair' AND serv_status='NEED AWB IN';");
 					echo mysqli_num_rows($under_repair);
-					?>, 
-					<?php 
+					?>,
+					<?php
 					$waiting_gr = mysqli_query($koneksi,"SELECT * FROM master_order WHERE created_by ='$user 'AND req_scheme='Repair' AND serv_status='SERV SHIPPED';");
 					echo mysqli_num_rows($waiting_gr);
 					?>
@@ -787,31 +790,31 @@ if (!isset($_SESSION['ID'])) {
 				datasets: [{
 					label: 'Open Item',
 					data: [
-					<?php 
+					<?php
 					$need_awb_in = mysqli_query($koneksi,"SELECT * FROM master_order WHERE created_by ='$user' AND req_scheme='Exchange' AND serv_status='NEED AWB IN';");
 					echo mysqli_num_rows($need_awb_in);
-					?>, 
-					<?php 
+					?>,
+					<?php
 					$serv_shipped = mysqli_query($koneksi,"SELECT * FROM master_order WHERE created_by ='$user 'AND req_scheme='Exchange' AND serv_status='SERV SHIPPED';");
 					echo mysqli_num_rows($serv_shipped);
-					?>, 
-					<?php 
+					?>,
+					<?php
 					$need_inspect = mysqli_query($koneksi,"SELECT * FROM master_order WHERE created_by ='$user 'AND req_scheme='Exchange' AND serv_status='NEED INSPECT';");
 					echo mysqli_num_rows($need_inspect);
-					?>, 
-					<?php 
+					?>,
+					<?php
 					$need_core = mysqli_query($koneksi,"SELECT * FROM master_order WHERE created_by ='$user 'AND req_scheme='Exchange' AND serv_status='NEED CORE';");
 					echo mysqli_num_rows($need_core);
-					?>, 
-					<?php 
+					?>,
+					<?php
 					$need_awb_out = mysqli_query($koneksi,"SELECT * FROM master_order WHERE created_by ='$user 'AND req_scheme='Exchange' AND serv_status='NEED AWB OUT';");
 					echo mysqli_num_rows($need_awb_out);
-					?>, 
-					<?php 
+					?>,
+					<?php
 					$need_repr_apprval = mysqli_query($koneksi,"SELECT * FROM master_order WHERE created_by ='$user 'AND req_scheme='Exchange' AND serv_status='NEED REPAIR APPROVAL';");
 					echo mysqli_num_rows($need_repr_apprval);
-					?>, 
-					<?php 
+					?>,
+					<?php
 					$need_payment = mysqli_query($koneksi,"SELECT * FROM master_order WHERE created_by ='$user 'AND req_scheme='Exchange' AND serv_status='NEED PAYMENT';");
 					echo mysqli_num_rows($need_payment);
 					?>

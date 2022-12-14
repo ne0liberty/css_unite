@@ -5,23 +5,25 @@
 <link rel="stylesheet" type="text/css" href="plugins/bootstrap/bootstrap.min.css">
 
 <?php
-$conn = mysqli_connect("localhost", "root", "", "css_order");
+include('conn.php');
+
+//$conn = mysqli_connect("127.0.0.1", "gustaf", "password", "css_order");
 
 /// edit data
 if(isset($_POST['vendorId'])){
     $vendorId= $_POST['vendorId'];
-    
-   
+
+
    $fetchData =fetchDataById($vendorId);
    displayData($fetchData );
 
 }
 
 function fetchDataById($vendorId){
-    
-    global $conn;
+
+    global $koneksi;
     $query ="SELECT * FROM master_order WHERE shipment_order_date='".$_POST["soDate"]."' AND created_by='".$_POST["userID"]."' AND vendor='$vendorId'; ";
-    $result = $conn->query($query);
+    $result = $koneksi->query($query);
     if($result->num_rows> 0){
       $vendor_list= mysqli_fetch_all($result, MYSQLI_ASSOC);
     }else{
@@ -35,7 +37,7 @@ function displayData($fetchData){
           <tr>
             <th>No.</th>
             <th>Description</th>
-            <th>Part Number</th> 
+            <th>Part Number</th>
             <th>Serial Number</th>
             <th>Tracking No</th>
             <th>PO Number</th>
@@ -44,7 +46,7 @@ function displayData($fetchData){
           </thead>';
  if(count($fetchData)>0){
       $no=1;
-      foreach($fetchData as $data){ 
+      foreach($fetchData as $data){
   echo "<tr>
           <td>".$no."</td>
           <td>".$data['description']."</td>
@@ -54,14 +56,14 @@ function displayData($fetchData){
           <td>".$data['po_number']."</td>
           <td>".$data['core_cond']."</td>
         </tr>";
-       
-  $no++; 
+
+  $no++;
      }
 }else{
-     
+
   echo "<tr>
         <td colspan='7'>No Data Found</td>
-       </tr>"; 
+       </tr>";
 }
   echo "</table>";
 }

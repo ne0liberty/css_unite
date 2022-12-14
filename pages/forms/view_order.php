@@ -29,7 +29,7 @@
       $data2 = mysqli_query($koneksi, "select * from master_order where id_order='$id'");
       $row_view = mysqli_fetch_assoc($data2);
       ?>
-              
+
     <form action="" method="post" role="form">
       <div class="container-fluid">
         <!-- View Order -->
@@ -40,7 +40,7 @@
               <button type="button" class="btn btn-tool" data-card-widget="collapse">
                 <i class="fas fa-minus"></i>
               </button>
-             
+
             </div>
           </div>
           <!-- /.card-header -->
@@ -71,9 +71,9 @@
                   <label>Vendor</label>
                     <select class="form-control select2bs4" name="vendor" disabled="disabled" style="width: 100%;">
                       <option value="<?php echo $row_view['vendor']; ?>"><?php echo $row_view['vendor']; ?></option>
-                      <?php 
+                      <?php
                             include('conf/conn.php');
-                            
+
                             $datas3 = mysqli_query($koneksi, "SELECT * FROM vendor_database") or die (mysqli_error($koneksi));
                             while($data_vendor = mysqli_fetch_array($datas3))  {
                               echo "<option>$data_vendor[vendor]</option>";
@@ -88,9 +88,9 @@
                   <label>Part Number</label>
                     <select class="form-control select2bs4" name="part_number" disabled="disabled" style="width: 100%;" >
                       <option value="<?php echo $row_view['part_number']; ?>"><?php echo $row_view['part_number']; ?></option>
-                      <?php 
+                      <?php
                             include('conf/conn.php');
-                            
+
                             $datas2 = mysqli_query($koneksi, "SELECT * FROM pn_database") or die (mysqli_error($koneksi));
                             while($data_pn_number = mysqli_fetch_array($datas2))  {
                               echo "<option>$data_pn_number[part_number]</option>";
@@ -110,9 +110,9 @@
                     <label>Aircraft</label>
                     <input type="text" name="aircraft" class="form-control" disabled="disabled" placeholder="Masukkan" value="<?php echo $row_view['aircraft']; ?>">
                 </div>
-                
-              </div>             
-              <!-- /.col -->  
+
+              </div>
+              <!-- /.col -->
             </div>
             <!-- /.row -->
             <div class="form-group">
@@ -126,7 +126,7 @@
           </div>
         </div>
         <!-- /.card -->
-        
+
         <!-- Serv Part -->
         <div class="card card-secondary collapsed-card">
           <div class="card-header">
@@ -164,7 +164,7 @@
               </div>
               <!-- /.col -->
               <div class="col-md-6">
-                
+
                 <div class="form-group">
                     <label>GR date</label>
                     <input type="date" name="gr_date" class="form-control" placeholder="Masukkan" value="<?php echo $row_view['gr_date']; ?>">
@@ -181,8 +181,8 @@
                     <label>Store Date</label>
                     <input type="date" name="date_store" class="form-control" placeholder="Masukkan" value="<?php echo $row_view['date_store']; ?>">
                 </div>
-              </div>             
-              <!-- /.col -->  
+              </div>
+              <!-- /.col -->
             </div>
             <!-- /.row -->
           </div>
@@ -192,7 +192,7 @@
           </div>
         </div>
         <!-- /.card -->
-        
+
         <!-- Outgoing Part -->
         <div class="card card-secondary collapsed-card">
           <div class="card-header">
@@ -226,7 +226,7 @@
               </div>
               <!-- /.col -->
               <div class="col-md-6">
-                
+
                 <div class="form-group">
                     <label>AWB Out</label>
                     <input type="text" name="awb_out" class="form-control" placeholder="Masukkan" value="<?php echo $row_view['awb_out']; ?>">
@@ -243,8 +243,8 @@
                           <option>Serviceable</option>
                       </select>
                 </div>
-              </div>             
-              <!-- /.col -->  
+              </div>
+              <!-- /.col -->
             </div>
             <!-- /.row -->
           </div>
@@ -284,13 +284,13 @@
               <div class="col-md-6">
                 <div class="form-group">
                   <label>CA date</label>
-                  <input type="date" name="ca_date" class="form-control" placeholder="Masukkan" 
+                  <input type="date" name="ca_date" class="form-control" placeholder="Masukkan"
                   value="<?php echo $ca_date2; ?>">
                 </div>
                 <div class="form-group">
                   <label>Proforma Invoice / Invoice</label>
                   <input type="text" name="invoice" class="form-control" placeholder="Enter" value="<?php echo $row_view['invoice']; ?>">
-                </div> 
+                </div>
                   <div class="form-group">
                     <label>New Price</label>
                   <div class="input-group">
@@ -298,9 +298,9 @@
                     <span class="input-group-text">$</span>
                     </div>
                    <input type="text" name="" class="form-control" value="<?php echo $pn_newprice; ?>" readonly>
-                          
+
                   </div>
-                </div>     
+                </div>
               </div>
               <!-- /.col -->
                 <div class="col-md-6">
@@ -319,7 +319,7 @@
                         <div class="input-group-prepend">
                             <span class="input-group-text">$</span>
                         </div>
-                        <input type="text" class="form-control" name="other_cost" onkeyup="calcSum()" value="<?php echo $row_view['other_cost']; ?>">    
+                        <input type="text" class="form-control" name="other_cost" onkeyup="calcSum()" value="<?php echo $row_view['other_cost']; ?>">
                       </div>
                     </div>
                     <div class="form-group">
@@ -329,11 +329,11 @@
                           <span class="input-group-text">$</span>
                         </div>
                         <input type="text" name="total_cost" readonly class="form-control" value="<?php echo $row_view['total_cost']; ?>">
-                            
+
                       </div>
                     </div>
-                </div>             
-              <!-- /.col -->  
+                </div>
+              <!-- /.col -->
             </div>
             <!-- /.row -->
           </div>
@@ -346,16 +346,16 @@
 
       </div>
     </form>
-    
+
     <?php
         include('conf/conn.php');
-				
+
                 //melakukan pengecekan jika button submit diklik maka akan menjalankan perintah simpan dibawah ini
                  if (isset($_POST['submit'])) {
                   //menampung data dari inputan
 
                   $note = $_POST['note'];
-            
+
                   $repair_tat = $_POST['repair_tat'];
                   $inbound = $_POST['inbound'];
                   $awb_in = $_POST['awb_in'];
@@ -365,7 +365,7 @@
                   $serial_number = $_POST['serial_number'];
                   $serv_batch = $_POST['serv_batch'];
                   $date_store = $_POST['date_store'];
-                  
+
                   $pn_out = $_POST['pn_out'];
                   $sn_out = $_POST['sn_out'];
                   $core_batch = $_POST['core_batch'];
@@ -373,28 +373,28 @@
                   $awb_out = $_POST['awb_out'];
                   $awb_out_date = $_POST['awb_out_date'];
                   $core_cond = $_POST['core_cond'];
-                  
+
                   // update data ke database
-                  $update1 = mysqli_query($koneksi, "UPDATE master_order SET 
-                              note='$note', 
-                              repair_tat='$repair_tat', 
-                              inbound='$inbound', 
-                              awb_in='$awb_in', 
-                              awb_date='$awb_date', 
-                              eta='$eta', 
-                              gr_date='$gr_date', 
-                              serial_number='$serial_number', 
-                              serv_batch='$serv_batch', 
-                              date_store='$date_store', 
-                              pn_out='$pn_out', 
-                              sn_out='$sn_out', 
-                              core_batch='$core_batch', 
-                              shipment_order_date='$shipment_order_date', 
-                              awb_out='$awb_out', 
-                              awb_out_date='$awb_out_date', 
-                              core_cond='$core_cond' 
-                              WHERE id_order='$id'");                 
-                  
+                  $update1 = mysqli_query($koneksi, "UPDATE master_order SET
+                              note='$note',
+                              repair_tat='$repair_tat',
+                              inbound='$inbound',
+                              awb_in='$awb_in',
+                              awb_date='$awb_date',
+                              eta='$eta',
+                              gr_date='$gr_date',
+                              serial_number='$serial_number',
+                              serv_batch='$serv_batch',
+                              date_store='$date_store',
+                              pn_out='$pn_out',
+                              sn_out='$sn_out',
+                              core_batch='$core_batch',
+                              shipment_order_date='$shipment_order_date',
+                              awb_out='$awb_out',
+                              awb_out_date='$awb_out_date',
+                              core_cond='$core_cond'
+                              WHERE id_order='$id'");
+
                   //update error running at ubuntu
                   $update2 = mysqli_query($koneksi, "UPDATE master_order SET serv_status=
                            IF(req_scheme='exchange',
@@ -418,19 +418,19 @@
                            IF(gr_date='','SERV SHIPPED',
                            IF(date_store='','NEED INSPECT',
                            'CLOSED')))))))))
-                           );");   
+                           );");
 
                   //ini untuk menampilkan alert berhasil dan redirect ke halaman index
                   echo "<script>alert('data berhasil disimpan.');window.location='index.php?page=data_order';</script>";
-                 };       
-  
-				
+                 };
+
+
                 //melakukan pengecekan jika button submit diklik maka akan menjalankan perintah simpan dibawah ini
                  if (isset($_POST['submit_shipmentorder'])) {
                   //menampung data dari inputan
 
                   $note = $_POST['note'];
-            
+
                   $repair_tat = $_POST['repair_tat'];
                   $po_date = $_POST['po_date'];
                   $awb_in = $_POST['awb_in'];
@@ -440,7 +440,7 @@
                   $serial_number = $_POST['serial_number'];
                   $serv_batch = $_POST['serv_batch'];
                   $date_store = $_POST['date_store'];
-                  
+
                   $pn_out = $_POST['pn_out'];
                   $sn_out = $_POST['sn_out'];
                   $core_batch = $_POST['core_batch'];
@@ -448,9 +448,9 @@
                   $awb_out = $_POST['awb_out'];
                   $awb_out_date = $_POST['awb_out_date'];
                   $core_cond = $_POST['core_cond'];
-        
+
                   // update data ke database
-                  $update1 = mysqli_query($koneksi, "UPDATE master_order SET note='$note', repair_tat='$repair_tat', po_date='$po_date', awb_in='$awb_in', awb_date='$awb_date', eta='$eta', gr_date='$gr_date', serial_number='$serial_number', serv_batch='$serv_batch', date_store='$date_store', pn_out='$pn_out', sn_out='$sn_out', core_batch='$core_batch', shipment_order_date='$shipment_order_date', awb_out='$awb_out', awb_out_date='$awb_out_date', core_cond='$core_cond' WHERE id_order='$id'");                 
+                  $update1 = mysqli_query($koneksi, "UPDATE master_order SET note='$note', repair_tat='$repair_tat', po_date='$po_date', awb_in='$awb_in', awb_date='$awb_date', eta='$eta', gr_date='$gr_date', serial_number='$serial_number', serv_batch='$serv_batch', date_store='$date_store', pn_out='$pn_out', sn_out='$sn_out', core_batch='$core_batch', shipment_order_date='$shipment_order_date', awb_out='$awb_out', awb_out_date='$awb_out_date', core_cond='$core_cond' WHERE id_order='$id'");
                   $update2 = mysqli_query($koneksi, "UPDATE master_order SET serv_status=
                            IF(req_scheme='exchange',
                            IF(awb_in='','NEED AWB IN',
@@ -473,14 +473,14 @@
                            IF(gr_date='','SERV SHIPPED',
                            IF(date_store='','NEED INSPECT',
                            'CLOSED')))))))))
-                           );");   
-                  
+                           );");
+
 
                   //ini untuk menampilkan alert berhasil dan redirect ke halaman index
                   echo "<script>alert('data berhasil disimpan.');window.location='index.php?page=shipment_order_single&id=".$id."';</script>";
-                 };       
- 
-				
+                 };
+
+
                 //melakukan pengecekan jika button submit diklik maka akan menjalankan perintah simpan dibawah ini
                  if (isset($_POST['submit_cost'])) {
                   //menampung data dari inputan
@@ -490,14 +490,14 @@
                   $repair_cost = $_POST['repair_cost'];
                   $other_cost = $_POST['other_cost'];
                   $total_cost = $_POST['total_cost'];
-        
+
                   // update data ke database
-                  $update1 = mysqli_query($koneksi, "UPDATE master_order SET ca_date='$ca_date', invoice='$invoice', repair_cost='$repair_cost', other_cost='$other_cost', total_cost='$total_cost' WHERE id_order='$id'");                 
+                  $update1 = mysqli_query($koneksi, "UPDATE master_order SET ca_date='$ca_date', invoice='$invoice', repair_cost='$repair_cost', other_cost='$other_cost', total_cost='$total_cost' WHERE id_order='$id'");
                   // $update2 = mysqli_query($koneksi, "UPDATE master_order SET serv_status=IF(awb_in='','Waiting AWB',IF(gr_date='','SHIPPED',IF(date_store='','Waiting Inspect','CLOSED')));");
 
                   //ini untuk menampilkan alert berhasil dan redirect ke halaman index
                   echo "<script>window.open('pages/forms/ca_sheet.php?id=".$id."', '_blank');</script>";
-                 };       
+                 };
       ?>
   </section>
   <script>
@@ -510,4 +510,3 @@
   </script>
 
   <!-- /.content-wrapper -->
-  

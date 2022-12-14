@@ -1,12 +1,18 @@
 <?php
 
-$server 	= "localhost";
-$username	= "root";
-$password	= "";
-$db 		= "css_order"; //sesuaikan nama databasenya
-$koneksi    = mysqli_connect($server, $username, $password, $db); //pastikan urutan pemanggilan variabel nya sama.
+  $server 	  = "";
+  $username	  = "root";
+  $password	  = "password";
+  $db 		    = "css_order" ; //sesuaikan nama databasenya
+  $GCSocket   = "/cloudsql/css-unite:asia-southeast2:cssunite01";
+  $GCPort     = "3306";
 
-//untuk cek jika koneksi gagal ke database
-if(mysqli_connect_errno()) {
-	echo "Koneksi gagal : ".mysqli_connect_error();
-}
+
+ $koneksi   = mysqli_connect($server, $username, $password, $db, $GCPort ,$GCSocket);
+
+ // untuk cek jika koneksi gagal ke database
+ if(mysqli_connect_errno()) {
+ 	echo "SQL koneksi gagal : ".mysqli_connect_error();
+ }
+
+?>

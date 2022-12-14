@@ -26,12 +26,12 @@ switch ($page) {
     break;
   case 'cost_approval':
     include 'pages/forms/cost_approval_form.php';
-    break;   
+    break;
   case 'dashboard':
     include 'pages/dashboard.php';
-    break;  
+    break;
   }
 }else{
-  
+
   }
-?> 
+?>
