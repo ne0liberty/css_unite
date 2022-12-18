@@ -14,5 +14,13 @@
  if(mysqli_connect_errno()) {
  	echo "SQL koneksi gagal : ".mysqli_connect_error();
  }
+ //else{
+ // $query2  = "SELECT * FROM admins WHERE username = 'test'";
+ // $result2 = mysqli_query($koneksi,$query2);
+//
+ // while($row2 = mysqli_fetch_array($result2)) {
+ //    echo $row2['name']. "from folder conf";
+ //  }
+ //}
 
 ?>
