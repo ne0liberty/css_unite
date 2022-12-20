@@ -492,6 +492,7 @@ session_start();
 <script>
   $(function () {
     $("#example1").DataTable({
+      order: [[2, 'desc']],
       "responsive": true, "lengthChange": true, "autoWidth": false,
       "buttons": ["copy", "excel", "pdf", "print", "colvis"]
     }).buttons().container().appendTo('#example1_wrapper .col-md-6:eq(0)');

@@ -45,6 +45,12 @@ switch (@parse_url($_SERVER['REQUEST_URI'])['path']) {
   case '/pages/tables/hapus_pn_database.php':
      require 'pages/tables/hapus_pn_database.php';
      break;
+  case '/pages/tables/api_cancel_order.php':
+     require 'pages/tables/api_cancel_order.php';
+     break;
+  case '/pages/tables/api_delete_order.php':
+     require 'pages/tables/api_delete_order.php';
+     break;
   case '/pages/forms/shipment_order_sheet.php':
      require 'pages/forms/shipment_order_sheet.php';
      break;

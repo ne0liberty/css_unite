@@ -1,5 +1,5 @@
-<?php				
-			include '../../conf/conn.php'; //menghubungkan ke file koneksi untuk ke database
+<?php
+			include 'conf/conn.php'; //menghubungkan ke file koneksi untuk ke database
 			$id = $_GET['id']; //menampung id
 
 			//query hapus
