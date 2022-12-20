@@ -40,7 +40,7 @@
             <h3 class="card-title"><i class="fas fa-tag"></i>
             Shipment Order</h3>
             <div class="card-tools">
-              
+
             </div>
           </div>
           <!-- /.card-header -->
@@ -56,7 +56,7 @@
                     <label>Vendor</label>
                     <input type="text" readonly id="desc" name="vendor" value="<?php echo $row_view['vendor']; ?>" class="form-control">
                 </div>
-                
+
                 <?php
                   $vendorname = $row_view['vendor'];
 
@@ -64,7 +64,7 @@
                   $datavendor = mysqli_query($koneksi, "SELECT * FROM vendor_database WHERE vendor='$vendorname'");
                   $row_vendor = mysqli_fetch_assoc($datavendor);
 
-                
+
                 ?>
 
                 <div class="form-group">
@@ -73,13 +73,13 @@
                     <label class="form-check-label">Address 1</label>
                     <textarea class="form-control" rows="7" name="address" id="address1" value="" readonly><?php echo $row_vendor['address1']; ?></textarea>
                   </div>
-                    
+
                   <div class="form-check">
                     <input class="form-check-input" type="radio" name="address" value="<?php echo $row_vendor['address2']; ?>">
                     <label class="form-check-label">Address 2</label>
                     <textarea class="form-control" rows="7" name="address_2" id="address2" value="" readonly><?php echo $row_vendor['address2']; ?></textarea>
                   </div>
-                    
+
                 </div>
                 <ul class="list-group list-group-unbordered mb-3">
                   <li class="list-group-item">
@@ -154,7 +154,7 @@
                             <input class="form-check-input" type="radio" name="log_service" value="d">
                             <label class="form-check-label">CPT</label>
                           </div>
-                        </div> 
+                        </div>
                       </div>
                     </div>
                   </li>
@@ -167,7 +167,7 @@
                     <label>Payment Responsibility</label>
                     <input type="text" id="paymnt_respn" name="paymnt_respn" value="PT GMF Aeroasia" class="form-control">
                 </div>
-                
+
               </div>
               <!-- /.col -->
               <div class="col-md-6">
@@ -177,7 +177,7 @@
                   <tr>
                     <th>No.</th>
                     <th>Description</th>
-                    <th>Part Number</th> 
+                    <th>Part Number</th>
                     <th>Serial Number</th>
                     <th>Tracking No</th>
                     <th>PO Number</th>
@@ -191,15 +191,15 @@
                     <td><?php echo $row_view['sn_out']; ?></td>
                     <td><?php echo $row_view['tracking_no']; ?></td>
                     <td><?php echo $row_view['po_number']; ?></td>
-                    <td><?php echo $row_view['core_cond']; ?></td>  
-					        </tr>                  
+                    <td><?php echo $row_view['core_cond']; ?></td>
+					        </tr>
                 </table>
-                
+
               </div>
               <!-- /.col -->
             </div>
             <!-- /.row -->
-          
+
           </div>
           <!-- /.card-body -->
           <div class="card-footer">
@@ -207,12 +207,12 @@
           </div>
         </div>
         <!-- /.card -->
-        
+
       </div>
     </form>
       <?php
                  include('conf/conn.php');
-				
+
                  //melakukan pengecekan jika button submit diklik maka akan menjalankan perintah simpan dibawah ini
                  if (isset($_POST['submit'])) {
                   //menampung data dari inputan
@@ -227,46 +227,46 @@
                   $log_service = $_POST['log_service'];
                   $tail_no = $_POST['tail_no'];
                   $paymnt_respn = $_POST['paymnt_respn'];
-        
-                  
-                  $datas = mysqli_query($koneksi, "INSERT INTO shipment_order (shipment_order_date,vendor,address,created_by,shipmnt_csg,goods_cat,shipment_mode,log_service,tail_no,paymnt_respn)
-                  VALUES('$shipment_order_date', '$vendor','$address','$created_by','$shipmnt_csg','$goods_cat','$shipment_mode','$log_service','$tail_no','$paymnt_respn')") or die(mysqli_error($koneksi));
-                  
+
+
+                  $datas = mysqli_query($koneksi, "INSERT INTO shipment_order (shipment_order_date,vendor,address,created_by,shipmnt_csg,goods_cat,shipment_mode,log_service,tail_no,paymnt_respn,order_id)
+                  VALUES('$shipment_order_date', '$vendor','$address','$created_by','$shipmnt_csg','$goods_cat','$shipment_mode','$log_service','$tail_no','$paymnt_respn','$id')") or die(mysqli_error($koneksi));
+
                   $last_id = mysqli_insert_id($koneksi);
-                  
-          
+
+
 
                   //echo "<script>window.location.href = 'pages/forms/shipment_order_page.php?id=".$last_id."';</script>";
-                  echo "<script>window.open('pages/forms/shipment_order_sheet.php?id=".$last_id."', '_blank');</script>";
+                  echo "<script>window.open('pages/forms/shipment_order_sheet_single.php?id=".$last_id."', '_blank');</script>";
                  }
-                  
-                  
+
+
                 ?>
-      
+
       <!-- Autofillss -->
       <script src="plugins/jquery/jquery-1.12.4.min.js"></script>
 
       <!-- Select2 -->
       <script src="plugins/select2/js/select2.full.min.js"></script>
-      
-      
+
+
       <script type="text/javascript">
-            
-        
+
+
        //Initialize Select2 Elements
        $('.select2').select2()
-          
+
         //Initialize Select2 Elements
        $('.select2bs4').select2({
-       theme: 'bootstrap4' 
+       theme: 'bootstrap4'
        })
-       
+
        document.getElementById('datePicker').value = new Date().toDateInputValue();
 
       </script>
   </section>
 
- 
+
   <!-- /.content-wrapper -->
 
-  
+

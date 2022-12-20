@@ -281,8 +281,9 @@
             $vendorlist = $item['vendor'];
             $createdby = $item['created_by'];
             $shipmentdate = $item['shipment_order_date'];
+            $order_id = $item['order_id'];
 
-            $datas2 = mysqli_query($koneksi, "SELECT * FROM master_order WHERE vendor='$vendorlist' AND created_by='$createdby' AND shipment_order_date='$shipmentdate' ") or die(mysqli_error($koneksi));
+            $datas2 = mysqli_query($koneksi, "SELECT * FROM master_order WHERE vendor='$vendorlist' AND created_by='$createdby' AND shipment_order_date='$shipmentdate' AND id_order='$order_id' ") or die(mysqli_error($koneksi));
                     //script untuk menampilkan data barang
 
             $no = 1;//untuk pengurutan nomor

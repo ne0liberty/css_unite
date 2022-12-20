@@ -54,6 +54,9 @@ switch (@parse_url($_SERVER['REQUEST_URI'])['path']) {
   case '/pages/forms/shipment_order_sheet.php':
      require 'pages/forms/shipment_order_sheet.php';
      break;
+  case '/pages/forms/shipment_order_sheet_single.php':
+     require 'pages/forms/shipment_order_sheet_single.php';
+     break;
   case '/pages/forms/ca_sheet.php':
    require 'pages/forms/ca_sheet.php';
    break;
