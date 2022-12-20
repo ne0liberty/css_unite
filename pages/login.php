@@ -1,16 +1,36 @@
 <?php
   session_start();
   if (isset($_SESSION['ID'])) {
-      header("Location:../index.php");
+      header("Location:../index.php?page=dashboard");
       exit();
   }
   // Include database connectivity
+  include 'conf/conn.php';
 
-  include_once('../conf/conn.php');
+  if (isset($_POST['submit'])) {
 
+    $errorMsg = "";
 
+    $username = $_POST['username'];
+    $password = $_POST['password'];
 
-
+  if (!empty($username) || !empty($password)) {
+      $query  = "SELECT * FROM admins WHERE username = '$username' AND password = '$password'";
+      $result = mysqli_query($koneksi, $query);
+      if($result->num_rows > 0){
+          $row = $result->fetch_assoc();
+          $_SESSION['ID'] = $row['id'];
+          $_SESSION['ROLE'] = $row['role'];
+          $_SESSION['NAME'] = $row['name'];
+          $_SESSION['IMG'] = $row['img'];
+          header("Location:../index.php?page=dashboard");
+      }else{
+        $errorMsg = "Username/Password not found on this site";
+      }
+  }else{
+    $errorMsg = "Username and Password is required";
+  }
+  }
 ?>
 
 
@@ -120,33 +140,3 @@
 
 </body>
 </html>
-
-<?php
-if (isset($_POST['submit'])) {
-
-  $errorMsg = "";
-
-  $username = $koneksi->real_escape_string($_POST['username']);
-  $password = $koneksi->real_escape_string($_POST['password']);
-
-if (!empty($username) || !empty($password)) {
-    $query  = "SELECT * FROM admins WHERE username = '$username' AND password = '$password'";
-    $result = $koneksi->query($query);
-    if($result->num_rows > 0){
-        $row = $result->fetch_assoc();
-        $_SESSION['ID'] = $row['id'];
-        $_SESSION['ROLE'] = $row['role'];
-        $_SESSION['NAME'] = $row['name'];
-        $_SESSION['IMG'] = $row['img'];
-        header("Location:../index.php?pages=dashboard");
-        die();
-    }else{
-      $errorMsg = "Username/Password not found on this site";
-    }
-}else{
-  $errorMsg = "Username and Password is required";
-}
-
-}
-
-?>

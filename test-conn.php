@@ -10,15 +10,16 @@
 
  $koneksi   = mysqli_connect($server, $username, $password, $db, $GCPort ,$GCSocket);
 
+
  // untuk cek jika koneksi gagal ke database
  if(mysqli_connect_errno()) {
  	echo "SQL koneksi gagal : ".mysqli_connect_error();
  }else{
-  $query  = "SELECT * FROM admins WHERE username = 'gustaf'";
-  $result = mysqli_query($koneksi,$query);
+  $query2  = "SELECT * FROM admins WHERE username = 'test'";
+  $result2 = mysqli_query($koneksi,$query2);
 
-  while($row = mysqli_fetch_array($result)) {
-     echo $row['name'];
+  while($row2 = mysqli_fetch_array($result2)) {
+     echo $row2['name'] ."from root";
    }
  }
 

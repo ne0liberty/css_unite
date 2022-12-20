@@ -1,5 +1,5 @@
   <!-- Content Wrapper. Contains page content -->
-  
+
     <!-- Content Header (Page header) -->
     <section class="content-header">
       <div class="container-fluid">
@@ -25,7 +25,7 @@
           <div class="col-12">
 
             <div class="card">
-              <div class="card-header"> 
+              <div class="card-header">
                 <h3 class="card-title">View Order</h3>
                 <div class="card-tools">
                    <ul class="nav nav-pills ml-auto">
@@ -44,24 +44,24 @@
                     <th>Part Number</th>
                     <th>Description</th>
                     <th>ATA</th>
-                    <th>New Price</th>  
+                    <th>New Price</th>
                     <th>Action</th>
                   </tr>
                   </thead>
                   <tbody>
-                  <!--- BACKUP OK-----> 
+                  <!--- BACKUP OK----->
                   <?php
                     include('conf/conn.php'); //memanggil file koneksi
                     $datas = mysqli_query($koneksi, "select * from pn_database") or die(mysqli_error($koneksi));
                     //script untuk menampilkan data barang
 
                     $no = 1;//untuk pengurutan nomor
-                    
+
                     //melakukan perulangan
                     while($row2 = mysqli_fetch_assoc($datas)) {
                         ?>
 
-                        <tr> 
+                        <tr>
                             <td><?= $no; ?></td>
                             <td><?= $row2['part_number']; ?></td>
                             <td><?= $row2['description']; ?></td>
@@ -69,9 +69,10 @@
                             <td>$ <?= $row2['pn_newprice']; ?></td>
                             <td>
                               <div class="btn-group btn-group-sm">
-                                <a href="#" class="btn btn-sm btn-warning" data-toggle="modal" data-target="#edit-pn<?= $row2['part_number'] ?>"><i class="fas fa-edit"></i></a>    
-                                <a href="pages/tables/hapus_pn_database.php?part_number=<?= $row2['part_number']; ?>" class="btn btn-sm btn-danger" onclick="return confirm('Are you sure to delete?');"><i class="fas fa-trash"></i></a>
+                                <a href="#" class="btn btn-sm btn-warning" data-toggle="modal" data-target="#edit-pn<?= $row2['part_number'] ?>"><i class="fas fa-edit"></i></a>
+                                <a href="conf/api_del_pn_dtbase.php?part_number=<?= $row2['part_number']; ?>" class="btn btn-sm btn-danger" onclick="return confirm('Are you sure to delete?');"><i class="fas fa-trash"></i></a>
                               </div>
+                              <!-- /.modal-edit -->
                               <div class="modal fade modal-update" id="edit-pn<?= $row2['part_number'] ?>" role="dialog">
                                 <div class="modal-dialog modal-lg">
                                   <div class="modal-content">
@@ -89,7 +90,7 @@
                                     while ($row = mysqli_fetch_assoc($result)) {
                                     ?>
                                     <div class="modal-body">
-                                        
+
                                         <div class="form-group row">
                                             <label class="col-sm-2 col-form-label">Part Number</label>
                                               <div class="col-sm-10">
@@ -217,13 +218,13 @@
         <!-- /.modal-dialog -->
       </div>
       <!-- /.modal -->
-      
 
-    
-      
+
+
+
     </section>
     <!-- /.content -->
- 
+
   <!-- /.content-wrapper -->
 <!-- Page specific script -->
 

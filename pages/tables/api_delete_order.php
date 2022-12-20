@@ -1,4 +1,4 @@
-<?php				
+<?php
 			include '../../conf/conn.php'; //menghubungkan ke file koneksi untuk ke database
 			$id = $_GET['id']; //menampung id
 

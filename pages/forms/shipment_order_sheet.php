@@ -1,5 +1,5 @@
 <?php
- include('../../conf/conn.php'); 
+ include 'conf/conn.php';
  $id = $_GET['id'];
  $datas = mysqli_query($koneksi, "SELECT * FROM shipment_order WHERE id_shipment_order='$id'") or die(mysqli_error($koneksi));
  $item = mysqli_fetch_assoc($datas)
@@ -31,7 +31,7 @@
         height: 15px;
         font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
     }
-    
+
     .sheet.padding-5mm { padding: 5mm }
 
     .checkCircle {
@@ -88,7 +88,7 @@
         </tr>
         <tr>
             <td rowspan="2">Shipment Consignee</td>
-            <td colspan="2"><a class="<?php $option = $item['shipmnt_csg']; 
+            <td colspan="2"><a class="<?php $option = $item['shipmnt_csg'];
             switch ($option) {
                 case "a";
                 echo "checkCircle";
@@ -99,7 +99,7 @@
             ?>">a</a>Normal</td>
         </tr>
         <tr>
-            <td colspan="2"><a class="<?php $option = $item['shipmnt_csg']; 
+            <td colspan="2"><a class="<?php $option = $item['shipmnt_csg'];
             switch ($option) {
                 case "b";
                 echo "checkCircle";
@@ -111,7 +111,7 @@
         </tr>
         <tr>
             <td rowspan="2">Goods Category</td>
-            <td colspan="2"><a class="<?php $option = $item['goods_cat']; 
+            <td colspan="2"><a class="<?php $option = $item['goods_cat'];
             switch ($option) {
                 case "a";
                 echo "checkCircle";
@@ -122,7 +122,7 @@
             ?>">a</a>Dangerous Goods (DG)</td>
         </tr>
         <tr>
-            <td colspan="2"><a class="<?php $option = $item['goods_cat']; 
+            <td colspan="2"><a class="<?php $option = $item['goods_cat'];
             switch ($option) {
                 case "b";
                 echo "checkCircle";
@@ -138,7 +138,7 @@
         </tr>
         <tr>
             <td rowspan="2">Mode of Shipment</td>
-            <td><a class="<?php $option = $item['shipment_mode']; 
+            <td><a class="<?php $option = $item['shipment_mode'];
             switch ($option) {
                 case "a";
                 echo "checkCircle";
@@ -147,7 +147,7 @@
                 echo "uncheckCircle";
             }
             ?>">a</a>Air Freight</td>
-            <td rowspan="2" style="vertical-align:top"><a class="<?php $option = $item['shipment_mode']; 
+            <td rowspan="2" style="vertical-align:top"><a class="<?php $option = $item['shipment_mode'];
             switch ($option) {
                 case "c";
                 echo "checkCircle";
@@ -158,7 +158,7 @@
             ?>">c</a>Land Freight</td>
         </tr>
         <tr>
-            <td><a class="<?php $option = $item['shipment_mode']; 
+            <td><a class="<?php $option = $item['shipment_mode'];
             switch ($option) {
                 case "b";
                 echo "checkCircle";
@@ -170,7 +170,7 @@
         </tr>
         <tr>
             <td rowspan="2">Customer assign GMF Logistic Services to ship good(s)</td>
-            <td><a class="<?php $option = $item['log_service']; 
+            <td><a class="<?php $option = $item['log_service'];
             switch ($option) {
                 case "a";
                 echo "checkCircle";
@@ -179,7 +179,7 @@
                 echo "uncheckCircle";
             }
             ?>">a</a>DAP</td>
-            <td><a class="<?php $option = $item['log_service']; 
+            <td><a class="<?php $option = $item['log_service'];
             switch ($option) {
                 case "c";
                 echo "checkCircle";
@@ -190,7 +190,7 @@
             ?>">c</a>DAT</td>
         </tr>
         <tr>
-            <td><a class="<?php $option = $item['log_service']; 
+            <td><a class="<?php $option = $item['log_service'];
             switch ($option) {
                 case "b";
                 echo "checkCircle";
@@ -199,7 +199,7 @@
                 echo "uncheckCircle";
             }
             ?>">b</a>DDP</td>
-            <td><a class="<?php $option = $item['log_service']; 
+            <td><a class="<?php $option = $item['log_service'];
             switch ($option) {
                 case "d";
                 echo "checkCircle";

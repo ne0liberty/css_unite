@@ -1,5 +1,5 @@
   <!-- Content Wrapper. Contains page content -->
-  
+
     <!-- Content Header (Page header) -->
     <section class="content-header">
       <div class="container-fluid">
@@ -24,7 +24,7 @@
           <div class="col-12">
 
             <div class="card card-primary">
-              <div class="card-header"> 
+              <div class="card-header">
                 <h3 class="card-title">View Order</h3>
               </div>
               <!-- /.card-header -->
@@ -37,7 +37,7 @@
                     <th>Entry Date</th>
                     <th>Scheme</th>
                     <th>PO Number</th>
-                    <th>Part Number</th>  
+                    <th>Part Number</th>
                     <th>Description</th>
                     <th>Aircraft</th>
                     <th>Vendor</th>
@@ -47,8 +47,8 @@
                   </tr>
                   </thead>
                   <tbody>
-                  <!--- BACKUP OK-----> 
-                  
+                  <!--- BACKUP OK----->
+
                   <?php
                     include('conf/conn.php'); //memanggil file koneksi
                     // $querytable = "SELECT * FROM master_order"
@@ -57,7 +57,7 @@
                     //script untuk menampilkan data barang
 
                     $no = 1;//untuk pengurutan nomor
-                    
+
                     //melakukan perulangan
                     while($row = mysqli_fetch_assoc($datas)) {
                         ?>
@@ -92,7 +92,7 @@
                                   echo "badge badge-warning";
                                   break;
                                 case "NEED PAYMENT":
-                                  echo "badge badge-secondary";
+                                  echo "badge badge-warning";
                                    break;
                                 case "CLOSED":
                                   echo "badge badge-success";
@@ -100,9 +100,9 @@
                                 case "CANCEL":
                                   echo "badge badge-dark";
                                   break;
-                              }   
+                              }
                               ?>"><?= $row['serv_status']; ?></a>
-                            </td> 
+                            </td>
                             <td><?= $row['entry_date']; ?></td>
                             <td><?= $row['req_scheme']; ?></td>
                             <td><a href="index.php?page=view_order&id=<?= $row['id_order']; ?>"><?= $row['po_number']; ?></a></td>
@@ -136,7 +136,7 @@
       <!-- /.container-fluid -->
     </section>
     <!-- /.content -->
- 
+
   <!-- /.content-wrapper -->
 <!-- Page specific script -->
 

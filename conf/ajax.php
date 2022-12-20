@@ -1,7 +1,9 @@
 <?php
 //membuat koneksi ke database
 //$koneksi2 = mysqli_connect("127.0.0.1", "gustaf", "password", "css_order");
+
 include('conn.php');
+
 //variabel nim yang dikirimkan form.php
 $part_number = $_GET['part_number'];
 

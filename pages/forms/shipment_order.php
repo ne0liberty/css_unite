@@ -13,7 +13,7 @@ $nama = ucwords($_SESSION['NAME']);
           </div>
           <div class="col-sm-6">
             <ol class="breadcrumb float-sm-right">
-              <li class="breadcrumb-item"><a href="index.php">Home</a></li>
+              <li class="breadcrumb-item"><a href="index.php?page=dashboard">Home</a></li>
               <li class="breadcrumb-item">Order</li>
               <li class="breadcrumb-item active">Create Shipment Order</li>
             </ol>
@@ -32,7 +32,7 @@ $nama = ucwords($_SESSION['NAME']);
             <h3 class="card-title"><i class="fas fa-tag"></i>
             Shipment Order</h3>
             <div class="card-tools">
-              
+
             </div>
           </div>
           <!-- /.card-header -->
@@ -47,12 +47,12 @@ $nama = ucwords($_SESSION['NAME']);
                   <label>Vendor</label>
                     <select class="form-control select2bs4" id='vendor' name="vendor" onchange="isi_otomatis();loadData()" style="width: 100%;">
                       <option value="">- Select Vendor -</option>
-                      <?php 
+                      <?php
                             include('conf/conn.php');
-                            
+
                             $datas3 = mysqli_query($koneksi, "SELECT * FROM vendor_database") or die (mysqli_error($koneksi));
                             while($data_vendor = mysqli_fetch_array($datas3))  {
-                              
+
                               echo "<option>$data_vendor[vendor]</option>";
                           }
                       ?>
@@ -64,22 +64,22 @@ $nama = ucwords($_SESSION['NAME']);
                 {
                 document.getElementById("address1").value = document.getElementById("address").value;
                 }
-                
+
                 </script>
-                
+
                 <div class="form-group">
                   <div class="form-check">
                     <input class="form-check-input" type="radio" name="address" value="" onclick="getElements()" checked>
                     <label class="form-check-label">Address 1</label>
                     <textarea class="form-control" rows="7" id="address1" name="address" readonly></textarea>
                   </div>
-                    
+
                   <div class="form-check">
                     <input class="form-check-input" type="radio" name="address" value="" onclick="getElements()">
                     <label class="form-check-label">Address 2</label>
                     <textarea class="form-control" rows="7" id="address2" name="address_2" readonly></textarea>
                   </div>
-                    
+
                 </div>
                 <ul class="list-group list-group-unbordered mb-3">
                   <li class="list-group-item">
@@ -154,7 +154,7 @@ $nama = ucwords($_SESSION['NAME']);
                             <input class="form-check-input" type="radio" name="log_service" value="d">
                             <label class="form-check-label">CPT</label>
                           </div>
-                        </div> 
+                        </div>
                       </div>
                     </div>
                   </li>
@@ -166,8 +166,8 @@ $nama = ucwords($_SESSION['NAME']);
                 <div class="form-group">
                     <label>Payment Responsibility</label>
                     <input type="text" id="paymnt_respn" name="paymnt_respn" value="PT GMF Aeroasia" class="form-control">
-                </div>   
-                
+                </div>
+
               </div>
               <!-- /.col -->
               <div class="col-md-6">
@@ -177,12 +177,12 @@ $nama = ucwords($_SESSION['NAME']);
                     </div>
 
                 </div>
-                
+
               </div>
               <!-- /.col -->
             </div>
             <!-- /.row -->
-          
+
           </div>
           <!-- /.card-body -->
           <div class="card-footer">
@@ -190,12 +190,12 @@ $nama = ucwords($_SESSION['NAME']);
           </div>
         </div>
         <!-- /.card -->
-        
+
       </div>
     </form>
       <?php
                  include('conf/conn.php');
-				
+
                 //melakukan pengecekan jika button submit diklik maka akan menjalankan perintah simpan dibawah ini
                  if (isset($_POST['submit'])) {
                   //menampung data dari inputan
@@ -210,29 +210,29 @@ $nama = ucwords($_SESSION['NAME']);
                   $log_service = $_POST['log_service'];
                   $tail_no = $_POST['tail_no'];
                   $paymnt_respn = $_POST['paymnt_respn'];
-                  
+
                   $datas = mysqli_query($koneksi, "INSERT INTO shipment_order (shipment_order_date,vendor,address,created_by,shipmnt_csg,goods_cat,shipment_mode,log_service,tail_no,paymnt_respn)
                   VALUES('$shipment_order_date', '$vendor','$address','$created_by','$shipmnt_csg','$goods_cat','$shipment_mode','$log_service','$tail_no','$paymnt_respn')") or die(mysqli_error($koneksi));
-                  
+
                   $last_id = mysqli_insert_id($koneksi);
-                 
-          
+
+
 
                   //echo "<script>window.location.href = 'pages/forms/shipment_order_page.php?id=".$last_id."';</script>";
                   echo "<script>window.open('pages/forms/shipment_order_sheet.php?id=".$last_id."', '_blank');</script>";
                  }
-                  
-                  
+
+
                 ?>
-      
+
       <!-- Autofillss -->
       <script src="plugins/jquery/jquery-1.12.4.min.js"></script>
       <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
 
       <!-- Select2 -->
       <script src="plugins/select2/js/select2.full.min.js"></script>
-      
-      
+
+
       <script type="text/javascript">
             function isi_otomatis(){
                 var vendor = $("#vendor").val();
@@ -246,7 +246,7 @@ $nama = ucwords($_SESSION['NAME']);
                     $('#address1').val(obj.address1);
                     $('#address2').val(obj.address2);
                 });
-                
+
             }
 
         //autoload table contenct
@@ -259,32 +259,32 @@ $nama = ucwords($_SESSION['NAME']);
 
         //dataObj[vendor_id]=so_date;
 
-        $.ajax({    
-            type: "post",
-            url: "conf/display-script.php", 
-            data:{vendorId:vendor_id,soDate:so_date,userID:user_id},      
-            dataType: "html",                  
-            success: function(data){   
-              
+        $.ajax({
+            type: "POST",
+            url: "/conf/display-script.php",
+            data:{vendorId:vendor_id,soDate:so_date,userID:user_id},
+            dataType: "html",
+            success: function(data){
+
                 $("#displayData").html(data);
             }
         });
         };
-        
+
        //Initialize Select2 Elements
        $('.select2').select2()
-          
+
         //Initialize Select2 Elements
        $('.select2bs4').select2({
-       theme: 'bootstrap4' 
+       theme: 'bootstrap4'
        })
-       
+
        document.getElementById('datePicker').value = new Date().toDateInputValue();
 
       </script>
   </section>
 
-  
+
   <!-- /.content-wrapper -->
 
-  
+

@@ -1,15 +1,16 @@
 <?php
 session_start();
-include "conf/conn.php";
-include "conf/api_updt_sla.php";
+ include 'conf/conn.php';
+ include 'conf/api_updt_sla.php';
 
 
- if (!isset($_SESSION['ID'])) {
-   ob_start();
-   header("Location:/pages/login.php");
-   ob_end_flush();
-   exit();
- }
+// if (!isset($_SESSION['ID'])) {
+//  ob_start();
+//   header("Location:pages/login.php");
+//  ob_end_flush();
+//   exit();
+// }
+
 
 ?>
 
@@ -142,65 +143,7 @@ include "conf/api_updt_sla.php";
           <?php echo '<img src="data:image/jpeg;base64,'.base64_encode($_SESSION['IMG']).'" class="img-circle elevation-2" alt="User Image" />'; ?>
         </div>
         <div class="info">
-          <a href="#" class="d-block"><?php echo ucwords($_SESSION['NAME']); ?></a>
-        </div>
-      </div>
-
-      <!-- Sidebar user panel (custom) -->
-      <div class="nav-item dropdown">
-      <a class="nav-link" data-toggle="dropdown" href="#">
-          <i class="far fa-comments"></i>
-      </a>
-        <div class="dropdown-menu dropdown-menu-lg dropdown-menu-right">
-          <a href="#" class="dropdown-item">
-            <!-- Message Start -->
-            <div class="media">
-              <img src="dist/img/user1-128x128.jpg" alt="User Avatar" class="img-size-50 mr-3 img-circle">
-              <div class="media-body">
-                <h3 class="dropdown-item-title">
-                  Brad Diesel
-                  <span class="float-right text-sm text-danger"><i class="fas fa-star"></i></span>
-                </h3>
-                <p class="text-sm">Call me whenever you can...</p>
-                <p class="text-sm text-muted"><i class="far fa-clock mr-1"></i> 4 Hours Ago</p>
-              </div>
-            </div>
-            <!-- Message End -->
-          </a>
-          <div class="dropdown-divider"></div>
-          <a href="#" class="dropdown-item">
-            <!-- Message Start -->
-            <div class="media">
-              <img src="dist/img/user8-128x128.jpg" alt="User Avatar" class="img-size-50 img-circle mr-3">
-              <div class="media-body">
-                <h3 class="dropdown-item-title">
-                  John Pierce
-                  <span class="float-right text-sm text-muted"><i class="fas fa-star"></i></span>
-                </h3>
-                <p class="text-sm">I got your message bro</p>
-                <p class="text-sm text-muted"><i class="far fa-clock mr-1"></i> 4 Hours Ago</p>
-              </div>
-            </div>
-            <!-- Message End -->
-          </a>
-          <div class="dropdown-divider"></div>
-          <a href="#" class="dropdown-item">
-            <!-- Message Start -->
-            <div class="media">
-              <img src="dist/img/user3-128x128.jpg" alt="User Avatar" class="img-size-50 img-circle mr-3">
-              <div class="media-body">
-                <h3 class="dropdown-item-title">
-                  Nora Silvester
-                  <span class="float-right text-sm text-warning"><i class="fas fa-star"></i></span>
-                </h3>
-                <p class="text-sm">The subject goes here</p>
-                <p class="text-sm text-muted"><i class="far fa-clock mr-1"></i> 4 Hours Ago</p>
-              </div>
-            </div>
-            <!-- Message End -->
-          </a>
-          <div class="dropdown-divider"></div>
-          <a href="#" class="dropdown-item dropdown-footer">See All Messages</a>
+          <a href="#" class="d-block"><?php echo $_SESSION['NAME']; ?></a>
         </div>
       </div>
 
@@ -288,15 +231,6 @@ include "conf/api_updt_sla.php";
           </li>
 
           <li class="nav-header">SETTING</li>
-
-          <li class="nav-item">
-            <a href="#" class="nav-link">
-              <i class="nav-icon fas fa-columns"></i>
-              <p>
-                Pengaturan
-              </p>
-            </a>
-          </li>
 
           <li class="nav-item">
             <a href="pages/logout.php" class="nav-link">
@@ -526,19 +460,19 @@ include "conf/api_updt_sla.php";
 
 <!-- DataTables  & Plugins -->
 <script src="plugins/bootstrap/js/bootstrap.min.js"></script>
-  <script src="plugins/bootstrap/jquery/jquery-3.5.1.js"></script>
-  <script src="plugins/datatables/jquery.dataTables.min.js"></script>
-  <script src="plugins/datatables-bs4/js/dataTables.bootstrap4.min.js"></script>
-  <script src="plugins/datatables-responsive/js/dataTables.responsive.min.js"></script>
-  <script src="plugins/datatables-responsive/js/responsive.bootstrap4.min.js"></script>
-  <script src="plugins/datatables-buttons/js/dataTables.buttons.min.js"></script>
-  <script src="plugins/datatables-buttons/js/buttons.bootstrap4.min.js"></script>
-  <script src="plugins/jszip/jszip.min.js"></script>
-  <script src="plugins/pdfmake/pdfmake.min.js"></script>
-  <script src="plugins/pdfmake/vfs_fonts.js"></script>
-  <script src="plugins/datatables-buttons/js/buttons.html5.min.js"></script>
-  <script src="plugins/datatables-buttons/js/buttons.print.min.js"></script>
-  <script src="plugins/datatables-buttons/js/buttons.colVis.min.js"></script>
+<script src="plugins/bootstrap/jquery/jquery-3.5.1.js"></script>
+<script src="plugins/datatables/jquery.dataTables.min.js"></script>
+<script src="plugins/datatables-bs4/js/dataTables.bootstrap4.min.js"></script>
+<script src="plugins/datatables-responsive/js/dataTables.responsive.min.js"></script>
+<script src="plugins/datatables-responsive/js/responsive.bootstrap4.min.js"></script>
+<script src="plugins/datatables-buttons/js/dataTables.buttons.min.js"></script>
+<script src="plugins/datatables-buttons/js/buttons.bootstrap4.min.js"></script>
+<script src="plugins/jszip/jszip.min.js"></script>
+<script src="plugins/pdfmake/pdfmake.min.js"></script>
+<script src="plugins/pdfmake/vfs_fonts.js"></script>
+<script src="plugins/datatables-buttons/js/buttons.html5.min.js"></script>
+<script src="plugins/datatables-buttons/js/buttons.print.min.js"></script>
+<script src="plugins/datatables-buttons/js/buttons.colVis.min.js"></script>
 
 <!-- Bootstrap4 Duallistbox -->
 <script src="plugins/bootstrap4-duallistbox/jquery.bootstrap-duallistbox.min.js"></script>
@@ -861,7 +795,12 @@ include "conf/api_updt_sla.php";
 				}
 			}
 		});
+
+
 	</script>
+
+
+
 
 </body>
 

@@ -1,5 +1,8 @@
 runtime: php74
 service: default
+instance_class: B1
+manual_scaling:
+  instances: 1
 
 handlers:
 - url: /dist
@@ -17,10 +20,24 @@ handlers:
   upload: (.+\.(htm|html|css|js))$
 
 - url: /pages/(.+\.php)$
-  script: \1
+  script: /pages/\1
+
+- url: /pages/forms/(.+\.php)$
+  script: /pages/forms/\1
 
 - url: /(.+\.php)$
   script: \1
+
+# - url: /conf/(.+\.php)$
+#   script: /conf/\1
+
+# - url: /.*
+#  script: auto
+#  login: admin
+
+#- url: /(.+\.php)$
+#  script: auto
+#  login: admin
 
 
 env_variables:
@@ -52,4 +69,6 @@ beta_settings:
 # run a long-running PHP script as a worker process (e.g. "php worker.php").
 #
 entrypoint: serve handlers.php
+
+
 

@@ -1,5 +1,5 @@
 <?php
-  include('../../conf/conn.php'); 
+  include 'conf/conn.php';
   $id = $_GET['id'];
   $datas = mysqli_query($koneksi, "SELECT * FROM master_order WHERE id_order='$id'") or die(mysqli_error($koneksi));
   $row_view = mysqli_fetch_assoc($datas)
@@ -40,7 +40,7 @@
         height: 25px;
         font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
         }
-    
+
     .sheet.padding-5mm { padding: 5mm }
 
     .checkCircle {
@@ -96,7 +96,7 @@
             <td class="table1" style="width:100px ; text-align:left;"><b><?php echo $row_view['po_number']; ?></b></td>
             <td class="table1" style="width:100px ; text-align:left;"><b><?php echo $row_view['tracking_no']; ?></b></td>
         </tr>
-        <?php  
+        <?php
          $original_entry_date = $row_view['entry_date'];
          $new_entry_date = date("d-M-Y", strtotime($original_entry_date));
         ?>
@@ -133,7 +133,7 @@
             <td colspan="7"><?php echo $row_view['sn_out']; ?></td>
             <td colspan="3"></td>
         </tr>
-        <?php  
+        <?php
          $original_awb_out_date = $row_view['awb_out_date'];
          $new_awb_out_date = date("d-M-Y", strtotime($original_awb_out_date));
         ?>
@@ -158,7 +158,7 @@
             <td colspan="7"></td>
             <td colspan="3"></td>
         </tr>
-        <?php  
+        <?php
          $original_ca_date = $row_view['ca_date'];
          $new_ca_date = date("d-M-Y", strtotime($original_ca_date));
         ?>
@@ -169,14 +169,14 @@
             <td colspan="4"><?php echo $row_view['created_by']; ?></td>
             <td colspan="4"></td>
             <td colspan="2">DATE :  <?php echo $new_ca_date; ?></td>
-            
+
         </tr>
         <tr class="table1">
             <td colspan="13" style="text-align:center;"><b>EVALUATION REPAIR COST</b></td>
         </tr>
 
-        <?php 
-        
+        <?php
+
         $pn_out_database = $row_view['pn_out'];
 
         $datas2 = mysqli_query($koneksi, "SELECT * FROM pn_database WHERE part_number='$pn_out_database'") or die(mysqli_error($koneksi));
@@ -223,12 +223,12 @@
             <td></td>
             <td colspan="4"><b>
 
-            <?php  
+            <?php
             $percentage = $row_view['total_cost'];
-            $totalWidth = $row_view2['pn_newprice']; 
+            $totalWidth = $row_view2['pn_newprice'];
 
-            $new_width = ($percentage / $totalWidth) * 100; 
-            
+            $new_width = ($percentage / $totalWidth) * 100;
+
             echo number_format((float)$new_width, 2, '.', ''); ?> %
             </b></td>
         </tr>
@@ -268,7 +268,7 @@
             <td colspan="5" style="text-align: left; padding-left: 15px;">NAMA & SIGN  : WASIS HADI KAMAL</td>
             <td colspan="4" style="text-align: left; padding-left: 15px; border-left: 1px solid black;">NAMA & SIGN  : ANNISA PUSPITASARI</td>
         </tr>
-        
+
         <tr>
             <td colspan="4" style="text-align: left; padding-left: 15px; border-right: 1px solid black;">DATE : <?php echo date('d-M-Y'); ?></td>
             <td colspan="5" style="text-align: left; padding-left: 15px;">DATE</td>
@@ -307,7 +307,7 @@
         </tr>
     </table>
     <a style="font-size: 12px;">Form GMF/Q-299 R1</a>
-    
+
 </section>
 </body>
 </html>

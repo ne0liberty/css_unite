@@ -10,7 +10,7 @@
           </div>
           <div class="col-sm-6">
             <ol class="breadcrumb float-sm-right">
-              <li class="breadcrumb-item"><a href="Index.php">Home</a></li>
+              <li class="breadcrumb-item"><a href="index.php?page=dashboard">Home</a></li>
               <li class="breadcrumb-item"><a href="index.php?page=data_order">All Order</a></li>
               <li class="breadcrumb-item active">Cost Approval</li>
             </ol>
@@ -29,7 +29,7 @@
       $data2 = mysqli_query($koneksi, "select * from master_order where id_order='$id'");
       $row_view = mysqli_fetch_assoc($data2);
       ?>
-              
+
     <form action="" method="post" role="form">
       <div class="container-fluid">
             <!-- View Order -->
@@ -40,7 +40,7 @@
                     <button type="button" class="btn btn-tool" data-card-widget="collapse">
                       <i class="fas fa-minus"></i>
                     </button>
-                  
+
                   </div>
                 </div>
                 <!-- /.card-header -->
@@ -50,7 +50,7 @@
                     <div class="col-md-6">
                         <div class="form-group">
                             <label>CA date</label>
-                            <input type="date" name="ca_date" class="form-control" placeholder="Masukkan" 
+                            <input type="date" name="ca_date" class="form-control" placeholder="Masukkan"
                             value="<?php echo date('Y-m-d'); ?>">
                         </div>
                         <div class="form-group">
@@ -65,32 +65,32 @@
                           <label>Vendor</label>
                             <select class="form-control select2bs4" name="vendor" disabled="disabled" style="width: 100%;">
                               <option value="<?php echo $row_view['vendor']; ?>"><?php echo $row_view['vendor']; ?></option>
-                              <?php 
+                              <?php
                                     include('conf/conn.php');
-                                    
+
                                     $datas3 = mysqli_query($koneksi, "SELECT * FROM vendor_database") or die (mysqli_error($koneksi));
                                     while($data_vendor = mysqli_fetch_array($datas3))  {
                                       echo "<option>$data_vendor[vendor]</option>";
                                   }
                               ?>
                           </select>
-                        </div> 
+                        </div>
                         <div class="form-group">
                           <label>Description</label>
                           <input type="text" name="description" class="form-control" placeholder="Masukkan" disabled="disabled" value="<?php echo $row_view['description']; ?>">
-                        </div> 
+                        </div>
                         <div class="form-group">
                           <label>Core Part Number</label>
                           <input type="text" name="pn_out" class="form-control" placeholder="Masukkan" disabled="disabled" value="<?php echo $row_view['pn_out']; ?>">
-                        </div>  
+                        </div>
                         <div class="form-group">
                           <label>Core Serial Number</label>
                           <input type="text" name="sn_out" class="form-control" placeholder="Masukkan" disabled="disabled" value="<?php echo $row_view['sn_out']; ?>">
-                        </div> 
+                        </div>
                         <div class="form-group">
                           <label>Date Received</label>
                           <input type="text" name="awb_out_date" class="form-control" placeholder="Masukkan" disabled="disabled" value="<?php echo $row_view['awb_out_date']; ?>">
-                        </div> 
+                        </div>
                     </div>
 
                     <?php
@@ -108,7 +108,7 @@
                       <div class="form-group">
                           <label>Proforma Invoice / Invoice</label>
                           <input type="text" name="invoice" class="form-control" placeholder="Enter" value="<?php echo $row_view['invoice']; ?>">
-                      </div> 
+                      </div>
                       <div class="form-group">
                         <label>New Price</label>
                         <div class="input-group">
@@ -116,7 +116,7 @@
                             <span class="input-group-text">$</span>
                           </div>
                           <input type="text" name="" class="form-control" value="<?php echo $pn_newprice; ?>" readonly>
-                          
+
                         </div>
                       </div>
                       <div class="form-group">
@@ -126,7 +126,7 @@
                             <span class="input-group-text">$</span>
                           </div>
                           <input type="text" class="form-control" name="repair_cost" onkeyup="calcSum()" value="<?php echo $row_view['repair_cost']; ?>">
-                          
+
                         </div>
                       </div>
                       <div class="form-group">
@@ -136,7 +136,7 @@
                             <span class="input-group-text">$</span>
                           </div>
                           <input type="text" class="form-control" name="other_cost" onkeyup="calcSum()" value="<?php echo $row_view['other_cost']; ?>">
-                          
+
                         </div>
                       </div>
                       <div class="form-group">
@@ -146,7 +146,7 @@
                             <span class="input-group-text">$</span>
                           </div>
                           <input type="text" name="total_cost" readonly class="form-control" value="<?php echo $row_view['total_cost']; ?>">
-                          
+
                         </div>
                       </div>
                     </div>
@@ -157,11 +157,11 @@
                           <button type="submit" name="submit" class="btn btn-secondary"><i class="fas fa-print"></i> Print CA Sheet</button>
                 </div>
         </div>
-      </div>       
+      </div>
     </form>
     <?php
         include('conf/conn.php');
-				
+
                 //melakukan pengecekan jika button submit diklik maka akan menjalankan perintah simpan dibawah ini
                  if (isset($_POST['submit'])) {
                   //menampung data dari inputan
@@ -171,14 +171,14 @@
                   $repair_cost = $_POST['repair_cost'];
                   $other_cost = $_POST['other_cost'];
                   $total_cost = $_POST['total_cost'];
-        
+
                   // update data ke database
-                  $update1 = mysqli_query($koneksi, "UPDATE master_order SET ca_date='$ca_date', invoice='$invoice', repair_cost='$repair_cost', other_cost='$other_cost', total_cost='$total_cost' WHERE id_order='$id'");                 
+                  $update1 = mysqli_query($koneksi, "UPDATE master_order SET ca_date='$ca_date', invoice='$invoice', repair_cost='$repair_cost', other_cost='$other_cost', total_cost='$total_cost' WHERE id_order='$id'");
                   // $update2 = mysqli_query($koneksi, "UPDATE master_order SET serv_status=IF(awb_in='','Waiting AWB',IF(gr_date='','SHIPPED',IF(date_store='','Waiting Inspect','CLOSED')));");
 
                   //ini untuk menampilkan alert berhasil dan redirect ke halaman index
                   echo "<script>window.open('pages/forms/ca_sheet.php?id=".$id."', '_blank');</script>";
-                 }       
+                 }
       ?>
   <script>
       function calcSum() {
@@ -190,8 +190,7 @@
   </script>
   </section>
 
-  
+
 
 
   <!-- /.content-wrapper -->
-  
