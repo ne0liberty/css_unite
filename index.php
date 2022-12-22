@@ -514,6 +514,13 @@ session_start();
                         });
                 });
         },
+      columnDefs: [
+       { targets: 0, visible: false },
+       { targets: 9, visible: false },
+       { targets: 10, visible: false },
+       { targets: 12, visible: false },
+       { targets: 14, visible: false },
+      ],
       order: [[2, 'desc']],
       "responsive": true, "lengthChange": true, "autoWidth": false,
       "buttons": ["copy", "excel", "pdf", "print", "colvis"]

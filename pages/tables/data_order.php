@@ -41,8 +41,12 @@
                     <th>Description</th>
                     <th>Aircraft</th>
                     <th>Vendor</th>
+                    <th>Inbound</th>
+                    <th>AWB In</th>
                     <th>SN IN</th>
+                    <th>AWB Out</th>
                     <th>SN OUT</th>
+                    <th>Note</th>
                     <th>Action</th>
                   </tr>
                   </thead>
@@ -110,8 +114,12 @@
                             <td><?= $row['description']; ?></td>
                             <td><?= $row['aircraft']; ?></td>
                             <td><?= $row['vendor']; ?></td>
+                            <td><?= $row['inbound']; ?></td>
+                            <td><?= $row['awb_in']; ?></td>
                             <td><?= $row['serial_number']; ?></td>
+                            <td><?= $row['awb_out']; ?></td>
                             <td><?= $row['sn_out']; ?></td>
+                            <td><?= $row['note']; ?></td>
                             <td>
                                   <div class="btn-group btn-group-sm">
                                     <a href="pages/tables/api_cancel_order.php?id=<?= $row['id_order']; ?>" class="btn btn-warning" onclick="return confirm('be sure for cancel?');">cancel</a>
@@ -125,18 +133,22 @@
                   </tbody>
                   <tfoot>
                      <tr>
-                       <th>No.</th>
-                       <th>Status</th>
-                       <th>Entry Date</th>
-                       <th>Scheme</th>
-                       <th>PO Number</th>
-                       <th>Part Number</th>
-                       <th>Description</th>
-                       <th>Aircraft</th>
-                       <th>Vendor</th>
-                       <th>SN IN</th>
-                       <th>SN OUT</th>
-                       <th>Action</th>
+                      <th>No.</th>
+                      <th>Status</th>
+                      <th>Entry Date</th>
+                      <th>Scheme</th>
+                      <th>PO Number</th>
+                      <th>Part Number</th>
+                      <th>Description</th>
+                      <th>Aircraft</th>
+                      <th>Vendor</th>
+                      <th>Inbound</th>
+                      <th>AWB In</th>
+                      <th>SN IN</th>
+                      <th>AWB Out</th>
+                      <th>SN OUT</th>
+                      <th>Note</th>
+                      <th>Action</th>
                     </tr>
                   </tfoot>
                 </table>
