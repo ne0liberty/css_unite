@@ -9,7 +9,7 @@
           </div>
           <div class="col-sm-6">
             <ol class="breadcrumb float-sm-right">
-              <li class="breadcrumb-item"><a href="index.php">Home</a></li>
+              <li class="breadcrumb-item"><a href="index.php?page=dashboard">Home</a></li>
               <li class="breadcrumb-item active">All Order</li>
             </ol>
           </div>
@@ -123,6 +123,22 @@
 						          <?php $no++; } ?>
 
                   </tbody>
+                  <tfoot>
+                     <tr>
+                       <th>No.</th>
+                       <th>Status</th>
+                       <th>Entry Date</th>
+                       <th>Scheme</th>
+                       <th>PO Number</th>
+                       <th>Part Number</th>
+                       <th>Description</th>
+                       <th>Aircraft</th>
+                       <th>Vendor</th>
+                       <th>SN IN</th>
+                       <th>SN OUT</th>
+                       <th>Action</th>
+                    </tr>
+                  </tfoot>
                 </table>
               </div>
               <!-- /.card-body -->

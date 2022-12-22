@@ -3,7 +3,6 @@ session_start();
  include 'conf/conn.php';
  include 'conf/api_updt_sla.php';
 
-
 // if (!isset($_SESSION['ID'])) {
 //  ob_start();
 //   header("Location:pages/login.php");
@@ -492,6 +491,29 @@ session_start();
 <script>
   $(function () {
     $("#example1").DataTable({
+      initComplete: function () {
+            this.api()
+                .columns()
+                .every(function () {
+                    var column = this;
+                    var select = $('<select><option value=""></option></select>')
+                        .appendTo($(column.footer()).empty())
+                        .on('change', function () {
+                            var val = $.fn.dataTable.util.escapeRegex($(this).val());
+
+                            column.search(val ? '^' + val + '$' : '', true, false).draw();
+                        });
+
+                    column
+                        .data()
+                        .unique()
+                        .sort()
+                        .each(function (d, j) {
+                          var val = $('<div/>').html(d).text();
+                           select.append( '<option value="' + val + '">' + val + '</option>' );
+                        });
+                });
+        },
       order: [[2, 'desc']],
       "responsive": true, "lengthChange": true, "autoWidth": false,
       "buttons": ["copy", "excel", "pdf", "print", "colvis"]
