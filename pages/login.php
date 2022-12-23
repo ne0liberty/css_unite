@@ -5,7 +5,7 @@
       exit();
   }
   // Include database connectivity
-  include 'conf/conn.php';
+  include '../conf/conn.php';
 
   if (isset($_POST['submit'])) {
 

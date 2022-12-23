@@ -145,6 +145,7 @@
                   VALUES('$entry_date', '$req_scheme','$tracking_no','$po_number','$part_number','$description','$pr','$aircraft','$vendor','$note','$part_number','$created_by')") or die(mysqli_error($koneksi));
                   $updt_stat = mysqli_query($koneksi, "UPDATE master_order SET serv_status=
                   IF(req_scheme='exchange',
+                  IF(serv_status='CANCEL','CANCEL',
                   IF(awb_in='','NEED AWB IN',
                   IF(gr_date='0000-00-00','SERV SHIPPED',
                   IF(date_store='0000-00-00','NEED INSPECT',
@@ -154,7 +155,8 @@
                   IF(invoice='','NEED REPAIR QUOTE',
                   IF(ca_app_date='0000-00-00','NEED REPAIR APPROVAL',
                   IF(payment_ref='','NEED PAYMENT',
-                  'CLOSED'))))))))),
+                  'CLOSED')))))))))),
+                  IF(serv_status='CANCEL','CANCEL',
                   IF(sn_out='','NEED CORE',
                   IF(shipment_order_date='0000-00-00','NEED SO',
                   IF(awb_out='','NEED AWB OUT',
@@ -164,7 +166,7 @@
                   IF(awb_in='','NEED AWB IN',
                   IF(gr_date='0000-00-00','SERV SHIPPED',
                   IF(date_store='0000-00-00','NEED INSPECT',
-                  'CLOSED')))))))))
+                  'CLOSED'))))))))))
                   );");
 
                   //ini untuk menampilkan alert berhasil dan redirect ke halaman index
