@@ -170,7 +170,7 @@
                   );");
 
                   //ini untuk menampilkan alert berhasil dan redirect ke halaman index
-                   echo "<script>alert('data berhasil disimpan.');window.location='index.php?page=data_order';</script>";
+                   echo "<script>alert('Order has been saved.');window.location='index.php?page=data_order';</script>";
                  }
 
 
@@ -189,7 +189,6 @@
                 $.ajax({
                     type: "GET",
                     url: "/conf/ajax.php",
-                    // url: RootUrl +'conf/ajax.php';
                     data:"part_number="+part_number ,
                     cache: false,
                 }).success(function (data) {

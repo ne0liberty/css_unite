@@ -68,17 +68,17 @@ $nama = ucwords($_SESSION['NAME']);
 
                <div class="form-group">
                    <label>Address 1</label>
-                   <textarea class="form-control" rows="7" id="address1" name="address" readonly></textarea>
+                   <textarea class="form-control" rows="7" id="address1" name="address"></textarea>
                </div>
                <div class="form-group">
                  <label>Address 2</label>
-                 <textarea class="form-control" rows="7" id="address2" name="address_2" readonly></textarea>
+                 <textarea class="form-control" rows="7" id="address2" name="address_2"></textarea>
                </div>
             </div>
             <!-- /.card-body -->
             <div class="card-footer">
-              <a class="btn btn-primary" href="" data-toggle="modal" data-target="#edit-vendor">Update Vendor</a>
-              <a class="btn btn-danger" href="" data-toggle="modal" data-target="#delete-vendor">Delete Vendor</a>
+              <button type="submit" name="update_vendor" class="btn btn-primary">Update Data</button>
+              
             </div>
           </div>
           <!-- /.card -->
@@ -91,43 +91,6 @@ $nama = ucwords($_SESSION['NAME']);
           <div class="modal-content">
             <div class="modal-header">
               <h4 class="modal-title">Submit New Vendor</h4>
-              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                <span aria-hidden="true">&times;</span>
-              </button>
-            </div>
-            <form action="conf/upd-vendor-database.php?act=add" method="post" role="form">
-            <div class="modal-body">
-                <div class="form-group">
-                    <label>Vendor Name</label>
-                    <input type="text" class="form-control" name="vendor" placeholder="Enter">
-                </div>
-                <div class="form-group">
-                    <label>Address 1</label>
-                    <textarea class="form-control" rows="7" id="" name="address1" placeholder="Enter"></textarea>
-                </div>
-                <div class="form-group">
-                    <label>Address 2</label>
-                    <textarea class="form-control" rows="7" id="" name="address2" placeholder="Enter"></textarea>
-                </div>
-            </div>
-            <div class="modal-footer justify-content-between">
-              <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-              <button type="submit" name="submit" class="btn btn-primary">Save changes</button>
-            </div>
-            </form>
-          </div>
-          <!-- /.modal-content -->
-        </div>
-        <!-- /.modal-dialog -->
-      </div>
-      <!-- /.modal -->
-
-      <!-- modal -->
-      <div class="modal fade" id="edit-vendor">
-        <div class="modal-dialog modal-lg">
-          <div class="modal-content">
-            <div class="modal-header">
-              <h4 class="modal-title">Update Vendor</h4>
               <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                 <span aria-hidden="true">&times;</span>
               </button>
@@ -173,7 +136,7 @@ $nama = ucwords($_SESSION['NAME']);
               var vendor = $("#vendor").val();
               $.ajax({
                   type: "GET",
-                  url: "conf/ajax-vendor.php",
+                  url: "/conf/ajax-vendor.php",
                   data:"vendor="+vendor ,
                   cache: false,
               }).success(function (data) {
@@ -196,6 +159,26 @@ $nama = ucwords($_SESSION['NAME']);
      document.getElementById('datePicker').value = new Date().toDateInputValue();
 
     </script>
+        <?php
+        if (isset($_POST['update_vendor'])) {
+             //menampung data dari inputan
+
+             $vendor = $_POST['vendor'];
+             $address1 = $_POST['address'];
+             $address2 = $_POST['address_2'];
+
+             // update data ke database
+             $update1 = mysqli_query($koneksi, "UPDATE vendor_database SET
+                         address1='$address1',
+                         address2='$address2'
+                         WHERE vendor='$vendor'");
+
+             //ini untuk menampilkan alert berhasil dan redirect ke halaman index
+             echo "<script>alert('Data has been saved.');window.location='index.php?page=vendor_database';</script>";
+           };
+        ?>
+
+
   </section>
 
 
