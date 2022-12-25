@@ -1,5 +1,10 @@
 <?php
 session_start();
+if (isset($_SESSION['ID'])=='') {
+  header("Location:pages/login.php");
+  exit();
+}
+
  include 'conf/conn.php';
  include 'conf/api_updt_sla.php';
 
