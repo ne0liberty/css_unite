@@ -280,16 +280,27 @@
           </div>
           <!-- /.card-header -->
           <div class="card-body">
+              <div class="row">
+                <div class="col-md-6">
+                        <!-- checkbox -->
+                        <div class="form-group">
+                          <div class="custom-control custom-checkbox">
+                            <input class="custom-control-input" type="checkbox" id="chk" name="FOC" value="1" checked>
+                            <label for="chk" class="custom-control-label">FOC order</label>
+                          </div>
+                        </div>
+                </div>
+              </div>
+            
             <div class="row">
               <div class="col-md-6">
                 <div class="form-group">
                   <label>CA date</label>
-                  <input type="date" name="ca_date" class="form-control" placeholder="Masukkan"
-                  value="<?php echo $ca_date2; ?>">
+                  <input type="date" name="ca_date" class="form-control" placeholder="Masukkan" id='inp1' value="<?php echo $ca_date2; ?>">
                 </div>
                 <div class="form-group">
                   <label>Proforma Invoice / Invoice</label>
-                  <input type="text" name="invoice" class="form-control" placeholder="Enter" value="<?php echo $row_view['invoice']; ?>">
+                  <input type="text" name="invoice" class="form-control" placeholder="Enter" id='inp2' value="<?php echo $row_view['invoice']; ?>">
                 </div>
                   <div class="form-group">
                     <label>New Price</label>
@@ -310,7 +321,7 @@
                           <div class="input-group-prepend">
                             <span class="input-group-text">$</span>
                           </div>
-                        <input type="text" class="form-control" name="repair_cost" onkeyup="calcSum()" value="<?php echo $row_view['repair_cost']; ?>">
+                        <input type="text" class="form-control" name="repair_cost" id='inp3' onkeyup="calcSum()" value="<?php echo $row_view['repair_cost']; ?>">
                       </div>
                     </div>
                     <div class="form-group">
@@ -319,7 +330,7 @@
                         <div class="input-group-prepend">
                             <span class="input-group-text">$</span>
                         </div>
-                        <input type="text" class="form-control" name="other_cost" onkeyup="calcSum()" value="<?php echo $row_view['other_cost']; ?>">
+                        <input type="text" class="form-control" name="other_cost" id='inp4' onkeyup="calcSum()" value="<?php echo $row_view['other_cost']; ?>">
                       </div>
                     </div>
                     <div class="form-group">
@@ -343,7 +354,7 @@
               <div class="col-md-6">
                   <div class="form-group">
                     <label>Approval date</label>
-                    <input type="date" name="ca_app_date" class="form-control" placeholder="Enter"
+                    <input type="date" name="ca_app_date" class="form-control" id='inp5' placeholder="Enter"
                     value="<?php echo $row_view['ca_app_date']; ?>">
                   </div>
                   
@@ -352,16 +363,16 @@
               <div class="col-md-6">
                   <div class="form-group">
                     <label>Payment Reference</label>
-                    <input type="text" name="payment_ref" class="form-control" placeholder="Enter" value="<?php echo $row_view['payment_ref']; ?>">
+                    <input type="text" name="payment_ref" class="form-control" placeholder="Enter" id='inp6' value="<?php echo $row_view['payment_ref']; ?>">
                   </div>
                   <div class="form-group">
                     <label>Payment date</label>
-                    <input type="date" name="payment_date" class="form-control" placeholder="Enter"
+                    <input type="date" name="payment_date" class="form-control" placeholder="Enter" id='inp7' 
                     value="<?php echo $row_view['payment_date']; ?>">
                   </div>
               </div>
-            </div>
-          </li>
+             </div>
+            </li>
           </ul>
           </div>
           <!-- /.card-body -->
@@ -538,6 +549,7 @@
                  };
       ?>
   </section>
+  <script src="plugins/jquery/jquery.min.js"></script>
   <script>
       function calcSum() {
           let num1 = document.getElementsByName("repair_cost")[0].value;
@@ -545,6 +557,22 @@
           let sum = Number(num1) + Number(num2);
           document.getElementsByName("total_cost")[0].value = sum;
       }
+  
+
+  $(function(){
+   $('#chk').on('click', function(){                  
+      $('#inp1').attr('disabled', $(this).is(':checked'));  
+      $('#inp2').attr('disabled', $(this).is(':checked'));   
+      $('#inp3').attr('disabled', $(this).is(':checked')); 
+      $('#inp4').attr('disabled', $(this).is(':checked'));    
+      $('#inp5').attr('disabled', $(this).is(':checked'));   
+      $('#inp6').attr('disabled', $(this).is(':checked')); 
+      $('#inp7').attr('disabled', $(this).is(':checked')); 
+   });
+  });
+
+
+  
   </script>
 
   <!-- /.content-wrapper -->
