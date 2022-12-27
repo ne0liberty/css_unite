@@ -379,7 +379,7 @@
           </div>
           <!-- /.card-body -->
           <div class="card-footer">
-            <button type="submit" name="submit" class="btn btn-primary">Update</button>
+            <button type="submit" name="submit" class="btn btn-primary">Update Cost</button>
             <button type="submit" name="submit_cost" class="btn btn-secondary"><i class="fas fa-print"></i> Print CA Sheet</button>
           </div>
         </div>
@@ -415,9 +415,19 @@
                   $awb_out_date = $_POST['awb_out_date'];
                   $core_cond = $_POST['core_cond'];
                   $ca_app_date = $_POST['ca_app_date'];
-                  $payment_ref = $_POST['payment_ref'];
+                  //$payment_ref = $_POST['payment_ref'];
                   $payment_date = $_POST['payment_date'];
                   $FOC = $_POST['FOC'];
+                  if (($_POST['FOC'])=="1") {
+                    $invoice = '-';
+                  } else {
+                    $invoice = $_POST['invoice'];
+                  };
+                  if (($_POST['FOC'])=="1") {
+                    $payment_ref = '-';
+                  } else {
+                    $payment_ref = $_POST['payment_ref'];
+                  };
 
                   // update data ke database
                   $update1 = mysqli_query($koneksi, "UPDATE master_order SET
@@ -441,8 +451,11 @@
                               ca_app_date='$ca_app_date',
                               payment_ref='$payment_ref',
                               payment_date='$payment_date',
-                              FOC='$FOC'
+                              FOC='$FOC',
+                              invoice='$invoice'
                               WHERE id_order='$id'");
+
+                  
 
                   //update error running at ubuntu
                   $update2 = mysqli_query($koneksi, "UPDATE master_order SET serv_status=
@@ -551,7 +564,9 @@
 
                   //ini untuk menampilkan alert berhasil dan redirect ke halaman index
                   echo "<script>window.open('pages/forms/ca_sheet.php?id=".$id."', '_blank');</script>";
-                 };
+                 }; 
+
+                 
       ?>
   </section>
   <script src="plugins/jquery/jquery.min.js"></script>
