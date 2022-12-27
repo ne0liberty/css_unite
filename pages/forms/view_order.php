@@ -285,7 +285,7 @@
                         <!-- checkbox -->
                         <div class="form-group">
                           <div class="custom-control custom-checkbox">
-                            <input class="custom-control-input" type="checkbox" id="chk" name="FOC" value="1" checked>
+                            <input class="custom-control-input" type="checkbox" id="chk" name="FOC" value="1" <?php if (isset($row_view['FOC'])=='1') echo "checked"?>>
                             <label for="chk" class="custom-control-label">FOC order</label>
                           </div>
                         </div>
@@ -296,11 +296,11 @@
               <div class="col-md-6">
                 <div class="form-group">
                   <label>CA date</label>
-                  <input type="date" name="ca_date" class="form-control" placeholder="Masukkan" id='inp1' value="<?php echo $ca_date2; ?>">
+                  <input type="date" name="ca_date" class="form-control" placeholder="Masukkan" id='inp1' value="<?php echo $ca_date2; ?>" <?php if (isset($row_view['FOC'])=='1') echo "disabled"?>>
                 </div>
                 <div class="form-group">
                   <label>Proforma Invoice / Invoice</label>
-                  <input type="text" name="invoice" class="form-control" placeholder="Enter" id='inp2' value="<?php echo $row_view['invoice']; ?>">
+                  <input type="text" name="invoice" class="form-control" placeholder="Enter" id='inp2' value="<?php echo $row_view['invoice']; ?>" <?php if (isset($row_view['FOC'])=='1') echo "disabled"?>>
                 </div>
                   <div class="form-group">
                     <label>New Price</label>
@@ -321,7 +321,7 @@
                           <div class="input-group-prepend">
                             <span class="input-group-text">$</span>
                           </div>
-                        <input type="text" class="form-control" name="repair_cost" id='inp3' onkeyup="calcSum()" value="<?php echo $row_view['repair_cost']; ?>">
+                        <input type="text" class="form-control" name="repair_cost" id='inp3' onkeyup="calcSum()" value="<?php echo $row_view['repair_cost']; ?>" <?php if (isset($row_view['FOC'])=='1') echo "disabled"?>>
                       </div>
                     </div>
                     <div class="form-group">
@@ -330,7 +330,7 @@
                         <div class="input-group-prepend">
                             <span class="input-group-text">$</span>
                         </div>
-                        <input type="text" class="form-control" name="other_cost" id='inp4' onkeyup="calcSum()" value="<?php echo $row_view['other_cost']; ?>">
+                        <input type="text" class="form-control" name="other_cost" id='inp4' onkeyup="calcSum()" value="<?php echo $row_view['other_cost']; ?>" <?php if (isset($row_view['FOC'])=='1') echo "disabled"?>>
                       </div>
                     </div>
                     <div class="form-group">
@@ -354,8 +354,7 @@
               <div class="col-md-6">
                   <div class="form-group">
                     <label>Approval date</label>
-                    <input type="date" name="ca_app_date" class="form-control" id='inp5' placeholder="Enter"
-                    value="<?php echo $row_view['ca_app_date']; ?>">
+                    <input type="date" name="ca_app_date" class="form-control" id='inp5' placeholder="Enter" value="<?php echo $row_view['ca_app_date']; ?>" <?php if (isset($row_view['FOC'])=='1') echo "disabled"?>>
                   </div>
                   
               </div>
@@ -363,12 +362,12 @@
               <div class="col-md-6">
                   <div class="form-group">
                     <label>Payment Reference</label>
-                    <input type="text" name="payment_ref" class="form-control" placeholder="Enter" id='inp6' value="<?php echo $row_view['payment_ref']; ?>">
+                    <input type="text" name="payment_ref" class="form-control" placeholder="Enter" id='inp6' value="<?php echo $row_view['payment_ref']; ?>" <?php if (isset($row_view['FOC'])=='1') echo "disabled"?>>
                   </div>
                   <div class="form-group">
                     <label>Payment date</label>
                     <input type="date" name="payment_date" class="form-control" placeholder="Enter" id='inp7' 
-                    value="<?php echo $row_view['payment_date']; ?>">
+                    value="<?php echo $row_view['payment_date']; ?>" <?php if (isset($row_view['FOC'])=='1') echo "disabled"?>>
                   </div>
               </div>
              </div>
@@ -415,6 +414,7 @@
                   $ca_app_date = $_POST['ca_app_date'];
                   $payment_ref = $_POST['payment_ref'];
                   $payment_date = $_POST['payment_date'];
+                  $FOC = $_POST['FOC'];
 
                   // update data ke database
                   $update1 = mysqli_query($koneksi, "UPDATE master_order SET
@@ -437,7 +437,8 @@
                               core_cond='$core_cond',
                               ca_app_date='$ca_app_date',
                               payment_ref='$payment_ref',
-                              payment_date='$payment_date'
+                              payment_date='$payment_date',
+                              FOC='$FOC'
                               WHERE id_order='$id'");
 
                   //update error running at ubuntu
@@ -539,6 +540,7 @@
                   $repair_cost = $_POST['repair_cost'];
                   $other_cost = $_POST['other_cost'];
                   $total_cost = $_POST['total_cost'];
+                  
 
                   // update data ke database
                   $update1 = mysqli_query($koneksi, "UPDATE master_order SET ca_date='$ca_date', invoice='$invoice', repair_cost='$repair_cost', other_cost='$other_cost', total_cost='$total_cost' WHERE id_order='$id'");
