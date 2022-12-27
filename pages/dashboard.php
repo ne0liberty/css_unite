@@ -113,36 +113,29 @@
           <section class="col-lg-7 connectedSortable">
             <!-- Custom tabs (Charts with tabs)-->
             <div class="card">
-              <div class="card-header">
-                <h3 class="card-title">
-                  <i class="fas fa-chart-pie mr-1"></i>
-                  TAT Open Repair
-                </h3>
-                
-              </div><!-- /.card-header -->
+              <div class="card-header border-0">
+                  <div class="d-flex justify-content-between">
+                    <h3 class="card-title">Open Repair & Exchange</h3>
+                    <a href="javascript:void(0);">View Report</a>
+                  </div>
+              </div>
+          
               <div class="card-body">
                   <div class="tab-content p-0">
                   <!-- Morris chart - Sales -->
-                      <canvas id="myChart" height="150" style="height: 200px;"></canvas>
-                   </div>
-              </div>
-            </div><!-- /.card-body -->
+                      <canvas id="myChart-exchange" height="200" style="height: 200px;"></canvas>
+                  </div>
+                  <div class="d-flex flex-row justify-content-end">
+                    <span class="mr-2">
+                    <i class="fas fa-square text-primary"></i> Repair
+                    </span>
 
-            <!-- Custom tabs (Charts with tabs)-->
-            <div class="card">
-              <div class="card-header">
-                <h3 class="card-title">
-                  <i class="fas fa-chart-pie mr-1"></i>
-                  TAT Open Exchange
-                </h3>
-                
-              </div><!-- /.card-header -->
-              <div class="card-body">
-                  <div class="tab-content p-0">
-                  <!-- Morris chart - Sales -->
-                      <canvas id="myChart-exchange" height="150" style="height: 200px;"></canvas>
-                   </div>
+                    <span>
+                    <i class="fas fa-square text-gray"></i> Exchange
+                    </span>
+                </div>
               </div>
+              
             </div><!-- /.card-body -->
             
             <!-- /.card -->

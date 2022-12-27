@@ -757,7 +757,7 @@ if (isset($_SESSION['ID'])=='') {
 			data: {
 				labels: ["Need AWB In", "Serv Shipped", "Need Inspect", "Need Core", "Need AWB Out", "Need Repair Approval", "Need Payment"],
 				datasets: [{
-					label: 'Open Item',
+					label: 'Open Exchange',
 					data: [
 					<?php
 					$need_awb_in = mysqli_query($koneksi,"SELECT * FROM master_order WHERE created_by ='$user' AND req_scheme='Exchange' AND serv_status='NEED AWB IN';");
@@ -788,32 +788,52 @@ if (isset($_SESSION['ID'])=='') {
 					echo mysqli_num_rows($need_payment);
 					?>
 					],
-					backgroundColor: [
-            'rgba(255, 99, 132, 0.2)',
-            'rgba(255, 159, 64, 0.2)',
-            'rgba(255, 205, 86, 0.2)',
-            'rgba(75, 192, 192, 0.2)',
-            'rgba(54, 162, 235, 0.2)',
-            'rgba(153, 102, 255, 0.2)',
-            'rgba(201, 203, 207, 0.2)'
+					backgroundColor: '#007bff',
+					borderColor: '#007bff',
+					borderWidth: 0
+				},
+        {
+					label: 'Open Repair',
+					data: [
+					<?php
+					$need_awb_in = mysqli_query($koneksi,"SELECT * FROM master_order WHERE created_by ='$user' AND req_scheme='Repair' AND serv_status='NEED AWB IN';");
+					echo mysqli_num_rows($need_awb_in);
+					?>,
+					<?php
+					$serv_shipped = mysqli_query($koneksi,"SELECT * FROM master_order WHERE created_by ='$user 'AND req_scheme='Repair' AND serv_status='SERV SHIPPED';");
+					echo mysqli_num_rows($serv_shipped);
+					?>,
+					<?php
+					$need_inspect = mysqli_query($koneksi,"SELECT * FROM master_order WHERE created_by ='$user 'AND req_scheme='Repair' AND serv_status='NEED INSPECT';");
+					echo mysqli_num_rows($need_inspect);
+					?>,
+					<?php
+					$need_core = mysqli_query($koneksi,"SELECT * FROM master_order WHERE created_by ='$user 'AND req_scheme='Repair' AND serv_status='NEED CORE';");
+					echo mysqli_num_rows($need_core);
+					?>,
+					<?php
+					$need_awb_out = mysqli_query($koneksi,"SELECT * FROM master_order WHERE created_by ='$user 'AND req_scheme='Repair' AND serv_status='NEED AWB OUT';");
+					echo mysqli_num_rows($need_awb_out);
+					?>,
+					<?php
+					$need_repr_apprval = mysqli_query($koneksi,"SELECT * FROM master_order WHERE created_by ='$user 'AND req_scheme='Repair' AND serv_status='NEED REPAIR APPROVAL';");
+					echo mysqli_num_rows($need_repr_apprval);
+					?>,
+					<?php
+					$need_payment = mysqli_query($koneksi,"SELECT * FROM master_order WHERE created_by ='$user 'AND req_scheme='Repair' AND serv_status='NEED PAYMENT';");
+					echo mysqli_num_rows($need_payment);
+					?>
 					],
-					borderColor: [
-            'rgb(255, 99, 132)',
-            'rgb(255, 159, 64)',
-            'rgb(255, 205, 86)',
-            'rgb(75, 192, 192)',
-            'rgb(54, 162, 235)',
-            'rgb(153, 102, 255)',
-            'rgb(201, 203, 207)'
-					],
-					borderWidth: 1
+					backgroundColor: '#ced4da',
+					borderColor: '#ced4da',
+					borderWidth: 0
 				}]
 			},
 			options: {
 				scales: {
 					yAxes: [{
             gridLines: {
-                display:true
+                display:false
             },
 						ticks: {
 							beginAtZero:true,
