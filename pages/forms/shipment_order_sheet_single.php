@@ -68,6 +68,11 @@
 
 </style>
 </head>
+
+<?php
+
+?>
+
 <body class="A4">
 <section class="sheet padding-15mm">
     <table width="100%" style="font-family:'Calibri'">
@@ -238,10 +243,13 @@
             <td colspan="3" style="text-align:center">Customer agree with shipment all arranged by GMF Logistic Services</td>
         </tr>
     </table>
+    <?php
+    $new_shipment_order_date = date("d-M-Y", strtotime($item['shipment_order_date']));
+    ?>
     <table width="100%" class="table2">
         <tr>
             <td width="250px" colspan="2" style="border:0px;height:40px"></td>
-            <td style="border:0px;">Jakarta,<?php echo $item['shipment_order_date']; ?> </td>
+            <td style="border:0px;">Jakarta,<?php echo $new_shipment_order_date ?> </td>
         </tr>
         <tr>
             <td style="border:0px;">Received  by</td>
@@ -282,6 +290,7 @@
             $createdby = $item['created_by'];
             $shipmentdate = $item['shipment_order_date'];
             $order_id = $item['order_id'];
+            
 
             $datas2 = mysqli_query($koneksi, "SELECT * FROM master_order WHERE vendor='$vendorlist' AND created_by='$createdby' AND shipment_order_date='$shipmentdate' AND id_order='$order_id' ") or die(mysqli_error($koneksi));
                     //script untuk menampilkan data barang
