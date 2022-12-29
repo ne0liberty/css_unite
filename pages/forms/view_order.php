@@ -457,7 +457,7 @@
                   $core_cond = $_POST['core_cond'];
                   $ca_app_date = $_POST['ca_app_date'];
                   //$payment_ref = $_POST['payment_ref'];
-                  $payment_date = $_POST['payment_date'];
+                  //$payment_date = $_POST['payment_date'];
                   $FOC = $_POST['FOC'];
                   if (($_POST['FOC'])=="1") {
                     $invoice = '-';
@@ -468,6 +468,11 @@
                     $payment_ref = '-';
                   } else {
                     $payment_ref = $_POST['payment_ref'];
+                  };
+                  if (($_POST['FOC'])=="1") {
+                    $payment_date = $_POST['awb_out_date'];
+                  } else {
+                    $payment_date = $_POST['payment_date'];
                   };
 
                   // update data ke database
