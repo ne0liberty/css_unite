@@ -40,11 +40,52 @@
               <button type="button" class="btn btn-tool" data-card-widget="collapse">
                 <i class="fas fa-minus"></i>
               </button>
-
             </div>
           </div>
           <!-- /.card-header -->
           <div class="card-body">
+            <div class="row">
+              <div class="col-md-6">
+                <h4>Status : <a class=
+                              "<?php $bgcolor = $row_view['serv_status'];
+                              switch ($bgcolor) {
+                                case "NEED AWB IN":
+                                  echo "badge badge-primary";
+                                  break;
+                                case "SERV SHIPPED":
+                                  echo "badge badge-warning";
+                                  break;
+                                case "NEED INSPECT":
+                                  echo "badge badge-info";
+                                  break;
+                                case "NEED CORE":
+                                  echo "badge badge-danger";
+                                  break;
+                                case "NEED SO":
+                                  echo "badge badge-danger";
+                                  break;
+                                case "NEED AWB OUT":
+                                  echo "badge badge-info";
+                                  break;
+                                case "NEED REPAIR QUOTE":
+                                  echo "badge badge-secondary";
+                                  break;
+                                case "NEED REPAIR APPROVAL":
+                                  echo "badge badge-warning";
+                                  break;
+                                case "NEED PAYMENT":
+                                  echo "badge badge-warning";
+                                   break;
+                                case "CLOSED":
+                                  echo "badge badge-success";
+                                  break;
+                                case "CANCEL":
+                                  echo "badge badge-dark";
+                                  break;
+                              }
+                              ?>"><?= $row_view['serv_status']; ?></a></h4>
+              </div>
+            </div>
             <div class="row">
               <div class="col-md-6">
                 <div class="form-group">

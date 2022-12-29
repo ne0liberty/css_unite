@@ -526,7 +526,6 @@ if (isset($_SESSION['ID'])=='') {
        { targets: 12, visible: false },
        { targets: 14, visible: false },
       ],
-      
       "responsive": true, "lengthChange": true, "autoWidth": false,
       "buttons": ["copy", "excel", "pdf", "print", "colvis"]
     }).buttons().container().appendTo('#example1_wrapper .col-md-6:eq(0)');
