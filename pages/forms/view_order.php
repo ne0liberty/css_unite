@@ -26,7 +26,7 @@
       $id = $_GET['id']; //mengambil id barang yang ingin diubah
 
       //menampilkan barang berdasarkan id
-      $data2 = mysqli_query($koneksi, "select * from master_order where id_order='$id'");
+      $data2 = mysqli_query($koneksi, "SELECT * FROM master_order WHERE id_order='$id'");
       $row_view = mysqli_fetch_assoc($data2);
       ?>
 
@@ -49,7 +49,7 @@
               <div class="col-md-6">
                 <div class="form-group">
                     <label>Entry date</label>
-                    <input type="date" name="entry_date" class="form-control" disabled="disabled" placeholder="Masukkan" value="<?php echo $row_view['entry_date']; ?>">
+                    <input type="date" name="entry_date" class="form-control" disabled="disabled" placeholder="Enter ..." value="<?php echo $row_view['entry_date']; ?>">
                   </div>
                 <div class="form-group">
                   <label>Scheme</label>
@@ -61,11 +61,11 @@
                 </div>
                 <div class="form-group">
                   <label>Tracking Number</label>
-                  <input type="text" name="tracking_no" class="form-control" disabled="disabled" placeholder="Masukkan" value="<?php echo $row_view['tracking_no']; ?>">
+                  <input type="text" name="tracking_no" class="form-control" disabled="disabled" placeholder="Enter ..." value="<?php echo $row_view['tracking_no']; ?>">
                 </div>
                 <div class="form-group">
                   <label>PO Number</label>
-                   <input type="text" name="po_number" class="form-control" disabled="disabled" placeholder="Masukkan" value="<?php echo $row_view['po_number']; ?>">
+                   <input type="text" name="po_number" class="form-control" disabled="disabled" placeholder="Enter ..." value="<?php echo $row_view['po_number']; ?>">
                 </div>
                 <div class="form-group">
                   <label>Vendor</label>
@@ -100,15 +100,15 @@
                 </div>
                 <div class="form-group">
                     <label>Description</label>
-                    <input type="text" name="description" class="form-control" placeholder="Masukkan" disabled="disabled" value="<?php echo $row_view['description']; ?>">
+                    <input type="text" name="description" class="form-control" placeholder="Enter ..." disabled="disabled" value="<?php echo $row_view['description']; ?>">
                 </div>
                 <div class="form-group">
                     <label>PR</label>
-                    <input type="text" name="pr" class="form-control" placeholder="Masukkan" disabled="disabled" value="<?php echo $row_view['pr']; ?>">
+                    <input type="text" name="pr" class="form-control" placeholder="Enter ..." disabled="disabled" value="<?php echo $row_view['pr']; ?>">
                 </div>
                 <div class="form-group">
                     <label>Aircraft</label>
-                    <input type="text" name="aircraft" class="form-control" disabled="disabled" placeholder="Masukkan" value="<?php echo $row_view['aircraft']; ?>">
+                    <input type="text" name="aircraft" class="form-control" disabled="disabled" placeholder="Enter ..." value="<?php echo $row_view['aircraft']; ?>">
                 </div>
 
               </div>
@@ -117,7 +117,7 @@
             <!-- /.row -->
             <div class="form-group">
                     <label>Note</label>
-                    <textarea type="text" class="form-control" rows="3" name="note" placeholder="Enter ..."><?php echo $row_view['note']; ?></textarea>
+                    <textarea type="text" class="form-control" rows="3" name="note" placeholder="Enter ... "><?php echo $row_view['note']; ?></textarea>
             </div>
           </div>
           <!-- /.card-body -->
@@ -143,23 +143,23 @@
               <div class="col-md-6">
                 <div class="form-group">
                     <label>Repair/Core TAT (Days)</label>
-                    <input type="text" name="repair_tat" class="form-control" placeholder="Masukkan" value="<?php echo $row_view['repair_tat']; ?>">
+                    <input type="text" name="repair_tat" class="form-control" placeholder="Enter ..." value="<?php echo $row_view['repair_tat']; ?>">
                 </div>
                 <div class="form-group">
                   <label>AWB Incoming</label>
-                  <input type="text" name="awb_in" class="form-control" placeholder="Masukkan" value="<?php echo $row_view['awb_in']; ?>">
+                  <input type="text" name="awb_in" class="form-control" placeholder="Enter ..." value="<?php echo $row_view['awb_in']; ?>">
                 </div>
                 <div class="form-group">
                   <label>AWB Date</label>
-                   <input type="date" name="awb_date" class="form-control" placeholder="Masukkan" value="<?php echo $row_view['awb_date']; ?>">
+                   <input type="date" name="awb_date" class="form-control" placeholder="Enter ..." value="<?php echo $row_view['awb_date']; ?>">
                 </div>
                 <div class="form-group">
                     <label>ETA</label>
-                    <input type="date" name="eta" class="form-control" placeholder="Masukkan" value="<?php echo $row_view['eta']; ?>">
+                    <input type="date" name="eta" class="form-control" placeholder="Enter ..." value="<?php echo $row_view['eta']; ?>">
                 </div>
                 <div class="form-group">
                     <label>Inbound</label>
-                    <input type="text" name="inbound" class="form-control" placeholder="Masukkan" value="<?php echo $row_view['inbound']; ?>">
+                    <input type="text" name="inbound" class="form-control" placeholder="Enter ..." value="<?php echo $row_view['inbound']; ?>">
                 </div>
               </div>
               <!-- /.col -->
@@ -167,19 +167,19 @@
 
                 <div class="form-group">
                     <label>GR date</label>
-                    <input type="date" name="gr_date" class="form-control" placeholder="Masukkan" value="<?php echo $row_view['gr_date']; ?>">
+                    <input type="date" name="gr_date" class="form-control" placeholder="Enter ..." value="<?php echo $row_view['gr_date']; ?>">
                 </div>
                 <div class="form-group">
                     <label>Serial Number</label>
-                    <input type="text" name="serial_number" class="form-control" placeholder="Masukkan" value="<?php echo $row_view['serial_number']; ?>">
+                    <input type="text" name="serial_number" class="form-control" placeholder="Enter ..." value="<?php echo $row_view['serial_number']; ?>">
                 </div>
                 <div class="form-group">
                     <label>Batch</label>
-                    <input type="text" name="serv_batch" class="form-control" placeholder="Masukkan" value="<?php echo $row_view['serv_batch']; ?>">
+                    <input type="text" name="serv_batch" class="form-control" placeholder="Enter ..." value="<?php echo $row_view['serv_batch']; ?>">
                 </div>
                 <div class="form-group">
                     <label>Store Date</label>
-                    <input type="date" name="date_store" class="form-control" placeholder="Masukkan" value="<?php echo $row_view['date_store']; ?>">
+                    <input type="date" name="date_store" class="form-control" placeholder="Enter ..." value="<?php echo $row_view['date_store']; ?>">
                 </div>
               </div>
               <!-- /.col -->
@@ -209,19 +209,19 @@
               <div class="col-md-6">
                 <div class="form-group">
                     <label>PN Out</label>
-                    <input type="text" name="pn_out" class="form-control" placeholder="Masukkan" value="<?php echo $row_view['pn_out']; ?>">
+                    <input type="text" name="pn_out" class="form-control" placeholder="Enter ..." value="<?php echo $row_view['pn_out']; ?>">
                 </div>
                 <div class="form-group">
                     <label>SN Out</label>
-                    <input type="text" name="sn_out" class="form-control" placeholder="Masukkan" value="<?php echo $row_view['sn_out']; ?>">
+                    <input type="text" name="sn_out" class="form-control" placeholder="Enter ..." value="<?php echo $row_view['sn_out']; ?>">
                 </div>
                 <div class="form-group">
                   <label>Core Batch</label>
-                  <input type="text" name="core_batch" class="form-control" placeholder="Masukkan" value="<?php echo $row_view['core_batch']; ?>">
+                  <input type="text" name="core_batch" class="form-control" placeholder="Enter ..." value="<?php echo $row_view['core_batch']; ?>">
                 </div>
                 <div class="form-group">
                   <label>Shipment Order Date</label>
-                   <input type="date" name="shipment_order_date" class="form-control" placeholder="Masukkan" value="<?php echo $row_view['shipment_order_date']; ?>">
+                   <input type="date" name="shipment_order_date" class="form-control" placeholder="Enter ..." value="<?php echo $row_view['shipment_order_date']; ?>">
                 </div>
               </div>
               <!-- /.col -->
@@ -229,11 +229,11 @@
 
                 <div class="form-group">
                     <label>AWB Out</label>
-                    <input type="text" name="awb_out" class="form-control" placeholder="Masukkan" value="<?php echo $row_view['awb_out']; ?>">
+                    <input type="text" name="awb_out" class="form-control" placeholder="Enter ..." value="<?php echo $row_view['awb_out']; ?>">
                 </div>
                 <div class="form-group">
                     <label>AWB Out Date</label>
-                    <input type="date" name="awb_out_date" class="form-control" placeholder="Masukkan" value="<?php echo $row_view['awb_out_date']; ?>">
+                    <input type="date" name="awb_out_date" class="form-control" placeholder="Enter ..." value="<?php echo $row_view['awb_out_date']; ?>">
                 </div>
                 <div class="form-group">
                   <label>Core Condition</label>
@@ -299,11 +299,11 @@
               <div class="col-md-6">
                 <div class="form-group">
                   <label>CA date</label>
-                  <input type="date" name="ca_date" class="form-control" placeholder="Masukkan" id='inp1' value="<?php echo $ca_date2; ?>" <?php if ($row_view['FOC']=="1") echo "disabled"?>>
+                  <input type="date" name="ca_date" class="form-control" placeholder="Enter ..." id='inp1' value="<?php echo $ca_date2; ?>" <?php if ($row_view['FOC']=="1") echo "disabled"?>>
                 </div>
                 <div class="form-group">
                   <label>Proforma Invoice / Invoice</label>
-                  <input type="text" name="invoice" class="form-control" placeholder="Enter" id='inp2' value="<?php echo $row_view['invoice']; ?>" <?php if ($row_view['FOC']=="1") echo "disabled"?>>
+                  <input type="text" name="invoice" class="form-control" placeholder="Enter ..." id='inp2' value="<?php echo $row_view['invoice']; ?>" <?php if ($row_view['FOC']=="1") echo "disabled"?>>
                 </div>
                   <div class="form-group">
                     <label>New Price</label>
@@ -357,7 +357,7 @@
               <div class="col-md-6">
                   <div class="form-group">
                     <label>Approval date</label>
-                    <input type="date" name="ca_app_date" class="form-control" id='inp5' placeholder="Enter" value="<?php echo $row_view['ca_app_date']; ?>" <?php if ($row_view['FOC']=="1") echo "disabled"?>>
+                    <input type="date" name="ca_app_date" class="form-control" id='inp5' placeholder="Enter ..." value="<?php echo $row_view['ca_app_date']; ?>" <?php if ($row_view['FOC']=="1") echo "disabled"?>>
                   </div>
                   
               </div>
@@ -365,11 +365,11 @@
               <div class="col-md-6">
                   <div class="form-group">
                     <label>Payment Reference</label>
-                    <input type="text" name="payment_ref" class="form-control" placeholder="Enter" id='inp6' value="<?php echo $row_view['payment_ref']; ?>" <?php if ($row_view['FOC']=="1") echo "disabled"?>>
+                    <input type="text" name="payment_ref" class="form-control" placeholder="Enter ..." id='inp6' value="<?php echo $row_view['payment_ref']; ?>" <?php if ($row_view['FOC']=="1") echo "disabled"?>>
                   </div>
                   <div class="form-group">
                     <label>Payment date</label>
-                    <input type="date" name="payment_date" class="form-control" placeholder="Enter" id='inp7' 
+                    <input type="date" name="payment_date" class="form-control" placeholder="Enter ..." id='inp7' 
                     value="<?php echo $row_view['payment_date']; ?>" <?php if ($row_view['FOC']=="1") echo "disabled"?>>
                   </div>
               </div>

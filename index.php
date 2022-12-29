@@ -520,13 +520,13 @@ if (isset($_SESSION['ID'])=='') {
                 });
         },
       columnDefs: [
-       { targets: 0, visible: false },
+       { targets: 0, visible: true },
        { targets: 9, visible: false },
        { targets: 10, visible: false },
        { targets: 12, visible: false },
        { targets: 14, visible: false },
       ],
-      order: [[2, 'desc']],
+      
       "responsive": true, "lengthChange": true, "autoWidth": false,
       "buttons": ["copy", "excel", "pdf", "print", "colvis"]
     }).buttons().container().appendTo('#example1_wrapper .col-md-6:eq(0)');
