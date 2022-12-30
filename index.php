@@ -209,7 +209,37 @@ if (isset($_SESSION['ID'])=='') {
               </li>
             </ul>
           </li>
+          <li class="nav-item">
+            <a href="#" class="nav-link">
+              <i class="nav-icon fas fa-book"></i>
+              <p>
+                Project
+                <i class="fas fa-angle-left right"></i>
+              </p>
+            </a>
+            <ul class="nav nav-treeview">
+            <?php
+              $user = ucwords($_SESSION['NAME']);
+              $data_project = mysqli_query($koneksi, "SELECT * FROM project_reference WHERE name = '$user';");
 
+                while($row = mysqli_fetch_assoc($data_project)) {
+
+                ?>
+              <li class="nav-item">
+                <a href="" class="nav-link">
+                  <i class="far fa-circle nav-icon"></i>
+                  <p><?= $row['project_name']; ?></p>
+                </a>
+              </li>
+              <?php } ?>
+              <li class="nav-item">
+                <a href="" class="nav-link">
+                  <i class="far fa-plus-square nav-icon"></i>
+                  <p>Create Project</p>
+                </a>
+              </li>
+            </ul>
+          </li>
           <li class="nav-item">
             <a href="#" class="nav-link">
               <i class="nav-icon fas fa-table"></i>
