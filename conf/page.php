@@ -6,6 +6,9 @@ switch ($page) {
   case 'data_order':
     include 'pages/tables/data_order.php';
     break;
+  case 'data_order_project':
+    include 'pages/tables/data_order_project.php';
+    break;
   case 'tambah_data':
     include 'pages/forms/tambah_data.php';
     break;

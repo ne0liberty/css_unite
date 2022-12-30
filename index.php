@@ -226,7 +226,7 @@ if (isset($_SESSION['ID'])=='') {
 
                 ?>
               <li class="nav-item">
-                <a href="" class="nav-link">
+                <a href="index.php?page=data_order_project&project_id=<?= $row['project_name']; ?>" class="nav-link">
                   <i class="far fa-circle nav-icon"></i>
                   <p><?= $row['project_name']; ?></p>
                 </a>
