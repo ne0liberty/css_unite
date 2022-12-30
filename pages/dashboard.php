@@ -111,6 +111,7 @@
         <div class="row">
           <!-- Left col -->
           <section class="col-lg-7 connectedSortable">
+            
             <!-- Custom tabs (Charts with tabs)-->
             <div class="card">
               <div class="card-header border-0">
@@ -119,7 +120,6 @@
                     <a href="javascript:void(0);">View Report</a>
                   </div>
               </div>
-          
               <div class="card-body">
                   <div class="tab-content p-0">
                   <!-- Morris chart - Sales -->
@@ -135,10 +135,103 @@
                     </span>
                 </div>
               </div>
-              
             </div><!-- /.card-body -->
-            
             <!-- /.card -->
+          
+            <!-- TABLE: FAVOURITE ORDERS -->
+            
+            <div class="card">
+              <div class="card-header border-transparent">
+                <h3 class="card-title">Highlight Order</h3>
+
+                <div class="card-tools">
+                  <button type="button" class="btn btn-tool" data-card-widget="collapse">
+                    <i class="fas fa-minus"></i>
+                  </button>
+                  <button type="button" class="btn btn-tool" data-card-widget="remove">
+                    <i class="fas fa-times"></i>
+                  </button>
+                </div>
+              </div>
+              <!-- /.card-header -->
+              <div class="card-body p-0">
+                <div class="table-responsive">
+                  <table class="table m-0">
+                    <thead>
+                    <tr>
+                      <th>Po Number</th>
+                      <th>Status</th>
+                      <th>Part Number</th>
+                      <th>Description</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <?php
+
+                    $datas = mysqli_query($koneksi, "SELECT * FROM master_order WHERE created_by = '$user' AND fav_order='1' ORDER BY entry_date DESC");
+                    
+                    while($row = mysqli_fetch_assoc($datas)) {
+                      
+                    ?>
+                    <tr>
+                      <td><a href="index.php?page=view_order&id=<?= $row['id_order']; ?>"><?= $row['po_number']; ?></a></td>
+                      <td>
+                              <a class=
+                              "<?php $bgcolor = $row['serv_status'];
+                              switch ($bgcolor) {
+                                case "NEED AWB IN":
+                                  echo "badge badge-primary";
+                                  break;
+                                case "SERV SHIPPED":
+                                  echo "badge badge-warning";
+                                  break;
+                                case "NEED INSPECT":
+                                  echo "badge badge-info";
+                                  break;
+                                case "NEED CORE":
+                                  echo "badge badge-danger";
+                                  break;
+                                case "NEED SO":
+                                  echo "badge badge-danger";
+                                  break;
+                                case "NEED AWB OUT":
+                                  echo "badge badge-info";
+                                  break;
+                                case "NEED REPAIR QUOTE":
+                                  echo "badge badge-secondary";
+                                  break;
+                                case "NEED REPAIR APPROVAL":
+                                  echo "badge badge-warning";
+                                  break;
+                                case "NEED PAYMENT":
+                                  echo "badge badge-warning";
+                                   break;
+                                case "CLOSED":
+                                  echo "badge badge-success";
+                                  break;
+                                case "CANCEL":
+                                  echo "badge badge-dark";
+                                  break;
+                              }
+                              ?>"><?= $row['serv_status']; ?></a>
+                      </td>
+                      <td><?= $row['part_number']; ?></td>
+                      <td><?= $row['description']; ?></td>
+                    </tr>
+                    <?php } ?>
+                    </tbody>
+                  </table>
+                </div>
+                <!-- /.table-responsive -->
+              </div>
+              <!-- /.card-body -->
+              <div class="card-footer clearfix">
+                <a href="javascript:void(0)" class="btn btn-sm btn-info float-left">Place New Order</a>
+                <a href="javascript:void(0)" class="btn btn-sm btn-secondary float-right">View All Orders</a>
+              </div>
+              <!-- /.card-footer -->
+            </div>
+          
           </section>
           
           <!-- /.Left col -->

@@ -713,7 +713,8 @@
 
                   //ini untuk menampilkan alert berhasil dan redirect ke halaman index
                   echo "<script>window.open('pages/forms/ca_sheet.php?id=".$id."', '_blank');</script>";
-                 }; 
+                  echo "<script>window.location='index.php?page=view_order&id=".$id."';</script>";
+                }; 
 
                  
       ?>
