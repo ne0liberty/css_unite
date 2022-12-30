@@ -239,7 +239,7 @@
           <!-- /.Left col -->
           <!-- right col (We are only adding the ID to make the widgets sortable)-->
           <section class="col-lg-5 connectedSortable">
-          <!-- TO DO List -->
+          <!-- TO DO List 
           <div class="card">
               <div class="card-header">
                 <h3 class="card-title">
@@ -368,7 +368,7 @@
                 <button type="button" class="btn btn-primary float-right"><i class="fas fa-plus"></i> Add item</button>
               </div>
             </div>
-            <!-- /.card -->
+             -->
             
 
           </section>
