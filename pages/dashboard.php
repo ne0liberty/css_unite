@@ -163,6 +163,7 @@
                       <th>Status</th>
                       <th>PN</th>
                       <th>Description</th>
+                      <th>AWB in</th>
                     </tr>
                     </thead>
                     <tbody>
@@ -217,6 +218,7 @@
                       </td>
                       <td><?= $row['part_number']; ?></td>
                       <td><?= $row['description']; ?></td>
+                      <td><?= $row['awb_in']; ?></td>
                     </tr>
                     <?php } ?>
                     </tbody>
