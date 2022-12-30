@@ -172,7 +172,7 @@
               <div class="col-md-6">
                 <div class="form-group">
                   <div class="checkbox-wrapper-46">
-                    <input class="inp-cbx" id="cbx-46" type="checkbox" />
+                    <input class="inp-cbx" id="cbx-46" type="checkbox" name="fav_order" value="1" <?php if ($row_view['fav_order']=="1") echo "checked"?>/>
                     <label class="cbx" for="cbx-46"><span>
                       <svg width="12px" height="10px" viewbox="0 0 12 10">
                         <polyline points="1.5 6 4.5 9 10.5 1"></polyline>
@@ -555,7 +555,7 @@
                   $awb_out = $_POST['awb_out'];
                   $awb_out_date = $_POST['awb_out_date'];
                   $core_cond = $_POST['core_cond'];
-                  
+                  $fav_order = $_POST['fav_order'];
                   //$ca_app_date = $_POST['ca_app_date'];
                   //$payment_ref = $_POST['payment_ref'];
                   $payment_date = $_POST['payment_date'];
@@ -599,7 +599,8 @@
                               payment_ref='$payment_ref',
                               payment_date='$payment_date',
                               FOC='$FOC',
-                              invoice='$invoice'
+                              invoice='$invoice',
+                              fav_order='$fav_order'
                               WHERE id_order='$id'");
 
                   
