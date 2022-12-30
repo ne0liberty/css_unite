@@ -686,6 +686,7 @@
 
                   //ini untuk menampilkan alert berhasil dan redirect ke halaman index
                   echo "<script>window.location='index.php?page=shipment_order_single&id=".$id."';</script>";
+                  
                  };
 
 
