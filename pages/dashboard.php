@@ -159,9 +159,9 @@
                   <table class="table m-0">
                     <thead>
                     <tr>
-                      <th>Po Number</th>
+                      <th>Po No.</th>
                       <th>Status</th>
-                      <th>Part Number</th>
+                      <th>PN</th>
                       <th>Description</th>
                     </tr>
                     </thead>
@@ -226,8 +226,8 @@
               </div>
               <!-- /.card-body -->
               <div class="card-footer clearfix">
-                <a href="javascript:void(0)" class="btn btn-sm btn-info float-left">Place New Order</a>
-                <a href="javascript:void(0)" class="btn btn-sm btn-secondary float-right">View All Orders</a>
+                <a href="index.php?page=tambah_data" class="btn btn-sm btn-info float-left">Place New Order</a>
+                <a href="index.php?page=data_order" class="btn btn-sm btn-secondary float-right">View All Orders</a>
               </div>
               <!-- /.card-footer -->
             </div>
