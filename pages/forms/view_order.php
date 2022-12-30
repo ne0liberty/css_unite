@@ -127,7 +127,8 @@
           <div class="card-body">
             <div class="row">
               <div class="col-md-6">
-                <h4>Status : <a class=
+                <div class="form-group">
+                  <h5>Status : <a class=
                               "<?php $bgcolor = $row_view['serv_status'];
                               switch ($bgcolor) {
                                 case "NEED AWB IN":
@@ -164,16 +165,20 @@
                                   echo "badge badge-dark";
                                   break;
                               }
-                              ?>"><?= $row_view['serv_status']; ?></a></h4>
+                              ?>"><?= $row_view['serv_status']; ?></a>
+                  </h5>
+                </div>
               </div>
               <div class="col-md-6">
-                <div class="checkbox-wrapper-46">
-                  <input class="inp-cbx" id="cbx-46" type="checkbox" />
-                  <label class="cbx" for="cbx-46"><span>
-                    <svg width="12px" height="10px" viewbox="0 0 12 10">
-                      <polyline points="1.5 6 4.5 9 10.5 1"></polyline>
-                    </svg></span><span>Highlight Order</span>
-                  </label>
+                <div class="form-group">
+                  <div class="checkbox-wrapper-46">
+                    <input class="inp-cbx" id="cbx-46" type="checkbox" />
+                    <label class="cbx" for="cbx-46"><span>
+                      <svg width="12px" height="10px" viewbox="0 0 12 10">
+                        <polyline points="1.5 6 4.5 9 10.5 1"></polyline>
+                      </svg></span><span>Highlight Order</span>
+                    </label>
+                  </div>
                 </div>
               </div>
             </div>
@@ -551,9 +556,9 @@
                   $awb_out_date = $_POST['awb_out_date'];
                   $core_cond = $_POST['core_cond'];
                   
-                  $ca_app_date = $_POST['ca_app_date'];
+                  //$ca_app_date = $_POST['ca_app_date'];
                   //$payment_ref = $_POST['payment_ref'];
-                  //$payment_date = $_POST['payment_date'];
+                  $payment_date = $_POST['payment_date'];
                   $FOC = $_POST['FOC'];
                   if (($_POST['FOC'])=="1") {
                     $invoice = '-';
@@ -566,9 +571,9 @@
                     $payment_ref = $_POST['payment_ref'];
                   };
                   if (($_POST['FOC'])=="1") {
-                    $payment_date = $_POST['awb_out_date'];
+                    $ca_app_date = $_POST['awb_out_date'];
                   } else {
-                    $payment_date = $_POST['payment_date'];
+                    $ca_app_date = $_POST['ca_app_date'];
                   };
 
                   // update data ke database
