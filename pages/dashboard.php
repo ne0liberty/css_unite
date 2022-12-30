@@ -155,8 +155,8 @@
               </div>
               <!-- /.card-header -->
               <div class="card-body p-0">
-                <div class="table-responsive">
-                  <table class="table m-0">
+                <div class="table-responsive" style="height: 300px;">
+                  <table class="table table-head-fixed text-nowrap">
                     <thead>
                     <tr>
                       <th>Po No.</th>
