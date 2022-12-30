@@ -754,7 +754,7 @@ if (isset($_SESSION['ID'])=='') {
 		var myChart = new Chart(ctx, {
 			type: 'bar',
 			data: {
-				labels: ["Need AWB In", "Serv Shipped", "Need Inspect", "Need Core", "Need AWB Out", "Need Repair Approval", "Need Payment"],
+				labels: ["Need AWB In", "Serv Shipped", "Need Inspect", "Need Core", "Need AWB Out", "Need Repair Quote", "Need Repair Approval", "Need Payment"],
 				datasets: [{
 					label: 'Open Exchange',
 					data: [
@@ -776,6 +776,10 @@ if (isset($_SESSION['ID'])=='') {
 					?>,
 					<?php
 					$need_awb_out = mysqli_query($koneksi,"SELECT * FROM master_order WHERE created_by ='$user 'AND req_scheme='Exchange' AND serv_status='NEED AWB OUT';");
+					echo mysqli_num_rows($need_awb_out);
+					?>,
+          <?php
+					$need_awb_out = mysqli_query($koneksi,"SELECT * FROM master_order WHERE created_by ='$user 'AND req_scheme='Exchange' AND serv_status='NEED REPAIR QUOTE';");
 					echo mysqli_num_rows($need_awb_out);
 					?>,
 					<?php
@@ -812,6 +816,10 @@ if (isset($_SESSION['ID'])=='') {
 					?>,
 					<?php
 					$need_awb_out = mysqli_query($koneksi,"SELECT * FROM master_order WHERE created_by ='$user 'AND req_scheme='Repair' AND serv_status='NEED AWB OUT';");
+					echo mysqli_num_rows($need_awb_out);
+					?>,
+          <?php
+					$need_awb_out = mysqli_query($koneksi,"SELECT * FROM master_order WHERE created_by ='$user 'AND req_scheme='Repair' AND serv_status='NEED REPAIR QUOTE';");
 					echo mysqli_num_rows($need_awb_out);
 					?>,
 					<?php
