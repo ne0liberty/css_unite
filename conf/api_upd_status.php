@@ -2,7 +2,7 @@
 
 include 'conn.php';
 
-$updt_stat = mysqli_query($koneksi, "UPDATE master_order SET serv_status=
+$update2 = mysqli_query($koneksi, "UPDATE master_order SET serv_status=
                   IF(req_scheme='exchange',
                   IF(serv_status='CANCEL','CANCEL',
                   IF(awb_in='','NEED AWB IN',
@@ -28,7 +28,6 @@ $updt_stat = mysqli_query($koneksi, "UPDATE master_order SET serv_status=
                   'CLOSED'))))))))))
                   );");
 
-echo "update berhasil";
-break();
-
+                  //ini untuk menampilkan alert berhasil dan redirect ke halaman index
+                  echo "<script>window.location='index.php?page=data_order';</script>";
 ?>
