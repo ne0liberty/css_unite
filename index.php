@@ -561,7 +561,31 @@ if (isset($_SESSION['ID'])=='') {
     }).buttons().container().appendTo('#example1_wrapper .col-md-6:eq(0)');
 
     $('#example2').DataTable({
+      initComplete: function () {
+            this.api()
+                .columns()
+                .every(function () {
+                    var column = this;
+                    var select = $('<select><option value=""></option></select>')
+                        .appendTo($(column.footer()).empty())
+                        .on('change', function () {
+                            var val = $.fn.dataTable.util.escapeRegex($(this).val());
+
+                            column.search(val ? '^' + val + '$' : '', true, false).draw();
+                        });
+
+                    column
+                        .data()
+                        .unique()
+                        .sort()
+                        .each(function (d, j) {
+                          var val = $('<div/>').html(d).text();
+                           select.append( '<option value="' + val + '">' + val + '</option>' );
+                        });
+                });
+        },
       "paging": true,
+      "scrollX": true,
       "lengthChange": true,
       "searching": true,
       "ordering": true,
