@@ -48,97 +48,12 @@
               <!-- /.col -->
             </div>
             <!-- /.row -->
-          <div class="form-group">
-            <label>Project Order</label>
-
-              <table id="example2" class="table table-bordered table-striped">
-              
-                  <thead>
-                  <tr>
-                    <th>No.</th>
-                    <th>Status</th>
-                    <th>Entry Date</th>
-                    <th>Scheme</th>
-                    <th>PO Number</th>
-                    <th>Part Number</th>
-                    <th>Description</th>
-                    <th>Aircraft</th>
-                    <th>Vendor</th>
-                  </tr>
-                  </thead>
-                  <tbody>
-                  <!--- BACKUP OK----->
-
-                  <?php
-                    include('conf/conn.php'); //memanggil file koneksi
-                    // $querytable = "SELECT * FROM master_order"
-                    $nama = ucwords($_SESSION['NAME']);
-                    $datas = mysqli_query($koneksi, "SELECT * FROM master_order WHERE created_by = '$nama' ORDER BY entry_date DESC") or die(mysqli_error($koneksi));
-                    //script untuk menampilkan data barang
-
-                    $no = 1;//untuk pengurutan nomor
-
-                    //melakukan perulangan
-                    while($row = mysqli_fetch_assoc($datas)) {
-                        ?>
-                        <tr>
-                            <td><?= $no; ?></td>
-                            <td>
-                              <a class=
-                              "<?php $bgcolor = $row['serv_status'];
-                              switch ($bgcolor) {
-                                case "NEED AWB IN":
-                                  echo "badge badge-primary";
-                                  break;
-                                case "SERV SHIPPED":
-                                  echo "badge badge-warning";
-                                  break;
-                                case "NEED INSPECT":
-                                  echo "badge badge-info";
-                                  break;
-                                case "NEED CORE":
-                                  echo "badge badge-danger";
-                                  break;
-                                case "NEED SO":
-                                  echo "badge badge-danger";
-                                  break;
-                                case "NEED AWB OUT":
-                                  echo "badge badge-info";
-                                  break;
-                                case "NEED REPAIR QUOTE":
-                                  echo "badge badge-secondary";
-                                  break;
-                                case "NEED REPAIR APPROVAL":
-                                  echo "badge badge-warning";
-                                  break;
-                                case "NEED PAYMENT":
-                                  echo "badge badge-warning";
-                                   break;
-                                case "CLOSED":
-                                  echo "badge badge-success";
-                                  break;
-                                case "CANCEL":
-                                  echo "badge badge-dark";
-                                  break;
-                              }
-                              ?>"><?= $row['serv_status']; ?></a>
-                            </td>
-                            <td><?= $row['entry_date']; ?></td>
-                            <td><?= $row['req_scheme']; ?></td>
-                            <td><a href="index.php?page=view_order&id=<?= $row['id_order']; ?>"><?= $row['po_number']; ?></a></td>
-                            <td><?= $row['part_number']; ?></td>
-                            <td><?= $row['description']; ?></td>
-                            <td><?= $row['aircraft']; ?></td>
-                            <td><?= $row['vendor']; ?></td>
-					              </tr>
-
-						          <?php $no++; } ?>
-
-                  </tbody>
-                  <tfoot>
-                     <tr>
+            <div class="form-group">
+              <label>Project Order</label>
+                <table id="example3" class="table table-bordered table-striped">
+                    <thead>
+                    <tr>
                       <th>No.</th>
-                      <th>Status</th>
                       <th>Entry Date</th>
                       <th>Scheme</th>
                       <th>PO Number</th>
@@ -146,12 +61,41 @@
                       <th>Description</th>
                       <th>Aircraft</th>
                       <th>Vendor</th>
+                      <th>Checklist</th>
                     </tr>
-              </tfoot>
-            
-            </table>
-            
-          </div>
+                    </thead>
+                    <tbody>
+
+                    <?php
+                      include('conf/conn.php'); //memanggil file koneksi
+                      // $querytable = "SELECT * FROM master_order"
+                      $nama = ucwords($_SESSION['NAME']);
+                      $datas = mysqli_query($koneksi, "SELECT * FROM master_order WHERE created_by = '$nama' ORDER BY entry_date DESC") or die(mysqli_error($koneksi));
+                      //script untuk menampilkan data barang
+
+                      $no = 1;//untuk pengurutan nomor
+
+                      //melakukan perulangan
+                      while($row = mysqli_fetch_assoc($datas)) {
+                          ?>
+                          <tr>
+                              <td><?= $no; ?></td>
+                              <td><?= $row['entry_date']; ?></td>
+                              <td><?= $row['req_scheme']; ?></td>
+                              <td><a href="index.php?page=view_order&id=<?= $row['id_order']; ?>"><?= $row['po_number']; ?></a></td>
+                              <td><?= $row['part_number']; ?></td>
+                              <td><?= $row['description']; ?></td>
+                              <td><?= $row['aircraft']; ?></td>
+                              <td><?= $row['vendor']; ?></td>
+                              <th><input class="inp-cbx" id="cbx-46" type="checkbox" name="chkl[]" value="<?= $row['id_order']?>"/></th>
+					                </tr>
+
+					  	          <?php $no++; } ?>
+
+                    </tbody>
+                    
+              </table>
+            </div>
           </div>
           <!-- /.card-body -->
           <div class="card-footer">
@@ -169,11 +113,17 @@
             //menampung data dari input
             $name = ucwords($_SESSION['NAME']);
             $project_name = $_POST['project_name'];
+            $cins = $_POST['chkl'];
             
             //query untuk menambahkan barang ke database, pastikan urutan nya sama dengan di database
             $inputproject = mysqli_query($koneksi, "INSERT INTO project_reference (name,project_name)
             VALUES('$name', '$project_name')") or die(mysqli_error($koneksi));
       
+            
+            foreach ($cins as $value) {
+            $update_project = mysqli_query($koneksi, "UPDATE master_order SET project_name='$project_name' WHERE id_order='$value'");
+            } 
+
             //ini untuk menampilkan alert berhasil dan redirect ke halaman index
              echo "<script>alert('Project has been Saved.');window.location='index.php?page=dashboard';</script>";
             };

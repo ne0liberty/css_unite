@@ -65,6 +65,8 @@ if (isset($_SESSION['ID'])=='') {
   <link rel="stylesheet" href="plugins/dropzone/min/dropzone.min.css">
   <!-- SweetAlert2 -->
   <link rel="stylesheet" href="plugins/sweetalert2-theme-bootstrap-4/bootstrap-4.min.css">
+  <!-- Checkbox-custom -->
+  <link rel="stylesheet" href="plugins/custom-checkbox.css">
 
 
 </head>
@@ -556,10 +558,12 @@ if (isset($_SESSION['ID'])=='') {
        { targets: 12, visible: false },
        { targets: 14, visible: false },
       ],
+      "paging": true,
       "responsive": true, "lengthChange": true, "autoWidth": false,
       "buttons": ["copy", "excel", "pdf", "print", "colvis"]
     }).buttons().container().appendTo('#example1_wrapper .col-md-6:eq(0)');
 
+    
     $('#example2').DataTable({
       initComplete: function () {
             this.api()
@@ -585,7 +589,6 @@ if (isset($_SESSION['ID'])=='') {
                 });
         },
       "paging": true,
-      "scrollX": true,
       "lengthChange": true,
       "searching": true,
       "ordering": true,
@@ -596,15 +599,16 @@ if (isset($_SESSION['ID'])=='') {
     });
 
     $('#example3').DataTable({
-      "paging": false,
+      "paging": true,
       "lengthChange": true,
-      "searching": false,
+      "searching": true,
       "ordering": false,
       "info": false,
-      "autoWidth": true,
+      "autoWidth": false,
       "responsive": true,
-
     });
+    
+    
 
     //Datemask dd/mm/yyyy
     $('#datemask').inputmask('dd/mm/yyyy', { 'placeholder': 'dd/mm/yyyy' })
