@@ -49,6 +49,7 @@
             </div>
             <!-- /.row -->
           <div class="form-group">
+            <label>Project Order</label>
               <table id="example2" class="table table-bordered table-striped">
                   <thead>
                   <tr>
