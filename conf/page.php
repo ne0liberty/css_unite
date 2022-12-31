@@ -15,6 +15,9 @@ switch ($page) {
   case 'view_order':
     include 'pages/forms/view_order.php';
     break;
+  case 'create_project':
+    include 'pages/forms/create_project.php';
+    break;
   case 'pn_database':
     include 'pages/tables/pn_database.php';
     break;

@@ -233,7 +233,7 @@ if (isset($_SESSION['ID'])=='') {
               </li>
               <?php } ?>
               <li class="nav-item">
-                <a href="" class="nav-link">
+                <a href="index.php?page=create_project" class="nav-link">
                   <i class="far fa-plus-square nav-icon"></i>
                   <p>Create Project</p>
                 </a>
