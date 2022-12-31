@@ -50,7 +50,9 @@
             <!-- /.row -->
           <div class="form-group">
             <label>Project Order</label>
+
               <table id="example2" class="table table-bordered table-striped">
+              
                   <thead>
                   <tr>
                     <th>No.</th>
@@ -146,6 +148,7 @@
                       <th>Vendor</th>
                     </tr>
               </tfoot>
+            
             </table>
             
           </div>

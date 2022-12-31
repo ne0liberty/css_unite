@@ -567,7 +567,7 @@ if (isset($_SESSION['ID'])=='') {
       "ordering": true,
       "info": true,
       "autoWidth": false,
-      "responsive": true,
+      "responsive": false,
 
     });
 
