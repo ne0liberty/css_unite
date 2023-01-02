@@ -166,7 +166,21 @@
                     <label>Aircraft</label>
                     <input type="text" name="aircraft" class="form-control" disabled="disabled" placeholder="Enter ..." value="<?php echo $row_view['aircraft']; ?>">
                 </div>
+                <div class="form-group">
+                  <label>Project</label>
+                    <select class="form-control select2bs4" name="project_name" style="width: 100%;" disabled="disabled">
+                      <option value="<?php echo $row_view['project_name']; ?>"><?php echo $row_view['project_name']; ?></option>
+                      <?php
+                            include('conf/conn.php');
 
+                            $datas_project = mysqli_query($koneksi, "SELECT * FROM project_reference WHERE name='$user'") or die (mysqli_error($koneksi));
+                            while($data_project = mysqli_fetch_array($datas_project))  {
+
+                              echo "<option>$data_project[project_name]</option>";
+                          }
+                      ?>
+                  </select>
+                </div>
               </div>
               <!-- /.col -->
             </div>

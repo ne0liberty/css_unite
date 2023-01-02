@@ -102,6 +102,21 @@
                     <label>Aircraft</label>
                     <input type="text" name="aircraft" class="form-control" placeholder="Masukkan" value="PK-">
                 </div>
+                <div class="form-group">
+                  <label>Project</label>
+                    <select class="form-control select2bs4" name="project_name" style="width: 100%;">
+                      <option value="">- Select Project -</option>
+                      <?php
+                            include('conf/conn.php');
+
+                            $datas_project = mysqli_query($koneksi, "SELECT * FROM project_reference WHERE name='$user'") or die (mysqli_error($koneksi));
+                            while($data_project = mysqli_fetch_array($datas_project))  {
+
+                              echo "<option>$data_project[project_name]</option>";
+                          }
+                      ?>
+                  </select>
+                </div>
 
               </div>
               <!-- /.col -->
@@ -138,11 +153,12 @@
                   $aircraft = $_POST['aircraft'];
                   $vendor = $_POST['vendor'];
                   $note = $_POST['note'];
+                  $project_name = $_POST['project_name'];
                   $created_by = ucwords($_SESSION['NAME']);
 
                   //query untuk menambahkan barang ke database, pastikan urutan nya sama dengan di database
-                  $datas = mysqli_query($koneksi, "INSERT INTO master_order (entry_date,req_scheme,tracking_no,po_number,part_number,description,pr,aircraft,vendor,note,pn_out,created_by)
-                  VALUES('$entry_date', '$req_scheme','$tracking_no','$po_number','$part_number','$description','$pr','$aircraft','$vendor','$note','$part_number','$created_by')") or die(mysqli_error($koneksi));
+                  $datas = mysqli_query($koneksi, "INSERT INTO master_order (entry_date,req_scheme,tracking_no,po_number,part_number,description,pr,aircraft,vendor,note,pn_out,created_by,project_name)
+                  VALUES('$entry_date', '$req_scheme','$tracking_no','$po_number','$part_number','$description','$pr','$aircraft','$vendor','$note','$part_number','$created_by','$project_name')") or die(mysqli_error($koneksi));
                   $updt_stat = mysqli_query($koneksi, "UPDATE master_order SET serv_status=
                   IF(req_scheme='exchange',
                   IF(serv_status='CANCEL','CANCEL',
