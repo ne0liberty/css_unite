@@ -37,7 +37,7 @@ switch (@parse_url($_SERVER['REQUEST_URI'])['path']) {
      require 'conf/upd-vendor-database.php';
      break;
   case '/conf/api_upd_status.php':
-     require 'conf/api_upd_status.php';
+     require 'conf/api_updt_status.php';
      break;
   case '/conf/api_del_pn_dtbase.php':
      require 'conf/api_del_pn_dtbase.php';

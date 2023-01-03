@@ -7,6 +7,7 @@ if (isset($_SESSION['ID'])=='') {
 
  include 'conf/conn.php';
  include 'conf/api_updt_sla.php';
+ include 'conf/api_updt_status.php';
 
 // if (!isset($_SESSION['ID'])) {
 //  ob_start();

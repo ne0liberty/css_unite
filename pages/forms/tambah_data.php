@@ -45,6 +45,7 @@
                   <select class="form-control" name="req_scheme">
                           <option>Exchange</option>
                           <option>Repair</option>
+                          <option>Pooling</option>
                       </select>
                 </div>
                 <div class="form-group">
@@ -159,31 +160,7 @@
                   //query untuk menambahkan barang ke database, pastikan urutan nya sama dengan di database
                   $datas = mysqli_query($koneksi, "INSERT INTO master_order (entry_date,req_scheme,tracking_no,po_number,part_number,description,pr,aircraft,vendor,note,pn_out,created_by,project_name)
                   VALUES('$entry_date', '$req_scheme','$tracking_no','$po_number','$part_number','$description','$pr','$aircraft','$vendor','$note','$part_number','$created_by','$project_name')") or die(mysqli_error($koneksi));
-                  $updt_stat = mysqli_query($koneksi, "UPDATE master_order SET serv_status=
-                  IF(req_scheme='exchange',
-                  IF(serv_status='CANCEL','CANCEL',
-                  IF(awb_in='','NEED AWB IN',
-                  IF(gr_date='0000-00-00','SERV SHIPPED',
-                  IF(date_store='0000-00-00','NEED INSPECT',
-                  IF(sn_out='','NEED CORE',
-                  IF(shipment_order_date='0000-00-00','NEED SO',
-                  IF(awb_out='','NEED AWB OUT',
-                  IF(invoice='','NEED REPAIR QUOTE',
-                  IF(ca_app_date='0000-00-00','NEED REPAIR APPROVAL',
-                  IF(payment_ref='','NEED PAYMENT',
-                  'CLOSED')))))))))),
-                  IF(serv_status='CANCEL','CANCEL',
-                  IF(sn_out='','NEED CORE',
-                  IF(shipment_order_date='0000-00-00','NEED SO',
-                  IF(awb_out='','NEED AWB OUT',
-                  IF(invoice='','NEED REPAIR QUOTE',
-                  IF(ca_app_date='0000-00-00','NEED REPAIR APPROVAL',
-                  IF(payment_ref='','NEED PAYMENT',
-                  IF(awb_in='','NEED AWB IN',
-                  IF(gr_date='0000-00-00','SERV SHIPPED',
-                  IF(date_store='0000-00-00','NEED INSPECT',
-                  'CLOSED'))))))))))
-                  );");
+                  include 'conf/api_updt_status.php' ;
 
                   //ini untuk menampilkan alert berhasil dan redirect ke halaman index
                    echo "<script>alert('Order has been saved.');window.location='index.php?page=data_order';</script>";
