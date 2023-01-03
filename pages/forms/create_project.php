@@ -70,7 +70,7 @@
                       include('conf/conn.php'); //memanggil file koneksi
                       // $querytable = "SELECT * FROM master_order"
                       $nama = ucwords($_SESSION['NAME']);
-                      $datas = mysqli_query($koneksi, "SELECT * FROM master_order WHERE created_by = '$nama' ORDER BY entry_date DESC") or die(mysqli_error($koneksi));
+                      $datas = mysqli_query($koneksi, "SELECT * FROM master_order WHERE created_by = '$nama' AND project_name = '' ORDER BY entry_date DESC") or die(mysqli_error($koneksi));
                       //script untuk menampilkan data barang
 
                       $no = 1;//untuk pengurutan nomor
