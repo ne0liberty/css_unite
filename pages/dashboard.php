@@ -116,7 +116,7 @@
             <div class="card">
               <div class="card-header border-0">
                   <div class="d-flex justify-content-between">
-                    <h3 class="card-title">Open Repair & Exchange</h3>
+                    <h3 class="card-title">Open Repair, Exchange & Pooling</h3>
                     <a href="javascript:void(0);">View Report</a>
                   </div>
               </div>
