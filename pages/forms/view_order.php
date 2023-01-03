@@ -489,8 +489,10 @@
                   $awb_out_date = $_POST['awb_out_date'];
                   $core_cond = $_POST['core_cond'];
                   $fav_order = $_POST['fav_order'];
-                  //$ca_app_date = $_POST['ca_app_date'];
-                  //$payment_ref = $_POST['payment_ref'];
+                  $ca_date = $_POST['ca_date'];
+                  $repair_cost = $_POST['repair_cost'];
+                  $other_cost = $_POST['other_cost'];
+                  $total_cost = $_POST['total_cost'];
                   $payment_date = $_POST['payment_date'];
                   $FOC = $_POST['FOC'];
                   if (($_POST['FOC'])=="1") {
@@ -528,11 +530,15 @@
                               awb_out='$awb_out',
                               awb_out_date='$awb_out_date',
                               core_cond='$core_cond',
+                              ca_date='$ca_date',
+                              invoice='$invoice',
+                              repair_cost='$repair_cost',
+                              other_cost='$other_cost',
+                              total_cost='$total_cost',
                               ca_app_date='$ca_app_date',
                               payment_ref='$payment_ref',
                               payment_date='$payment_date',
                               FOC='$FOC',
-                              invoice='$invoice',
                               fav_order='$fav_order'
                               WHERE id_order='$id'");
 
@@ -540,7 +546,7 @@
                   include('conf/api_updt_status.php');
 
                   //ini untuk menampilkan alert berhasil dan redirect ke halaman index
-                  echo "<script>window.location='index.php?page=data_order';</script>";
+                  echo "<script>window.location='index.php?page=view_order&id=".$id."';</script>";
                  };
 
 
