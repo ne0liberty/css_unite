@@ -650,7 +650,8 @@ if (isset($_SESSION['ID'])=='') {
                 });
         },
       columnDefs: [
-       { targets: 0, visible: true, width: 49 },
+       { targets: 0, visible: true },
+       { targets: 4, visible: false },
        { targets: 10, visible: false },
        { targets: 11, visible: false },
        { targets: 12, visible: false },
@@ -658,14 +659,14 @@ if (isset($_SESSION['ID'])=='') {
        { targets: 14, visible: false },
        { targets: 15, visible: false },
       ],
-      "scrollX": true,
+      "scrollX": false,
       "paging": true,
       "lengthChange": true,
       "searching": true,
       "ordering": false,
       "info": false,
-      "autoWidth": true,
-      "responsive": false,
+      "autoWidth": false,
+      "responsive": true,
       "buttons": ["copy", "excel", "pdf", "print", "colvis"]
     }).buttons().container().appendTo('#dataorder_wrapper .col-md-6:eq(0)');
 
