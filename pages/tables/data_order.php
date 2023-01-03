@@ -29,13 +29,14 @@
               </div>
               <!-- /.card-header -->
               <div class="card-body">
-                <table id="example1" class="table table-bordered table-striped">
+                <table id="dataorder" class="table table-bordered table-striped">
                   <thead>
                   <tr>
                     <th>No.</th>
                     <th>Status</th>
                     <th>Entry Date</th>
                     <th>Scheme</th>
+                    <th>Tracking No</th>
                     <th>PO Number</th>
                     <th>Part Number</th>
                     <th>Description</th>
@@ -109,6 +110,7 @@
                             </td>
                             <td><?= $row['entry_date']; ?></td>
                             <td><?= $row['req_scheme']; ?></td>
+                            <td><?= $row['tracking_no']; ?></td>
                             <td><a href="index.php?page=view_order&id=<?= $row['id_order']; ?>"><?= $row['po_number']; ?></a></td>
                             <td><?= $row['part_number']; ?></td>
                             <td><?= $row['description']; ?></td>
@@ -137,6 +139,7 @@
                       <th>Status</th>
                       <th>Entry Date</th>
                       <th>Scheme</th>
+                      <th>Tracking</th>
                       <th>PO Number</th>
                       <th>Part Number</th>
                       <th>Description</th>

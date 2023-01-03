@@ -172,7 +172,8 @@
               <!-- /.col -->
               <div class="col-md-6">
                <label>Item List</label>
-                <table id="example3" class="table table-bordered">
+               <div class="table-responsive" style="height: 600px;">
+                <table id="shipmentorder" class="table table-bordered">
                   <thead>
                   <tr>
                     <th>No.</th>
@@ -194,7 +195,7 @@
                     <td><?php echo $row_view['core_cond']; ?></td>
 					        </tr>
                 </table>
-
+              </div>
               </div>
               <!-- /.col -->
             </div>

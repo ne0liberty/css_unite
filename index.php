@@ -554,13 +554,17 @@ if (isset($_SESSION['ID'])=='') {
         },
       columnDefs: [
        { targets: 0, visible: true },
-       { targets: 9, visible: false },
        { targets: 10, visible: false },
+       { targets: 11, visible: false },
        { targets: 12, visible: false },
+       { targets: 13, visible: false },
        { targets: 14, visible: false },
+       { targets: 15, visible: false },
       ],
       "paging": true,
-      "responsive": true, "lengthChange": true, "autoWidth": false,
+      "responsive": true, 
+      "lengthChange": true, 
+      "autoWidth": false,
       "buttons": ["copy", "excel", "pdf", "print", "colvis"]
     }).buttons().container().appendTo('#example1_wrapper .col-md-6:eq(0)');
 
@@ -598,18 +602,73 @@ if (isset($_SESSION['ID'])=='') {
       "responsive": false,
 
     });
-
-    $('#example3').DataTable({
+    
+    $('#pndatabase').DataTable({
+      "scrollX": true,
       "paging": true,
       "lengthChange": true,
       "searching": true,
       "ordering": false,
       "info": false,
-      "autoWidth": false,
-      "responsive": true,
+      "autoWidth": true,
+      "responsive": false,
     });
-    
-    
+
+    $('#shipmentorder').DataTable({
+      "scrollX": true,
+      "paging": false,
+      "lengthChange": true,
+      "searching": false,
+      "ordering": false,
+      "info": false,
+      "autoWidth": true,
+      "responsive": false,
+    });
+
+    $("#dataorder").DataTable({
+      initComplete: function () {
+            this.api()
+                .columns()
+                .every(function () {
+                    var column = this;
+                    var select = $('<select><option value=""></option></select>')
+                        .appendTo($(column.footer()).empty())
+                        .on('change', function () {
+                            var val = $.fn.dataTable.util.escapeRegex($(this).val());
+
+                            column.search(val ? '^' + val + '$' : '', true, false).draw();
+                        });
+
+                    column
+                        .data()
+                        .unique()
+                        .sort()
+                        .each(function (d, j) {
+                          var val = $('<div/>').html(d).text();
+                           select.append( '<option value="' + val + '">' + val + '</option>' );
+                        });
+                });
+        },
+      columnDefs: [
+       { targets: 0, visible: true, width: 49 },
+       { targets: 10, visible: false },
+       { targets: 11, visible: false },
+       { targets: 12, visible: false },
+       { targets: 13, visible: false },
+       { targets: 14, visible: false },
+       { targets: 15, visible: false },
+      ],
+      "scrollX": true,
+      "paging": true,
+      "lengthChange": true,
+      "searching": true,
+      "ordering": false,
+      "info": false,
+      "autoWidth": true,
+      "responsive": false,
+      "buttons": ["copy", "excel", "pdf", "print", "colvis"]
+    }).buttons().container().appendTo('#dataorder_wrapper .col-md-6:eq(0)');
+
 
     //Datemask dd/mm/yyyy
     $('#datemask').inputmask('dd/mm/yyyy', { 'placeholder': 'dd/mm/yyyy' })
