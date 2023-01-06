@@ -1,3 +1,8 @@
+<style>
+.dataTables_filter {
+   float: left !important;
+}
+</style>
 
 
 <!-- Content Wrapper. Contains page content -->
@@ -43,14 +48,14 @@
               </div>
               <!-- /.col -->
               <div class="col-md-6">
-                
+
               </div>
               <!-- /.col -->
             </div>
             <!-- /.row -->
             <div class="form-group">
               <label>Project Order</label>
-                <table id="example3" class="table table-bordered table-striped">
+                <table id="pndatabase" class="table table-bordered table-striped">
                     <thead>
                     <tr>
                       <th>No.</th>
@@ -93,7 +98,7 @@
 					  	          <?php $no++; } ?>
 
                     </tbody>
-                    
+
               </table>
             </div>
           </div>
@@ -114,15 +119,15 @@
             $name = ucwords($_SESSION['NAME']);
             $project_name = $_POST['project_name'];
             $cins = $_POST['chkl'];
-            
+
             //query untuk menambahkan barang ke database, pastikan urutan nya sama dengan di database
             $inputproject = mysqli_query($koneksi, "INSERT INTO project_reference (name,project_name)
             VALUES('$name', '$project_name')") or die(mysqli_error($koneksi));
-      
-            
+
+
             foreach ($cins as $value) {
             $update_project = mysqli_query($koneksi, "UPDATE master_order SET project_name='$project_name' WHERE id_order='$value'");
-            } 
+            }
 
             //ini untuk menampilkan alert berhasil dan redirect ke halaman index
              echo "<script>alert('Project has been Saved.');window.location='index.php?page=dashboard';</script>";
@@ -157,7 +162,7 @@
       <!-- Select2 -->
       <script src="plugins/select2/js/select2.full.min.js"></script>
 
-     
+
 
 
       <script type="text/javascript">
@@ -170,7 +175,7 @@
        })
       </script>
 
-      
+
 
   </section>
 
