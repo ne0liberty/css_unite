@@ -863,7 +863,7 @@ if (isset($_SESSION['ID'])=='') {
 		var myChart = new Chart(ctx, {
 			type: 'bar',
 			data: {
-				labels: ["Need AWB In", "Serv Shipped", "Need Inspect", "Need Core", "Need AWB Out", "Need Repair Quote", "Need Repair Approval", "Need Payment", "Closed"],
+				labels: ["Need AWB In", "Serv Shipped", "Need Inspect", "Need Core", "Need AWB Out", "Need Repair Quote", "Need Repair Approval", "Need Payment"],
 				datasets: [{
 					label: 'Exchange',
 					data: [
@@ -898,10 +898,6 @@ if (isset($_SESSION['ID'])=='') {
 					<?php
 					$need_payment = mysqli_query($koneksi,"SELECT * FROM master_order WHERE created_by ='$user 'AND req_scheme='Exchange' AND serv_status='NEED PAYMENT';");
 					echo mysqli_num_rows($need_payment);
-					?>,
-					<?php
-					$closed = mysqli_query($koneksi,"SELECT * FROM master_order WHERE created_by ='$user 'AND req_scheme='Exchange' AND serv_status='CLOSED';");
-					echo mysqli_num_rows($closed);
 					?>
 					],
 					backgroundColor: '#007bff',
@@ -942,10 +938,6 @@ if (isset($_SESSION['ID'])=='') {
 					<?php
 					$need_payment = mysqli_query($koneksi,"SELECT * FROM master_order WHERE created_by ='$user 'AND req_scheme='Repair' AND serv_status='NEED PAYMENT';");
 					echo mysqli_num_rows($need_payment);
-					?>,
-					<?php
-					$closed = mysqli_query($koneksi,"SELECT * FROM master_order WHERE created_by ='$user 'AND req_scheme='Repair' AND serv_status='CLOSED';");
-					echo mysqli_num_rows($closed);
 					?>
 					],
 					backgroundColor: '#ced4da',
@@ -986,10 +978,6 @@ if (isset($_SESSION['ID'])=='') {
 					<?php
 					$need_payment = mysqli_query($koneksi,"SELECT * FROM master_order WHERE created_by ='$user 'AND req_scheme='Pooling' AND serv_status='NEED PAYMENT';");
 					echo mysqli_num_rows($need_payment);
-					?>,
-					<?php
-					$closed = mysqli_query($koneksi,"SELECT * FROM master_order WHERE created_by ='$user 'AND req_scheme='Pooling' AND serv_status='CLOSED';");
-					echo mysqli_num_rows($closed);
 					?>
 					],
 					backgroundColor: '#73c8f0',
