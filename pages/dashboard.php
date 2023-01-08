@@ -253,7 +253,7 @@
               </div>
               <!-- /.card-header -->
               <div class="card-body p-0">
-                <div class="table-responsive" style="height: 200px;">
+                <div class="table-responsive" style="height: 300px;">
                   <table class="table table-head-fixed text-nowrap">
                     <thead>
                     <tr>
@@ -300,7 +300,8 @@
               </div>
               <!-- /.card-body -->
               <div class="card-footer clearfix">
-                
+                <a class="badge badge-warning float-left">5 days left</a>
+                <a class="badge badge-danger float-left">Overdue</a>
                 <a href="index.php?page=data_order" class="btn btn-sm btn-secondary float-right">View All Orders</a>
               </div>
               <!-- /.card-footer -->
