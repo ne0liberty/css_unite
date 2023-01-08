@@ -1,22 +1,21 @@
 <?php
 
 //conf for cloud sql gcp
-  $server 	  = "";
-  $username	  = "root";
-  $password	  = "password";
-  $db 		    = "css_order" ; //sesuaikan nama databasenya
-  $GCSocket   = "/cloudsql/css-unite:asia-southeast2:cssunite01";
-  $GCPort     = "3306";
-
-  $koneksi   = mysqli_connect($server, $username, $password, $db, $GCPort ,$GCSocket);
-
-//conf for localhost
-//  $server 	  = "localhost";
+//  $server 	  = "";
 //  $username	  = "root";
-//  $password	  = "";
+//  $password	  = "password";
 //  $db 		    = "css_order" ; //sesuaikan nama databasenya
-
-//  $koneksi   = mysqli_connect($server, $username, $password, $db);
+//  $GCSocket   = "/cloudsql/css-unite:asia-southeast2:cssunite01";
+//  $GCPort     = "3306";
+// 
+//  $koneksi   = mysqli_connect($server, $username, $password, $db, $GCPort ,$GCSocket);
+// 
+//conf for localhost
+  $server 	  = "localhost";
+  $username	  = "root";
+  $password	  = "";
+  $db 		    = "css_order" ; //sesuaikan nama databasenya
+  $koneksi    = mysqli_connect($server, $username, $password, $db);
 
  // untuk cek jika koneksi gagal ke database
  if(mysqli_connect_errno()) {
