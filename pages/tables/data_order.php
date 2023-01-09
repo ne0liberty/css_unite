@@ -5,7 +5,7 @@
       <div class="container-fluid">
         <div class="row mb-2">
           <div class="col-sm-6">
-            <h1>DataTables</h1>
+            <h1>All Order</h1>
           </div>
           <div class="col-sm-6">
             <ol class="breadcrumb float-sm-right">
@@ -61,7 +61,13 @@
                   <?php
                     include('conf/conn.php'); //memanggil file koneksi
                     // $querytable = "SELECT * FROM master_order"
-                    $nama = ucwords($_SESSION['NAME']);
+                    
+                    if (($_SESSION['LEVEL'])=="Purchaser") {
+                      $nama = ucwords($_SESSION['NAME']);
+                    } else {
+                      $nama <> '';
+                    };
+                    
                     $datas = mysqli_query($koneksi, "SELECT * FROM master_order WHERE created_by = '$nama' ORDER BY entry_date DESC") or die(mysqli_error($koneksi));
                     //script untuk menampilkan data barang
 

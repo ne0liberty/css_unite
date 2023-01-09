@@ -23,6 +23,7 @@
           $_SESSION['ROLE'] = $row['role'];
           $_SESSION['NAME'] = $row['name'];
           $_SESSION['IMG'] = $row['img'];
+          $_SESSION['LEVEL'] = $row['level'];
           header("Location:../index.php?page=dashboard");
       }else{
         $errorMsg = "Username/Password not found on this site";
