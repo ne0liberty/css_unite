@@ -175,7 +175,7 @@
           <!-- right col (We are only adding the ID to make the widgets sortable)-->
           <section class="col-lg-5 connectedSortable">
             <!-- TABLE: FAVOURITE ORDERS -->
-            <div class="card">
+            <div class="card card-warning">
               <div class="card-header border-transparent">
                 <h3 class="card-title">Highlight Order</h3>
 
