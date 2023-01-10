@@ -1,9 +1,3 @@
-<style>
-.dataTables_filter {
-   float: left !important;
-}
-</style>
-
 
 <!-- Content Wrapper. Contains page content -->
 
@@ -55,7 +49,7 @@
             <!-- /.row -->
             <div class="form-group">
               <label>Project Order</label>
-                <table id="pndatabase" class="table table-bordered table-striped">
+                <table id="createproject" class="table table-bordered table-striped">
                     <thead>
                     <tr>
                       <th>No.</th>

@@ -671,6 +671,17 @@ if (isset($_SESSION['ID'])=='') {
       "buttons": ["copy", "excel", "pdf", "print", "colvis"]
     }).buttons().container().appendTo('#dataorder_wrapper .col-md-6:eq(0)');
 
+    $('#createproject').DataTable({
+      "scrollX": false,
+      "paging": true,
+      "lengthChange": true,
+      "searching": true,
+      "ordering": false,
+      "info": false,
+      "autoWidth": false,
+      "responsive": true,
+    });
+
 
     //Datemask dd/mm/yyyy
     $('#datemask').inputmask('dd/mm/yyyy', { 'placeholder': 'dd/mm/yyyy' })
@@ -965,7 +976,7 @@ if (isset($_SESSION['ID'])=='') {
 					label: 'Exchange',
 					data: [
 					<?php
-					$need_awb_in = mysqli_query($koneksi,"SELECT * FROM master_order WHERE req_scheme='Exchange' AND serv_status='NEED AWB IN';");
+					$need_awb_in = mysqli_query($koneksi,"SELECT * FROM master_order WHERE created_by ='$user ' AND req_scheme='Exchange' AND serv_status='NEED AWB IN';");
 					echo mysqli_num_rows($need_awb_in);
 					?>,
 					<?php
@@ -1005,7 +1016,7 @@ if (isset($_SESSION['ID'])=='') {
 					label: 'Repair',
 					data: [
 					<?php
-					$need_awb_in = mysqli_query($koneksi,"SELECT * FROM master_order WHERE req_scheme='Repair' AND serv_status='NEED AWB IN';");
+					$need_awb_in = mysqli_query($koneksi,"SELECT * FROM master_order WHERE created_by ='$user' AND req_scheme='Repair' AND serv_status='NEED AWB IN';");
 					echo mysqli_num_rows($need_awb_in);
 					?>,
 					<?php
@@ -1045,7 +1056,7 @@ if (isset($_SESSION['ID'])=='') {
 					label: 'Pooling',
 					data: [
 					<?php
-					$need_awb_in = mysqli_query($koneksi,"SELECT * FROM master_order WHERE req_scheme='Pooling' AND serv_status='NEED AWB IN';");
+					$need_awb_in = mysqli_query($koneksi,"SELECT * FROM master_order WHERE created_by ='$user' AND  req_scheme='Pooling' AND serv_status='NEED AWB IN';");
 					echo mysqli_num_rows($need_awb_in);
 					?>,
 					<?php
