@@ -35,4 +35,20 @@ IF(shipment_order_date='0000-00-00','NEED SO',
 IF(awb_out='','NEED AWB OUT',
 'CLOSED')))))))));");
 
+
+$update3 = mysqli_query($koneksi, "UPDATE master_order SET core_stat=
+IF(req_scheme='exchange',
+IF(serv_status='CANCEL','CANCEL',
+IF(sn_out='','NEED CORE',
+IF(shipment_order_date='0000-00-00','NEED SO',
+IF(awb_out='','NEED AWB OUT',
+'CLOSED')))),
+IF(req_scheme='pooling',
+IF(serv_status='CANCEL','CANCEL',
+IF(sn_out='','NEED CORE',
+IF(shipment_order_date='0000-00-00','NEED SO',
+IF(awb_out='','NEED AWB OUT',
+'CLOSED')))),
+''));");
+
 ?>
