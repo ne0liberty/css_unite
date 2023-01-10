@@ -185,6 +185,9 @@ if (isset($_SESSION['ID'])=='') {
               </p>
             </a>
             <ul class="nav nav-treeview">
+              <?php
+              if (($_SESSION['LEVEL'])=="Purchaser") {
+              ?>
               <li class="nav-item">
                 <a href="index.php?page=tambah_data" class="nav-link">
                   <i class="far fa-circle nav-icon"></i>
@@ -197,6 +200,11 @@ if (isset($_SESSION['ID'])=='') {
                   <p>Shipment Order Multi PO</p>
                 </a>
               </li>
+              <?php
+              }else{
+
+              };
+              ?>
               <li class="nav-item">
                 <a href="index.php?page=data_order" class="nav-link">
                   <i class="far fa-circle nav-icon"></i>
@@ -794,41 +802,129 @@ if (isset($_SESSION['ID'])=='') {
 
 
 <script>
-		var ctx = document.getElementById('myChart-pooling').getContext('2d');
+		var ctx = document.getElementById('myChart-allorder').getContext('2d');
 		var myChart = new Chart(ctx, {
 			type: 'bar',
 			data: {
-				labels: ["Need AWB In", "Serv Shipped", "Need Inspect", "Need Core", "Need AWB Out", "Closed"],
+				labels: ["Need AWB In", "Serv Shipped", "Need Inspect", "Need Core", "Need AWB Out", "Need Repair Quote", "Need Repair Approval", "Need Payment"],
 				datasets: [{
-					label: 'Open Pooling',
+					label: 'Exchange',
 					data: [
 					<?php
-					$need_awb_in = mysqli_query($koneksi,"SELECT * FROM master_order WHERE created_by ='$user' AND req_scheme='Pooling' AND serv_status='NEED AWB IN';");
+					$need_awb_in = mysqli_query($koneksi,"SELECT * FROM master_order WHERE req_scheme='Exchange' AND serv_status='NEED AWB IN';");
 					echo mysqli_num_rows($need_awb_in);
 					?>,
 					<?php
-					$serv_shipped = mysqli_query($koneksi,"SELECT * FROM master_order WHERE created_by ='$user 'AND req_scheme='Pooling' AND serv_status='SERV SHIPPED';");
+					$serv_shipped = mysqli_query($koneksi,"SELECT * FROM master_order WHERE req_scheme='Exchange' AND serv_status='SERV SHIPPED';");
 					echo mysqli_num_rows($serv_shipped);
 					?>,
 					<?php
-					$need_inspect = mysqli_query($koneksi,"SELECT * FROM master_order WHERE created_by ='$user 'AND req_scheme='Pooling' AND serv_status='NEED INSPECT';");
+					$need_inspect = mysqli_query($koneksi,"SELECT * FROM master_order WHERE req_scheme='Exchange' AND serv_status='NEED INSPECT';");
 					echo mysqli_num_rows($need_inspect);
 					?>,
 					<?php
-					$need_core = mysqli_query($koneksi,"SELECT * FROM master_order WHERE created_by ='$user 'AND req_scheme='Pooling' AND serv_status='NEED CORE';");
+					$need_core = mysqli_query($koneksi,"SELECT * FROM master_order WHERE req_scheme='Exchange' AND serv_status='NEED CORE';");
 					echo mysqli_num_rows($need_core);
 					?>,
 					<?php
-					$need_awb_out = mysqli_query($koneksi,"SELECT * FROM master_order WHERE created_by ='$user 'AND req_scheme='Pooling' AND serv_status='NEED AWB OUT';");
+					$need_awb_out = mysqli_query($koneksi,"SELECT * FROM master_order WHERE req_scheme='Exchange' AND serv_status='NEED AWB OUT';");
 					echo mysqli_num_rows($need_awb_out);
 					?>,
           <?php
-					$closed = mysqli_query($koneksi,"SELECT * FROM master_order WHERE created_by ='$user 'AND req_scheme='Pooling' AND serv_status='CLOSED';");
-					echo mysqli_num_rows($closed);
+					$need_rpr_quote = mysqli_query($koneksi,"SELECT * FROM master_order WHERE req_scheme='Exchange' AND serv_status='NEED REPAIR QUOTE';");
+					echo mysqli_num_rows($need_rpr_quote);
+					?>,
+					<?php
+					$need_repr_apprval = mysqli_query($koneksi,"SELECT * FROM master_order WHERE req_scheme='Exchange' AND serv_status='NEED REPAIR APPROVAL';");
+					echo mysqli_num_rows($need_repr_apprval);
+					?>,
+					<?php
+					$need_payment = mysqli_query($koneksi,"SELECT * FROM master_order WHERE req_scheme='Exchange' AND serv_status='NEED PAYMENT';");
+					echo mysqli_num_rows($need_payment);
 					?>
 					],
 					backgroundColor: '#007bff',
 					borderColor: '#007bff',
+					borderWidth: 0
+				},
+        {
+					label: 'Repair',
+					data: [
+					<?php
+					$need_awb_in = mysqli_query($koneksi,"SELECT * FROM master_order WHERE req_scheme='Repair' AND serv_status='NEED AWB IN';");
+					echo mysqli_num_rows($need_awb_in);
+					?>,
+					<?php
+					$serv_shipped = mysqli_query($koneksi,"SELECT * FROM master_order WHERE req_scheme='Repair' AND serv_status='SERV SHIPPED';");
+					echo mysqli_num_rows($serv_shipped);
+					?>,
+					<?php
+					$need_inspect = mysqli_query($koneksi,"SELECT * FROM master_order WHERE req_scheme='Repair' AND serv_status='NEED INSPECT';");
+					echo mysqli_num_rows($need_inspect);
+					?>,
+					<?php
+					$need_core = mysqli_query($koneksi,"SELECT * FROM master_order WHERE req_scheme='Repair' AND serv_status='NEED CORE';");
+					echo mysqli_num_rows($need_core);
+					?>,
+					<?php
+					$need_awb_out = mysqli_query($koneksi,"SELECT * FROM master_order WHERE req_scheme='Repair' AND serv_status='NEED AWB OUT';");
+					echo mysqli_num_rows($need_awb_out);
+					?>,
+          <?php
+					$need_rpr_quote = mysqli_query($koneksi,"SELECT * FROM master_order WHERE req_scheme='Repair' AND serv_status='NEED REPAIR QUOTE';");
+					echo mysqli_num_rows($need_rpr_quote);
+					?>,
+					<?php
+					$need_repr_apprval = mysqli_query($koneksi,"SELECT * FROM master_order WHERE req_scheme='Repair' AND serv_status='NEED REPAIR APPROVAL';");
+					echo mysqli_num_rows($need_repr_apprval);
+					?>,
+					<?php
+					$need_payment = mysqli_query($koneksi,"SELECT * FROM master_order WHERE req_scheme='Repair' AND serv_status='NEED PAYMENT';");
+					echo mysqli_num_rows($need_payment);
+					?>
+					],
+					backgroundColor: '#ced4da',
+					borderColor: '#ced4da',
+					borderWidth: 0
+				},
+        {
+					label: 'Pooling',
+					data: [
+					<?php
+					$need_awb_in = mysqli_query($koneksi,"SELECT * FROM master_order WHERE req_scheme='Pooling' AND serv_status='NEED AWB IN';");
+					echo mysqli_num_rows($need_awb_in);
+					?>,
+					<?php
+					$serv_shipped = mysqli_query($koneksi,"SELECT * FROM master_order WHERE req_scheme='Pooling' AND serv_status='SERV SHIPPED';");
+					echo mysqli_num_rows($serv_shipped);
+					?>,
+					<?php
+					$need_inspect = mysqli_query($koneksi,"SELECT * FROM master_order WHERE req_scheme='Pooling' AND serv_status='NEED INSPECT';");
+					echo mysqli_num_rows($need_inspect);
+					?>,
+					<?php
+					$need_core = mysqli_query($koneksi,"SELECT * FROM master_order WHERE req_scheme='Pooling' AND serv_status='NEED CORE';");
+					echo mysqli_num_rows($need_core);
+					?>,
+					<?php
+					$need_awb_out = mysqli_query($koneksi,"SELECT * FROM master_order WHERE req_scheme='Pooling' AND serv_status='NEED AWB OUT';");
+					echo mysqli_num_rows($need_awb_out);
+					?>,
+          <?php
+					$need_rpr_quote = mysqli_query($koneksi,"SELECT * FROM master_order WHERE req_scheme='Pooling' AND serv_status='NEED REPAIR QUOTE';");
+					echo mysqli_num_rows($need_rpr_quote);
+					?>,
+					<?php
+					$need_repr_apprval = mysqli_query($koneksi,"SELECT * FROM master_order WHERE req_scheme='Pooling' AND serv_status='NEED REPAIR APPROVAL';");
+					echo mysqli_num_rows($need_repr_apprval);
+					?>,
+					<?php
+					$need_payment = mysqli_query($koneksi,"SELECT * FROM master_order WHERE req_scheme='Pooling' AND serv_status='NEED PAYMENT';");
+					echo mysqli_num_rows($need_payment);
+					?>
+					],
+					backgroundColor: '#73c8f0',
+					borderColor: '#73c8f0',
 					borderWidth: 0
 				}]
 			},
@@ -858,6 +954,7 @@ if (isset($_SESSION['ID'])=='') {
 	</script>
 
 
+
 <script>
 		var ctx = document.getElementById('myChart-exchange').getContext('2d');
 		var myChart = new Chart(ctx, {
@@ -868,7 +965,7 @@ if (isset($_SESSION['ID'])=='') {
 					label: 'Exchange',
 					data: [
 					<?php
-					$need_awb_in = mysqli_query($koneksi,"SELECT * FROM master_order WHERE created_by ='$user' AND req_scheme='Exchange' AND serv_status='NEED AWB IN';");
+					$need_awb_in = mysqli_query($koneksi,"SELECT * FROM master_order WHERE req_scheme='Exchange' AND serv_status='NEED AWB IN';");
 					echo mysqli_num_rows($need_awb_in);
 					?>,
 					<?php
@@ -908,7 +1005,7 @@ if (isset($_SESSION['ID'])=='') {
 					label: 'Repair',
 					data: [
 					<?php
-					$need_awb_in = mysqli_query($koneksi,"SELECT * FROM master_order WHERE created_by ='$user' AND req_scheme='Repair' AND serv_status='NEED AWB IN';");
+					$need_awb_in = mysqli_query($koneksi,"SELECT * FROM master_order WHERE req_scheme='Repair' AND serv_status='NEED AWB IN';");
 					echo mysqli_num_rows($need_awb_in);
 					?>,
 					<?php
@@ -948,7 +1045,7 @@ if (isset($_SESSION['ID'])=='') {
 					label: 'Pooling',
 					data: [
 					<?php
-					$need_awb_in = mysqli_query($koneksi,"SELECT * FROM master_order WHERE created_by ='$user' AND req_scheme='Pooling' AND serv_status='NEED AWB IN';");
+					$need_awb_in = mysqli_query($koneksi,"SELECT * FROM master_order WHERE req_scheme='Pooling' AND serv_status='NEED AWB IN';");
 					echo mysqli_num_rows($need_awb_in);
 					?>,
 					<?php

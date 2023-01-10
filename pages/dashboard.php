@@ -27,8 +27,13 @@
           <div class="col-lg-3 col-6">
             <!-- small box -->
             <?php
-              $user = ucwords($_SESSION['NAME']);
-              $count_all_order = mysqli_query($koneksi, "SELECT COUNT(*) FROM master_order WHERE created_by ='$user';");
+              if (($_SESSION['LEVEL'])=="Purchaser") {
+                $user = ucwords($_SESSION['NAME']);
+                $count_all_order = mysqli_query($koneksi, "SELECT COUNT(*) FROM master_order WHERE created_by ='$user';");
+              } else {
+                $count_all_order = mysqli_query($koneksi, "SELECT COUNT(*) FROM master_order;");
+              };
+              
               $result_all_order = mysqli_fetch_array($count_all_order);
 
             ?>
@@ -48,7 +53,11 @@
           <div class="col-lg-3 col-6">
             <!-- small box -->
             <?php
+              if (($_SESSION['LEVEL'])=="Purchaser") {
               $count_open_order = mysqli_query($koneksi, "SELECT COUNT(*) FROM master_order WHERE created_by ='$user' AND serv_status<>'CLOSED';");
+              }else{
+              $count_open_order = mysqli_query($koneksi, "SELECT COUNT(*) FROM master_order WHERE serv_status<>'CLOSED';");
+              };
               $result_open_order = mysqli_fetch_array($count_open_order);
 
             ?>
@@ -68,7 +77,11 @@
           <div class="col-lg-3 col-6">
             <!-- small box -->
             <?php
+              if (($_SESSION['LEVEL'])=="Purchaser") {
               $count_exchange_order = mysqli_query($koneksi, "SELECT COUNT(*) FROM master_order WHERE created_by ='$user' AND req_scheme='Exchange';");
+              }else{
+              $count_exchange_order = mysqli_query($koneksi, "SELECT COUNT(*) FROM master_order WHERE req_scheme='Exchange';");
+              }
               $result_exchange_order = mysqli_fetch_array($count_exchange_order);
 
             ?>
@@ -88,7 +101,11 @@
           <div class="col-lg-3 col-6">
             <!-- small box -->
             <?php
+              if (($_SESSION['LEVEL'])=="Purchaser") {
               $count_repair_order = mysqli_query($koneksi, "SELECT COUNT(*) FROM master_order WHERE created_by ='$user' AND req_scheme='Repair';");
+              }else{
+              $count_repair_order = mysqli_query($koneksi, "SELECT COUNT(*) FROM master_order WHERE req_scheme='Repair';");  
+              };
               $result_repair_order = mysqli_fetch_array($count_repair_order);
 
             ?>
@@ -123,7 +140,20 @@
               <div class="card-body">
                   <div class="tab-content p-0">
                   <!-- Morris chart - Sales -->
-                      <canvas id="myChart-exchange" height="200" style="height: 200px;"></canvas>
+                  <?php
+                  if (($_SESSION['LEVEL'])=="Purchaser") {
+                    ?>  
+                    <canvas id="myChart-exchange" height="200" style="height: 200px;"></canvas>
+                  <?php
+                    } else {
+                      ?>
+                    <canvas id="myChart-allorder" height="200" style="height: 200px;"></canvas>
+
+                  <?php  };
+                  ?>
+                    
+
+
                   </div>
                   <div class="d-flex flex-row justify-content-end">
                     <span class="mr-2">
@@ -238,74 +268,157 @@
               <!-- /.card-footer -->
             </div>
             
-            <!-- TABLE: NEED CORE WIDGETS -->
-            <div class="card card-danger">
-              <div class="card-header border-transparent">
-                <h3 class="card-title">Highlight Core unit Open</h3>
 
-                <div class="card-tools">
-                  <button type="button" class="btn btn-tool" data-card-widget="collapse">
-                    <i class="fas fa-minus"></i>
-                  </button>
-                  <button type="button" class="btn btn-tool" data-card-widget="maximize"><i class="fas fa-expand"></i>
-                  </button>
-                </div>
-              </div>
-              <!-- /.card-header -->
-              <div class="card-body p-0">
-                <div class="table-responsive" style="height: 300px;">
-                  <table class="table table-head-fixed text-nowrap">
-                    <thead>
-                    <tr>
-                      <th>Po No.</th>
-                      <th>Status</th>
-                      <th>PN</th>
-                      <th>Description</th>
-                      <th>Core SN</th>
-                      <th>AWB Out</th>
-                    </tr>
-                    </thead>
-                    <tbody>
-                    <?php
 
-                    $datas = mysqli_query($koneksi, "SELECT * FROM master_order WHERE sla_core IN ('WARNING', 'LATE') AND req_scheme IN ('Exchange', 'Pooling') AND awb_out_date ='0000-00-00' AND created_by ='$user' AND serv_status <> 'CANCEL' ORDER BY tat_core DESC");
-                    
-                    while($row = mysqli_fetch_assoc($datas)) {
-                      
-                    ?>
-                    <tr>
-                      <td><a href="index.php?page=view_order&id=<?= $row['id_order']; ?>"><?= $row['po_number']; ?></a></td>
-                      <td><a class=
-                              "<?php $bgcolor_core = $row['sla_core'];
-                              switch ($bgcolor_core) {
-                                case "WARNING":
-                                  echo "badge badge-warning";
-                                  break;
-                                case "LATE":
-                                  echo "badge badge-danger";
-                                  break;
-                              }
-                              ?>"><?= $row['sla_core']; ?></a>
-                              </td>
-                      <td><?= $row['part_number']; ?></td>
-                      <td><?= $row['description']; ?></td>
-                      <td><?= $row['sn_out']; ?></td>
-                      <td><?= $row['awb_out']; ?></td>
-                    </tr>
-                    <?php } ?>
-                    </tbody>
-                  </table>
-                </div>
-                <!-- /.table-responsive -->
-              </div>
-              <!-- /.card-body -->
-              <div class="card-footer clearfix">
-                <a class="badge badge-warning float-left">5 days left</a>
-                <a class="badge badge-danger float-left">Overdue</a>
-                <a href="index.php?page=data_order" class="btn btn-sm btn-secondary float-right">View All Orders</a>
-              </div>
-              <!-- /.card-footer -->
-            </div>
+              <?php
+                  if (($_SESSION['LEVEL'])=="Purchaser") {
+                    ?>  
+                    <!-- TABLE: NEED CORE WIDGETS -->
+                    <div class="card card-danger">
+                      <div class="card-header border-transparent">
+                        <h3 class="card-title">Highlight Core unit Open</h3>
+
+                        <div class="card-tools">
+                          <button type="button" class="btn btn-tool" data-card-widget="collapse">
+                            <i class="fas fa-minus"></i>
+                          </button>
+                          <button type="button" class="btn btn-tool" data-card-widget="maximize"><i class="fas fa-expand"></i>
+                          </button>
+                        </div>
+                      </div>
+                      <!-- /.card-header -->
+                      <div class="card-body p-0">
+                        <div class="table-responsive" style="height: 300px;">
+                          <table class="table table-head-fixed text-nowrap">
+                            <thead>
+                            <tr>
+                              <th>Po No.</th>
+                              <th>Status</th>
+                              <th>PN</th>
+                              <th>Description</th>
+                              <th>Core SN</th>
+                              <th>AWB Out</th>
+                            </tr>
+                            </thead>
+                            <tbody>
+                            <?php
+
+                            $datas = mysqli_query($koneksi, "SELECT * FROM master_order WHERE sla_core IN ('WARNING', 'LATE') AND req_scheme IN ('Exchange', 'Pooling') AND awb_out_date ='0000-00-00' AND created_by ='$user' AND serv_status <> 'CANCEL' ORDER BY tat_core DESC");
+                            
+                            while($row = mysqli_fetch_assoc($datas)) {
+                              
+                            ?>
+                            <tr>
+                              <td><a href="index.php?page=view_order&id=<?= $row['id_order']; ?>"><?= $row['po_number']; ?></a></td>
+                              <td><a class=
+                                      "<?php $bgcolor_core = $row['sla_core'];
+                                      switch ($bgcolor_core) {
+                                        case "WARNING":
+                                          echo "badge badge-warning";
+                                          break;
+                                        case "LATE":
+                                          echo "badge badge-danger";
+                                          break;
+                                      }
+                                      ?>"><?= $row['sla_core']; ?></a>
+                                      </td>
+                              <td><?= $row['part_number']; ?></td>
+                              <td><?= $row['description']; ?></td>
+                              <td><?= $row['sn_out']; ?></td>
+                              <td><?= $row['awb_out']; ?></td>
+                            </tr>
+                            <?php } ?>
+                            </tbody>
+                          </table>
+                        </div>
+                        <!-- /.table-responsive -->
+                      </div>
+                      <!-- /.card-body -->
+                      <div class="card-footer clearfix">
+                        <a class="badge badge-warning float-left">5 days left</a>
+                        <a class="badge badge-danger float-left">Overdue</a>
+                        <a href="index.php?page=data_order" class="btn btn-sm btn-secondary float-right">View All Orders</a>
+                      </div>
+                      <!-- /.card-footer -->
+                    </div>
+                  <?php
+                    } elseif (($_SESSION['LEVEL'])=="Manager") {
+                      ?>
+                      <!-- TABLE: NEED CORE WIDGETS -->
+                      <div class="card card-danger">
+                        <div class="card-header border-transparent">
+                          <h3 class="card-title">Highlight Core unit Open</h3>
+  
+                          <div class="card-tools">
+                            <button type="button" class="btn btn-tool" data-card-widget="collapse">
+                              <i class="fas fa-minus"></i>
+                            </button>
+                            <button type="button" class="btn btn-tool" data-card-widget="maximize"><i class="fas fa-expand"></i>
+                            </button>
+                          </div>
+                        </div>
+                        <!-- /.card-header -->
+                        <div class="card-body p-0">
+                          <div class="table-responsive" style="height: 300px;">
+                            <table class="table table-head-fixed text-nowrap">
+                              <thead>
+                              <tr>
+                                <th>Po No.</th>
+                                <th>Status</th>
+                                <th>PN</th>
+                                <th>Description</th>
+                                <th>Core SN</th>
+                                <th>AWB Out</th>
+                              </tr>
+                              </thead>
+                              <tbody>
+                              <?php
+  
+                              $datas = mysqli_query($koneksi, "SELECT * FROM master_order WHERE sla_core IN ('WARNING', 'LATE') AND req_scheme IN ('Exchange', 'Pooling') AND awb_out_date ='0000-00-00' AND serv_status <> 'CANCEL' ORDER BY tat_core DESC");
+                              
+                              while($row = mysqli_fetch_assoc($datas)) {
+                                
+                              ?>
+                              <tr>
+                                <td><a href="index.php?page=view_order&id=<?= $row['id_order']; ?>"><?= $row['po_number']; ?></a></td>
+                                <td><a class=
+                                        "<?php $bgcolor_core = $row['sla_core'];
+                                        switch ($bgcolor_core) {
+                                          case "WARNING":
+                                            echo "badge badge-warning";
+                                            break;
+                                          case "LATE":
+                                            echo "badge badge-danger";
+                                            break;
+                                        }
+                                        ?>"><?= $row['sla_core']; ?></a>
+                                        </td>
+                                <td><?= $row['part_number']; ?></td>
+                                <td><?= $row['description']; ?></td>
+                                <td><?= $row['sn_out']; ?></td>
+                                <td><?= $row['awb_out']; ?></td>
+                              </tr>
+                              <?php } ?>
+                              </tbody>
+                            </table>
+                          </div>
+                          <!-- /.table-responsive -->
+                        </div>
+                        <!-- /.card-body -->
+                        <div class="card-footer clearfix">
+                          <a class="badge badge-warning float-left">5 days left</a>
+                          <a class="badge badge-danger float-left">Overdue</a>
+                          <a href="index.php?page=data_order" class="btn btn-sm btn-secondary float-right">View All Orders</a>
+                        </div>
+                        <!-- /.card-footer -->
+                      </div>
+                      <?php
+                   }else{
+
+                   };
+                  ?>
+
+            
           <!-- TO DO List 
           <div class="card">
               <div class="card-header">
