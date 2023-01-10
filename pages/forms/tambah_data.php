@@ -38,7 +38,7 @@
               <div class="col-md-6">
                 <div class="form-group">
                     <label>Entry date</label>
-                    <input type="date" name="entry_date" class="form-control" placeholder="Masukkan" value="<?php echo date('Y-m-d'); ?>">
+                    <input type="date" name="entry_date" class="form-control" placeholder="Enter ..." value="<?php echo date('Y-m-d'); ?>">
                   </div>
                 <div class="form-group">
                   <label>Scheme</label>
@@ -50,11 +50,11 @@
                 </div>
                 <div class="form-group">
                   <label>Tracking Number</label>
-                  <input type="text" name="tracking_no" class="form-control" placeholder="Masukkan">
+                  <input type="text" name="tracking_no" class="form-control" placeholder="Enter ...">
                 </div>
                 <div class="form-group">
                   <label>PO Number</label>
-                   <input type="text" name="po_number" class="form-control" placeholder="Masukkan">
+                   <input type="text" name="po_number" class="form-control" placeholder="Enter ...">
                 </div>
                 <div class="form-group">
                   <label>Vendor</label>
@@ -97,11 +97,11 @@
                 </div>
                 <div class="form-group">
                     <label>PR</label>
-                    <input type="text" name="pr" class="form-control" placeholder="Masukkan">
+                    <input type="text" name="pr" class="form-control" placeholder="Enter ...">
                 </div>
                 <div class="form-group">
                     <label>Aircraft</label>
-                    <input type="text" name="aircraft" class="form-control" placeholder="Masukkan" value="PK-">
+                    <input type="text" name="aircraft" class="form-control" placeholder="Enter ..." value="PK-">
                 </div>
                 <div class="form-group">
                   <label>Project</label>
