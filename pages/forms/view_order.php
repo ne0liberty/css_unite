@@ -45,48 +45,37 @@
           <!-- /.card-header -->
           <div class="card-body">
             <div class="row">
-              <div class="col-md-6">
-                <div class="form-group">
-                  <h5>Status : <a class=
-                              "<?php $bgcolor = $row_view['serv_status'];
-                              switch ($bgcolor) {
-                                case "NEED AWB IN":
-                                  echo "badge badge-primary";
-                                  break;
-                                case "SERV SHIPPED":
-                                  echo "badge badge-warning";
-                                  break;
-                                case "NEED INSPECT":
-                                  echo "badge badge-info";
-                                  break;
-                                case "NEED CORE":
-                                  echo "badge badge-danger";
-                                  break;
-                                case "NEED SO":
-                                  echo "badge badge-danger";
-                                  break;
-                                case "NEED AWB OUT":
-                                  echo "badge badge-info";
-                                  break;
-                                case "NEED REPAIR QUOTE":
-                                  echo "badge badge-secondary";
-                                  break;
-                                case "NEED REPAIR APPROVAL":
-                                  echo "badge badge-warning";
-                                  break;
-                                case "NEED PAYMENT":
-                                  echo "badge badge-warning";
-                                   break;
-                                case "CLOSED":
-                                  echo "badge badge-success";
-                                  break;
-                                case "CANCEL":
-                                  echo "badge badge-dark";
-                                  break;
-                              }
-                              ?>"><?= $row_view['serv_status']; ?></a>
-                  </h5>
-                </div>
+              <div class="col-12 col-sm-3">
+                  <div class="info-box bg-light">
+                      <div class="info-box-content">
+                        <span class="info-box-text text-center text-muted">Status PO</span>
+                        <span class="info-box-number text-center text-muted mb-0"><?php echo $row_view['serv_status']; ?></span>
+                      </div>
+                    </div>
+              </div>
+              <div class="col-12 col-sm-3">
+                  <div class="info-box bg-light">
+                      <div class="info-box-content">
+                        <span class="info-box-text text-center text-muted">TAT Serviceable</span>
+                        <span class="info-box-number text-center text-muted mb-0"><?php echo $row_view['tat_po']; ?> Days</span>
+                      </div>
+                  </div>
+              </div>
+              <div class="col-12 col-sm-3">
+                  <div class="info-box bg-light">
+                      <div class="info-box-content">
+                        <span class="info-box-text text-center text-muted">SLA Vendor</span>
+                        <span class="info-box-number text-center text-muted mb-0"><?php echo $row_view['sla_vendor']; ?></span>
+                      </div>
+                  </div>
+              </div>
+              <div class="col-12 col-sm-3">
+                  <div class="info-box bg-light">
+                      <div class="info-box-content">
+                        <span class="info-box-text text-center text-muted">TAT Core</span>
+                        <span class="info-box-number text-center text-muted mb-0"><?php echo $row_view['tat_core']; ?> Days</span>
+                      </div>
+                  </div>
               </div>
               <div class="col-md-6">
                 <div class="form-group">
