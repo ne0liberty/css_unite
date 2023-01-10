@@ -38,6 +38,7 @@
                   <tr>
                     <th>No.</th>
                     <th>Status</th>
+                    <th>Core Status</th>
                     <th>Entry Date</th>
                     <th>Scheme</th>
                     <th>Tracking No</th>
@@ -119,6 +120,22 @@
                               }
                               ?>"><?= $row['serv_status']; ?></a>
                             </td>
+                            <td>
+                              <a class=
+                              "<?php $bgcolor = $row['core_stat'];
+                              switch ($bgcolor) {
+                                case "NEED CORE":
+                                  echo "badge badge-danger";
+                                  break;
+                                case "NEED SO":
+                                  echo "badge badge-danger";
+                                  break;
+                                case "NEED AWB OUT":
+                                  echo "badge badge-info";
+                                  break;
+                              }
+                              ?>"><?= $row['core_stat']; ?></a>
+                            </td>
                             <td><?= $row['entry_date']; ?></td>
                             <td><?= $row['req_scheme']; ?></td>
                             <td><?= $row['tracking_no']; ?></td>
@@ -148,6 +165,7 @@
                      <tr>
                       <th>No.</th>
                       <th>Status</th>
+                      <th>Core Status</th>
                       <th>Entry Date</th>
                       <th>Scheme</th>
                       <th>Tracking</th>
