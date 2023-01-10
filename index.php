@@ -441,10 +441,10 @@ if (isset($_SESSION['ID'])=='') {
   <!-- /Content -->
 
   <footer class="main-footer">
-    <strong>Copyright 2022 <a href="">Ne0liberty</a>.</strong>
+    <strong>Copyright 2023 <a href="">Ne0liberty</a>.</strong>
     All rights reserved.
     <div class="float-right d-none d-sm-inline-block">
-      <b>Version</b> Alpha 1.0.0
+      <b>Version</b> Alpha 1-10-23
     </div>
   </footer>
 
